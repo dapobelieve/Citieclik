@@ -9,6 +9,8 @@ class CategoryController extends Controller
     public function index()
     {
     	//some story
+    	// built by
+    	// jerex bambex
     	return view('category');
     }
 }

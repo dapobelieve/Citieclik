@@ -8,6 +8,7 @@ class CategoryController extends Controller
 {
     public function index()
     {
+    	//some story
     	return view('category');
     }
 }

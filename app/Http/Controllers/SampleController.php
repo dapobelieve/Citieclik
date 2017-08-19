@@ -7,4 +7,5 @@ use Illuminate\Http\Request;
 class SampleController extends Controller
 {
     //
+    // some more codes
 }

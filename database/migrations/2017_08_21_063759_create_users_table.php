@@ -11,6 +11,7 @@ class CreateUsersTable extends Migration
      *
      * @return void
      */
+    //some comments
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
@@ -18,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->timestamps();
             $table->string('email');
             $table->string('username');
+
         });
     }
 

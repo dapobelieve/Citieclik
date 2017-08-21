@@ -17,9 +17,41 @@
 // Homepage
 Route::get('/', [
 	'uses' => 'HomeController@index',
+	'as'   => 'home'
 ]);
 
 // Category 
 Route::get('category', [
 	'uses' => 'CategoryController@index',
 ]);
+
+
+/*
+|
+| Authentication Section
+|
+*/
+
+
+Route::get('/signup',[
+	'uses' => '\App\Http\Controllers\AuthController@getSignup',
+	'as'   => 'signup',
+	'middleware' => ['guest']
+]);
+
+Route::post('/signup', [
+	'uses' => '\App\Http\Controllers\AuthController@postSignup',
+	'as'   => 'auth.signup',
+	'middleware' => ['guest'],
+	]);
+
+Route::post('/signin', [
+	'uses' => '\App\Http\Controllers\AuthController@postSignin',
+	'as'   => 'auth.signin',
+	'middleware' => ['guest'],
+	]);
+
+Route::get('/signout', [
+	'uses' => '\App\Http\Controllers\AuthController@getSignout',
+	'as'  =>  'auth'
+	]);

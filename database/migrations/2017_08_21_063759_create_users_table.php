@@ -18,7 +18,9 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->string('email');
+            // added the username comment
             $table->string('username');
+
 
         });
     }

@@ -93,7 +93,7 @@ Welcome | Citieclik
       <section class="container padding-top-3x">
         <h3 class="text-center mb-30">Top Categories</h3>
         <div class="row">
-          <div class="col-md-4 col-sm-6">
+          {{-- <div class="col-md-4 col-sm-6">
             <div class="card mb-30"><a class="card-img-tiles" href="#">
                 <div class="inner">
                   <div class="main-img"><img src="assets/img/shop/categories/fashion.jpg" alt="Category"></div>
@@ -101,37 +101,26 @@ Welcome | Citieclik
                 </div></a>
               <div class="card-block text-center">
                 <h4 class="card-title">Fashion & Beauty</h4>
-                {{-- <p class="text-muted">Starting from $49.99</p> --}}
                 <a class="btn btn-outline-primary btn-sm" href="#">View Category</a>
               </div>
             </div>
-          </div>
-          <div class="col-md-4 col-sm-6">
-            <div class="card mb-30"><a class="card-img-tiles" href="#">
-                <div class="inner">
-                  <div class="main-img"><img src="assets/img/shop/categories/fit1.jpg" alt="Category"></div>
-                  <div class="thumblist"><img src="assets/img/shop/categories/fit2.jpg" alt="Category"><img src="assets/img/shop/categories/fit3.jpg" alt="Category"></div>
-                </div></a>
-              <div class="card-block text-center">
-                <h4 class="card-title">Fitness & Sports</h4>
-                {{-- <p class="text-muted">Starting from $56.00</p> --}}
-                <a class="btn btn-outline-primary btn-sm" href="#">View Category</a>
+          </div> --}}
+          
+          @foreach($cats as $cat)
+            <div class="col-md-4 col-sm-6">
+              <div class="card mb-30"><a class="card-img-tiles" href="#">
+                  <div class="inner">
+                    <div class="main-img"><img src="assets/img/shop/categories/pro1.jpg" alt="Category"></div>
+                    <div class="thumblist"><img src="assets/img/shop/categories/pcvro2.jpg" alt="Category"><img src="assets/img/shop/categories/pro3.jpg" alt="Category"></div>
+                  </div></a>
+                <div class="card-block text-center">
+                  <h4 class="card-title">{{$cat->category}}</h4>
+                  {{-- <p class="text-muted">Starting from $27.00</p> --}}
+                  <a class="btn btn-outline-primary btn-sm" href="#">View Category</a>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-4 col-sm-6">
-            <div class="card mb-30"><a class="card-img-tiles" href="#">
-                <div class="inner">
-                  <div class="main-img"><img src="assets/img/shop/categories/pro1.jpg" alt="Category"></div>
-                  <div class="thumblist"><img src="assets/img/shop/categories/pro2.jpg" alt="Category"><img src="assets/img/shop/categories/pro3.jpg" alt="Category"></div>
-                </div></a>
-              <div class="card-block text-center">
-                <h4 class="card-title">Professional Services</h4>
-                {{-- <p class="text-muted">Starting from $27.00</p> --}}
-                <a class="btn btn-outline-primary btn-sm" href="#">View Category</a>
-              </div>
-            </div>
-          </div>
+          @endforeach
         </div>
         <div class="text-center"><a class="btn btn-outline-secondary margin-top-none" href="category">All Categories</a></div>
       </section>

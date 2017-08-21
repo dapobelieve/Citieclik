@@ -3,14 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Category;
 
 class CategoryController extends Controller
 {
     public function index()
     {
-    	//some story
-    	// built by
-    	// jerex bambex
-    	return view('category');
+    	$cat = Category::all();
+    	return view('category')->with('cats', $cat);
     }
 }

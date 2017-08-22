@@ -76,11 +76,6 @@ Account | Citieclik
                 </div>
               </div>
               <div class="col-12 padding-top-1x">
-                <h4>Shipping Address</h4>
-                <hr class="padding-bottom-1x">
-                <label class="custom-control custom-checkbox d-block">
-                  <input class="custom-control-input" type="checkbox" checked><span class="custom-control-indicator"></span><span class="custom-control-description">Same as Contact Address</span>
-                </label>
                 <hr class="margin-top-1x margin-bottom-1x">
                 <div class="text-right">
                   <button class="btn btn-primary margin-bottom-none" type="button" data-toast data-toast-position="topRight" data-toast-type="success" data-toast-icon="icon-circle-check" data-toast-title="Success!" data-toast-message="Your address updated successfuly.">Update Address</button>

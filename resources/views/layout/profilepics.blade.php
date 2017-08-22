@@ -11,10 +11,8 @@
           <div class="user-avatar">
             <img src="assets/img/account/user-ava.jpg" alt="User">
           </div><br>
-          <div class="col-10">
-            <div class="custom-file">
-              <input class="custom-file-input" type="file" id="file-input"><span class="custom-file-control"></span>
-            </div>
+          <div class="custom-file">
+            <input class="custom-file-input" type="file" id="file-input"><span class="custom-file-control"></span>
           </div>
         </div>
         <div class="modal-footer">

@@ -16,17 +16,17 @@
     </div>
   </aside>
   <nav class="list-group">
-    <a class="list-group-item justify-content-between" href="account-orders.html">
-      <span><i class="icon-bag"></i>Orders</span><span class="badge badge-primary badge-pill">6</span>
-    </a>
     <a class="list-group-item {{ Request::is( 'profile') ? ' active' : ''  }}" href="{{ route('profile.account') }}">
       <i class="icon-head"></i>Profile
     </a>
     <a class="list-group-item {{ Request::is( 'account') ? ' active' : ''  }}" href="{{ route('profile.address') }}">
-      <i class="icon-map"></i>Addresses
+      <i class="icon-map"></i>Contact Address
+    </a>
+    <a class="list-group-item justify-content-between" href="account-orders.html">
+      <span><i class="icon-bag"></i>My Services</span><span class="badge badge-primary badge-pill">6</span>
     </a>
     <a class="list-group-item justify-content-between" href="account-wishlist.html">
-      <span><i class="icon-heart"></i>Wishlist</span>
+      <span><i class="icon-heart"></i>My Requests</span>
       <span class="badge badge-primary badge-pill">3</span>
     </a>
     <a class="list-group-item justify-content-between" href="account-tickets.html">

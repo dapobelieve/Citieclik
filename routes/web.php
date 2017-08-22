@@ -59,9 +59,9 @@ Route::get('/signout', [
 // User Profile 
 Route::get('/profile', [
 	'uses' => '\App\Http\Controllers\ProfileController@index',
-	'as' => 'profile',
+	'as' => 'profile.account',
 ]);
 Route::get('/account', [
 	'uses' => '\App\Http\Controllers\ProfileController@getAccount',
-	'as' => 'profile.account',
+	'as' => 'profile.address',
 ]);

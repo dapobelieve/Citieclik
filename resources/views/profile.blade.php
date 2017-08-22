@@ -3,7 +3,7 @@
 @section('title')
 Profile | Citieclik
 @endsection
-
+@include('layout.profilepics')
 @section('content')
 	<!-- Page Title-->
       <div class="page-title">

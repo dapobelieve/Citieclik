@@ -1,10 +1,15 @@
+
+
 <div class="col-lg-4">
   <aside class="user-info-wrapper">
     <div class="user-cover" style="background-image: url(assets/img/account/user-cover-img.jpg);">
       <div class="info-label" data-toggle="tooltip" title="You currently have 290 Reward Points to spend"><i class="icon-medal"></i>290 points</div>
     </div>
     <div class="user-info">
-      <div class="user-avatar"><a class="edit-avatar" href="#"></a><img src="assets/img/account/user-ava.jpg" alt="User"></div>
+      <div class="user-avatar">
+        <a class="edit-avatar" data-toggle="modal" data-target="#modalDefault"></a><img src="assets/img/account/user-ava.jpg" alt="User">
+        {{-- <button class="btn btn-outline-primary" type="button" data-toggle="modal" data-target="#modalDefault">Default Modal</button> --}}
+      </div>
       <div class="user-data">
         <h4>Daniel Adams</h4><span>Joined February 06, 2017</span>
       </div>
@@ -30,3 +35,4 @@
     </a>
   </nav>
 </div>
+

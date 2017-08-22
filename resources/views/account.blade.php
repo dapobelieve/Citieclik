@@ -3,13 +3,14 @@
 @section('title')
 Account | Citieclik
 @endsection
+@include('layout.profilepics')
 
 @section('content')
 	<!-- Page Title-->
       <div class="page-title">
         <div class="container">
           <div class="column">
-            <h1>Contact / Shipping Address</h1>
+            <h1>Profile / Contact Address</h1>
           </div>
           @include('layout.column')
         </div>

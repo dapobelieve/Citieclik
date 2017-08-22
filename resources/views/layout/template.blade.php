@@ -327,13 +327,7 @@
             <div class="col-lg-3 col-md-6">
               <!-- Contact Info-->
               <section class="widget widget-light-skin">
-                <h3 class="widget-title">Get In Touch With Us</h3>
-                <p class="text-white">Phone: 00 33 169 7720</p>
-                <ul class="list-unstyled text-sm text-white">
-                  <li><span class="opacity-50">Monday-Friday:</span>9.00 am - 8.00 pm</li>
-                  <li><span class="opacity-50">Saturday:</span>10.00 am - 6.00 pm</li>
-                </ul>
-                <p><a class="navi-link-light" href="#">support@unishop.com</a></p><a class="social-button shape-circle sb-facebook sb-light-skin" href="#"><i class="socicon-facebook"></i></a><a class="social-button shape-circle sb-twitter sb-light-skin" href="#"><i class="socicon-twitter"></i></a><a class="social-button shape-circle sb-instagram sb-light-skin" href="#"><i class="socicon-instagram"></i></a><a class="social-button shape-circle sb-google-plus sb-light-skin" href="#"><i class="socicon-googleplus"></i></a>
+                <img src="assets/img/logo/Citie Clik 1.png" alt="">
               </section>
             </div>
             <div class="col-lg-3 col-md-6">
@@ -372,12 +366,12 @@
           </div>
           <hr class="hr-light mt-2 margin-bottom-2x">
           <div class="row">
-            <div class="col-md-7 padding-bottom-1x">
+            {{-- <div class="col-md-7 padding-bottom-1x">
               <!-- Payment Methods-->
               <div class="margin-bottom-1x" style="max-width: 615px;"><img src="assets/img/payment_methods.png" alt="Payment Methods">
               </div>
-            </div>
-            <div class="col-md-5 padding-bottom-1x">
+            </div> --}}
+            <div class="col align-self-end padding-bottom-1x">
               <div class="margin-top-1x hidden-md-up"></div>
               <!--Subscription-->
               <form class="subscribe-form" action="http://rokaux.us12.list-manage.com/subscribe/post?u=c7103e2c981361a6639545bd5&amp;amp;id=1194bb7544" method="post" target="_blank" novalidate>

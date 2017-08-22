@@ -125,7 +125,7 @@ Welcome | Citieclik
         <div class="text-center"><a class="btn btn-outline-secondary margin-top-none" href="category">All Categories</a></div>
       </section>
       <!-- Promo #1-->
-      <section class="container-fluid padding-top-3x">
+      {{-- <section class="container-fluid padding-top-3x">
         <div class="row">
           <div class="col-xl-5 col-lg-6 offset-xl-1 mb-30">
             <div class="rounded bg-faded position-relative padding-top-3x padding-bottom-3x"><span class="product-badge text-danger" style="top: 24px; left: 24px;">Limited Offer</span>
@@ -154,11 +154,11 @@ Welcome | Citieclik
             <div class="img-cover rounded" style="background-image: url(assets/img/banners/home01.jpg);"></div>
           </div>
         </div>
-      </section>
+      </section> --}}
       <!-- Promo #2-->
       <section class="container-fluid">
         <div class="row">
-          <div class="col-xl-10 col-lg-12 offset-xl-1">
+          <div class="col-xl-12 col-lg-12 ">
             <div class="fw-section rounded padding-top-4x padding-bottom-4x" style="background-image: url(assets/img/banners/home02.jpg);"><span class="overlay rounded" style="opacity: .35;"></span>
               <div class="text-center">
                 <h3 class="display-4 text-normal text-white text-shadow mb-1">Old Collection</h3>
@@ -335,12 +335,12 @@ Welcome | Citieclik
         </div>
       </section>
       <!-- Popular Brands-->
-      <section class="bg-faded padding-top-3x padding-bottom-3x">
+     {{--  <section class="bg-faded padding-top-3x padding-bottom-3x">
         <div class="container">
           <h3 class="text-center mb-30 pb-2">Popular Brands</h3>
           <div class="owl-carousel" data-owl-carousel="{ &quot;nav&quot;: false, &quot;dots&quot;: false, &quot;loop&quot;: true, &quot;autoplay&quot;: true, &quot;autoplayTimeout&quot;: 4000, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:2}, &quot;470&quot;:{&quot;items&quot;:3},&quot;630&quot;:{&quot;items&quot;:4},&quot;991&quot;:{&quot;items&quot;:5},&quot;1200&quot;:{&quot;items&quot;:6}} }"><img class="d-block w-110 opacity-75 m-auto" src="assets/img/brands/01.png" alt="Adidas"><img class="d-block w-110 opacity-75 m-auto" src="assets/img/brands/02.png" alt="Brooks"><img class="d-block w-110 opacity-75 m-auto" src="assets/img/brands/03.png" alt="Valentino"><img class="d-block w-110 opacity-75 m-auto" src="assets/img/brands/04.png" alt="Nike"><img class="d-block w-110 opacity-75 m-auto" src="assets/img/brands/05.png" alt="Puma"><img class="d-block w-110 opacity-75 m-auto" src="assets/img/brands/06.png" alt="New Balance"><img class="d-block w-110 opacity-75 m-auto" src="assets/img/brands/07.png" alt="Dior"></div>
         </div>
-      </section>
+      </section> --}}
       <!-- Services-->
       <section class="container padding-top-3x padding-bottom-2x">
         <div class="row">

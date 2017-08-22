@@ -59,12 +59,12 @@
       </div>
     </div> -->
     <!-- Off-Canvas Category Menu-->
-    <div class="offcanvas-container" id="shop-categories">
+    {{-- <div class="offcanvas-container" id="shop-categories">
       <div class="offcanvas-header">
         <h3 class="offcanvas-title">Shop Categories</h3>
       </div>
       @include('layout.nav')
-    </div>
+    </div> --}}
     <!-- Off-Canvas Mobile Menu-->
     <div class="offcanvas-container" id="mobile-menu"><a class="account-link" href="account-orders.html"><i class="icon-head"></i><span>Hello</span>, John Doe</a>
       @include('layout.nav2')
@@ -110,7 +110,7 @@
       </form>
       <div class="site-branding">
         <div class="inner">
-          <!-- Off-Canvas Toggle (#shop-categories)--><a class="offcanvas-toggle cats-toggle" href="#shop-categories" data-toggle="offcanvas"></a>
+          {{-- <!-- Off-Canvas Toggle (#shop-categories)--><a class="offcanvas-toggle cats-toggle" href="#shop-categories" data-toggle="offcanvas"></a> --}}
           <!-- Off-Canvas Toggle (#mobile-menu)--><a class="offcanvas-toggle menu-toggle" href="#mobile-menu" data-toggle="offcanvas"></a>
           <!-- Site Logo--><a class="site-logo" href="/"><img src="assets/img/logo/logo_bw.png" alt="Unishop"></a>
         </div>

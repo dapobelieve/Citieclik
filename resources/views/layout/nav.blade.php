@@ -1,4 +1,4 @@
-<nav class="offcanvas-menu">
+{{-- <nav class="offcanvas-menu">
         <ul class="menu">
           <li class="has-children"><span><a href="#">Men's Shoes</a><span class="sub-menu-toggle"></span></span>
             <ul class="offcanvas-submenu">
@@ -64,4 +64,4 @@
             </ul>
           </li>
         </ul>
-      </nav>
+      </nav> --}}

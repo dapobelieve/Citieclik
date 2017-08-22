@@ -34,7 +34,7 @@ Citieclik | Login
                 <div class="col-xl-4 col-md-6 col-sm-4"><a class="btn btn-sm btn-block twitter-btn" href="#"><i class="socicon-twitter"></i>&nbsp;Twitter login</a></div>
                 <div class="col-xl-4 col-md-6 col-sm-4"><a class="btn btn-sm btn-block google-btn" href="#"><i class="socicon-googleplus"></i>&nbsp;Google+ login</a></div>
               </div>
-              <h4 class="margin-bottom-1x">Or using form below</h4>
+              <h4 class="margin-bottom-1x">Or using the form below</h4>
               <div class="form-group input-group">
                 <input class="form-control" type="email" placeholder="Email" required><span class="input-group-addon"><i class="icon-mail"></i></span>
               </div>

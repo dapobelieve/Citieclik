@@ -55,3 +55,13 @@ Route::get('/signout', [
 	'uses' => '\App\Http\Controllers\AuthController@getSignout',
 	'as'  =>  'auth'
 	]);
+
+// User Profile 
+Route::get('/profile', [
+	'uses' => '\App\Http\Controllers\ProfileController@index',
+	'as' => 'profile',
+]);
+Route::get('/account', [
+	'uses' => '\App\Http\Controllers\ProfileController@getAccount',
+	'as' => 'profile.account',
+]);

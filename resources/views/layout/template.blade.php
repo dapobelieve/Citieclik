@@ -342,7 +342,7 @@
                 <h3 class="widget-title">About Us</h3>
                 <ul>
                   <li><a href="#">Careers</a></li>
-                  <li><a href="#">About Unishop</a></li>
+                  <li><a href="#">About Citiclik</a></li>
                   <li><a href="#">Our Story</a></li>
                   <li><a href="#">Services</a></li>
                   <li><a href="#">Our Blog</a></li>
@@ -371,7 +371,7 @@
               <div class="margin-bottom-1x" style="max-width: 615px;"><img src="assets/img/payment_methods.png" alt="Payment Methods">
               </div>
             </div> --}}
-            <div class="col align-self-end padding-bottom-1x">
+            <div class="col-md-5 ml-md-auto align-self-end padding-bottom-1x">
               <div class="margin-top-1x hidden-md-up"></div>
               <!--Subscription-->
               <form class="subscribe-form" action="http://rokaux.us12.list-manage.com/subscribe/post?u=c7103e2c981361a6639545bd5&amp;amp;id=1194bb7544" method="post" target="_blank" novalidate>

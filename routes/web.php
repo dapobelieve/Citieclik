@@ -32,7 +32,6 @@ Route::get('category', [
 |
 */
 
-
 Route::get('/signup',[
 	'uses' => '\App\Http\Controllers\AuthController@getSignup',
 	'as'   => 'signup',
@@ -55,6 +54,13 @@ Route::get('/signout', [
 	'uses' => '\App\Http\Controllers\AuthController@getSignout',
 	'as'  =>  'auth'
 	]);
+
+/*
+|
+| Authentication Section Ends
+|
+*/
+
 
 // User Profile 
 Route::get('/profile', [

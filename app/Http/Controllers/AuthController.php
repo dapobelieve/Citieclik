@@ -9,35 +9,63 @@ use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
+     //slug method cool huh ;)
+    private function slugIt($slug)
+    {
+        $lettersNamesSpaces = '/[^\-\s\pN\pL]+/u';
+        $spacesHypens = '/[\-\s]+/';
+
+        $slug = preg_replace($lettersNamesSpaces, '', mb_strtolower($slug, 'UTF-8'));
+
+        $slug = preg_replace($spacesHypens, '-', $slug);
+
+        $slug = trim($slug, '-');
+
+        return $slug;
+    }
+
+
+
     public function getSignup()
     {
     	return view('auth.auth');
     }
 
+    //validate and register user
     public function postSignup(Request $request)
     {
     	// validating the data
     	$this->validate($request , [
+            'fname' => 'required|string',
+            'lname' => 'string',
     		'email' => 'required|unique:users|email|max:255',
-    		'username' => 'required|unique:users|alpha_dash|max:20',
-    		'pass' => 'required|min:6',
-    	]);
+    		'phone' => 'required|unique:users|digits:11',
+    		'password' => 'required|min:6',
+            'password_confirmation' => 'required|same:password'
+    	],
+        [
+            'phone.required' => 'Phone Number Required',
+            'phone.digits' => 'Phone Number must be 11 digits',
+        ]);
 
-    	// submmiting to db
+        $fname = $this->slugIt($request->input('fname'));
+
+    	// submmiting users details to the db
     	User::create([
-    		'email' => $request->input('email'),
-    		'username' => $request->input('username'),
-    		'password' => Hash::make($request->input('pass'))
+            'email' => $request->input('email'),
+            'first_name' => $fname,
+    		'last_name' => $request->input('lname'),
+    		'phone' => $request->input('phone'),
+    		'password' => Hash::make($request->input('password'))
     	]);
 
+        //automatically logging
     	if(Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')])){
-
-            return redirect()->back();
+            return redirect()->route('home')
+                     ->with('info', 'You account has been created successfully!');
         } 
-
     }
 
-    
 
     public function postSignin(Request $request)
     {
@@ -46,13 +74,12 @@ class AuthController extends Controller
     		'password' => 'required',
     	]);
   	
-
     	if(!Auth::attempt($request->only(['email','password']), $request->has('remember'))){
     		
     		return redirect()->back()->with('info','Could not sign you in. Invalid Details');
     	}
 
-    	return redirect()->back()->with('info','You are now signed in');
+    	return redirect()->route('home')->with('info','You are now signed in');
     } 
 
     public function getSignout()

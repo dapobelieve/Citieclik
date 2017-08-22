@@ -1,7 +1,7 @@
 @extends('layout.template')
 
 @section('title')
-Citieclik | Login
+Citieclik: Login
 @endsection
 
 @section('content')
@@ -30,16 +30,16 @@ Citieclik | Login
           <div class="col-md-6">
             <form class="login-box" method="post">
               <div class="row margin-bottom-1x">
-                <div class="col-xl-4 col-md-6 col-sm-4"><a class="btn btn-sm btn-block facebook-btn" href="#"><i class="socicon-facebook"></i>&nbsp;Facebook login</a></div>
-                <div class="col-xl-4 col-md-6 col-sm-4"><a class="btn btn-sm btn-block twitter-btn" href="#"><i class="socicon-twitter"></i>&nbsp;Twitter login</a></div>
-                <div class="col-xl-4 col-md-6 col-sm-4"><a class="btn btn-sm btn-block google-btn" href="#"><i class="socicon-googleplus"></i>&nbsp;Google+ login</a></div>
+                <div class="col-xl-4 col-md-6 col-sm-4"><a class="btn btn-sm btn-block facebook-btn" href="#"><i class="socicon-facebook"></i>&nbsp; login</a></div>
+                {{-- <div class="col-xl-4 col-md-6 col-sm-4"><a class="btn btn-sm btn-block twitter-btn" href="#"><i class="socicon-twitter"></i>&nbsp;Twitter login</a></div> --}}
+                <div class="col-xl-4 col-md-6 col-sm-4"><a class="btn btn-sm btn-block google-btn" href="#"><i class="socicon-googleplus"></i>&nbsp; login</a></div>
               </div>
               <h4 class="margin-bottom-1x">Or using the form below</h4>
               <div class="form-group input-group">
-                <input class="form-control" type="email" placeholder="Email" required><span class="input-group-addon"><i class="icon-mail"></i></span>
+                <input class="form-control" type="email" placeholder="Email" ><span class="input-group-addon"><i class="icon-mail"></i></span>
               </div>
               <div class="form-group input-group">
-                <input class="form-control" type="password" placeholder="Password" required><span class="input-group-addon"><i class="icon-lock"></i></span>
+                <input class="form-control" type="password" placeholder="Password" ><span class="input-group-addon"><i class="icon-lock"></i></span>
               </div>
               <div class="d-flex flex-wrap justify-content-between padding-bottom-1x">
                 <label class="custom-control custom-checkbox">
@@ -55,46 +55,77 @@ Citieclik | Login
             <div class="padding-top-3x hidden-md-up"></div>
             <h3 class="margin-bottom-1x">No Account? Register</h3>
             <p>Registration takes less than a minute but gives you full control over your orders.</p>
-            <form class="row" method="post">
+            <form class="row" method="post" action="{{ route('auth.signup')}}">
               <div class="col-sm-6">
-                <div class="form-group">
+                <div class="form-group{{ $errors->has('fname') ? ' has-error' : ''}}">
                   <label for="reg-fn">First Name</label>
-                  <input class="form-control" type="text" id="reg-fn" required>
+                  <input class="form-control" name="fname" type="text" id="fname" >
+                  @if($errors->has('fname'))
+                    <span class="help-block">
+                      {{$errors->first('fname')}}
+                    </span>
+                  @endif
                 </div>
               </div>
               <div class="col-sm-6">
-                <div class="form-group">
+                <div class="form-group{{ $errors->has('lname') ? ' has-error' : ''}}">
                   <label for="reg-ln">Last Name</label>
-                  <input class="form-control" type="text" id="reg-ln" required>
+                  <input class="form-control" name="lname" type="text" id="lname" >
+                  @if($errors->has('lname'))
+                    <span class="help-block">
+                      {{$errors->first('lname')}}
+                    </span>
+                  @endif
                 </div>
               </div>
               <div class="col-sm-6">
-                <div class="form-group">
+                <div class="form-group{{ $errors->has('email') ? ' has-error' : ''}}">
                   <label for="reg-email">E-mail Address</label>
-                  <input class="form-control" type="email" id="reg-email" required>
+                  <input class="form-control" name="email" type="email" id="email" >
+                  @if($errors->has('email'))
+                    <span class="help-block">
+                      {{$errors->first('email')}}
+                    </span>
+                  @endif
                 </div>
               </div>
               <div class="col-sm-6">
-                <div class="form-group">
+                <div class="form-group{{ $errors->has('phone') ? ' has-error' : ''}}">
                   <label for="reg-phone">Phone Number</label>
-                  <input class="form-control" type="text" id="reg-phone" required>
+                  <input class="form-control" type="text" name="phone" id="phone" >
+                  @if($errors->has('phone'))
+                    <span class="help-block">
+                      {{$errors->first('phone')}}
+                    </span>
+                  @endif
                 </div>
               </div>
               <div class="col-sm-6">
-                <div class="form-group">
+                <div class="form-group{{ $errors->has('password') ? ' has-error' : ''}}">
                   <label for="reg-pass">Password</label>
-                  <input class="form-control" type="password" id="reg-pass" required>
+                  <input class="form-control" type="password" name="password" id="password" >
+                  @if($errors->has('password'))
+                    <span class="help-block">
+                      {{$errors->first('password')}}
+                    </span>
+                  @endif
                 </div>
               </div>
-              <div class="col-sm-6">
+              <div class="col-sm-6{{ $errors->has('password_confirmation') ? ' has-error' : ''}}">
                 <div class="form-group">
                   <label for="reg-pass-confirm">Confirm Password</label>
-                  <input class="form-control" type="password" id="reg-pass-confirm" required>
+                  <input class="form-control" type="password" name="password_confirmation" id="password_confirmation" >
+                  @if($errors->has('password_confirmation'))
+                    <span class="help-block">
+                      {{$errors->first('password_confirmation')}}
+                    </span>
+                  @endif
                 </div>
               </div>
               <div class="col-12 text-center text-sm-right">
                 <button class="btn btn-primary margin-bottom-none" type="submit">Register</button>
               </div>
+              {{csrf_field()}}
             </form>
           </div>
         </div>

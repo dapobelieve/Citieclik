@@ -29,10 +29,10 @@ class User extends Authenticatable
         'phone',
         'password',
         'first_name',
+        'last_name',
         'location',
         'about',
         'state_id',
-        'mgr_id'
     ];
 
     public function promos()

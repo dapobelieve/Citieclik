@@ -25,13 +25,9 @@
     <a class="list-group-item justify-content-between {{ Request::is( 'service') ? ' active' : ''  }}" href="{{ route('profile.service') }}">
       <span><i class="icon-bag"></i>My Services</span><span class="badge badge-primary badge-pill">6</span>
     </a>
-    <a class="list-group-item justify-content-between" href="account-wishlist.html">
-      <span><i class="icon-heart"></i>My Requests</span>
+    <a class="list-group-item justify-content-between{{ Request::is( 'request') ? ' active' : ''  }}" href="{{ route('profile.getrequests') }}">
+      <span><i class="icon-tag"></i>My Requests</span>
       <span class="badge badge-primary badge-pill">3</span>
-    </a>
-    <a class="list-group-item justify-content-between" href="account-tickets.html">
-      <span><i class="icon-tag"></i>My Tickets</span>
-      <span class="badge badge-primary badge-pill">4</span>
     </a>
   </nav>
 </div>

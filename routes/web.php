@@ -84,3 +84,7 @@ Route::get('/service', [
 	'uses' => '\App\Http\Controllers\ProfileController@getService',
 	'as' => 'profile.service',
 ]);
+Route::get('/request', [
+	'uses' => '\App\Http\Controllers\ProfileController@getRequests',
+	'as' => 'profile.getrequests',
+]);

@@ -22,6 +22,7 @@
     <link rel="stylesheet" media="screen" href="assets/css/vendor.min.css">
     <!-- Main Template Styles-->
     <link id="mainStyles" rel="stylesheet" media="screen" href="assets/css/styles.min.css">
+    <link rel="stylesheet" media="screen" href="assets/css/mine.css">
     <!-- Customizer Styles-->
     <link rel="stylesheet" media="screen" href="assets/customizer/customizer.min.css">
     <!-- Google Tag Manager-->
@@ -274,6 +275,13 @@
     <!-- JavaScript (jQuery) libraries, plugins and custom scripts-->
     <script src="assets/js/vendor.min.js"></script>
     <script src="assets/js/scripts.min.js"></script>
+    {{-- Particles --}}
+    <script src="assets/js/particles.js"></script>
+    <script type="text/javascript">
+      particlesJS.load('particles-js', 'assets/particles.json', function() {
+        console.log('callback - assets/js/particles.js config loaded');
+      });
+    </script>
     <!-- Customizer scripts-->
     <script src="assets/customizer/customizer.min.js"></script>
   </body>

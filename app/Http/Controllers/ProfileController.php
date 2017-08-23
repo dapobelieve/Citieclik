@@ -18,4 +18,10 @@ class ProfileController extends Controller
     	return view('profile.account');
     }
 
+    //Get user Services 
+    public function getService()
+    {
+    	return view('profile.services');
+    }
+
 }

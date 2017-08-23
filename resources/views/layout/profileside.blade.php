@@ -22,7 +22,7 @@
     <a class="list-group-item {{ Request::is( 'account') ? ' active' : ''  }}" href="{{ route('profile.address') }}">
       <i class="icon-map"></i>Contact Address
     </a>
-    <a class="list-group-item justify-content-between" href="account-orders.html">
+    <a class="list-group-item justify-content-between {{ Request::is( 'service') ? ' active' : ''  }}" href="{{ route('profile.service') }}">
       <span><i class="icon-bag"></i>My Services</span><span class="badge badge-primary badge-pill">6</span>
     </a>
     <a class="list-group-item justify-content-between" href="account-wishlist.html">

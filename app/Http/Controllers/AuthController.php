@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Auth;
 use Hash;
 use App\User;
@@ -24,6 +23,10 @@ class AuthController extends Controller
         return $slug;
     }
 
+    // public function username()
+    // {
+    //     return 'phone';
+    // }
 
 
     public function getSignup()
@@ -70,11 +73,15 @@ class AuthController extends Controller
     public function postSignin(Request $request)
     {
     	$this->validate($request,[
-    		'phone1' => 'required|numeric',
+    		'phone1' => 'required',
     		'password1' => 'required',
     	]);
   	
-    	if(!Auth::attempt($request->only(['email','password']), $request->has('remember'))){
+    	if(!Auth::attempt(
+            [
+                'phone' => $request->input('phone1'),
+                'password' => $request->input('password1')
+            ])){
     		
     		return redirect()->back()->with('info','Could not sign you in. Invalid Details');
     	}

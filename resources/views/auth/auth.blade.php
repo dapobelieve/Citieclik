@@ -28,6 +28,9 @@ Citieclik: Login
       <div class="container padding-bottom-3x mb-2">
         <div class="row">
           <div class="col-md-6">
+          @if(Session::has('info'))
+              {{ Session::get('info') }}
+            @endif
             <form class="login-box" method="post" action="{{ route('auth.signin')}}">
               <div class="row margin-bottom-1x">
                 <div class="col-xl-4 col-md-6 col-sm-4"><a class="btn btn-sm btn-block facebook-btn" href="#"><i class="socicon-facebook"></i>&nbsp; login</a></div>
@@ -36,7 +39,7 @@ Citieclik: Login
               </div>
               <h4 class="margin-bottom-1x">Or using the form below</h4>
               <div class="form-group input-group">
-                <input class="form-control" type="email" name="phone1" placeholder="Email" ><span class="input-group-addon"><i class="icon-mail"></i></span>
+                <input class="form-control" type="text" name="phone1" placeholder="Phone Number" ><span class="input-group-addon"><i class="icon-mail"></i></span>
                 @if($errors->has('phone1'))
                   <span class="help-block">
                     {{$errors->first('phone1')}}

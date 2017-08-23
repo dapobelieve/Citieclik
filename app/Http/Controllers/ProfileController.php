@@ -4,9 +4,24 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
+use App\User;
 
 class ProfileController extends Controller
 {
+
+	public function getProfile($slug)
+    {
+    	$user = User::where('slug', $slug)->first();
+    	if(!$user){
+    		abort(404);
+    	}
+
+    	// $services = $user->services()->get();
+    	return view('profile.account')
+    			->with('user', $user);
+                // ->with('services', $services);
+    }
+
     public function index()
     {
     	return view('profile.profile');

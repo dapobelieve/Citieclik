@@ -18,15 +18,15 @@
     <link rel="apple-touch-icon" sizes="180x180" href="touch-icon-iphone-retina.png">
     <link rel="apple-touch-icon" sizes="167x167" href="touch-icon-ipad-retina.png">
     <!-- Vendor Styles including: Bootstrap, Font Icons, Plugins, etc.-->
-    <link rel="stylesheet" media="screen" href="assets/css/vendor.min.css">
+    <link rel="stylesheet" media="screen" href="/assets/css/vendor.min.css">
     <!-- Main Template Styles-->
-    <link id="mainStyles" rel="stylesheet" media="screen" href="assets/css/styles.min.css">
+    <link id="mainStyles" rel="stylesheet" media="screen" href="/assets/css/styles.min.css">
     <!-- Customizer Styles-->
-    <link rel="stylesheet" media="screen" href="assets/customizer/customizer.min.css">
+    <link rel="stylesheet" media="screen" href="/assets/customizer/customizer.min.css">
     <!-- Google Tag Manager-->
   
     <!-- Modernizr-->
-    <script src="assets/js/modernizr.min.js"></script>
+    <script src="/assets/js/modernizr.min.js"></script>
   </head>
   <!-- Body-->
   <body>
@@ -74,7 +74,7 @@
       <div class="topbar-column"><a class="hidden-md-down" href="#"><i class="icon-download"></i>&nbsp; Get mobile app</a>
         <div class="lang-currency-switcher-wrap">
           <div class="lang-currency-switcher dropdown-toggle">
-            <span class="language"><img alt="English" src="assets/img/flags/NG.jpg"></span><span class="currency">&#8358; NGN</span>
+            <span class="language"><img alt="English" src="/assets/img/flags/NG.jpg"></span><span class="currency">&#8358; NGN</span>
           </div>
           <div class="dropdown-menu">
             <div class="currency-select">
@@ -85,9 +85,9 @@
                 <option value="pound">£ UKP</option>
               </select>
             </div>
-            <a class="dropdown-item" href="#"><img src="assets/img/flags/FR.png" alt="Français">Français</a>
-            <a class="dropdown-item" href="#"><img src="assets/img/flags/DE.png" alt="Deutsch">Deutsch</a>
-            <a class="dropdown-item" href="#"><img src="assets/img/flags/IT.png" alt="Italiano">Italiano</a>
+            <a class="dropdown-item" href="#"><img src="/assets/img/flags/FR.png" alt="Français">Français</a>
+            <a class="dropdown-item" href="#"><img src="/assets/img/flags/DE.png" alt="Deutsch">Deutsch</a>
+            <a class="dropdown-item" href="#"><img src="/assets/img/flags/IT.png" alt="Italiano">Italiano</a>
           </div>
         </div>
       </div>
@@ -104,7 +104,7 @@
         <div class="inner">
           {{-- <!-- Off-Canvas Toggle (#shop-categories)--><a class="offcanvas-toggle cats-toggle" href="#shop-categories" data-toggle="offcanvas"></a> --}}
           <!-- Off-Canvas Toggle (#mobile-menu)--><a class="offcanvas-toggle menu-toggle" href="#mobile-menu" data-toggle="offcanvas"></a>
-          <!-- Site Logo--><a class="site-logo" href="/"><img src="assets/img/logo/logo_bw.png" alt="Citieclik"></a>
+          <!-- Site Logo--><a class="site-logo" href="/"><img src="/assets/img/logo/logo_bw.png" alt="Citieclik"></a>
         </div>
       </div>
       <!-- Main Navigation-->
@@ -227,10 +227,10 @@
     <!-- Backdrop-->
     <div class="site-backdrop"></div>
     <!-- JavaScript (jQuery) libraries, plugins and custom scripts-->
-    <script src="assets/js/vendor.min.js"></script>
-    <script src="assets/js/scripts.min.js"></script>
+    <script src="/assets/js/vendor.min.js"></script>
+    <script src="/assets/js/scripts.min.js"></script>
     <!-- Customizer scripts-->
-    <script src="assets/customizer/customizer.min.js"></script>
+    <script src="/assets/customizer/customizer.min.js"></script>
   </body>
 
 </html>

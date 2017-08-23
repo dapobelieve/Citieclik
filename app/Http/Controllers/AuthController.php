@@ -81,7 +81,7 @@ class AuthController extends Controller
             [
                 'phone' => $request->input('phone1'),
                 'password' => $request->input('password1')
-            ])){
+            ],$request->has('remember'))){
     		
     		return redirect()->back()->with('info','Could not sign you in. Invalid Details');
     	}

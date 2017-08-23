@@ -56,7 +56,7 @@ Citieclik: Login
               </div>
               <div class="d-flex flex-wrap justify-content-between padding-bottom-1x">
                 <label class="custom-control custom-checkbox">
-                  <input class="custom-control-input" name="remember" type="checkbox" checked><span class="custom-control-indicator"></span><span class="custom-control-description">Remember me</span>
+                  <input class="custom-control-input" name="remember" type="checkbox" ><span class="custom-control-indicator"></span><span class="custom-control-description">Remember me</span>
                 </label>{{-- <a class="navi-link" href="#">Forgot password?</a> --}}
               </div>
               <div class="text-center text-sm-right">

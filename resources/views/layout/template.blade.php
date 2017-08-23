@@ -117,7 +117,7 @@
               </li>
             </ul>
           </li>
-          <li><a href="account-orders.html"><span>Account</span></a>
+          <li><a href="#"><span>Account</span></a>
             <ul class="sub-menu">
                 <li><a href="{{route('signup')}}">Login / Register</a></li>
                 <li><a href="account-orders.html">Orders List</a></li>

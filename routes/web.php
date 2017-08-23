@@ -61,7 +61,11 @@ Route::get('/signout', [
 |
 */
 
-
+/*
+|
+| Profile Section Starts
+|
+*/
 // User Profile 
 Route::get('/profile', [
 	'uses' => '\App\Http\Controllers\ProfileController@index',

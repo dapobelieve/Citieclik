@@ -70,8 +70,8 @@ class AuthController extends Controller
     public function postSignin(Request $request)
     {
     	$this->validate($request,[
-    		'email' => 'required',
-    		'password' => 'required',
+    		'phone1' => 'required|numeric',
+    		'password1' => 'required',
     	]);
   	
     	if(!Auth::attempt($request->only(['email','password']), $request->has('remember'))){

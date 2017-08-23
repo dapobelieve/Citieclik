@@ -9,15 +9,13 @@ class ProfileController extends Controller
 {
     public function index()
     {
-    	$cat = Category::take(3)->orderBy('category')->get();
-    	return view('profile')>with('cats', $cat);
+    	return view('profile');
     }
 
     // Get account details 
     public function getAccount()
     {
-    	$cat = Category::take(3)->orderBy('category')->get();
-    	return view('account')->with('cats', $cat);
+    	return view('account');
     }
 
 }

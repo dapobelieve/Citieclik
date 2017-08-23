@@ -80,3 +80,7 @@ Route::get('/account', [
 	'uses' => '\App\Http\Controllers\ProfileController@getAccount',
 	'as' => 'profile.address',
 ]);
+Route::get('/service', [
+	'uses' => '\App\Http\Controllers\ProfileController@getService',
+	'as' => 'profile.service',
+]);

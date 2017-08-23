@@ -72,7 +72,7 @@ Welcome | Citieclik
         <div class="text-center"><a class="btn btn-outline-secondary margin-top-none" href="category">All Categories</a></div>
       </section>
 
-      <section class="container-fluid padding-top-3x padding-bottom-2x" style="background-image: url(assets/img/Banner4.jpg); background-repeat: no-repeat; background-size: cover; background-color: #3A4DF9; background-opacity: 0.5; position: relative; z-index: 1;">
+      <section class="container-fluid padding-top-3x padding-bottom-2x" id="particles-js">
         <div class="row" style="color: #fff !important;">
           <div class="col-md-4 col-sm-6 text-center mb-30"><img class="d-block mx-auto mb-4" src="assets/img/icons/step1.png" alt="Register">
             <h3 style="color: #00aeef;">01 Steps</h3>

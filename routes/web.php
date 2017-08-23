@@ -72,19 +72,15 @@ Route::get('/profile/{slug}', [
 	'as'   => 'profile.index'
 ]);
 
-Route::get('/profile', [
-	'uses' => '\App\Http\Controllers\ProfileController@index',
-	'as' => 'profile.account',
-]);
 Route::get('/account', [
 	'uses' => '\App\Http\Controllers\ProfileController@getAccount',
 	'as' => 'profile.address',
 ]);
-Route::get('/service', [
+Route::get('/profile/{slug}/services', [
 	'uses' => '\App\Http\Controllers\ProfileController@getService',
 	'as' => 'profile.service',
 ]);
-Route::get('/request', [
+Route::get('/profile/{slug}/requests', [
 	'uses' => '\App\Http\Controllers\ProfileController@getRequests',
-	'as' => 'profile.getrequests',
+	'as' => 'profile.request',
 ]);

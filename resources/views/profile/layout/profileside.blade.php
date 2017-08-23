@@ -16,16 +16,16 @@
     </div>
   </aside>
   <nav class="list-group">
-    <a class="list-group-item {{ Request::is( 'profile') ? ' active' : ''  }}" href="{{ route('profile.account') }}">
+    <a class="list-group-item {{ Request::is( 'profile') ? ' active' : ''  }}" href="{{route('profile.index', ['slug' => $user->slug ])}}">
       <i class="icon-head"></i>Profile
     </a>
-    <a class="list-group-item {{ Request::is( 'account') ? ' active' : ''  }}" href="{{ route('profile.address') }}">
+    <a class="list-group-item {{ Request::is( '["slug" => $user->slug ]/account') ? ' active' : ''  }}" href="{{ route('profile.address') }}">
       <i class="icon-map"></i>Contact Address
     </a>
-    <a class="list-group-item justify-content-between {{ Request::is( 'service') ? ' active' : ''  }}" href="{{ route('profile.service') }}">
+    <a class="list-group-item justify-content-between {{ Request::is( 'profile/$user->slug/services') ? ' active' : ''  }}" href="{{route('profile.service', ['slug' => $user->slug ])}}">
       <span><i class="icon-bag"></i>My Services</span><span class="badge badge-primary badge-pill">6</span>
     </a>
-    <a class="list-group-item justify-content-between{{ Request::is( 'request') ? ' active' : ''  }}" href="{{ route('profile.getrequests') }}">
+    <a class="list-group-item justify-content-between{{ Request::is( 'request') ? ' active' : ''  }}" href="{{ route('profile.request', ['slug' =>$user->slug ]) }}">
       <span><i class="icon-tag"></i>My Requests</span>
       <span class="badge badge-primary badge-pill">3</span>
     </a>

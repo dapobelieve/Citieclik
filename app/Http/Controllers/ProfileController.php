@@ -15,33 +15,46 @@ class ProfileController extends Controller
     	if(!$user){
     		abort(404);
     	}
-
     	// $services = $user->services()->get();
-    	return view('profile.account')
+    	return view('profile.index')
     			->with('user', $user);
                 // ->with('services', $services);
     }
 
-    public function index()
+     //Get user Services 
+    public function getService($slug)
     {
-    	return view('profile.profile');
+    	$user = User::where('slug', $slug)->first();
+    	if(!$user){
+    		abort(404);
+    	}
+    	// $services = $user->services()->get();
+    	return view('profile.services')
+    			->with('user', $user);
     }
 
-    // Get account details 
-    public function getAccount()
-    {
-    	return view('profile.account');
-    }
-
-    //Get user Services 
-    public function getService()
-    {
-    	return view('profile.services');
-    }
     // View my requests
-    public function getRequests()
+    public function getRequests($slug)
     {
-    	return view('profile.requests');
+    	$user = User::where('slug', $slug)->first();
+    	if(!$user){
+    		abort(404);
+    	}
+    	// $services = $user->services()->get();
+    	return view('profile.requests')
+    			->with('user', $user);
     }
 
+
+
+    // public function index()
+    // {
+    // 	return view('profile.profile');
+    // }
+
+    // // Get account details 
+    // public function getAccount()
+    // {
+    // 	return view('profile.account');
+    // }
 }

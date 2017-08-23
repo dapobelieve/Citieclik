@@ -9,13 +9,13 @@ class ProfileController extends Controller
 {
     public function index()
     {
-    	return view('profile');
+    	return view('profile.profile');
     }
 
     // Get account details 
     public function getAccount()
     {
-    	return view('account');
+    	return view('profile.account');
     }
 
 }

@@ -23,5 +23,10 @@ class ProfileController extends Controller
     {
     	return view('profile.services');
     }
+    // View my requests
+    public function getRequests()
+    {
+    	return view('profile.requests');
+    }
 
 }

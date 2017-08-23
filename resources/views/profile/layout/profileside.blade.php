@@ -11,7 +11,7 @@
         {{-- <button class="btn btn-outline-primary" type="button" data-toggle="modal" data-target="#modalDefault">Default Modal</button> --}}
       </div>
       <div class="user-data">
-        <h4>Daniel Adams</h4><span>Joined February 06, 2017</span>
+        <h4>{{$user->first_name}}</h4><span>Joined February 06, 2017</span>
       </div>
     </div>
   </aside>

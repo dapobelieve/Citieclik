@@ -9,7 +9,7 @@
         </div>
         <div class="modal-body">
           <div class="user-avatar">
-            <img src="assets/img/account/user-ava.jpg" alt="User">
+            <img src="/assets/img/account/user-ava.jpg" alt="User">
           </div><br>
           <div class="custom-file">
             <input class="custom-file-input" type="file" id="file-input"><span class="custom-file-control"></span>

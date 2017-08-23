@@ -18,10 +18,20 @@ class User extends Authenticatable
         return null;
     }
 
-    // public function domy()
-    // {
-    //     return '/servImages/default.jpg';
-    // }
+    public function getUsername()
+    {
+        return ucwords($this->username);
+    }
+
+    public function getNameOrUsername()
+    {
+        return $this->getName() ?: ucfirst($this->username);
+    }
+
+    public function getFullName()
+    {
+        return ucfirst($this->first_name) ?: ucfirst($this->username);
+    }
 
     protected $fillable = [
         'email',
@@ -35,30 +45,10 @@ class User extends Authenticatable
         'state_id',
     ];
 
-    public function promos()
-    {
-        return $this->hasMany('App\Promote');
-    }
-
-    
+       
     public function services()
     {
         return $this->hasMany('App\Service');
-    }
-
-    public function getUsername()
-    {
-        return ucwords($this->username);
-    }
-   
-    public function getNameOrUsername()
-    {
-        return $this->getName() ?: ucfirst($this->username);
-    }
-
-    public function getFullNameOrUsername()
-    {
-        return ucfirst($this->first_name) ?: ucfirst($this->username);
     }
    
     protected $hidden = [

@@ -1,6 +1,6 @@
 <nav class="offcanvas-menu">
         <ul class="menu">
-          <li class="active"><a href="index-2.html"><span>Home</span></a>
+          <li class="active"><a href="/"><span>Home</span></a>
           </li>
           {{-- <li class="has-children"><span><a href="shop-grid-ls.html"><span>Shop</span></a><span class="sub-menu-toggle"></span></span>
             <ul class="offcanvas-submenu">

@@ -71,54 +71,29 @@ Welcome | Citieclik
         </div>
         <div class="text-center"><a class="btn btn-outline-secondary margin-top-none" href="category">All Categories</a></div>
       </section>
-      <!-- Promo #1-->
-      {{-- <section class="container-fluid padding-top-3x">
-        <div class="row">
-          <div class="col-xl-5 col-lg-6 offset-xl-1 mb-30">
-            <div class="rounded bg-faded position-relative padding-top-3x padding-bottom-3x"><span class="product-badge text-danger" style="top: 24px; left: 24px;">Limited Offer</span>
-              <div class="text-center">
-                <h3 class="h2 text-normal mb-1">New</h3>
-                <h2 class="display-2 text-bold mb-2">Sunglasses</h2>
-                <h4 class="h3 text-normal mb-4">collection at discounted price!</h4>
-                <div class="countdown mb-3" data-date-time="10/30/2017 12:00:00">
-                  <div class="item">
-                    <div class="days">00</div><span class="days_ref">Days</span>
-                  </div>
-                  <div class="item">
-                    <div class="hours">00</div><span class="hours_ref">Hours</span>
-                  </div>
-                  <div class="item">
-                    <div class="minutes">00</div><span class="minutes_ref">Mins</span>
-                  </div>
-                  <div class="item">
-                    <div class="seconds">00</div><span class="seconds_ref">Secs</span>
-                  </div>
-                </div><br><a class="btn btn-primary margin-bottom-none" href="#">View Offers</a>
-              </div>
-            </div>
+
+      <section class="container-fluid padding-top-3x padding-bottom-2x" style="background-image: url(assets/img/Banner4.jpg); background-repeat: no-repeat; background-size: 100%; background-color: #3A4DF9; background-opacity: 0.5; position: relative; z-index: 1;">
+        <div class="row" style="color: #fff !important;">
+          <div class="col-md-4 col-sm-6 text-center mb-30"><img class="d-block mx-auto mb-4" src="assets/img/icons/step1.png" alt="Register">
+            <h3 style="color: #00aeef;">01 Steps</h3>
+            <h4 style="color: #fff !important; font-weight: 600;">Register and Account</h4>
+            <p class="text-muted margin-bottom-none" style="color: #fff !important;">Create your free account to get started</p>
           </div>
-          <div class="col-xl-5 col-lg-6 mb-30" style="min-height: 270px;">
-            <div class="img-cover rounded" style="background-image: url(assets/img/banners/home01.jpg);"></div>
+          <div class="col-md-4 col-sm-6 text-center mb-30"><img class="d-block mx-auto mb-4" src="assets/img/icons/step2.png" alt="Verify">
+            <h3 style="color: #00aeef;">02 Steps</h3>
+            <h4 style="color: #fff !important; font-weight: 600;">Verify Your Account</h4>
+            <p class="text-muted margin-bottom-none" style="color: #fff !important;">Verify your account for full access to the main features</p>
           </div>
-        </div>
-      </section> --}}
-      <!-- Promo #2-->
-      <section class="container-fluid">
-        <div class="row">
-          <div class="col-xl-12 col-lg-12 ">
-            <div class="fw-section rounded padding-top-4x padding-bottom-4x" style="background-image: url(assets/img/banners/home02.jpg);"><span class="overlay rounded" style="opacity: .35;"></span>
-              <div class="text-center">
-                <h3 class="display-4 text-normal text-white text-shadow mb-1">Old Collection</h3>
-                <h2 class="display-2 text-bold text-white text-shadow">HUGE SALE!</h2>
-                <h4 class="d-inline-block h2 text-normal text-white text-shadow border-default border-left-0 border-right-0 mb-4">at our outlet stores</h4><br><a class="btn btn-primary margin-bottom-none" href="contacts.html">Locate Stores</a>
-              </div>
-            </div>
+          <div class="col-md-4 col-sm-6 text-center mb-30"><img class="d-block mx-auto mb-4" src="assets/img/icons/step3.png" alt="Add / Request">
+            <h3 style="color: #00aeef;">03 Steps</h3>
+            <h4 style="color: #fff !important; font-weight: 600;">Add Services & Request</h4>
+            <p class="text-muted margin-bottom-none" style="color: #fff !important;">Add your own services or apply to requests</p>
           </div>
         </div>
       </section>
       <!-- Featured Products Carousel-->
       <section class="container padding-top-3x padding-bottom-3x">
-        <h3 class="text-center mb-30">Featured Products</h3>
+        <h3 class="text-center mb-30">Featured Services</h3>
         <div class="owl-carousel" data-owl-carousel="{ &quot;nav&quot;: false, &quot;dots&quot;: true, &quot;margin&quot;: 30, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;576&quot;:{&quot;items&quot;:2},&quot;768&quot;:{&quot;items&quot;:3},&quot;991&quot;:{&quot;items&quot;:4},&quot;1200&quot;:{&quot;items&quot;:4}} }">
           <!-- Product-->
           <div class="grid-item">
@@ -289,24 +264,5 @@ Welcome | Citieclik
         </div>
       </section> --}}
       <!-- Services-->
-      <section class="container padding-top-3x padding-bottom-2x">
-        <div class="row">
-          <div class="col-md-3 col-sm-6 text-center mb-30"><img class="d-block w-90 img-thumbnail rounded-circle mx-auto mb-3" src="assets/img/services/01.png" alt="Shipping">
-            <h6>Free Worldwide Shipping</h6>
-            <p class="text-muted margin-bottom-none">Free shipping for all orders over $100</p>
-          </div>
-          <div class="col-md-3 col-sm-6 text-center mb-30"><img class="d-block w-90 img-thumbnail rounded-circle mx-auto mb-3" src="assets/img/services/02.png" alt="Money Back">
-            <h6>Money Back Guarantee</h6>
-            <p class="text-muted margin-bottom-none">We return money within 30 days</p>
-          </div>
-          <div class="col-md-3 col-sm-6 text-center mb-30"><img class="d-block w-90 img-thumbnail rounded-circle mx-auto mb-3" src="assets/img/services/03.png" alt="Support">
-            <h6>24/7 Customer Support</h6>
-            <p class="text-muted margin-bottom-none">Friendly 24/7 customer support</p>
-          </div>
-          <div class="col-md-3 col-sm-6 text-center mb-30"><img class="d-block w-90 img-thumbnail rounded-circle mx-auto mb-3" src="assets/img/services/04.png" alt="Payment">
-            <h6>Secure Online Payment</h6>
-            <p class="text-muted margin-bottom-none">We posess SSL / Secure Certificate</p>
-          </div>
-        </div>
-      </section>
+      
 @endsection

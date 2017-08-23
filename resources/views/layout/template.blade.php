@@ -116,13 +116,13 @@
         </div>
       </div>
       <!-- Main Navigation-->
-      <nav class="site-menu mr-auto">
+      <nav class="site-menu">
         <ul>
           <li class="active"><a href="/"><span>Home</span></a>
           </li>
-          <li><a href="shop-grid-ls.html"><span>Shop</span></a>
+          <li><a href="#"><span>Shop</span></a>
             <ul class="sub-menu">
-                <li><a href="shop-categories.html">Categories</a></li>
+              <li><a href="category">Categories</a></li>
               <li class="has-children"><a href="shop-grid-ls.html"><span>Shop Grid</span></a>
                 <ul class="sub-menu">
                     <li><a href="shop-grid-ls.html">Grid Left Sidebar</a></li>

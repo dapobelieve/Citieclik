@@ -3,7 +3,7 @@
 @section('title')
 Account | Citieclik
 @endsection
-@include('layout.profilepics')
+@include('profile.layout.profilepics')
 
 @section('content')
 	<!-- Page Title-->
@@ -12,13 +12,13 @@ Account | Citieclik
           <div class="column">
             <h1>Profile / Contact Address</h1>
           </div>
-          @include('layout.column')
+          {{-- @include('profile.layout.profilepics') --}}
         </div>
       </div>
       <!-- Page Content-->
       <div class="container padding-bottom-3x mb-1">
         <div class="row">
-          @include('layout.profileside')
+          @include('profile.layout.profileside')
           <div class="col-lg-8">
             <div class="padding-top-2x mt-2 hidden-lg-up"></div>
             <h4>Contact Address</h4>

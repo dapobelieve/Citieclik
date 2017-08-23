@@ -67,6 +67,11 @@ Route::get('/signout', [
 |
 */
 // User Profile 
+Route::get('/profile/{slug}', [
+	'uses' => '\App\Http\Controllers\ProfileController@getProfile',
+	'as'   => 'profile.index'
+]);
+
 Route::get('/profile', [
 	'uses' => '\App\Http\Controllers\ProfileController@index',
 	'as' => 'profile.account',

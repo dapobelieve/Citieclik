@@ -18,46 +18,20 @@
     <link rel="apple-touch-icon" sizes="180x180" href="touch-icon-iphone-retina.png">
     <link rel="apple-touch-icon" sizes="167x167" href="touch-icon-ipad-retina.png">
     <!-- Vendor Styles including: Bootstrap, Font Icons, Plugins, etc.-->
-    <link rel="stylesheet" media="screen" href="assets/css/vendor.min.css">
+    <link rel="stylesheet" media="screen" href="/assets/css/vendor.min.css">
     <!-- Main Template Styles-->
+    <link id="mainStyles" rel="stylesheet" media="screen" href="/assets/css/styles.min.css">
     <link id="mainStyles" rel="stylesheet" media="screen" href="assets/css/styles.min.css">
     <link rel="stylesheet" media="screen" href="assets/css/mine.css">
     <!-- Customizer Styles-->
-    <link rel="stylesheet" media="screen" href="assets/customizer/customizer.min.css">
+    <link rel="stylesheet" media="screen" href="/assets/customizer/customizer.min.css">
     <!-- Google Tag Manager-->
   
     <!-- Modernizr-->
-    <script src="assets/js/modernizr.min.js"></script>
+    <script src="/assets/js/modernizr.min.js"></script>
   </head>
   <!-- Body-->
   <body>
-    <!-- Google Tag Manager (noscript)-->
-    {{-- <noscript>
-      <iframe src="http://www.googletagmanager.com/ns.html?id=GTM-T4DJFPZ" height="0" width="0" style="display: none; visibility: hidden;"></iframe>
-    </noscript> --}}
-    <!-- Template Customizer-->
-    {{-- <div class="customizer-backdrop"></div> --}}
-    <!-- <div class="customizer">
-      <div class="customizer-toggle"><i class="icon-cog"></i></div>
-      <div class="customizer-body">
-        <div class="customizer-title">Choose color</div>
-        <div class="customizer-color-switch"><a class="active" href="#" data-color="default" style="background-color: #0da9ef;"></a><a href="#" data-color="2ecc71" style="background-color: #2ecc71;"></a><a href="#" data-color="f39c12" style="background-color: #f39c12;"></a><a href="#" data-color="e74c3c" style="background-color: #e74c3c;"></a></div>
-        <div class="customizer-title">Header option</div>
-        <div class="form-group">
-          <select class="form-control form-control-rounded input-light" id="header-option">
-            <option value="sticky">Sticky</option>
-            <option value="static">Static</option>
-          </select>
-        </div><a class="btn btn-primary btn-rounded btn-block margin-bottom-none" href="https://wrapbootstrap.com/theme/unishop-universal-e-commerce-template-WB0148688/?ref=rokaux">Buy Unishop</a>
-      </div>
-    </div> -->
-    <!-- Off-Canvas Category Menu-->
-    {{-- <div class="offcanvas-container" id="shop-categories">
-      <div class="offcanvas-header">
-        <h3 class="offcanvas-title">Shop Categories</h3>
-      </div>
-      @include('layout.nav')
-    </div> --}}
     <!-- Off-Canvas Mobile Menu-->
     <div class="offcanvas-container" id="mobile-menu"><a class="account-link" href="account-orders.html"><i class="icon-head"></i><span>Hello</span>, John Doe</a>
       @include('layout.nav2')
@@ -75,7 +49,7 @@
       <div class="topbar-column"><a class="hidden-md-down" href="#"><i class="icon-download"></i>&nbsp; Get mobile app</a>
         <div class="lang-currency-switcher-wrap">
           <div class="lang-currency-switcher dropdown-toggle">
-            <span class="language"><img alt="English" src="assets/img/flags/NG.jpg"></span><span class="currency">&#8358; NGN</span>
+            <span class="language"><img alt="English" src="/assets/img/flags/NG.jpg"></span><span class="currency">&#8358; NGN</span>
           </div>
           <div class="dropdown-menu">
             <div class="currency-select">
@@ -86,9 +60,9 @@
                 <option value="pound">£ UKP</option>
               </select>
             </div>
-            <a class="dropdown-item" href="#"><img src="assets/img/flags/FR.png" alt="Français">Français</a>
-            <a class="dropdown-item" href="#"><img src="assets/img/flags/DE.png" alt="Deutsch">Deutsch</a>
-            <a class="dropdown-item" href="#"><img src="assets/img/flags/IT.png" alt="Italiano">Italiano</a>
+            <a class="dropdown-item" href="#"><img src="/assets/img/flags/FR.png" alt="Français">Français</a>
+            <a class="dropdown-item" href="#"><img src="/assets/img/flags/DE.png" alt="Deutsch">Deutsch</a>
+            <a class="dropdown-item" href="#"><img src="/assets/img/flags/IT.png" alt="Italiano">Italiano</a>
           </div>
         </div>
       </div>
@@ -105,7 +79,7 @@
         <div class="inner">
           {{-- <!-- Off-Canvas Toggle (#shop-categories)--><a class="offcanvas-toggle cats-toggle" href="#shop-categories" data-toggle="offcanvas"></a> --}}
           <!-- Off-Canvas Toggle (#mobile-menu)--><a class="offcanvas-toggle menu-toggle" href="#mobile-menu" data-toggle="offcanvas"></a>
-          <!-- Site Logo--><a class="site-logo" href="/"><img src="assets/img/logo/logo_bw.png" alt="Citieclik"></a>
+          <!-- Site Logo--><a class="site-logo" href="/"><img src="/assets/img/logo/logo_bw.png" alt="Citieclik"></a>
         </div>
       </div>
       <!-- Main Navigation-->
@@ -228,6 +202,10 @@
     <!-- Backdrop-->
     <div class="site-backdrop"></div>
     <!-- JavaScript (jQuery) libraries, plugins and custom scripts-->
+<<<<<<< HEAD
+    <script src="/assets/js/vendor.min.js"></script>
+    <script src="/assets/js/scripts.min.js"></script>
+=======
     <script src="assets/js/vendor.min.js"></script>
     <script src="assets/js/scripts.min.js"></script>
     {{-- Particles --}}
@@ -237,8 +215,9 @@
         console.log('callback - assets/js/particles.js config loaded');
       });
     </script>
+>>>>>>> b1dd4f77585f6258536e1675a1735ef270a85290
     <!-- Customizer scripts-->
-    <script src="assets/customizer/customizer.min.js"></script>
+    <script src="/assets/customizer/customizer.min.js"></script>
   </body>
 
 </html>

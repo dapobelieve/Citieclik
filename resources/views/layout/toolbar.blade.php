@@ -17,3 +17,13 @@
           </div>
         </div>
       @endif
+
+      @if(!Auth::check())
+        <div class="toolbar">
+          <div class="inner">
+            <div class="tools">
+              <a href="{{route('signup')}}">Login</a>
+            </div>
+          </div>
+        </div>
+      @endif

@@ -76,17 +76,17 @@ Welcome | Citieclik
         <div class="row" style="color: #fff !important;">
           <div class="col-md-4 col-sm-6 text-center mb-30"><img class="d-block mx-auto mb-4" src="assets/img/icons/step1.png" alt="Register">
             <h3 style="color: #00aeef;">01 Steps</h3>
-            <h4 style="color: #fff !important; font-weight: 600;">Register and Account</h4>
+            <h4 style="color: #fff !important; ">Register and Account</h4>
             <p class="text-muted margin-bottom-none" style="color: #fff !important;">Create your free account to get started</p>
           </div>
           <div class="col-md-4 col-sm-6 text-center mb-30"><img class="d-block mx-auto mb-4" src="assets/img/icons/step2.png" alt="Verify">
             <h3 style="color: #00aeef;">02 Steps</h3>
-            <h4 style="color: #fff !important; font-weight: 600;">Verify Your Account</h4>
+            <h4 style="color: #fff !important; ">Verify Your Account</h4>
             <p class="text-muted margin-bottom-none" style="color: #fff !important;">Verify your account for full access to the main features</p>
           </div>
           <div class="col-md-4 col-sm-6 text-center mb-30"><img class="d-block mx-auto mb-4" src="assets/img/icons/step3.png" alt="Add / Request">
             <h3 style="color: #00aeef;">03 Steps</h3>
-            <h4 style="color: #fff !important; font-weight: 600;">Add Services & Request</h4>
+            <h4 style="color: #fff !important; ">Add Services & Request</h4>
             <p class="text-muted margin-bottom-none" style="color: #fff !important;">Add your own services or apply to requests</p>
           </div>
         </div>

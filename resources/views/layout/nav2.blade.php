@@ -1,29 +1,8 @@
 <nav class="offcanvas-menu">
         <ul class="menu">
-          <li class="active"><a href="/"><span>Home</span></a>
+          <li class="{{ Request::is( '/' ) ? ' active' : ''  }}"><a href="/"><span>Home</span></a>
           </li>
-          {{-- <li class="has-children"><span><a href="shop-grid-ls.html"><span>Shop</span></a><span class="sub-menu-toggle"></span></span>
-            <ul class="offcanvas-submenu">
-                <li><a href="shop-categories.html">Shop Categories</a></li>
-              <li class="has-children"><span><a href="shop-grid-ls.html"><span>Shop Grid</span></a><span class="sub-menu-toggle"></span></span>
-                <ul class="offcanvas-submenu">
-                    <li><a href="shop-grid-ls.html">Grid Left Sidebar</a></li>
-                    <li><a href="shop-grid-rs.html">Grid Right Sidebar</a></li>
-                    <li><a href="shop-grid-ns.html">Grid No Sidebar</a></li>
-                </ul>
-              </li>
-              <li class="has-children"><span><a href="shop-list-ls.html"><span>Shop List</span></a><span class="sub-menu-toggle"></span></span>
-                <ul class="offcanvas-submenu">
-                    <li><a href="shop-list-ls.html">List Left Sidebar</a></li>
-                    <li><a href="shop-list-rs.html">List Right Sidebar</a></li>
-                    <li><a href="shop-list-ns.html">List No Sidebar</a></li>
-                </ul>
-              </li>
-                <li><a href="shop-single.html">Single Product</a></li>
-                <li><a href="cart.html">Cart</a></li>
-                <li><a href="checkout.html">Checkout</a></li>
-            </ul>
-          </li> --}}
+          
           <li class="has-children"><span><a href="#">Categories</a><span class="sub-menu-toggle"></span></span>
             <ul class="offcanvas-submenu">
               @foreach($cats as $cat)
@@ -36,5 +15,11 @@
               <li class=""><span><a href="#">Bags</a></span></li> --}}
             </ul>
           </li>
+          <li class="sub-menu-separator"></li>
+          @if(Auth::check())
+            <li><a href="{{route('profile.index', ['slug' =>Auth::User()->slug ])}}">Dashboard</a></li>
+            <li><a href="#"><span>Logout</span></a></li>
+          @endif
         </ul>
+        
       </nav>

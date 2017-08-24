@@ -1,7 +1,7 @@
 @extends('layout.template')
 
 @section('title')
-Welcome | Citieclik
+Category | Citieclik
 @endsection
 
 @section('content')
@@ -9,14 +9,14 @@ Welcome | Citieclik
       <div class="page-title">
         <div class="container">
           <div class="column">
-            <h1>Shop Categories</h1>
+            <h1>All Categories</h1>
           </div>
           <div class="column">
             <ul class="breadcrumbs">
               <li><a href="index-2.html">Home</a>
               </li>
               <li class="separator">&nbsp;</li>
-              <li>Shop Categories</li>
+              <li>All Categories</li>
             </ul>
           </div>
         </div>
@@ -25,7 +25,7 @@ Welcome | Citieclik
       <div class="container padding-bottom-2x mb-2">
         <div class="row">
           <!-- Categories-->
-          <div class="col-xl-9 col-lg-8 push-xl-3 push-lg-4">
+          <div class="col-xl-12 col-lg-12 ">
             <!-- Promo banner-->
             <div class="alert alert-image-bg alert-dismissible fade show text-center mb-3" style="background-image: url(assets/img/banners/alert-bg.jpg);"><span class="alert-close text-white" data-dismiss="alert"></span>
               <div class="h3 text-medium text-white padding-top-1x padding-bottom-1x"><i class="icon-clock" style="font-size: 33px; margin-top: -5px;"></i>&nbsp;&nbsp;Check our Limited Offers. Save up to 50%&nbsp;&nbsp;&nbsp;
@@ -50,7 +50,7 @@ Welcome | Citieclik
             </div>
           </div>
           <!-- Sidebar          -->
-          <div class="col-xl-3 col-lg-4 pull-xl-9 pull-lg-8">
+          {{-- <div class="col-xl-3 col-lg-4 pull-xl-9 pull-lg-8">
 	            <aside class="sidebar">
 	              <div class="padding-top-2x hidden-lg-up"></div>
 	              <section class="widget widget-categories">
@@ -74,7 +74,7 @@ Welcome | Citieclik
 	                </ul>
 	              </section>
 	            </aside>
-          </div>
+          </div> --}}
         </div>
       </div>
 @endsection

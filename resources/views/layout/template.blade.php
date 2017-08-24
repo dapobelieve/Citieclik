@@ -33,7 +33,7 @@
   <!-- Body-->
   <body>
     <!-- Off-Canvas Mobile Menu-->
-    <div class="offcanvas-container" id="mobile-menu"><a class="account-link" href="account-orders.html"><i class="icon-head"></i><span>Hello</span>, John Doe</a>
+    <div class="offcanvas-container" id="mobile-menu"><a class="account-link" href="account-orders.html">@if(Auth::check())<i class="icon-head"></i><span>Hello</span>, {{Auth::User()->first_name}} @endif</a>
       @include('layout.nav2')
     </div>
     <!-- Topbar-->
@@ -127,6 +127,7 @@
                 <li><a href="account-tickets.html">My Tickets</a></li>
             </ul>
           </li>
+          
         </ul>
       </nav>
       <!-- Toolbar-->
@@ -143,7 +144,7 @@
             <div class="col-lg-5 col-md-6">
               <!-- Contact Info-->
               <section class="widget widget-light-skin">
-                <img src="assets/img/logo/Citie Clik 1.png" alt="">
+                <img src="/assets/img/logo/Citie Clik 1.png" alt="Citieclik">
               </section>
             </div>
             <div class="col-lg-3 col-md-6">
@@ -191,10 +192,10 @@
             </div> --}}
           </div>
           <hr class="hr-light mt-2 margin-bottom-1x">
-          <div class="row">
+          <div class="row text-center">
           <!-- Copyright-->
-          <p class="footer-copyright">&copy; {{ date('Y') }} Citieclik.
-          All rights reserved. Made with &nbsp;<i class="icon-heart text-danger"></i><a href="#" target="_blank"> &nbsp;by Believe&trade; &nbsp; &amp; Weinnovate&trade;</a></p>
+          <p class="footer-copyright text-center">&copy; {{ date('Y') }} Citieclik.
+          All rights reserved.<br> Made with &nbsp;<i class="icon-heart text-danger"></i><a href="#" target="_blank"> &nbsp;by Believe&trade; &nbsp; &amp; Weinnovate&trade;</a></p>
         </div>
       </footer>
     </div>
@@ -202,20 +203,12 @@
     <!-- Backdrop-->
     <div class="site-backdrop"></div>
     <!-- JavaScript (jQuery) libraries, plugins and custom scripts-->
-<<<<<<< HEAD
     <script src="/assets/js/vendor.min.js"></script>
     <script src="/assets/js/scripts.min.js"></script>
-=======
-    <script src="assets/js/vendor.min.js"></script>
-    <script src="assets/js/scripts.min.js"></script>
     {{-- Particles --}}
-    <script src="assets/js/particles.js"></script>
-    <script type="text/javascript">
-      particlesJS.load('particles-js', 'assets/particles.json', function() {
-        console.log('callback - assets/js/particles.js config loaded');
-      });
-    </script>
->>>>>>> b1dd4f77585f6258536e1675a1735ef270a85290
+    <script src="assets/js/particles.min.js"></script>
+    <script src="assets/js/particles.app.js"></script>
+    
     <!-- Customizer scripts-->
     <script src="/assets/customizer/customizer.min.js"></script>
   </body>

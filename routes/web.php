@@ -23,8 +23,13 @@ Route::get('/', [
 // Category 
 Route::get('category', [
 	'uses' => 'CategoryController@index',
+	'as' => 'category'
 ]);
 
+Route::get('services', [
+	'uses' => 'ServiceController@index',
+	'as'   => 'services'
+]);
 
 /*
 |

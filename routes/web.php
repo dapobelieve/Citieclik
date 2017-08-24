@@ -26,9 +26,16 @@ Route::get('category', [
 	'as' => 'category'
 ]);
 
+//View All Services
 Route::get('services', [
 	'uses' => 'ServiceController@index',
 	'as'   => 'services'
+]);
+
+//Add services
+Route::get('addservice', [
+	'uses' => 'ServiceController@getAddService',
+	'as'   => 'addservice'
 ]);
 
 /*

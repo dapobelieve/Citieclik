@@ -1,7 +1,8 @@
 @extends('../layout.template')
 @section('style')
 	 {{-- Summer Note --}}
-    <link rel="stylesheet" href="/dist/summernote.css">
+  <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/dist/summernote.css" rel="stylesheet">
 @endsection
 
 @section('title')
@@ -121,7 +122,7 @@ Add service | Citieclik
 	            	<div class="col-sm-12">
 	            		<div class="form-group">
 	            		<label for="checkout-description">Description</label></div>
-	            		<textarea rows="58" name="description" id="summernote" ></textarea>
+	            		<textarea name="description" id="summernote" ></textarea>
 	            	</div>
 	            </div>
 	            <h4>Shipping Address</h4>
@@ -209,5 +210,9 @@ Add service | Citieclik
 @endsection
 
 @section('script')
-	@include('scripts.summernote')
+
+
+<script src="/dist/summernote.min.js"></script>
+<script src="/dist/summernoteinit.js"></script>
+
 @endsection

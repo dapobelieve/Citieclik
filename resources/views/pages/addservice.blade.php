@@ -30,25 +30,20 @@ Add service | Citieclik
 	        <div class="row">
 	          <!-- Checkout Adress-->
 	          <div class="col-xl-9 col-lg-8">
-	            <div class="checkout-steps"><a href="checkout-review.html">4. Review</a><a href="checkout-payment.html"><span class="angle"></span>3. Payment</a><a href="checkout-shipping.html"><span class="angle"></span>2. Shipping</a><a class="active" href="checkout-address.html"><span class="angle"></span>1. Address</a></div>
-	            <h4>Billing Address</h4>
-	            <hr class="padding-bottom-1x">
+	            {{-- <div class="checkout-steps"><a href="checkout-review.html">4. Review</a><a href="checkout-payment.html"><span class="angle"></span>3. Payment</a><a href="checkout-shipping.html"><span class="angle"></span>2. Shipping</a><a class="active" href="checkout-address.html"><span class="angle"></span>1. Address</a></div> --}}
+	            <h4>Post Service</h4>
+	            <hr>
+	            {{-- <hr class="padding-bottom-1x"> --}}
 	            <form class="form-vertical" role="form" method="POST" action="{{route('addservice')}}">
 		            <div class="row">
-		              <div class="col-sm-6">
+		              <div class="col-sm-12">
 		                <div class="form-group">
-		                  <label for="checkout-fn">First Name</label>
-		                  <input class="form-control" type="text" id="checkout-fn">
-		                </div>
-		              </div>
-		              <div class="col-sm-6">
-		                <div class="form-group">
-		                  <label for="checkout-ln">Last Name</label>
-		                  <input class="form-control" type="text" id="checkout-ln">
+		                  <label for="checkout-fn">Service Title</label>
+		                  <input class="form-control" name="serTitle" type="text" placeholder="name of your service programmer, hair stylist, barber etc" required>
 		                </div>
 		              </div>
 		            </div>
-		            <div class="row">
+		            {{-- <div class="row">
 		              <div class="col-sm-6">
 		                <div class="form-group">
 		                  <label for="checkout-email">E-mail Address</label>
@@ -61,7 +56,7 @@ Add service | Citieclik
 		                  <input class="form-control" type="text" id="checkout-phone">
 		                </div>
 		              </div>
-		            </div>
+		            </div> --}}
 		            <div class="row">
 		              <div class="col-sm-6">
 		                <div class="form-group">
@@ -106,37 +101,6 @@ Add service | Citieclik
 		                </div>
 		              </div>
 		            </div>
-		            <div class="row">
-		              <div class="col-sm-6">
-		                <div class="form-group">
-		                  <label for="checkout-city">City</label>
-		                  <select class="form-control" id="checkout-city">
-		                    <option>Choose city</option>
-		                    
-		                  </select>
-		                </div>
-		              </div>
-		              <div class="col-sm-6">
-		                <div class="form-group">
-		                  <label for="checkout-zip">ZIP Code</label>
-		                  <input class="form-control" type="text" id="checkout-zip">
-		                </div>
-		              </div>
-		            </div>
-		            <div class="row padding-bottom-1x">
-		              <div class="col-sm-6">
-		                <div class="form-group">
-		                  <label for="checkout-address1">Address 1</label>
-		                  <input class="form-control" type="text" id="checkout-address1">
-		                </div>
-		              </div>
-		              <div class="col-sm-6">
-		                <div class="form-group">
-		                  <label for="checkout-address2">Address 2</label>
-		                  <input class="form-control" type="text" id="checkout-address2">
-		                </div>
-		              </div>
-		            </div>
 		            <div class="row padding-bottom-1x">
 		            	<div class="col-sm-12">
 		            		<div class="form-group">
@@ -149,22 +113,6 @@ Add service | Citieclik
 		            </div>
 		            {{csrf_field()}}
 		        </form>
-	            {{-- <h4>Shipping Address</h4>
-	            <hr class="padding-bottom-1x">
-	            <div class="form-group">
-	              <label class="custom-control custom-checkbox">
-	                <input class="custom-control-input" type="checkbox" checked><span class="custom-control-indicator"></span><span class="custom-control-description">Same as billing address</span>
-	              </label>
-	            </div> --}}
-	            {{-- <div class="checkout-footer">
-	              <div class="column"><a class="btn btn-outline-secondary" href="cart.html"><i class="icon-arrow-left"></i><span class="hidden-xs-down">&nbsp;Back To Cart</span></a></div>
-	              <div class="column">
-	              <a class="btn btn-primary" href="checkout-shipping.html">
-	              <span class="hidden-xs-down">Continue&nbsp;</span>
-	              <i class="icon-arrow-right"></i>
-	              </a>
-	              </div>
-	            </div> --}}
 	          </div>
 	          <!-- Sidebar          -->
 	          <div class="col-xl-3 col-lg-4">

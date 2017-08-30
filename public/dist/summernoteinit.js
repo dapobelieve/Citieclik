@@ -6,6 +6,6 @@ $('#summernote').summernote({
     ['para', ['ul', 'ol', 'paragraph']],
     ['color', ['color']]
   ],
-  placeholder:'Give Details of your service'
+  placeholder:'Describe your service in full details'
 });
 		  

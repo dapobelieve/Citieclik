@@ -8,6 +8,6 @@ class Category extends Model
 {
     public function subCat()
     {
-    	// $this->hasMany()
+    	$this->hasMany('App\Subcategory', 'category_id');
     }
 }

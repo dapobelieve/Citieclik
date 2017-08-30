@@ -25,8 +25,11 @@ class ServiceController extends Controller
 
     public function getLocation(Request $request, $id)
     {
-    	$state = State::find(5);
-    	return response::json_encode($state->locations);
+    	$state = State::find($id);
+    	// dd($state->locations);
+    	$data = $state->locations;
+    	return $data->toJson();
+    	// return response()->json($state->locations);
     	// return 'great';
     }
 }

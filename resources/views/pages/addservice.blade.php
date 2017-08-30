@@ -233,8 +233,11 @@ Add service | Citieclik
 		.done(function(data) {
 			$location = $('#location');
 			$location.removeAttr('disabled');
-			$(data).each(function(){
-				$location.append("<option value='"+this.id+"' >"+ this.lga +"</option>");
+			var dee = 	JSON.parse(data);
+			// console.log(dee);
+			$.each(dee,function(index, value){
+				$location.append("<option value='"+value.id+"' >"+ value.lga +"</option>");
+				// console.log(index +" : "+ value.id+"==>"+value.lga);
 			})
 		});
 	})

@@ -101,6 +101,20 @@ Add service | Citieclik
 		                </div>
 		              </div>
 		            </div>
+
+		            <div class="row">
+		            	<div class="col-md-6">
+			            	<div class="form-group">
+				              	<label class="col-form-label" for="file-input">Select Image</label>
+				              	<div class="">
+					                <div class="custom-file">
+					                  <input class="custom-file-input" type="file" id="file-input"><span class="custom-file-control"></span>
+					                </div>
+					            </div>
+				            </div>
+			            </div>
+		            </div>
+		            
 		            <div class="row padding-bottom-1x">
 		            	<div class="col-sm-12">
 		            		<div class="form-group">

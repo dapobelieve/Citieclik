@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use View;
 use App\Category;
+use App\State;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -17,7 +18,9 @@ class AppServiceProvider extends ServiceProvider
     {
         View::composer('*', function($view) {
             $cat = Category::orderBy('category')->get();
-            $view->with('cats', $cat);
+            $state = State::orderBy('state')->get();
+            $view->with('cats', $cat)
+                 ->with('states', $state);
         });
     }
 

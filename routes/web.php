@@ -31,12 +31,29 @@ Route::get('services', [
 	'uses' => 'ServiceController@index',
 	'as'   => 'services'
 ]);
-
-//Add services
-Route::get('addservice', [
+/*
+|
+| Add Service
+|
+*/
+Route::get('service/add', [
 	'uses' => 'ServiceController@getAddService',
 	'as'   => 'addservice'
 ]);
+
+Route::post('service/add', [
+	'uses' => 'ServiceController@postService',
+	'as'   => 'addservice'
+]);
+
+Route::get('service/state/location/{id}', [
+	'uses' => 'ServiceController@getLocation'
+
+]);
+
+//ends here
+
+
 
 /*
 |

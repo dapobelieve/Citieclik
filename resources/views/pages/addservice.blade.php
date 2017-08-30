@@ -33,109 +33,118 @@ Add service | Citieclik
 	            <div class="checkout-steps"><a href="checkout-review.html">4. Review</a><a href="checkout-payment.html"><span class="angle"></span>3. Payment</a><a href="checkout-shipping.html"><span class="angle"></span>2. Shipping</a><a class="active" href="checkout-address.html"><span class="angle"></span>1. Address</a></div>
 	            <h4>Billing Address</h4>
 	            <hr class="padding-bottom-1x">
-	            <div class="row">
-	              <div class="col-sm-6">
-	                <div class="form-group">
-	                  <label for="checkout-fn">First Name</label>
-	                  <input class="form-control" type="text" id="checkout-fn">
-	                </div>
-	              </div>
-	              <div class="col-sm-6">
-	                <div class="form-group">
-	                  <label for="checkout-ln">Last Name</label>
-	                  <input class="form-control" type="text" id="checkout-ln">
-	                </div>
-	              </div>
-	            </div>
-	            <div class="row">
-	              <div class="col-sm-6">
-	                <div class="form-group">
-	                  <label for="checkout-email">E-mail Address</label>
-	                  <input class="form-control" type="email" id="checkout-email">
-	                </div>
-	              </div>
-	              <div class="col-sm-6">
-	                <div class="form-group">
-	                  <label for="checkout-phone">Phone Number</label>
-	                  <input class="form-control" type="text" id="checkout-phone">
-	                </div>
-	              </div>
-	            </div>
-	            <div class="row">
-	              <div class="col-sm-6">
-	                <div class="form-group">
-	                  <label for="checkout-company">Company</label>
-	                  <input class="form-control" type="text" id="checkout-company">
-	                </div>
-	              </div>
-	              <div class="col-sm-6">
-	                <div class="form-group">
-	                  <label for="checkout-country">Country</label>
-	                  <select class="form-control" id="checkout-country">
-	                    <option>Choose country</option>
-	                    <option>Australia</option>
-	                    <option>Canada</option>
-	                    <option>France</option>
-	                    <option>Germany</option>
-	                    <option>Switzerland</option>
-	                    <option>USA</option>
-	                  </select>
-	                </div>
-	              </div>
-	            </div>
-	            <div class="row">
-	              <div class="col-sm-6">
-	                <div class="form-group">
-	                  <label for="checkout-city">City</label>
-	                  <select class="form-control" id="checkout-city">
-	                    <option>Choose city</option>
-	                    <option>Amsterdam</option>
-	                    <option>Berlin</option>
-	                    <option>Geneve</option>
-	                    <option>New York</option>
-	                    <option>Paris</option>
-	                  </select>
-	                </div>
-	              </div>
-	              <div class="col-sm-6">
-	                <div class="form-group">
-	                  <label for="checkout-zip">ZIP Code</label>
-	                  <input class="form-control" type="text" id="checkout-zip">
-	                </div>
-	              </div>
-	            </div>
-	            <div class="row padding-bottom-1x">
-	              <div class="col-sm-6">
-	                <div class="form-group">
-	                  <label for="checkout-address1">Address 1</label>
-	                  <input class="form-control" type="text" id="checkout-address1">
-	                </div>
-	              </div>
-	              <div class="col-sm-6">
-	                <div class="form-group">
-	                  <label for="checkout-address2">Address 2</label>
-	                  <input class="form-control" type="text" id="checkout-address2">
-	                </div>
-	              </div>
-	            </div>
-	            <div class="row padding-bottom-1x">
-	            	<div class="col-sm-12">
-	            		<div class="form-group">
-	            		<label for="checkout-description">Description</label></div>
-	            		<textarea name="description" id="summernote" ></textarea>
-	            	</div>
-	            </div>
-	            <h4>Shipping Address</h4>
+	            <form class="form-vertical" role="form" method="POST" action="{{route('addservice')}}">
+		            <div class="row">
+		              <div class="col-sm-6">
+		                <div class="form-group">
+		                  <label for="checkout-fn">First Name</label>
+		                  <input class="form-control" type="text" id="checkout-fn">
+		                </div>
+		              </div>
+		              <div class="col-sm-6">
+		                <div class="form-group">
+		                  <label for="checkout-ln">Last Name</label>
+		                  <input class="form-control" type="text" id="checkout-ln">
+		                </div>
+		              </div>
+		            </div>
+		            <div class="row">
+		              <div class="col-sm-6">
+		                <div class="form-group">
+		                  <label for="checkout-email">E-mail Address</label>
+		                  <input class="form-control" type="email" id="checkout-email">
+		                </div>
+		              </div>
+		              <div class="col-sm-6">
+		                <div class="form-group">
+		                  <label for="checkout-phone">Phone Number</label>
+		                  <input class="form-control" type="text" id="checkout-phone">
+		                </div>
+		              </div>
+		            </div>
+		            <div class="row">
+		              <div class="col-sm-6">
+		                <div class="form-group">
+		                  <label for="checkout-country">State</label>
+		                  <select class="form-control" id="serState">
+		                    <option>Choose a State</option>
+		                    @foreach($states as $state)
+		                        <option value="{{$state->id}}">{{$state->state}}</option>
+		                    @endforeach
+		                  </select>
+		                </div>
+		              </div>
+		              <div class="col-sm-6">
+		                <div class="form-group">
+		                  <label for="checkout-country">Location</label>
+		                  <select class="form-control" disabled id="location">
+		                    <option>Choose Location</option>
+		                    
+		                  </select>
+		                </div>
+		              </div>
+		            </div>
+		            <div class="row">
+		              <div class="col-sm-6">
+		                <div class="form-group">
+		                  <label for="checkout-city">City</label>
+		                  <select class="form-control" id="checkout-city">
+		                    <option>Choose city</option>
+		                    @foreach($cats as $cat)
+		                        <option value="{{$cat->id}}">{{$cat->category}}</option>
+		                    @endforeach
+		                  </select>
+		                </div>
+		              </div>
+		              <div class="col-sm-6">
+		                <div class="form-group">
+		                  <label for="checkout-zip">ZIP Code</label>
+		                  <input class="form-control" type="text" id="checkout-zip">
+		                </div>
+		              </div>
+		            </div>
+		            <div class="row padding-bottom-1x">
+		              <div class="col-sm-6">
+		                <div class="form-group">
+		                  <label for="checkout-address1">Address 1</label>
+		                  <input class="form-control" type="text" id="checkout-address1">
+		                </div>
+		              </div>
+		              <div class="col-sm-6">
+		                <div class="form-group">
+		                  <label for="checkout-address2">Address 2</label>
+		                  <input class="form-control" type="text" id="checkout-address2">
+		                </div>
+		              </div>
+		            </div>
+		            <div class="row padding-bottom-1x">
+		            	<div class="col-sm-12">
+		            		<div class="form-group">
+		            		<label for="checkout-description">Description</label></div>
+		            		<textarea name="description" id="summernote" ></textarea>
+		            	</div>
+		            </div>
+		            <div class="form-group">
+		            	<button type="submit" class="btn btn-default btn-xs">Submit</button>
+		            </div>
+		            {{csrf_field()}}
+		        </form>
+	            {{-- <h4>Shipping Address</h4>
 	            <hr class="padding-bottom-1x">
 	            <div class="form-group">
 	              <label class="custom-control custom-checkbox">
 	                <input class="custom-control-input" type="checkbox" checked><span class="custom-control-indicator"></span><span class="custom-control-description">Same as billing address</span>
 	              </label>
-	            </div>
-	            <div class="checkout-footer">
+	            </div> --}}
+	            {{-- <div class="checkout-footer">
 	              <div class="column"><a class="btn btn-outline-secondary" href="cart.html"><i class="icon-arrow-left"></i><span class="hidden-xs-down">&nbsp;Back To Cart</span></a></div>
-	              <div class="column"><a class="btn btn-primary" href="checkout-shipping.html"><span class="hidden-xs-down">Continue&nbsp;</span><i class="icon-arrow-right"></i></a></div>
-	            </div>
+	              <div class="column">
+	              <a class="btn btn-primary" href="checkout-shipping.html">
+	              <span class="hidden-xs-down">Continue&nbsp;</span>
+	              <i class="icon-arrow-right"></i>
+	              </a>
+	              </div>
+	            </div> --}}
 	          </div>
 	          <!-- Sidebar          -->
 	          <div class="col-xl-3 col-lg-4">
@@ -214,5 +223,21 @@ Add service | Citieclik
 
 <script src="/dist/summernote.min.js"></script>
 <script src="/dist/summernoteinit.js"></script>
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript">
+	$('#serState').change(function(){
+		$.ajax({
+			url: "state/location/"+$(this).val(),
+			method: 'GET',
+		})
+		.done(function(data) {
+			$location = $('#location');
+			$location.removeAttr('disabled');
+			$(data).each(function(){
+				$location.append("<option value='"+this.id+"' >"+ this.lga +"</option>");
+			})
+		});
+	})
+</script>
 
 @endsection

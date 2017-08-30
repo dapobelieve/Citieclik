@@ -3,6 +3,18 @@
 	 {{-- Summer Note --}}
   <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
   <link href="/dist/summernote.css" rel="stylesheet">
+  <script type='text/javascript'>
+	function preview_image(event) 
+	{
+	 var reader = new FileReader();
+	 reader.onload = function()
+	 {
+	  var output = document.getElementById('output_image');
+	  output.src = reader.result;
+	 }
+	 reader.readAsDataURL(event.target.files[0]);
+	}
+	</script>
 @endsection
 
 @section('title')
@@ -108,10 +120,13 @@ Add service | Citieclik
 				              	<label class="col-form-label" for="file-input">Select Image</label>
 				              	<div class="">
 					                <div class="custom-file">
-					                  <input class="custom-file-input" type="file" id="file-input"><span class="custom-file-control"></span>
+					                  <input class="custom-file-input" type="file" id="file-input" accept="image/*" onchange="preview_image(event)"><span class="custom-file-control"></span>
 					                </div>
 					            </div>
 				            </div>
+			            </div>
+			            <div class="col-md-6">
+			            	<img class="d-block mx-auto img-thumbnail mb-3" id="output_image"/>
 			            </div>
 		            </div>
 		            

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\State;
+use App\Category;
 
 class ServiceController extends Controller
 {
@@ -26,10 +27,13 @@ class ServiceController extends Controller
     public function getLocation(Request $request, $id)
     {
     	$state = State::find($id);
-    	// dd($state->locations);
     	$data = $state->locations;
     	return $data->toJson();
-    	// return response()->json($state->locations);
-    	// return 'great';
+    }
+
+    public function getSubCat(Request $request, $id)
+    {
+    	$cat = Category::find($id);
+    	// $data = $cat->
     }
 }

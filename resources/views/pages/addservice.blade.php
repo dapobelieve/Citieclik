@@ -65,6 +65,28 @@ Add service | Citieclik
 		            <div class="row">
 		              <div class="col-sm-6">
 		                <div class="form-group">
+		                  <label for="checkout-country">Category</label>
+		                  <select class="form-control" name="serCat" id="serCat">
+		                    <option>Choose a Category</option>
+		                    @foreach($cats as $cat)
+		                        <option value="{{$cat->id}}">{{$cat->category}}</option>
+		                    @endforeach
+		                  </select>
+		                </div>
+		              </div>
+		              <div class="col-sm-6">
+		                <div class="form-group">
+		                  <label for="checkout-country">Sub Category</label>
+		                  <select class="form-control" name="subCat" disabled id="subCat">
+		                    <option>Sub Category</option>
+		                    
+		                  </select>
+		                </div>
+		              </div>
+		            </div>
+		            <div class="row">
+		              <div class="col-sm-6">
+		                <div class="form-group">
 		                  <label for="checkout-country">State</label>
 		                  <select class="form-control" name="serState" id="serState">
 		                    <option>Choose a State</option>
@@ -90,9 +112,7 @@ Add service | Citieclik
 		                  <label for="checkout-city">City</label>
 		                  <select class="form-control" id="checkout-city">
 		                    <option>Choose city</option>
-		                    @foreach($cats as $cat)
-		                        <option value="{{$cat->id}}">{{$cat->category}}</option>
-		                    @endforeach
+		                    
 		                  </select>
 		                </div>
 		              </div>
@@ -125,7 +145,7 @@ Add service | Citieclik
 		            	</div>
 		            </div>
 		            <div class="form-group">
-		            	<button type="submit" class="btn btn-default btn-xs">Submit</button>
+		            	<button type="submit" class="btn btn-primary btn-xs">Submit</button>
 		            </div>
 		            {{csrf_field()}}
 		        </form>
@@ -225,6 +245,7 @@ Add service | Citieclik
 <script src="/dist/summernoteinit.js"></script>
 <script type="text/javascript" src="/js/jquery.min.js"></script>
 <script type="text/javascript">
+//script to auto change states and its lgas
 	$('#serState').change(function(){
 		$.ajax({
 			url: "state/location/"+$(this).val(),
@@ -232,14 +253,31 @@ Add service | Citieclik
 		})
 		.done(function(data) {
 			$location = $('#location');
-			$location.removeAttr('disabled');
-			$location.children().remove();
+			$location.removeAttr('disabled');//enable
+			$location.children().remove();//clear the select tag first
 			var dee = JSON.parse(data); //convert the json data to array here
 			$.each(dee,function(index, value){
 				$location.append("<option value='"+value.id+"' >"+ value.lga +"</option>");
 			})
 		});
 	})
+
+	//same logic as above but for
+	// $('#serCat').change(function(){
+	// 	$.ajax({
+	// 		url: "state/location/"+$(this).val(),
+	// 		method: 'GET',
+	// 	})
+	// 	.done(function(data) {
+	// 		$location = $('#subCat');
+	// 		$location.removeAttr('disabled');//enable
+	// 		$location.children().remove();//clear the select tag first
+	// 		var dee = JSON.parse(data); //convert the json data to array here
+	// 		$.each(dee,function(index, value){
+	// 			$location.append("<option value='"+value.id+"' >"+ value.lga +"</option>");
+	// 		})
+	// 	});
+	// })
 </script>
 
 @endsection

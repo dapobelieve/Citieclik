@@ -46,9 +46,14 @@ Route::post('service/add', [
 	'as'   => 'addservice'
 ]);
 
+//Route to get lgas based on selected state
 Route::get('service/state/location/{id}', [
 	'uses' => 'ServiceController@getLocation'
+]);
 
+//Route to get lgas based on selected state
+Route::get('service/cat/subCat/{id}', [
+	'uses' => 'ServiceController@getSubCat'
 ]);
 
 //ends here

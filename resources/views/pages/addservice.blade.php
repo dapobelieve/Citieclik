@@ -66,7 +66,7 @@ Add service | Citieclik
 		              <div class="col-sm-6">
 		                <div class="form-group">
 		                  <label for="checkout-country">State</label>
-		                  <select class="form-control" id="serState">
+		                  <select class="form-control" name="serState" id="serState">
 		                    <option>Choose a State</option>
 		                    @foreach($states as $state)
 		                        <option value="{{$state->id}}">{{$state->state}}</option>
@@ -77,7 +77,7 @@ Add service | Citieclik
 		              <div class="col-sm-6">
 		                <div class="form-group">
 		                  <label for="checkout-country">Location</label>
-		                  <select class="form-control" disabled id="location">
+		                  <select class="form-control" name="location" disabled id="location">
 		                    <option>Choose Location</option>
 		                    
 		                  </select>
@@ -233,11 +233,10 @@ Add service | Citieclik
 		.done(function(data) {
 			$location = $('#location');
 			$location.removeAttr('disabled');
-			var dee = 	JSON.parse(data);
-			// console.log(dee);
+			$location.children().remove();
+			var dee = JSON.parse(data); //convert the json data to array here
 			$.each(dee,function(index, value){
 				$location.append("<option value='"+value.id+"' >"+ value.lga +"</option>");
-				// console.log(index +" : "+ value.id+"==>"+value.lga);
 			})
 		});
 	})

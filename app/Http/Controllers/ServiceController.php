@@ -60,6 +60,11 @@ class ServiceController extends Controller
             'servicePrice.integer' => 'The price must be in digits e.g 50000'
             // 'serviceImage.mimes' => 'The image must have jpeg,jpg or png format',
         ]);
+		
+		$slugSer = $this->slugIt($request->input('serviceName'));
+
+		$service = new Service;
+		$service->title = $request->input('')
 
     	// dd($serRequest);
     }

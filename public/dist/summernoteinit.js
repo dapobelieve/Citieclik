@@ -4,7 +4,8 @@ $('#summernote').summernote({
     ['style', ['bold', 'italic', 'underline']],
     ['font', ['strikethrough']],
     ['para', ['ul', 'ol', 'paragraph']],
-    ['color', ['color']]
+    ['color', ['color']],
+    ['height', ['height']]
   ],
   placeholder:'Describe your service in full details'
 });

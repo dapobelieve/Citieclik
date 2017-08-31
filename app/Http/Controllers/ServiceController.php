@@ -64,7 +64,7 @@ class ServiceController extends Controller
 		$slugSer = $this->slugIt($request->input('serviceName'));
 
 		$service = new Service;
-		$service->title = $request->input('')
+		$service->title = $request->input('');
 
     	// dd($serRequest);
     }

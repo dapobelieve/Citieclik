@@ -31,6 +31,12 @@ Route::get('services', [
 	'uses' => 'ServiceController@index',
 	'as'   => 'services'
 ]);
+
+// View A single service detail 
+Route::get('servicedetail', [
+	'uses' => 'ServiceController@getServiceDetails',
+	'as'   => 'servicedetails'
+]);
 /*
 |
 | Add Service

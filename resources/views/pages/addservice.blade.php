@@ -126,7 +126,10 @@ Add service | Citieclik
 				            </div>
 			            </div>
 			            <div class="col-md-6">
-			            	<img class="d-block mx-auto img-thumbnail mb-3" id="output_image"/>
+			            	<div class="form-group">
+			            		<label class="col-form-label" for="file-preview">Preview Image</label>
+			            		<img class="d-block mx-auto img-thumbnail mb-3" id="output_image"/>
+			            	</div>
 			            </div>
 		            </div>
 		            

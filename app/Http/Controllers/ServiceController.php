@@ -64,9 +64,8 @@ class ServiceController extends Controller
 		$slugSer = $this->slugIt($request->input('serviceName'));
 
 		$service = new Service;
-		// $service->title = $request->input('')
 
-    	// dd($serRequest);
+    	dd($serRequest);
     }
 
     //get state local govts for ajax request
@@ -82,5 +81,11 @@ class ServiceController extends Controller
     {
     	$cat = Category::find($id);
     	// $data = $cat->
+    }
+
+    // get single service details 
+    public function getServiceDetails()
+    {
+        return view('pages.servicedetails');
     }
 }

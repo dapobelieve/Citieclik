@@ -180,13 +180,17 @@
     <!-- JavaScript (jQuery) libraries, plugins and custom scripts-->
     <script src="/assets/js/vendor.min.js"></script>
     <script src="/assets/js/scripts.min.js"></script>
-    
-
-    {{-- Particles
-    <script src="/assets/js/particles.min.js"></script>
-    <script src="/assets/js/particles.app.js"></script>
-     --}}
+    <script src="/assets/js/sweetalert.min.js"></script>
     @yield('script')
+    <script type="text/javascript">
+     @if(Session::has('authMsg'))
+      swal({
+        title: "oops not allowed",
+        text: "{{ Session::get('authMsg')}}",
+        type: 'warning'
+      })
+      @endif
+    </script>
     
     <!-- Customizer scripts-->
     <script src="/assets/customizer/customizer.min.js"></script>

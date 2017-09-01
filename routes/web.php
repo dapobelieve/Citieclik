@@ -32,11 +32,7 @@ Route::get('services', [
 	'as'   => 'services'
 ]);
 
-// View A single service detail 
-Route::get('servicedetail', [
-	'uses' => 'ServiceController@getServiceDetails',
-	'as'   => 'servicedetails'
-]);
+
 /*
 |
 | Add Service
@@ -100,6 +96,23 @@ Route::get('/signout', [
 | Authentication Section Ends
 |
 */
+
+Route::group(['middleware' => ['AuthCheck']], function () {
+
+
+	// View A single service detail 
+Route::get('servicedetail', [
+	'uses' => 'ServiceController@getServiceDetails',
+	'as'   => 'servicedetails'
+]);
+
+});
+
+
+
+
+
+
 
 /*
 |

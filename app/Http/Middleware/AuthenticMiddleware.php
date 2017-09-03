@@ -18,6 +18,6 @@ class AuthenticMiddleware
     {
         if(Auth::check())
             return $next($request);
-        return redirect()->route('home')->with('authMsg', 'You are not logged in!');
+        return redirect()->route('home')->with('authMsg', 'You have to be logged in to access that page');
     }
 }

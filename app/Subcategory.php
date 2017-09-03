@@ -8,6 +8,6 @@ class Subcategory extends Model
 {
     public function cat()
     {
-    	$this->belongsTo('App\Category');
+    	return $this->belongsTo('App\Category');
     }
 }

@@ -1,19 +1,5 @@
 <?php
- 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 // Homepage
 Route::get('/', [
 	'uses' => 'HomeController@index',
@@ -33,32 +19,6 @@ Route::get('services', [
 ]);
 
 
-/*
-|
-| Add Service
-|
-*/
-Route::get('service/add', [
-	'uses' => 'ServiceController@getAddService',
-	'as'   => 'addservice'
-]);
-
-Route::post('service/add', [
-	'uses' => 'ServiceController@postService',
-	'as'   => 'addservice'
-]);
-
-//Route to get lgas based on selected state
-Route::get('service/state/location/{id}', [
-	'uses' => 'ServiceController@getLocation'
-]);
-
-//Route to get lgas based on selected state
-Route::get('service/cat/subCat/{id}', [
-	'uses' => 'ServiceController@getSubCat'
-]);
-
-//ends here
 
 
 
@@ -99,12 +59,31 @@ Route::get('/signout', [
 
 Route::group(['middleware' => ['AuthCheck']], function () {
 
-
-	// View A single service detail 
-Route::get('servicedetail', [
-	'uses' => 'ServiceController@getServiceDetails',
-	'as'   => 'servicedetails'
+/*
+|
+| Add Service
+|
+*/
+Route::get('service/add', [
+	'uses' => 'ServiceController@getAddService',
+	'as'   => 'addservice'
 ]);
+
+Route::post('service/add', [
+	'uses' => 'ServiceController@postService',
+	'as'   => 'addservice'
+]);
+
+//Route to get lgas based on selected state
+Route::get('service/state/location/{id}', [
+	'uses' => 'ServiceController@getLocation'
+]);
+
+//Route to get subcategory based on selected category
+Route::get('service/category/getscat/{id}', [
+	'uses' => 'ServiceController@getSubCat'
+]);
+//ends here
 
 });
 

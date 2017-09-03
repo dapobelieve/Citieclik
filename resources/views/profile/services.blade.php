@@ -64,7 +64,7 @@
               </div>
               <hr class="mb-4">
               <label class="custom-control custom-checkbox d-block">
-                <a class="btn btn-sm btn-outline-primary" href="#">Add new service</a>
+                <a class="btn btn-sm btn-outline-primary" href="{{route('addservice')}}">Add new service</a>
               </label>
             </div>      
   @endsection

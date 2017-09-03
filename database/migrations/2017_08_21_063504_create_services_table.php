@@ -19,6 +19,8 @@ class CreateServicesTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->integer('category_id')->unsigned();
             $table->integer('sub_category_id')->unsigned();
+            $table->integer('state_id')->unsigned();
+            $table->integer('location_id')->unsigned();
             $table->text('description');
             $table->integer('price');
             $table->string('image');

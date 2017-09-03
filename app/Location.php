@@ -8,6 +8,6 @@ class Location extends Model
 {
     public function state()
     {
-    	$this->belongsTo('App\State');
+    	return $this->belongsTo('App\State');
     }
 }

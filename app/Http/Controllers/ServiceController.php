@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\State;
 use App\Category;
+use Cloudder;
+use Auth;
 
 class ServiceController extends Controller
 {
@@ -35,10 +37,10 @@ class ServiceController extends Controller
     	return view('pages.addservice');
     }
 
-
     //validate and save service details
     public function postService(Request $serRequest)
     {
+        dd($serRequest);
     	$this->validate($serRequest, [
             'serTitle' =>  "required|string|max:255",
             'serState' => "required|integer",
@@ -46,7 +48,7 @@ class ServiceController extends Controller
             'serviceLocation' => "required|string",
             'serCat' => "required|integer",
             'subCat' => "required|integer",
-            // 'serviceImage' => "image|mimes:jpeg,jpg,png,bmp,svg|max:2048",
+            'serImg' => "image|mimes:jpeg,jpg,png,bmp,svg|max:2048",
             'servicePrice' => "integer",
             'description'  => "required|string",
         ], 
@@ -57,15 +59,47 @@ class ServiceController extends Controller
             'description.required' => 'Give a short description of the sevice',
             'serCat.required' => 'Select a Category',
             'subCat.required' => 'Select a Sub Category',
-            'servicePrice.integer' => 'The price must be in digits e.g 50000'
-            // 'serviceImage.mimes' => 'The image must have jpeg,jpg or png format',
+            'servicePrice.integer' => 'The price must be in digits e.g 50000',
+            'serImg.mimes' => 'The image must have jpeg,jpg or png format',
         ]);
 		
-		$slugSer = $this->slugIt($request->input('serviceName'));
+		$slugSer = $this->slugIt($serRequest->input('serviceName'));
 
 		$service = new Service;
+        $service->title = $request->input('serTitle');
+        $service->user_id = Auth::user()->id;
+        $service->category_id = $request->input('serCat');
+        $service->sub_category_id = $request->input('subCat');
+        $service->description = $request->input('description');
+        $service->slug = $slugSer;
+        $service->type = 'p';
+        $service->state_id = $request->input('serState');
+        $service->location_id = $request->input('serState');
 
-    	dd($serRequest);
+
+        //here i check if an image is in the 
+        //image field and upload it to cloudinary
+        if($request->hasFile('serImg')){
+            $fileUrl = $request->file('serImg')->getRealPath();
+            $result  =  Cloudder::upload($fileUrl,null, $options = array(
+                'folder'   => 'citi',
+                'timeout'  =>  200,
+                'format'   => 'jpg',
+                'quality'  => 'auto'
+            ));            
+
+            $pubId =  Cloudder::getPublicId();
+
+            $file_url  = Cloudder::getResult();
+                        
+            if(!empty($pubId)){
+                $service->imgId = $pubId;
+                $service->image = $file_url['url'];
+            }
+        }
+
+        $service->save();
+        return redirect()->route('addservice')->with('info', 'Service Posted Successfully');
     }
 
     //get state local govts for ajax request
@@ -80,10 +114,11 @@ class ServiceController extends Controller
     public function getSubCat(Request $request, $id)
     {
     	$cat = Category::find($id);
-    	// $data = $cat->
+        $data = $cat->subCats;
+        return $data->toJson(); 
     }
 
-    // get single service details 
+    //Route to get subcategory based on selected category
     public function getServiceDetails()
     {
         return view('pages.servicedetails');

@@ -120,15 +120,15 @@ Add service | Citieclik
 				              	<label class="col-form-label" for="file-input">Select Image</label>
 				              	<div class="">
 					                <div class="custom-file">
-					                  <input class="custom-file-input" type="file" id="file-input" accept="image/*" onchange="preview_image(event)"><span class="custom-file-control"></span>
+					                  <input class="custom-file-input" name="serImg" type="file" id="file-input" accept="image/*" onchange="preview_image(event)"><span class="custom-file-control"></span>
 					                </div>
 					            </div>
 				            </div>
 			            </div>
 			            <div class="col-md-6">
 			            	<div class="form-group">
-			            		<label class="col-form-label" for="file-preview">Preview Image</label>
-			            		<img class="d-block mx-auto img-thumbnail mb-3" id="output_image"/>
+			            		<label class="col-form-label" for="file-preview">Image Preview</label>
+			            		<img style="width:150px; height:auto " class="d-block mx-auto img-thumbnail mb-3" id="output_image"/>
 			            	</div>
 			            </div>
 		            </div>
@@ -243,21 +243,21 @@ Add service | Citieclik
 	})
 
 	//same logic as above but for
-	// $('#serCat').change(function(){
-	// 	$.ajax({
-	// 		url: "state/location/"+$(this).val(),
-	// 		method: 'GET',
-	// 	})
-	// 	.done(function(data) {
-	// 		$location = $('#subCat');
-	// 		$location.removeAttr('disabled');//enable
-	// 		$location.children().remove();//clear the select tag first
-	// 		var dee = JSON.parse(data); //convert the json data to array here
-	// 		$.each(dee,function(index, value){
-	// 			$location.append("<option value='"+value.id+"' >"+ value.lga +"</option>");
-	// 		})
-	// 	});
-	// })
+	$('#serCat').change(function(){
+		$.ajax({
+			url: "category/getscat/"+$(this).val(),
+			method: 'GET',
+		})
+		.done(function(data) {
+			$location = $('#subCat');
+			$location.removeAttr('disabled');//enable
+			$location.children().remove();//clear the kids of the select tag first
+			var dee = JSON.parse(data); //convert the json data to array here
+			$.each(dee,function(index, value){
+				$location.append("<option value='"+value.id+"' >"+ value.sub_category +"</option>");
+			})
+		});
+	})
 </script>
 
 @endsection

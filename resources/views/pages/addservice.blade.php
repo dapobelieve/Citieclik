@@ -42,109 +42,119 @@ Add service | Citieclik
 	        <div class="row">
 	          <!-- Checkout Adress-->
 	          <div class="col-xl-9 col-lg-8">
-	            {{-- <div class="checkout-steps"><a href="checkout-review.html">4. Review</a><a href="checkout-payment.html"><span class="angle"></span>3. Payment</a><a href="checkout-shipping.html"><span class="angle"></span>2. Shipping</a><a class="active" href="checkout-address.html"><span class="angle"></span>1. Address</a></div> --}}
-	            <h4>Post Service</h4>
-	            <hr>
-	            {{-- <hr class="padding-bottom-1x"> --}}
-	            <form class="form-vertical" role="form" method="POST" action="{{route('addservice')}}">
-		            <div class="row">
-		              <div class="col-sm-12">
-		                <div class="form-group">
-		                  <label for="checkout-fn">Service Title</label>
-		                  <input class="form-control" name="serTitle" type="text" placeholder="name of your service programmer, hair stylist, barber etc" required>
-		                </div>
-		              </div>
+		          @if(count($errors) > 0)
+		            <div class="alert alert-danger alert-dismissible fade show margin-bottom-1x">
+			            <span class="alert-close" data-dismiss="alert"></span><i class="icon-ban"></i>&nbsp;&nbsp;
+			            <strong>Error alert:</strong>
+				            <ul>
+								@foreach($errors->all() as $error)
+								<li> {{ $error }} </li>
+								@endforeach
+							</ul>
 		            </div>
-		            {{-- <div class="row">
-		              <div class="col-sm-6">
-		                <div class="form-group">
-		                  <label for="checkout-email">E-mail Address</label>
-		                  <input class="form-control" type="email" id="checkout-email">
-		                </div>
-		              </div>
-		              <div class="col-sm-6">
-		                <div class="form-group">
-		                  <label for="checkout-phone">Phone Number</label>
-		                  <input class="form-control" type="text" id="checkout-phone">
-		                </div>
-		              </div>
-		            </div> --}}
-		            <div class="row">
-		              <div class="col-sm-6">
-		                <div class="form-group">
-		                  <label for="checkout-country">Category</label>
-		                  <select class="form-control" name="serCat" id="serCat">
-		                    <option>Choose a Category</option>
-		                    @foreach($cats as $cat)
-		                        <option value="{{$cat->id}}">{{$cat->category}}</option>
-		                    @endforeach
-		                  </select>
-		                </div>
-		              </div>
-		              <div class="col-sm-6">
-		                <div class="form-group">
-		                  <label for="checkout-country">Sub Category</label>
-		                  <select class="form-control" name="subCat" disabled id="subCat">
-		                    <option>Sub Category</option>
-		                    
-		                  </select>
-		                </div>
-		              </div>
-		            </div>
-		            <div class="row">
-		              <div class="col-sm-6">
-		                <div class="form-group">
-		                  <label for="checkout-country">State</label>
-		                  <select class="form-control" name="serState" id="serState">
-		                    <option>Choose a State</option>
-		                    @foreach($states as $state)
-		                        <option value="{{$state->id}}">{{$state->state}}</option>
-		                    @endforeach
-		                  </select>
-		                </div>
-		              </div>
-		              <div class="col-sm-6">
-		                <div class="form-group">
-		                  <label for="checkout-country">Location</label>
-		                  <select class="form-control" name="location" disabled id="location">
-		                    <option>Choose Location</option>
-		                    
-		                  </select>
-		                </div>
-		              </div>
-		            </div>
+		          @endif
+		            <h4>Post Service</h4>
+		            <hr>
+		            {{-- <hr class="padding-bottom-1x"> --}}
+		            <form class="form-vertical" role="form" method="POST" action="{{route('addservice')}}">
+			            <div class="row">
+			              <div class="col-sm-12">
+			                <div class="form-group">
+			                  <label for="checkout-fn">Service Title</label>
+			                  <input class="form-control" name="serTitle" type="text" placeholder="name of your service programmer, hair stylist, barber etc" >
+			                </div>
+			              </div>
+			            </div>
+			            {{-- <div class="row">
+			              <div class="col-sm-6">
+			                <div class="form-group">
+			                  <label for="checkout-email">E-mail Address</label>
+			                  <input class="form-control" type="email" id="checkout-email">
+			                </div>
+			              </div>
+			              <div class="col-sm-6">
+			                <div class="form-group">
+			                  <label for="checkout-phone">Phone Number</label>
+			                  <input class="form-control" type="text" id="checkout-phone">
+			                </div>
+			              </div>
+			            </div> --}}
+			            <div class="row">
+			              <div class="col-sm-6">
+			                <div class="form-group">
+			                  <label for="checkout-country">Category</label>
+			                  <select class="form-control" name="serCat" id="serCat">
+			                    <option>Choose a Category</option>
+			                    @foreach($cats as $cat)
+			                        <option value="{{$cat->id}}">{{$cat->category}}</option>
+			                    @endforeach
+			                  </select>
+			                </div>
+			              </div>
+			              <div class="col-sm-6">
+			                <div class="form-group">
+			                  <label for="checkout-country">Sub Category</label>
+			                  <select class="form-control" name="subCat" disabled id="subCat">
+			                    <option>Sub Category</option>
+			                    
+			                  </select>
+			                </div>
+			              </div>
+			            </div>
+			            <div class="row">
+			              <div class="col-sm-6">
+			                <div class="form-group">
+			                  <label for="checkout-country">State</label>
+			                  <select class="form-control" name="serState" id="serState">
+			                    <option>Choose a State</option>
+			                    @foreach($states as $state)
+			                        <option value="{{$state->id}}">{{$state->state}}</option>
+			                    @endforeach
+			                  </select>
+			                </div>
+			              </div>
+			              <div class="col-sm-6">
+			                <div class="form-group">
+			                  <label for="checkout-country">Location</label>
+			                  <select class="form-control" name="location" disabled id="location">
+			                    <option>Choose Location</option>
+			                    
+			                  </select>
+			                </div>
+			              </div>
+			            </div>
 
-		            <div class="row">
-		            	<div class="col-md-6">
-			            	<div class="form-group">
-				              	<label class="col-form-label" for="file-input">Select Image</label>
-				              	<div class="">
-					                <div class="custom-file">
-					                  <input class="custom-file-input" name="serImg" type="file" id="file-input" accept="image/*" onchange="preview_image(event)"><span class="custom-file-control"></span>
-					                </div>
+			            <div class="row">
+			            	<div class="col-md-6">
+				            	<div class="form-group">
+					              	<label class="col-form-label" for="file-input">Select Image</label>
+					              	<div class="">
+						                <div class="custom-file">
+						                  <input class="custom-file-input" name="serImg" type="file" id="serImg"  onchange="preview_image(event)"><span class="custom-file-control"></span>
+						                </div>
+						            </div>
 					            </div>
 				            </div>
+				            <div class="col-md-6">
+				            	<div class="form-group">
+				            		<label class="col-form-label" for="file-preview">Image Preview</label>
+				            		<img style="width:150px; height:auto " class="d-block mx-auto img-thumbnail mb-3" id="output_image"/>
+				            	</div>
+				            </div>
 			            </div>
-			            <div class="col-md-6">
-			            	<div class="form-group">
-			            		<label class="col-form-label" for="file-preview">Image Preview</label>
-			            		<img style="width:150px; height:auto " class="d-block mx-auto img-thumbnail mb-3" id="output_image"/>
+			            
+			            <div class="row padding-bottom-1x">
+			            	<div class="col-sm-12">
+			            		<div class="form-group">
+			            		<label for="checkout-description">Description</label></div>
+			            		<textarea name="description" id="summernote" ></textarea>
 			            	</div>
 			            </div>
-		            </div>
-		            
-		            <div class="row padding-bottom-1x">
-		            	<div class="col-sm-12">
-		            		<div class="form-group">
-		            		<label for="checkout-description">Description</label></div>
-		            		<textarea name="description" id="summernote" ></textarea>
-		            	</div>
-		            </div>
-		            <div class="form-group">
-		            	<button type="submit" class="btn btn-primary btn-xs">Submit</button>
-		            </div>
-		            {{csrf_field()}}
-		        </form>
+			            <div class="form-group">
+			            	<button type="submit" class="btn btn-primary btn-xs">Submit</button>
+			            </div>
+			            {{csrf_field()}}
+			        </form>
 	          </div>
 	          <!-- Sidebar          -->
 	          <div class="col-xl-3 col-lg-4">

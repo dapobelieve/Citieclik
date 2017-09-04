@@ -40,16 +40,14 @@ class ServiceController extends Controller
     //validate and save service details
     public function postService(Request $serRequest)
     {
-        dd($serRequest);
     	$this->validate($serRequest, [
             'serTitle' =>  "required|string|max:255",
             'serState' => "required|integer",
             'location' => "required|integer",
-            'serviceLocation' => "required|string",
             'serCat' => "required|integer",
             'subCat' => "required|integer",
             'serImg' => "image|mimes:jpeg,jpg,png,bmp,svg|max:2048",
-            'servicePrice' => "integer",
+            // 'servicePrice' => "integer",
             'description'  => "required|string",
         ], 
         [
@@ -59,28 +57,28 @@ class ServiceController extends Controller
             'description.required' => 'Give a short description of the sevice',
             'serCat.required' => 'Select a Category',
             'subCat.required' => 'Select a Sub Category',
-            'servicePrice.integer' => 'The price must be in digits e.g 50000',
+            // 'servicePrice.integer' => 'The price must be in digits e.g 50000',
             'serImg.mimes' => 'The image must have jpeg,jpg or png format',
         ]);
 		
 		$slugSer = $this->slugIt($serRequest->input('serviceName'));
 
 		$service = new Service;
-        $service->title = $request->input('serTitle');
+        $service->title = $serRequest->input('serTitle');
         $service->user_id = Auth::user()->id;
-        $service->category_id = $request->input('serCat');
-        $service->sub_category_id = $request->input('subCat');
-        $service->description = $request->input('description');
+        $service->category_id = $serRequest->input('serCat');
+        $service->sub_category_id = $serRequest->input('subCat');
+        $service->description = $serRequest->input('description');
         $service->slug = $slugSer;
         $service->type = 'p';
-        $service->state_id = $request->input('serState');
-        $service->location_id = $request->input('serState');
+        $service->state_id = $serRequest->input('serState');
+        $service->location_id = $serRequest->input('serState');
 
 
         //here i check if an image is in the 
         //image field and upload it to cloudinary
-        if($request->hasFile('serImg')){
-            $fileUrl = $request->file('serImg')->getRealPath();
+        if($serRequest->hasFile('serImg')){
+            $fileUrl = $serRequest->file('serImg')->getRealPath();
             $result  =  Cloudder::upload($fileUrl,null, $options = array(
                 'folder'   => 'citi',
                 'timeout'  =>  200,

@@ -56,7 +56,7 @@ Add service | Citieclik
 		            <h4>Post Service</h4>
 		            <hr>
 		            {{-- <hr class="padding-bottom-1x"> --}}
-		            <form class="form-vertical" role="form" method="POST" action="{{route('addservice')}}">
+		            <form class="" role="form" method="POST" action="{{route('addservice')}}">
 			            <div class="row">
 			              <div class="col-sm-12">
 			                <div class="form-group">
@@ -151,7 +151,7 @@ Add service | Citieclik
 			            	</div>
 			            </div>
 			            <div class="form-group">
-			            	<button type="submit" class="btn btn-primary btn-xs">Submit</button>
+			            	<button type="submit" class="btn btn-outline-primary btn-block">Submit</button>
 			            </div>
 			            {{csrf_field()}}
 			        </form>

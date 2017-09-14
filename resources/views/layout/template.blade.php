@@ -193,7 +193,7 @@
     </script>
     
     <!-- Customizer scripts-->
-    <script src="/assets/customizer/customizer.min.js"></script>
+    <script src="/assets/customizer/customizer.min.js"></script>   
   </body>
 
 </html>

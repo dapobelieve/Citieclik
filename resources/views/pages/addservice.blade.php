@@ -1,9 +1,10 @@
-@extends('../layout.template')
+@extends('layout.template')
 @section('style')
 	 {{-- Summer Note --}}
-  <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+  {{-- <link href="/assets/css/bootstrap.min.css" rel="stylesheet"> --}}
   <link href="/dist/summernote.css" rel="stylesheet">
-  <script type='text/javascript'>
+  {{-- <link rel="stylesheet" href="../css/nice-select.css"> --}}
+{{--   <script type='text/javascript'>
 	function preview_image(event) 
 	{
 	 var reader = new FileReader();
@@ -14,7 +15,7 @@
 	 }
 	 reader.readAsDataURL(event.target.files[0]);
 	}
-	</script>
+	</script> --}}
 @endsection
 
 @section('title')
@@ -42,7 +43,7 @@ Add service | Citieclik
 	        <div class="row">
 	          <!-- Checkout Adress-->
 	          <div class="col-xl-9 col-lg-8">
-		          @if(count($errors) > 0)
+		          {{-- @if(count($errors) > 0)
 		            <div class="alert alert-danger alert-dismissible fade show margin-bottom-1x">
 			            <span class="alert-close" data-dismiss="alert"></span><i class="icon-ban"></i>&nbsp;&nbsp;
 			            <strong>Error alert:</strong>
@@ -52,102 +53,106 @@ Add service | Citieclik
 								@endforeach
 							</ul>
 		            </div>
-		          @endif
+		          @endif --}}
 		            <h4>Post Service</h4>
 		            <hr>
 		            {{-- <hr class="padding-bottom-1x"> --}}
 		            <form class="" role="form" method="POST" action="{{route('addservice')}}">
 			            <div class="row">
-			              <div class="col-sm-12">
-			                <div class="form-group">
-			                  <label for="checkout-fn">Service Title</label>
-			                  <input class="form-control" name="serTitle" type="text" placeholder="name of your service programmer, hair stylist, barber etc" >
-			                </div>
-			              </div>
-			            </div>
-			            {{-- <div class="row">
-			              <div class="col-sm-6">
-			                <div class="form-group">
-			                  <label for="checkout-email">E-mail Address</label>
-			                  <input class="form-control" type="email" id="checkout-email">
-			                </div>
-			              </div>
-			              <div class="col-sm-6">
-			                <div class="form-group">
-			                  <label for="checkout-phone">Phone Number</label>
-			                  <input class="form-control" type="text" id="checkout-phone">
-			                </div>
-			              </div>
-			            </div> --}}
-			            <div class="row">
-			              <div class="col-sm-6">
-			                <div class="form-group">
-			                  <label for="checkout-country">Category</label>
-			                  <select class="form-control" name="serCat" id="serCat">
-			                    <option>Choose a Category</option>
-			                    @foreach($cats as $cat)
-			                        <option value="{{$cat->id}}">{{$cat->category}}</option>
-			                    @endforeach
-			                  </select>
-			                </div>
-			              </div>
-			              <div class="col-sm-6">
-			                <div class="form-group">
-			                  <label for="checkout-country">Sub Category</label>
-			                  <select class="form-control" name="subCat" disabled id="subCat">
-			                    <option>Sub Category</option>
-			                    
-			                  </select>
-			                </div>
-			              </div>
+			              	<div class="col-sm-12">
+				                <div class="form-group {{ $errors->has('serTitle') ? ' has-error' : '' }}">
+				                  <label for="checkout-fn">Service Title</label>
+				                  <input class="form-control" name="serTitle" type="text" placeholder="name of your service programmer, hair stylist, barber etc" value="{{ Request::old('serTitle') ?: '' }}">
+			                  	@if ($errors->has('serTitle'))
+									<p class="help-block text-danger"><i class="icon-circle-cross"></i>&nbsp;{{ $errors->first('serTitle') }}</p>
+				                	{{-- <span class="help-block"> </span> --}}
+			                	@endif
+				                </div>
+			              	</div>
 			            </div>
 			            <div class="row">
-			              <div class="col-sm-6">
-			                <div class="form-group">
-			                  <label for="checkout-country">State</label>
-			                  <select class="form-control" name="serState" id="serState">
-			                    <option>Choose a State</option>
-			                    @foreach($states as $state)
-			                        <option value="{{$state->id}}">{{$state->state}}</option>
-			                    @endforeach
-			                  </select>
-			                </div>
-			              </div>
-			              <div class="col-sm-6">
-			                <div class="form-group">
-			                  <label for="checkout-country">Location</label>
-			                  <select class="form-control" name="location" disabled id="location">
-			                    <option>Choose Location</option>
-			                    
-			                  </select>
-			                </div>
-			              </div>
+			              	<div class="col-sm-6">
+				                <div class="form-group {{ $errors->has('serCat') ? ' has-error' : '' }}">
+				                  <label for="checkout-country">Category</label>
+				                  <select class="form-control" name="serCat" id="serCat" value="{{ Request::old('serCat') ?: ''  }}">
+				                    <option>Choose a Category</option>
+				                    @foreach($cats as $cat)
+				                        <option value="{{$cat->id}}">{{$cat->category}}</option>
+				                    @endforeach
+				                  </select>
+	  		                  	@if ($errors->has('serCat'))
+									<p class="help-block text-danger"><i class="icon-circle-cross"></i>&nbsp;{{ $errors->first('serCat') }}</p>
+			                	@endif
+				                </div>
+			              	</div>
+	              			<div class="col-sm-6">
+				                <div class="form-group">
+				                  <label for="checkout-country">Sub Category</label>
+				                  <select class="form-control" name="subCat" disabled id="subCat" value="{{ Request::old('subCat') ?: ''  }}">
+				                    <option>Sub Category</option>
+				                    
+				                  </select>
+				                </div>
+			              	</div>
+		            	</div>
+			            <div class="row">
+			              	<div class="col-sm-6">
+				                <div class="form-group {{ $errors->has('serState') ? ' has-error' : '' }}">
+				                  	<label for="checkout-country">State</label>
+				                  	<select class="form-control" name="serState" id="serState" value="{{ Request::old('serState') ?: ''  }}">
+				                    	<option>Choose a State</option>
+					                    @foreach($states as $state)
+					                        <option value="{{$state->id}}">{{$state->state}}</option>
+					                    @endforeach
+				                  	</select>
+			                  	@if ($errors->has('serState'))
+									<p class="help-block text-danger"><i class="icon-circle-cross"></i>&nbsp;{{ $errors->first('serState') }}</p>
+			                	@endif
+				                </div>
+			              	</div>
+			              	<div class="col-sm-6">
+				                <div class="form-group {{ $errors->has('location') ? ' has-error' : '' }}">
+				                  	<label for="checkout-country">Location</label>
+					                  <select class="form-control" name="location" disabled id="location" value="{{ Request::old('location') ?: ''  }}">
+					                    <option>Choose Location</option>
+					                    
+					                  </select>
+			                  		@if ($errors->has('location'))
+										<p class="help-block text-danger"><i class="icon-circle-cross"></i>&nbsp;{{ $errors->first('location') }}</p>
+				                	@endif
+				                </div>
+			              	</div>
 			            </div>
-
+{{--  --}}
 			            <div class="row">
 			            	<div class="col-md-6">
-				            	<div class="form-group">
+				            	{{-- <div class="form-group">
 					              	<label class="col-form-label" for="file-input">Select Image</label>
 					              	<div class="">
 						                <div class="custom-file">
-						                  <input class="custom-file-input" name="serImg" type="file" id="serImg"  onchange="preview_image(event)"><span class="custom-file-control"></span>
+						                  <input class="custom-file-input form-control-file" name="serImg" type="file" ><span class="custom-file-control"></span>
 						                </div>
 						            </div>
-					            </div>
+					            </div> --}}
+					            <input type="file" name="serImg" value="">
 				            </div>
-				            <div class="col-md-6">
+				            {{-- <div class="col-md-6">
 				            	<div class="form-group">
 				            		<label class="col-form-label" for="file-preview">Image Preview</label>
 				            		<img style="width:150px; height:auto " class="d-block mx-auto img-thumbnail mb-3" id="output_image"/>
 				            	</div>
-				            </div>
+				            </div> --}}
 			            </div>
 			            
 			            <div class="row padding-bottom-1x">
 			            	<div class="col-sm-12">
-			            		<div class="form-group">
-			            		<label for="checkout-description">Description</label></div>
-			            		<textarea name="description" id="summernote" ></textarea>
+			            		<div class="form-group {{ $errors->has('description') ? ' has-error' : '' }}">
+				            		<label for="checkout-description">Description</label>
+				            		<textarea name="description" id="summernote" rows="20" value="{{ Request::old('description') ?: ''  }}"></textarea>
+			                  		@if ($errors->has('description'))
+										<p class="help-block text-danger"><i class="icon-circle-cross"></i>&nbsp;{{ $errors->first('description') }}</p>
+				                	@endif
+			            		</div>
 			            	</div>
 			            </div>
 			            <div class="form-group">
@@ -229,11 +234,12 @@ Add service | Citieclik
 @endsection
 
 @section('script')
-
+{{-- <script src="path/to/jquery.js"></script>  --}}
 
 <script src="/dist/summernote.min.js"></script>
 <script src="/dist/summernoteinit.js"></script>
 <script type="text/javascript" src="/js/jquery.min.js"></script>
+{{-- <script src="/js/jquery.nice-select.min.js"></script> --}}
 <script type="text/javascript">
 //script to auto change states and its lgas
 	$('#serState').change(function(){
@@ -269,5 +275,9 @@ Add service | Citieclik
 		});
 	})
 </script>
+<script type="text/javascript">
+	$('select').selectize(options);
+</script>
+	
 
 @endsection

@@ -4,7 +4,7 @@
   {{-- <link href="/assets/css/bootstrap.min.css" rel="stylesheet"> --}}
   <link href="/dist/summernote.css" rel="stylesheet">
   {{-- <link rel="stylesheet" href="../css/nice-select.css"> --}}
-{{--   <script type='text/javascript'>
+  <script type='text/javascript'>
 	function preview_image(event) 
 	{
 	 var reader = new FileReader();
@@ -15,7 +15,7 @@
 	 }
 	 reader.readAsDataURL(event.target.files[0]);
 	}
-	</script> --}}
+	</script>
 @endsection
 
 @section('title')
@@ -130,18 +130,17 @@ Add service | Citieclik
 					              	<label class="col-form-label">Select Image</label>
 					              	<div class="">
 						                <div class="custom-file">
-						                  	<input class="custom-file-input form-control-file" name="serImg" type="file" ><span class="custom-file-control"></span>
+						                  	<input class="custom-file-input form-control-file" name="serImg" type="file" onchange="preview_image(event)"><span class="custom-file-control"></span>
 						                </div>
 						            </div>
 					            </div>
-					            {{-- <input type="file" name="serImg" value=""> --}}
 				            </div>
-				            {{-- <div class="col-md-6">
+				            <div class="col-md-6">
 				            	<div class="form-group">
 				            		<label class="col-form-label" for="file-preview">Image Preview</label>
 				            		<img style="width:150px; height:auto " class="d-block mx-auto img-thumbnail mb-3" id="output_image"/>
 				            	</div>
-				            </div> --}}
+				            </div>
 			            </div>
 			            
 			            <div class="row padding-bottom-1x">

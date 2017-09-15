@@ -7,6 +7,6 @@ $('#summernote').summernote({
     ['color', ['color']],
     ['height', ['height']]
   ],
-  placeholder:'Describe your service in full details'
+  placeholder:'Details of the event'
 });
 		  

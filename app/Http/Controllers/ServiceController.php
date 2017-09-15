@@ -46,22 +46,36 @@ class ServiceController extends Controller
             'location'  => 'required|integer',
             'serCat'    => 'required|integer',
             'subCat'    => 'required|integer',
+<<<<<<< HEAD
             'serImg'    => "image|mimes:jpeg,jpg,png,bmp,svg|max:2048",
+=======
+            'serImg'    => 'image|mimes:jpeg,jpg,png,bmp,svg|max:2048',
+>>>>>>> cf14923f039d1d4be41850dd86a20927145d6cf0
             // 'servicePrice' => "integer",
             'description'  => 'required|string'
         ], 
         [
             'serTitle.required'     => 'The service you offer needs to have a name e.g I write final year projects, Hair stylist, Bead Designer etc',
-            'serState.required'     => 'Select the state you where you currently provide this service',
+            'serState.required'     => 'Select the state  where you currently provide this service',
+            'serState.integer'     => 'Select the state  where you currently provide this service',
             'location.required'     => 'Select the location',
+            'location.integer'     => 'Select the location',
             'description.required'  => 'Give a short description of the sevice',
             'serCat.required'       => 'Select a Category',
+<<<<<<< HEAD
             // 'subCat.required'       => 'Select a Sub Category',
+=======
+            'serCat.integer'       => 'Select a Category',
+            'subCat.required'       => 'Select a Sub Category',
+            'subCat.integer'       => 'Select a Sub Category',
+>>>>>>> cf14923f039d1d4be41850dd86a20927145d6cf0
             // 'servicePrice.integer' => 'The price must be in digits e.g 50000',
             'serImg.mimes'          => 'The image must have jpeg, jpg or png format',
             'serImg.max'            => 'The Image is too large, It must not be more than 2MB',
         ]);
+
 		dd('ok');
+
 		$slugSer = $this->slugIt($serRequest->input('serviceName'));
 
 		$service = new Service;

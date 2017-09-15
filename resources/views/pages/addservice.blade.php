@@ -57,13 +57,8 @@ Add service | Citieclik
 		            <h4>Post Service</h4>
 		            <hr>
 		            {{-- <hr class="padding-bottom-1x"> --}}
-<<<<<<< HEAD
-		            <form class="" role="form" method="POST" action="{{route('addservice')}}">
-			            <div class="row" style="margin-top:20px;">
-=======
 		            <form class="" role="form" method="POST" enctype="multipart/form-data" action="{{route('addservice')}}">
-			            <div class="row">
->>>>>>> cf14923f039d1d4be41850dd86a20927145d6cf0
+			            <div class="row" style="margin-top: 20px;">
 			              	<div class="col-sm-12">
 				                <div class="form-group {{ $errors->has('serTitle') ? ' has-error' : '' }}">
 				                  	<label for="checkout-fn">Service Title</label>
@@ -135,11 +130,7 @@ Add service | Citieclik
 					              	<label class="col-form-label">Select Image</label>
 					              	<div class="">
 						                <div class="custom-file">
-<<<<<<< HEAD
 						                  	<input class="custom-file-input form-control-file" name="serImg" type="file" ><span class="custom-file-control"></span>
-=======
-						                  <input class="custom-file-input form-control-file" name="" type="file" ><span class="custom-file-control"></span>
->>>>>>> cf14923f039d1d4be41850dd86a20927145d6cf0
 						                </div>
 						            </div>
 					            </div>

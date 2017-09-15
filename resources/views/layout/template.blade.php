@@ -23,10 +23,10 @@
         </div>
       <div class="topbar-column"><a class="hidden-md-down" href="#"><i class="icon-download"></i>&nbsp; Get mobile app</a>
         <div class="lang-currency-switcher-wrap">
-          <div class="lang-currency-switcher dropdown-toggle">
+          <div class="lang-currency-switcher">
             <span class="language"><img alt="English" src="/assets/img/flags/NG.jpg"></span><span class="currency">&#8358; NGN</span>
           </div>
-          <div class="dropdown-menu">
+          {{-- <div class="dropdown-menu">
             <div class="currency-select">
               <select class="form-control form-control-rounded form-control-sm">
                 <option value="ngn">&#x20A6; NGN</option>
@@ -38,7 +38,7 @@
             <a class="dropdown-item" href="#"><img src="/assets/img/flags/FR.png" alt="Français">Français</a>
             <a class="dropdown-item" href="#"><img src="/assets/img/flags/DE.png" alt="Deutsch">Deutsch</a>
             <a class="dropdown-item" href="#"><img src="/assets/img/flags/IT.png" alt="Italiano">Italiano</a>
-          </div>
+          </div> --}}
         </div>
       </div>
     </div>

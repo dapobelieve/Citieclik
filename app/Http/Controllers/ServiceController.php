@@ -47,7 +47,7 @@ class ServiceController extends Controller
             'location'  => 'required|integer',
             'serCat'    => 'required|integer',
             'subCat'    => 'required|integer',
-            'serImg'    => 'image|mimes:jpeg,jpg,png,bmp,svg|max:2048',
+            'serImg'    => "image|mimes:jpeg,jpg,png,bmp,svg|max:2048",
             // 'servicePrice' => "integer",
             'description'  => 'required|string'
         ], 
@@ -63,8 +63,8 @@ class ServiceController extends Controller
             'subCat.required'       => 'Select a Sub Category',
             'subCat.integer'       => 'Select a Sub Category',
             // 'servicePrice.integer' => 'The price must be in digits e.g 50000',
-            'serImg.mimes'          => 'The image must have jpeg,jpg or png format',
-            'serImg.max'            => 'The Image is too large, It must not be more than 2MB'
+            'serImg.mimes'          => 'The image must have jpeg, jpg or png format',
+            'serImg.max'            => 'The Image is too large, It must not be more than 2MB',
         ]);
 
 		$slugSer = $this->slugIt($serRequest->input('serviceName'));

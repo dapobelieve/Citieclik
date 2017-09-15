@@ -15,6 +15,16 @@
 	//  }
 	//  reader.readAsDataURL(event.target.files[0]);
 	// }
+	function preview_image(event) 
+	{
+	 var reader = new FileReader();
+	 reader.onload = function()
+	 {
+	  var output = document.getElementById('output_image');
+	  output.src = reader.result;
+	 }
+	 reader.readAsDataURL(event.target.files[0]);
+	}
 	</script>
 @endsection
 
@@ -58,40 +68,40 @@ Add service | Citieclik
 		            <hr>
 		            <hr class="padding-bottom-1x">
 		            <form class="" role="form" method="POST" enctype="multipart/form-data" action="{{route('addservice')}}">
-			            <div class="row">
+			            <div class="row" style="margin-top: 20px;">
 			              	<div class="col-sm-12">
 				                <div class="form-group {{ $errors->has('serTitle') ? ' has-error' : '' }}">
-				                  <label for="checkout-fn">Service Title</label>
-				                  <input class="form-control" name="serTitle" type="text" placeholder="name of your service programmer, hair stylist, barber etc" value="{{ Request::old('serTitle') ?: '' }}">
-			                  	@if ($errors->has('serTitle'))
-									<p class="help-block text-danger"><i class="icon-circle-cross"></i>&nbsp;{{ $errors->first('serTitle') }}</p>
-				                	{{-- <span class="help-block"> </span> --}}
-			                	@endif
+				                  	<label for="checkout-fn">Service Title</label>
+				                  	<input class="form-control" name="serTitle" type="text" placeholder="name of your service programmer, hair stylist, barber etc" value="{{ old('serTitle') ?: '' }}" required>
+				                  	@if ($errors->has('serTitle'))
+										<p class="help-block text-danger"><i class="icon-circle-cross"></i>&nbsp;{{ $errors->first('serTitle') }}</p>
+					                	{{-- <span class="help-block"> </span> --}}
+				                	@endif
 				                </div>
 			              	</div>
 			            </div>
 			            <div class="row">
 			              	<div class="col-sm-6">
 				                <div class="form-group {{ $errors->has('serCat') ? ' has-error' : '' }}">
-				                  <label for="checkout-country">Category</label>
-				                  <select class="form-control" name="serCat" id="serCat" value="{{ Request::old('serCat') ?: ''  }}">
-				                    <option>Choose a Category</option>
-				                    @foreach($cats as $cat)
-				                        <option value="{{$cat->id}}">{{$cat->category}}</option>
-				                    @endforeach
-				                  </select>
-	  		                  	@if ($errors->has('serCat'))
-									<p class="help-block text-danger"><i class="icon-circle-cross"></i>&nbsp;{{ $errors->first('serCat') }}</p>
-			                	@endif
+				                  	<label for="checkout-country">Category</label>
+				                  	<select class="form-control" name="serCat" id="serCat" value="{{ old('serCat') ?: ''  }}">
+					                    <option>Choose a Category</option>
+					                    @foreach($cats as $cat)
+					                        <option value="{{$cat->id}}">{{$cat->category}}</option>
+					                    @endforeach
+				                  	</select>
+		  		                  	@if ($errors->has('serCat'))
+										<p class="help-block text-danger"><i class="icon-circle-cross"></i>&nbsp;{{ $errors->first('serCat') }}</p>
+				                	@endif
 				                </div>
 			              	</div>
 	              			<div class="col-sm-6">
 				                <div class="form-group">
-				                  <label for="checkout-country">Sub Category</label>
-				                  <select class="form-control" name="subCat" disabled id="subCat" value="{{ Request::old('subCat') ?: ''  }}">
-				                    <option>Sub Category</option>
+				                  	<label for="checkout-country">Sub Category</label>
+				                  	<select class="form-control" name="subCat" disabled id="subCat" value="{{ Request::old('subCat') ?: ''  }}">
+				                    	<option>Sub Category</option>
 				                    
-				                  </select>
+				                  	</select>
 				                </div>
 			              	</div>
 		            	</div>
@@ -99,15 +109,15 @@ Add service | Citieclik
 			              	<div class="col-sm-6">
 				                <div class="form-group {{ $errors->has('serState') ? ' has-error' : '' }}">
 				                  	<label for="checkout-country">State</label>
-				                  	<select class="form-control" name="serState" id="serState" value="{{ Request::old('serState') ?: ''  }}">
+				                  	<select class="form-control" name="serState" id="serState" value="{{ old('serState') ?: ''  }}">
 				                    	<option>Choose a State</option>
 					                    @foreach($states as $state)
 					                        <option value="{{$state->id}}">{{$state->state}}</option>
 					                    @endforeach
 				                  	</select>
-			                  	@if ($errors->has('serState'))
-									<p class="help-block text-danger"><i class="icon-circle-cross"></i>&nbsp;{{ $errors->first('serState') }}</p>
-			                	@endif
+				                  	@if ($errors->has('serState'))
+										<p class="help-block text-danger"><i class="icon-circle-cross"></i>&nbsp;{{ $errors->first('serState') }}</p>
+				                	@endif
 				                </div>
 			              	</div>
 			              	<div class="col-sm-6">
@@ -126,29 +136,32 @@ Add service | Citieclik
 {{--  --}}
 			            <div class="row">
 			            	<div class="col-md-6">
-				            	{{-- <div class="form-group">
-					              	<label class="col-form-label" for="file-input">Select Image</label>
+				            	<div class="form-group">
+					              	<label class="col-form-label">Select Image</label>
 					              	<div class="">
 						                <div class="custom-file">
+<<<<<<< HEAD
 						                  <input class="custom-file-input form-control-file" name="serImg" type="file" ><span class="custom-file-control"></span>
+=======
+						                  	<input class="custom-file-input form-control-file" name="serImg" type="file" onchange="preview_image(event)"><span class="custom-file-control"></span>
+>>>>>>> d6eaf5e2e45bc9496c328bfdfbaba8ffac5629e9
 						                </div>
 						            </div>
-					            </div> --}}
-					            <input type="file" name="serImg" value="">
+					            </div>
 				            </div>
-				            {{-- <div class="col-md-6">
+				            <div class="col-md-6">
 				            	<div class="form-group">
 				            		<label class="col-form-label" for="file-preview">Image Preview</label>
 				            		<img style="width:150px; height:auto " class="d-block mx-auto img-thumbnail mb-3" id="output_image"/>
 				            	</div>
-				            </div> --}}
+				            </div>
 			            </div>
 			            
 			            <div class="row padding-bottom-1x">
 			            	<div class="col-sm-12">
 			            		<div class="form-group {{ $errors->has('description') ? ' has-error' : '' }}">
 				            		<label for="checkout-description">Description</label>
-				            		<textarea name="description" id="summernote" rows="20" value="{{ Request::old('description') ?: ''  }}"></textarea>
+				            		<textarea name="description" id="summernote" rows="20" value="{{ old('description') ?: ''  }}"></textarea>
 			                  		@if ($errors->has('description'))
 										<p class="help-block text-danger"><i class="icon-circle-cross"></i>&nbsp;{{ $errors->first('description') }}</p>
 				                	@endif

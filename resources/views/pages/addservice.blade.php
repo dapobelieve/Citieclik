@@ -43,7 +43,7 @@ Add service | Citieclik
 	        <div class="row">
 	          <!-- Checkout Adress-->
 	          	<div class="col-xl-9 col-lg-8">
-		          {{-- @if(count($errors) > 0)
+		          @if(count($errors) > 0)
 		            <div class="alert alert-danger alert-dismissible fade show margin-bottom-1x">
 			            <span class="alert-close" data-dismiss="alert"></span><i class="icon-ban"></i>&nbsp;&nbsp;
 			            <strong>Error alert:</strong>
@@ -53,11 +53,11 @@ Add service | Citieclik
 								@endforeach
 							</ul>
 		            </div>
-		          @endif --}}
+		          @endif
 		            <h4>Post Service</h4>
 		            <hr>
 		            {{-- <hr class="padding-bottom-1x"> --}}
-		            <form class="" role="form" method="POST" action="{{route('addservice')}}">
+		            <form class="" role="form" method="POST" enctype="multipart/form-data" action="{{route('addservice')}}">
 			            <div class="row">
 			              	<div class="col-sm-12">
 				                <div class="form-group {{ $errors->has('serTitle') ? ' has-error' : '' }}">
@@ -130,7 +130,7 @@ Add service | Citieclik
 					              	<label class="col-form-label" for="file-input">Select Image</label>
 					              	<div class="">
 						                <div class="custom-file">
-						                  <input class="custom-file-input form-control-file" name="serImg" type="file" ><span class="custom-file-control"></span>
+						                  <input class="custom-file-input form-control-file" name="" type="file" ><span class="custom-file-control"></span>
 						                </div>
 						            </div>
 					            </div> --}}

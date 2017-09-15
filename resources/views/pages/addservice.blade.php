@@ -1,21 +1,21 @@
 @extends('layout.template')
 @section('style')
 	 {{-- Summer Note --}}
-  {{-- <link href="/assets/css/bootstrap.min.css" rel="stylesheet"> --}}
+  <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
   <link href="/dist/summernote.css" rel="stylesheet">
   {{-- <link rel="stylesheet" href="../css/nice-select.css"> --}}
-{{--   <script type='text/javascript'>
-	function preview_image(event) 
-	{
-	 var reader = new FileReader();
-	 reader.onload = function()
-	 {
-	  var output = document.getElementById('output_image');
-	  output.src = reader.result;
-	 }
-	 reader.readAsDataURL(event.target.files[0]);
-	}
-	</script> --}}
+  <script type='text/javascript'>
+	// function preview_image(event) 
+	// {
+	//  var reader = new FileReader();
+	//  reader.onload = function()
+	//  {
+	//   var output = document.getElementById('output_image');
+	//   output.src = reader.result;
+	//  }
+	//  reader.readAsDataURL(event.target.files[0]);
+	// }
+	</script>
 @endsection
 
 @section('title')
@@ -56,7 +56,7 @@ Add service | Citieclik
 		          @endif
 		            <h4>Post Service</h4>
 		            <hr>
-		            {{-- <hr class="padding-bottom-1x"> --}}
+		            <hr class="padding-bottom-1x">
 		            <form class="" role="form" method="POST" enctype="multipart/form-data" action="{{route('addservice')}}">
 			            <div class="row">
 			              	<div class="col-sm-12">
@@ -130,7 +130,7 @@ Add service | Citieclik
 					              	<label class="col-form-label" for="file-input">Select Image</label>
 					              	<div class="">
 						                <div class="custom-file">
-						                  <input class="custom-file-input form-control-file" name="" type="file" ><span class="custom-file-control"></span>
+						                  <input class="custom-file-input form-control-file" name="serImg" type="file" ><span class="custom-file-control"></span>
 						                </div>
 						            </div>
 					            </div> --}}

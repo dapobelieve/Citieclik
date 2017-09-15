@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\State;
 use App\Category;
+use App\Service;
 use Cloudder;
 use Auth;
 
@@ -65,8 +66,6 @@ class ServiceController extends Controller
             'serImg.mimes'          => 'The image must have jpeg,jpg or png format',
             'serImg.max'            => 'The Image is too large, It must not be more than 2MB'
         ]);
-
-		dd('ok');
 
 		$slugSer = $this->slugIt($serRequest->input('serviceName'));
 

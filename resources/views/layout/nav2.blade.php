@@ -18,7 +18,7 @@
           <li class="sub-menu-separator"></li>
           @if(Auth::check())
             <li><a href="{{route('profile.index', ['slug' =>Auth::User()->slug ])}}">Dashboard</a></li>
-            <li><a href="signout"><span>Logout</span></a></li>
+            <li><a href="{{ route('auth.signout') }}"><span>Logout</span></a></li>
           @endif
         </ul>
         

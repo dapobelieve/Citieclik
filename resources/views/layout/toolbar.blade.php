@@ -10,7 +10,7 @@
                     <li><a href="account-orders.html">Orders List</a></li>
                     <li><a href="account-wishlist.html">Wishlist</a></li>
                   <li class="sub-menu-separator"></li>
-                  <li><a href="signout"> <i class="icon-unlock"></i>Logout</a></li>
+                  <li><a href="{{ route('auth.signout') }}"> <i class="icon-unlock"></i>Logout</a></li>
                 </ul>
               </div>
             </div>

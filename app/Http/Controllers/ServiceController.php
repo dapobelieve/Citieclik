@@ -7,6 +7,7 @@ use App\State;
 use App\Category;
 use Cloudder;
 use Auth;
+use App\Service;
 
 class ServiceController extends Controller
 {
@@ -66,7 +67,7 @@ class ServiceController extends Controller
             'serImg.max'            => 'The Image is too large, It must not be more than 2MB',
         ]);
 
-		dd('ok');
+		// dd('ok');
 
 		$slugSer = $this->slugIt($serRequest->input('serviceName'));
 

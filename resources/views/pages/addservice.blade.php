@@ -1,10 +1,20 @@
 @extends('layout.template')
 @section('style')
 	 {{-- Summer Note --}}
-  {{-- <link href="/assets/css/bootstrap.min.css" rel="stylesheet"> --}}
+  <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
   <link href="/dist/summernote.css" rel="stylesheet">
   {{-- <link rel="stylesheet" href="../css/nice-select.css"> --}}
   <script type='text/javascript'>
+	// function preview_image(event) 
+	// {
+	//  var reader = new FileReader();
+	//  reader.onload = function()
+	//  {
+	//   var output = document.getElementById('output_image');
+	//   output.src = reader.result;
+	//  }
+	//  reader.readAsDataURL(event.target.files[0]);
+	// }
 	function preview_image(event) 
 	{
 	 var reader = new FileReader();
@@ -56,7 +66,7 @@ Add service | Citieclik
 		          @endif
 		            <h4>Post Service</h4>
 		            <hr>
-		            {{-- <hr class="padding-bottom-1x"> --}}
+		            <hr class="padding-bottom-1x">
 		            <form class="" role="form" method="POST" enctype="multipart/form-data" action="{{route('addservice')}}">
 			            <div class="row" style="margin-top: 20px;">
 			              	<div class="col-sm-12">
@@ -130,7 +140,11 @@ Add service | Citieclik
 					              	<label class="col-form-label">Select Image</label>
 					              	<div class="">
 						                <div class="custom-file">
+<<<<<<< HEAD
+						                  <input class="custom-file-input form-control-file" name="serImg" type="file" ><span class="custom-file-control"></span>
+=======
 						                  	<input class="custom-file-input form-control-file" name="serImg" type="file" onchange="preview_image(event)"><span class="custom-file-control"></span>
+>>>>>>> d6eaf5e2e45bc9496c328bfdfbaba8ffac5629e9
 						                </div>
 						            </div>
 					            </div>

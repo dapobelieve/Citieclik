@@ -8,7 +8,6 @@ use App\Category;
 use App\Service;
 use Cloudder;
 use Auth;
-use App\Service;
 
 class ServiceController extends Controller
 {

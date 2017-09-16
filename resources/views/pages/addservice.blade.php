@@ -1,8 +1,8 @@
 @extends('layout.template')
 @section('style')
 	 {{-- Summer Note --}}
-  <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/dist/summernote.css" rel="stylesheet">
+  {{-- <link href="/assets/css/bootstrap.min.css" rel="stylesheet"> --}}
+  <link href="/dist/ui/trumbowyg.min.css" rel="stylesheet">
   {{-- <link rel="stylesheet" href="../css/nice-select.css"> --}}
   <script type='text/javascript'>
 	// function preview_image(event) 
@@ -140,11 +140,8 @@ Add service | Citieclik
 					              	<label class="col-form-label">Select Image</label>
 					              	<div class="">
 						                <div class="custom-file">
-<<<<<<< HEAD
 						                  <input class="custom-file-input form-control-file" name="serImg" type="file" ><span class="custom-file-control"></span>
-=======
 						                  	<input class="custom-file-input form-control-file" name="serImg" type="file" onchange="preview_image(event)"><span class="custom-file-control"></span>
->>>>>>> d6eaf5e2e45bc9496c328bfdfbaba8ffac5629e9
 						                </div>
 						            </div>
 					            </div>
@@ -161,7 +158,7 @@ Add service | Citieclik
 			            	<div class="col-sm-12">
 			            		<div class="form-group {{ $errors->has('description') ? ' has-error' : '' }}">
 				            		<label for="checkout-description">Description</label>
-				            		<textarea name="description" id="summernote" rows="20" value="{{ old('description') ?: ''  }}"></textarea>
+				            		<textarea class="my-editor" name="description" value="{{ old('description') ?: ''  }}"></textarea>
 			                  		@if ($errors->has('description'))
 										<p class="help-block text-danger"><i class="icon-circle-cross"></i>&nbsp;{{ $errors->first('description') }}</p>
 				                	@endif
@@ -249,10 +246,11 @@ Add service | Citieclik
 @section('script')
 {{-- <script src="path/to/jquery.js"></script>  --}}
 
-<script src="/dist/summernote.min.js"></script>
-<script src="/dist/summernoteinit.js"></script>
+{{-- <script src="/dist/summernote.min.js"></script> --}}
+{{-- <script src="/dist/summernoteinit.js"></script> --}}
+
 <script type="text/javascript" src="/js/jquery.min.js"></script>
-{{-- <script src="/js/jquery.nice-select.min.js"></script> --}}
+<script src="/dist/trumbowyg.min.js"></script>
 <script type="text/javascript">
 //script to auto change states and its lgas
 	$('#serState').change(function(){
@@ -291,6 +289,22 @@ Add service | Citieclik
 <script type="text/javascript">
 	$('select').selectize(options);
 </script>
-	
+<script type="text/javascript">
+	$('.my-editor').trumbowyg({
+	 	btns: [
+	        ['viewHTML'],
+	        ['formatting'],
+	        'btnGrp-semantic',
+	        ['superscript', 'subscript'],
+	        ['link'],
+	        ['insertImage'],
+	        'btnGrp-justify',
+	        'btnGrp-lists',
+	        ['horizontalRule'],
+	        ['removeformat'],
+	        ['fullscreen']
+	    ]
+	});
+</script>
 
 @endsection

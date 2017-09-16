@@ -158,7 +158,7 @@ Add service | Citieclik
 			            	<div class="col-sm-12">
 			            		<div class="form-group {{ $errors->has('description') ? ' has-error' : '' }}">
 				            		<label for="checkout-description">Description</label>
-				            		<textarea class="my-editor" name="description" value="{{ old('description') ?: ''  }}"></textarea>
+				            		<textarea class="my-editor" name="description" value="{{ old('description') ?: ''  }}" placeholder="Your description goes here..."></textarea>
 			                  		@if ($errors->has('description'))
 										<p class="help-block text-danger"><i class="icon-circle-cross"></i>&nbsp;{{ $errors->first('description') }}</p>
 				                	@endif
@@ -291,13 +291,13 @@ Add service | Citieclik
 </script>
 <script type="text/javascript">
 	$('.my-editor').trumbowyg({
+		autogrow: true,
 	 	btns: [
 	        ['viewHTML'],
 	        ['formatting'],
 	        'btnGrp-semantic',
 	        ['superscript', 'subscript'],
 	        ['link'],
-	        ['insertImage'],
 	        'btnGrp-justify',
 	        'btnGrp-lists',
 	        ['horizontalRule'],

@@ -57,7 +57,7 @@ Welcome | Citieclik
             <div class="col-md-3 col-sm-6">
               <div class="card mb-30"><a class="card-img-tiles" href="#">
                   <div class="inner">
-                    <div class="main-img"><img src="assets/img/shop/categories/pro1.jpg" alt="Category"></div>
+                    <div class="main-img"><img src="/assets/img/category/{{$cat->image}}" alt="Category"></div>
                     {{-- <div class="thumblist"><img src="assets/img/shop/categories/pcvro2.jpg" alt="Category"><img src="assets/img/shop/categories/pro3.jpg" alt="Category"></div> --}}
                   </div></a>
                 <div class="card-block text-center">

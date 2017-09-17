@@ -31,29 +31,15 @@ Services | Citieclik
             <div class="shop-toolbar padding-bottom-1x mb-2">
               <div class="column">
                 <div class="shop-sorting">
-                  <label for="sorting">Sort by State:</label>
-                  <select class="form-control" id="sorting">
+                  <label for="sorting">Filter by State:</label>
+                  <select class="form-control" id="serState">
                     @foreach($states as $state)
                         <option value="{{$state->id}}">{{$state->state}}</option>
                     @endforeach
-                      {{-- <option>Popularity</option>
-                      <option>Low - High Price</option>
-                      <option>High - Low Price</option>
-                      <option>Avarage Rating</option>
-                      <option>A - Z Order</option>
-                      <option>Z - A Order</option> --}}
                   </select>
-                  <label for="sorting">Sort by Location:</label>
-                  <select class="form-control" id="sorting">
-                    @foreach($states as $state)
-                        <option value="{{$state->id}}">{{$state->state}}</option>
-                    @endforeach
-                      {{-- <option>Popularity</option>
-                      <option>Low - High Price</option>
-                      <option>High - Low Price</option>
-                      <option>Avarage Rating</option>
-                      <option>A - Z Order</option>
-                      <option>Z - A Order</option> --}}
+                  <label class="locs" style="display:none" for="sorting">Filter by Location:</label>
+                  {{-- <spa --}}
+                  <select class="form-control locs" style="display:none" id="location">
                   </select>
                   {{-- </select>
                   <span class="text-muted">Showing:&nbsp;</span><span>1 - 12 items</span> --}}
@@ -311,3 +297,28 @@ Services | Citieclik
         </div>
       </div>
 @endsection
+
+@section('script')
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript">
+  $('#serState').change(function(event){
+    console.log(event);
+    // var filterValue = ($this).text;
+    // alert(filterValue);
+    $('.locs').show();
+    $.ajax({
+      url: "service/state/location/"+$(this).val(),
+      method: 'GET',
+    })
+    .done(function(data) {
+      $location = $('#location');
+      $location.removeAttr('disabled');//enable
+      $location.children().remove();//clear the select tag first
+      var dee = JSON.parse(data); //convert the json data to array here
+      $.each(dee,function(index, value){
+        $location.append("<option value='"+value.id+"' >"+ value.lga +"</option>");
+      })
+    });
+  })
+</script>
+@stop

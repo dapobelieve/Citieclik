@@ -133,18 +133,14 @@ Add service | Citieclik
 				                </div>
 			              	</div>
 			            </div>
-{{--  --}}
 			            <div class="row">
 			            	<div class="col-md-6">
 				            	<div class="form-group">
 					              	<label class="col-form-label">Select Image</label>
 					              	<div class="">
 						                <div class="custom-file">
-<<<<<<< HEAD
 						                  <input class="custom-file-input form-control-file" name="serImg" type="file" ><span class="custom-file-control"></span>
-=======
 						                  	<input class="custom-file-input form-control-file" name="serImg" type="file" onchange="preview_image(event)"><span class="custom-file-control"></span>
->>>>>>> d6eaf5e2e45bc9496c328bfdfbaba8ffac5629e9
 						                </div>
 						            </div>
 					            </div>
@@ -288,6 +284,8 @@ Add service | Citieclik
 		});
 	})
 </script>
+
+
 <script type="text/javascript">
 	$('select').selectize(options);
 </script>

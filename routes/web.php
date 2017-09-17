@@ -13,9 +13,9 @@ Route::get('category', [
 ]);
 
 //View All Services
-Route::get('services', [
+Route::get('service', [
 	'uses' => 'ServiceController@index',
-	'as'   => 'services'
+	'as'   => 'service'
 ]);
 
 
@@ -51,6 +51,11 @@ Route::get('/signout', [
 	'as'  =>  'auth.signout'
 	]);
 
+//Route to get lgas based on selected state
+Route::get('service/state/location/{id}', [
+	'uses' => 'ServiceController@getLocation'
+]);
+
 /*
 |
 | Authentication Section Ends
@@ -74,10 +79,7 @@ Route::post('service/add', [
 	'as'   => 'addservice'
 ]);
 
-//Route to get lgas based on selected state
-Route::get('service/state/location/{id}', [
-	'uses' => 'ServiceController@getLocation'
-]);
+
 
 //Route to get subcategory based on selected category
 Route::get('service/category/getscat/{id}', [

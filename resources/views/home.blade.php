@@ -51,25 +51,25 @@ Welcome | Citieclik
       <!-- Top Categories-->
       <section class="container padding-top-3x">
         <h3 class="text-center mb-30">Top Categories</h3>
-        <div class="row">
+        <div class="row text-center">
           
           @foreach($cats as $cat)
-            <div class="col-md-4 col-sm-6">
+            <div class="col-md-3 col-sm-6">
               <div class="card mb-30"><a class="card-img-tiles" href="#">
                   <div class="inner">
-                    <div class="main-img"><img src="assets/img/shop/categories/pro1.jpg" alt="Category"></div>
-                    <div class="thumblist"><img src="assets/img/shop/categories/pcvro2.jpg" alt="Category"><img src="assets/img/shop/categories/pro3.jpg" alt="Category"></div>
+                    <div class="main-img"><img src="/assets/img/category/{{$cat->image}}" alt="Category"></div>
+                    {{-- <div class="thumblist"><img src="assets/img/shop/categories/pcvro2.jpg" alt="Category"><img src="assets/img/shop/categories/pro3.jpg" alt="Category"></div> --}}
                   </div></a>
                 <div class="card-block text-center">
-                  <h4 class="card-title">{{$cat->category}}</h4>
+                  <h6 class="card-title">{{$cat->category}}</h6>
                   {{-- <p class="text-muted">Starting from $27.00</p> --}}
-                  <a class="btn btn-outline-primary btn-sm" href="#">View Category</a>
+                  <a class="" href="#">View Category</a>
                 </div>
               </div>
             </div>
           @endforeach
         </div>
-        <div class="text-center"><a class="btn btn-outline-secondary margin-top-none" href="category">All Categories</a></div>
+        {{-- <div class="text-center"><a class="btn btn-outline-secondary margin-top-none" href="category">All Categories</a></div> --}}
       </section>
 
       <section class="container-fluid padding-top-3x padding-bottom-2x" id="particles-js">

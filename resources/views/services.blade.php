@@ -34,9 +34,9 @@ Services | Citieclik
                   <label for="sorting">Filter by State:</label>
                   <select class="form-control" id="serState">
                     @foreach($states as $state)
-                        <option value="{{$state->id}}">{{$state->state}}</option>
+                        <option sname="{{$state->state}}" value="{{$state->id}}">{{$state->state}}</option>
                     @endforeach
-                  </select>
+                  </select> 
                   <label class="locs" style="display:none" for="sorting">Filter by Location:</label>
                   {{-- <spa --}}
                   <select class="form-control locs" style="display:none" id="location">
@@ -302,7 +302,7 @@ Services | Citieclik
 <script type="text/javascript" src="/js/jquery.min.js"></script>
 <script type="text/javascript">
   $('#serState').change(function(event){
-    console.log(event);
+    console.log(this.options[this.selectedIndex].text);
     // var filterValue = ($this).text;
     // alert(filterValue);
     $('.locs').show();

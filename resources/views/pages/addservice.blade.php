@@ -133,7 +133,6 @@ Add service | Citieclik
 				                </div>
 			              	</div>
 			            </div>
-{{--  --}}
 			            <div class="row">
 			            	<div class="col-md-6">
 				            	<div class="form-group">
@@ -285,6 +284,8 @@ Add service | Citieclik
 		});
 	})
 </script>
+
+
 <script type="text/javascript">
 	$('select').selectize(options);
 </script>

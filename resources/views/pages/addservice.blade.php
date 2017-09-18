@@ -140,8 +140,7 @@ Add service | Citieclik
 					              	<label class="col-form-label">Select Image</label>
 					              	<div class="">
 						                <div class="custom-file">
-						                  <input class="custom-file-input form-control-file" name="serImg" type="file" ><span class="custom-file-control"></span>
-						                  	<input class="custom-file-input form-control-file" name="serImg" type="file" onchange="preview_image(event)"><span class="custom-file-control"></span>
+						                  	<input class="custom-file-input form-control-file" name="serImg" type="file" accept="image/*" onchange="preview_image(event)"><span class="custom-file-control"></span>
 						                </div>
 						            </div>
 					            </div>

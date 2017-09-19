@@ -10,4 +10,9 @@ class Category extends Model
     {
     	return $this->hasMany('App\Subcategory', 'category_id');
     }
+
+    public function services()
+    {
+    	return $this->hasMany('App\Service');
+    }
 }

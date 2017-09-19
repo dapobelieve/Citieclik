@@ -27,9 +27,12 @@ class ServiceController extends Controller
     }
 
 
+    // get all service view
     public function index()
     {
-    	return view('services');
+        $serviceData = Service::postOnly()->get();
+        // dd($serviceData);
+    	return view('service.all')->with('sdata', $serviceData);
     }
 
     //Add services
@@ -65,7 +68,7 @@ class ServiceController extends Controller
             // 'servicePrice.integer' => 'The price must be in digits e.g 50000',
             'serImg.mimes'          => 'The image must have jpeg, jpg or png format',
             'serImg.max'            => 'The Image is too large, It must not be more than 2MB',
-        ]);
+        ]); 
 
 	// dd('ok');
 
@@ -80,7 +83,7 @@ class ServiceController extends Controller
         $service->slug              = $slugSer;
         $service->type              = 'p';
         $service->state_id          = $serRequest->input('serState');
-        $service->location_id       = $serRequest->input('serState');
+        $service->location_id       = $serRequest->input('location');
         
 
         //here i check if an image is in the 

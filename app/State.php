@@ -13,4 +13,9 @@ class State extends Model
         return $this->hasMany('App\Location', 'state_id');        												 
     }
 
+    public function services()
+    {
+    	return $this->hasMany('App\Service', 'state_id');
+    }
+
 }

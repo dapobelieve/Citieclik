@@ -13,6 +13,16 @@ class Service extends Model
 		return $this->belongsTo('App\Category', 'category_id');
 	}
 
+	public function state()
+	{
+		return $this->belongsTo('App\State', 'state_id');
+	}
+
+	public function loca()
+	{
+		return $this->belongsTo('App\Location', 'location_id');
+	}
+
 
 	// A small function to DRY up our queries when
 	// we run it in our controller. something like 

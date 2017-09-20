@@ -10,4 +10,9 @@ class Location extends Model
     {
     	return $this->belongsTo('App\State');
     }
+
+    public function services()
+    {
+    	return $this->hasMany('App\Service', 'location_id');
+    }
 }

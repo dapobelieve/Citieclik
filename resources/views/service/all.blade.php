@@ -56,6 +56,7 @@ Services | Citieclik
               <!-- Product-->
               @foreach($sdata as $data)
 <<<<<<< HEAD
+<<<<<<< HEAD
               <div class="grid-item {{$data->catty->category}}">
                 <div class="product-card">
                   <div class="product-badge text-danger">50% Off</div><a class="product-thumb" href="shop-single.html"><img src="/assets/img/shop/products/01.jpg" alt="Product"></a>
@@ -69,6 +70,8 @@ Services | Citieclik
                   </div>
                 </div>
 =======
+=======
+>>>>>>> a134ccbd31c4324563521487f9098bbfaee6b9c1
               <div 
                     class="isoitem grid-item 
                           {{$data->catty->slug}}
@@ -86,6 +89,9 @@ Services | Citieclik
                         <button class="btn btn-outline-primary btn-sm">Details</button>
                       </div>
                     </div>
+<<<<<<< HEAD
+>>>>>>> a134ccbd31c4324563521487f9098bbfaee6b9c1
+=======
 >>>>>>> a134ccbd31c4324563521487f9098bbfaee6b9c1
               </div>
               @endforeach

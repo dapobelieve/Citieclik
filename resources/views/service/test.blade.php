@@ -50,16 +50,15 @@ Services | Citieclik
               </div>
             </div>
             <!-- Products Grid-->
-            <div class="isotope-grid isodata cols-3 mb-2">
+            <div class="isotope-grid cols-3 mb-2">
               <div class="gutter-sizer"></div>
               <div class="grid-sizer"></div>
               <!-- Product-->
-              @foreach($sdata as $data)
-<<<<<<< HEAD
-              <div class="grid-item {{$data->catty->category}}">
+              
+              <div class="grid-item Lagos Sew Obe">
                 <div class="product-card">
                   <div class="product-badge text-danger">50% Off</div><a class="product-thumb" href="shop-single.html"><img src="/assets/img/shop/products/01.jpg" alt="Product"></a>
-                  <h3 class="product-title"><a href="shop-single.html">{{ $data->title }}</a></h3>
+                  <h3 class="product-title"><a href="shop-single.html"></a></h3>
                   <h4 class="product-price">
                     {{-- <del>$99.99</del> --}}$49.99
                   </h4>
@@ -68,29 +67,62 @@ Services | Citieclik
                     <button class="btn btn-outline-primary btn-sm">Details</button>
                   </div>
                 </div>
-=======
-              <div 
-                    class="isoitem grid-item 
-                          {{$data->catty->slug}}
-                          {{$data->slugIt($data->loca->lga)}} 
-                          {{$data->slugIt($data->loca->state->state)}}
-                    ">
-                    <div class="product-card">
-                      <div class="product-badge text-danger">{{$data->catty->category}}, <small>{{$data->loca->state->state}}</small></div><a class="product-thumb" href="shop-single.html"><img src="/assets/img/shop/products/01.jpg" alt="Product"></a>
-                      <h3 class="product-title"><a href="shop-single.html">{{$data->title}}</a></h3>
-                      <h4 class="product-price">
-                        {{-- <del>$99.99</del> --}}$49.99
-                      </h4>
-                      <div class="product-buttons">
-                        <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button>
-                        <button class="btn btn-outline-primary btn-sm">Details</button>
-                      </div>
-                    </div>
->>>>>>> a134ccbd31c4324563521487f9098bbfaee6b9c1
               </div>
-              @endforeach
+              <div class="grid-item Lagos Sew Obe">
+                <div class="product-card">
+                  <div class="product-badge text-danger">50% Off</div><a class="product-thumb" href="shop-single.html"><img src="/assets/img/shop/products/01.jpg" alt="Product"></a>
+                  <h3 class="product-title"><a href="shop-single.html"></a></h3>
+                  <h4 class="product-price">
+                    {{-- <del>$99.99</del> --}}$49.99
+                  </h4>
+                  <div class="product-buttons">
+                    <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button>
+                    <button class="btn btn-outline-primary btn-sm">Details</button>
+                  </div>
+                </div>
+              </div>
+              <div class="grid-item Sango Sew Obe">
+                <div class="product-card">
+                  <div class="product-badge text-danger">50% Off</div><a class="product-thumb" href="shop-single.html"><img src="/assets/img/shop/products/01.jpg" alt="Product"></a>
+                  <h3 class="product-title"><a href="shop-single.html"></a></h3>
+                  <h4 class="product-price">
+                    {{-- <del>$99.99</del> --}}$49.99
+                  </h4>
+                  <div class="product-buttons">
+                    <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button>
+                    <button class="btn btn-outline-primary btn-sm">Details</button>
+                  </div>
+                </div>
+              </div>
+              <div class="grid-item Ikoyi kSew Obe">
+                <div class="product-card">
+                  <div class="product-badge text-danger">50% Off</div><a class="product-thumb" href="shop-single.html"><img src="/assets/img/shop/products/01.jpg" alt="Product"></a>
+                  <h3 class="product-title"><a href="shop-single.html"></a></h3>
+                  <h4 class="product-price">
+                    {{-- <del>$99.99</del> --}}$49.99
+                  </h4>
+                  <div class="product-buttons">
+                    <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button>
+                    <button class="btn btn-outline-primary btn-sm">Details</button>
+                  </div>
+                </div>
+              </div>
+              <div class="grid-item Ogun Stew Obe">
+                <div class="product-card">
+                  <div class="product-badge text-danger">50% Off</div><a class="product-thumb" href="shop-single.html"><img src="/assets/img/shop/products/01.jpg" alt="Product"></a>
+                  <h3 class="product-title"><a href="shop-single.html"></a></h3>
+                  <h4 class="product-price">
+                    {{-- <del>$99.99</del> --}}$49.99
+                  </h4>
+                  <div class="product-buttons">
+                    <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button>
+                    <button class="btn btn-outline-primary btn-sm">Details</button>
+                  </div>
+                </div>
+              </div>
+
             </div>
-            <!-- Pagination-->
+             {{-- Pagination --}}
             <nav class="pagination">
               <div class="column">
                 <ul class="pages">
@@ -114,7 +146,7 @@ Services | Citieclik
                 <h3 class="widget-title">All Categories</h3>
                 <ul>
                   @foreach($cats as $cat)
-                      <li class=""><a href="#" data-filter="{{$cat->slug}}">{{$cat->category}}</a>{{-- <span>(1138)</span> --}}</li>
+                      <li class=""><a href="#">{{$cat->category}}</a>{{-- <span>(1138)</span> --}}</li>
                   @endforeach
                   
                 </ul>
@@ -194,58 +226,36 @@ Services | Citieclik
 <script type="text/javascript" src="/js/jquery.min.js"></script>
 <script type="text/javascript" src="/assets/js/isotope.js"></script>
 <script type="text/javascript">
+$grid = $('.isotope-grid').isotope({
+  // options
+  itemSelector: '.grid-item',
+  layoutMode: 'fitRows'
+});
+
+  $('.hereIt').on('change','#serState',function(event){
+    // console.log();
+    // var filterValue = this.options[this.selectedIndex].text;
+    // alert(filterValue);
 
 
-//js version of slug
-    function slugIt(string) {
-      return string
-        .toString()
-        .trim()
-        .toLowerCase()
-        .replace(/\s+/g, "-")
-        .replace(/[^\w\-]+/g, "")
-        .replace(/\-\-+/g, "-")
-        .replace(/^-+/, "")
-        .replace(/-+$/, "");
-    }
-
-    //initialize isotope
-    $grid = $('.isodata').isotope({
-      itemSelector: '.isoitem',
-      layoutMode: 'fitRows',
-      fitRows: {
-        gutter: 30
-      },
-      stagger: 30,
+    $grid.isotope({
+      filter:'.kSew'
     });
-
-    $('.hereIt').on('change','#serState',function(event){
-      //get value of currently selected option
-        var filterValue = slugIt(this.options[this.selectedIndex].text);
-
-        // console.log(filterValue);   
-        //load lgas ajaxically       
-        $('.locs').show();
-        $.ajax({
-          url: "service/state/location/"+$(this).val(),
-          method: 'GET',
-        })
-        .done(function(data) {
-          $location = $('#location');
-          $location.removeAttr('disabled');//enable
-          $location.children().remove();//clear the select tag first
-          var dee = JSON.parse(data); //convert the json data to array here
-          $.each(dee,function(index, value){
-            $location.append("<option value='"+value.id+"' >"+ value.lga +"</option>");
-          })
-        });
-
-        $grid.isotope({ filter: "."+filterValue });
-        // alert(filterValue);
+    
+    $('.locs').show();
+    $.ajax({
+      url: "service/state/location/"+$(this).val(),
+      method: 'GET',
     })
-
-
-
-
+    .done(function(data) {
+      $location = $('#location');
+      $location.removeAttr('disabled');//enable
+      $location.children().remove();//clear the select tag first
+      var dee = JSON.parse(data); //convert the json data to array here
+      $.each(dee,function(index, value){
+        $location.append("<option value='"+value.id+"' >"+ value.lga +"</option>");
+      })
+    });
+  })
 </script>
 @stop

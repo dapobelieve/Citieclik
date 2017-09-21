@@ -19,6 +19,10 @@ Route::get('service', [
 ]);
 
 
+//get details of a service
+Route::get('services', function() {
+	return view('pages.servicedetails');
+});
 
 
 

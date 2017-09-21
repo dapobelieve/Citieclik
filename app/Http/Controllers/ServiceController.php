@@ -30,7 +30,7 @@ class ServiceController extends Controller
     // get all service view
     public function index()
     {
-        $serviceData = Service::postOnly()->get();
+        $serviceData = Service::take(200)->postOnly()->get();
         // dd($serviceData);
     	return view('service.all')->with('sdata', $serviceData);
     }

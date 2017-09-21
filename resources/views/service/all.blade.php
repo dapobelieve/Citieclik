@@ -58,7 +58,7 @@ Services | Citieclik
               <div class="grid-item {{$data->catty->category}}">
                 <div class="product-card">
                   <div class="product-badge text-danger">50% Off</div><a class="product-thumb" href="shop-single.html"><img src="/assets/img/shop/products/01.jpg" alt="Product"></a>
-                  <h3 class="product-title"><a href="shop-single.html">Unionbay Park</a></h3>
+                  <h3 class="product-title"><a href="shop-single.html">{{ $data->title }}</a></h3>
                   <h4 class="product-price">
                     {{-- <del>$99.99</del> --}}$49.99
                   </h4>

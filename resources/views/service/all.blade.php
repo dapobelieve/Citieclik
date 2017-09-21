@@ -57,21 +57,21 @@ Services | Citieclik
               @foreach($sdata as $data)
               <div 
                     class="isoitem grid-item 
-                          {{$data->catty->category}}
-                          {{$data->loca->lga}} 
-                          {{$data->loca->state->state}}
-                ">
-                <div class="product-card">
-                  <div class="product-badge text-danger">50% Off</div><a class="product-thumb" href="shop-single.html"><img src="/assets/img/shop/products/01.jpg" alt="Product"></a>
-                  <h3 class="product-title"><a href="shop-single.html">{{$data->title}}</a></h3>
-                  <h4 class="product-price">
-                    {{-- <del>$99.99</del> --}}$49.99
-                  </h4>
-                  <div class="product-buttons">
-                    <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button>
-                    <button class="btn btn-outline-primary btn-sm">Details</button>
-                  </div>
-                </div>
+                          {{$data->catty->slug}}
+                          {{$data->slugIt($data->loca->lga)}} 
+                          {{$data->slugIt($data->loca->state->state)}}
+                    ">
+                    <div class="product-card">
+                      <div class="product-badge text-danger">{{$data->catty->category}}, <small>{{$data->loca->state->state}}</small></div><a class="product-thumb" href="shop-single.html"><img src="/assets/img/shop/products/01.jpg" alt="Product"></a>
+                      <h3 class="product-title"><a href="shop-single.html">{{$data->title}}</a></h3>
+                      <h4 class="product-price">
+                        {{-- <del>$99.99</del> --}}$49.99
+                      </h4>
+                      <div class="product-buttons">
+                        <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button>
+                        <button class="btn btn-outline-primary btn-sm">Details</button>
+                      </div>
+                    </div>
               </div>
               @endforeach
             </div>
@@ -99,7 +99,7 @@ Services | Citieclik
                 <h3 class="widget-title">All Categories</h3>
                 <ul>
                   @foreach($cats as $cat)
-                      <li class=""><a href="#">{{$cat->category}}</a>{{-- <span>(1138)</span> --}}</li>
+                      <li class=""><a href="#" data-filter="{{$cat->slug}}">{{$cat->category}}</a>{{-- <span>(1138)</span> --}}</li>
                   @endforeach
                   
                 </ul>
@@ -180,19 +180,36 @@ Services | Citieclik
 <script type="text/javascript" src="/assets/js/isotope.js"></script>
 <script type="text/javascript">
 
-$(document).ready(function(){
 
+//js version of slug
+    function slugIt(string) {
+      return string
+        .toString()
+        .trim()
+        .toLowerCase()
+        .replace(/\s+/g, "-")
+        .replace(/[^\w\-]+/g, "")
+        .replace(/\-\-+/g, "-")
+        .replace(/^-+/, "")
+        .replace(/-+$/, "");
+    }
+
+    //initialize isotope
     $grid = $('.isodata').isotope({
       itemSelector: '.isoitem',
       layoutMode: 'fitRows',
+      fitRows: {
+        gutter: 30
+      },
+      stagger: 30,
     });
 
     $('.hereIt').on('change','#serState',function(event){
-        // console.log();
-        // var filterValue = this.options[this.selectedIndex].text;
-        // alert(filterValue);
-        
-        
+      //get value of currently selected option
+        var filterValue = slugIt(this.options[this.selectedIndex].text);
+
+        // console.log(filterValue);   
+        //load lgas ajaxically       
         $('.locs').show();
         $.ajax({
           url: "service/state/location/"+$(this).val(),
@@ -208,13 +225,11 @@ $(document).ready(function(){
           })
         });
 
-        // $grid.isotope({ filter:'.Lagos' });
-  })
+        $grid.isotope({ filter: "."+filterValue });
+        // alert(filterValue);
+    })
 
 
-
-
-})
 
 
 </script>

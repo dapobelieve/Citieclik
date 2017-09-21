@@ -34,4 +34,19 @@ class Service extends Model
             ['status', '1'],
         ]);
     }
+
+
+    public function slugIt($slug)
+    {
+        $lettersNamesSpaces = '/[^\-\s\pN\pL]+/u';
+        $spacesHypens = '/[\-\s]+/';
+
+        $slug = preg_replace($lettersNamesSpaces, '', mb_strtolower($slug, 'UTF-8'));
+
+        $slug = preg_replace($spacesHypens, '-', $slug);
+
+        $slug = trim($slug, '-');
+
+        return $slug;
+    }
 }

@@ -27,7 +27,7 @@ class ServiceController extends Controller
     }
 
 
-    // get all service view
+    // get all services view
     public function index()
     {
         $serviceData = Service::take(200)->postOnly()->get();
@@ -35,7 +35,7 @@ class ServiceController extends Controller
     	return view('service.all')->with('sdata', $serviceData);
     }
 
-    //Add services
+    //get Add services page
     public function getAddService()
     {
     	return view('pages.addservice');
@@ -111,21 +111,7 @@ class ServiceController extends Controller
         return redirect()->route('addservice')->with('info', 'Service Posted Successfully');
     }
 
-    //get state local govts for ajax request
-    public function getLocation(Request $request, $id)
-    {
-    	$state = State::find($id);
-    	$data = $state->locations;
-    	return $data->toJson();
-    }
-
-    //get state local govts for ajax request
-    public function getSubCat(Request $request, $id)
-    {
-    	$cat = Category::find($id);
-        $data = $cat->subCats;
-        return $data->toJson(); 
-    }
+    
 
     //Route to get subcategory based on selected category
     public function getServiceDetails()

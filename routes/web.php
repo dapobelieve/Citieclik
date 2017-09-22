@@ -55,14 +55,16 @@ Route::get('/signout', [
 	'as'  =>  'auth.signout'
 	]);
 
-//Route to get lgas based on selected state
-Route::get('service/state/location/{id}', [
-	'uses' => 'ServiceController@getLocation'
-]);
 
 /*
 |
 | Authentication Section Ends
+|
+*/
+
+/*
+|
+| Authentication Section For Users
 |
 */
 
@@ -82,16 +84,35 @@ Route::post('service/add', [
 	'uses' => 'ServiceController@postService',
 	'as'   => 'addservice'
 ]);
+/*
+|
+| Add Service Ends Here
+|
+*/
 
+/*
+|
+| Ajax Requests Section
+|
+*/
+	//Route to get lgas based on selected state
+	Route::get('service/state/location/{id}', [
+		'uses' => 'AjaxRequestsController@getLocation'
+	]);
+	//Route to get subcategory based on selected category
+	Route::get('service/category/getscat/{id}', [
+		'uses' => 'AjaxRequestsController@getSubCat'
+	]);
 
-
-//Route to get subcategory based on selected category
-Route::get('service/category/getscat/{id}', [
-	'uses' => 'ServiceController@getSubCat'
-]);
-//ends here
+/*
+|
+| Ajax Requests Section Ends Here
+|
+*/
 
 });
+
+
 
 
 
@@ -122,3 +143,9 @@ Route::get('/profile/{slug}/requests', [
 	'uses' => '\App\Http\Controllers\ProfileController@getRequests',
 	'as' => 'profile.request',
 ]);
+
+/*
+|
+| Profile Section Ends
+|
+*/

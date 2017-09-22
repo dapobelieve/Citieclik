@@ -39,7 +39,7 @@ class Service extends Model
     {
         $lettersNamesSpaces = '/[^\-\s\pN\pL]+/u';
         $spacesHypens = '/[\-\s]+/';
-        $removeAmpersAnd = '&';
+        $removeAmpersAnd = '&';//added this to remove ampersand
 
         $slug = preg_replace($lettersNamesSpaces, '', mb_strtolower($slug, 'UTF-8'));
 

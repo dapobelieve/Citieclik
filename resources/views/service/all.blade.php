@@ -55,6 +55,7 @@ Services | Citieclik
               <div class="grid-sizer"></div>
               <!-- Product-->
               @foreach($sdata as $data)
+
               <div 
                     class="isoitem grid-item 
                           {{$data->catty->slug}}
@@ -72,7 +73,6 @@ Services | Citieclik
                         <button class="btn btn-outline-primary btn-sm">Details</button>
                       </div>
                     </div>
-
               </div>
               @endforeach
             </div>

@@ -62,12 +62,17 @@ Services | Citieclik
                           {{$data->slugIt($data->loca->state->state)}}
                      mybox">
                     <div class="product-card">
-                      <div class="product-badge text-danger">{{$data->slugIt($data->catty->category)}}, <small>{{$data->loca->state->state}}</small></div><a class="product-thumb" href="shop-single.html"><img src="/assets/img/shop/products/01.jpg" alt="Product"></a>
+                      <div class="product-badge text-danger">{{$data->slugIt($data->catty->category)}}, 
+                      <small>{{$data->loca->state->state}}</small>
+                      </div><a class="product-thumb" 
+                      href="{{route('service.detail', ['username' => $data->userz->username,'slug' => $data->slug])}}">
+
+                      <img src="/assets/img/shop/products/01.jpg" alt="Product"></a>
                       <h3 class="product-title"><a href="shop-single.html">{{$data->title}}</a></h3>
                       <h4 class="product-price">&#8358;49.99</h4>
                       <div class="product-buttons">
                         <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button>
-                        <button class="btn btn-outline-primary btn-sm">Details</button>
+                        <a href="{{route('service.detail', ['username' => $data->userz->username,'slug' => $data->slug])}}" class="btn btn-outline-primary btn-sm">Details</a>
                       </div>
                     </div>
               </div>

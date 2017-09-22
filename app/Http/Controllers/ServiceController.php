@@ -26,12 +26,12 @@ class ServiceController extends Controller
         return $slug;
     }
 
-
     // get all services view
     public function index()
     {
         $serviceData = Service::take(200)->postOnly()->get();
-        // dd($serviceData);
+        // $serviceData = Service::postOnly()->first();
+        // dd($serviceData->userz->phone);
     	return view('service.all')->with('sdata', $serviceData);
     }
 
@@ -70,7 +70,6 @@ class ServiceController extends Controller
             'serImg.max'            => 'The Image is too large, It must not be more than 2MB',
         ]); 
 
-	// dd('ok');
 
 		$slugSer = $this->slugIt($serRequest->input('serviceName'));
 
@@ -110,8 +109,6 @@ class ServiceController extends Controller
         $service->save();
         return redirect()->route('addservice')->with('info', 'Service Posted Successfully');
     }
-
-    
 
     //Route to get subcategory based on selected category
     public function getServiceDetails()

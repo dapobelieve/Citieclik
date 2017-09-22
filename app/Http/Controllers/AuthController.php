@@ -49,17 +49,24 @@ class AuthController extends Controller
         [
             'phone.required' => 'Phone Number Required',
             'phone.digits' => 'Phone Number must be 11 digits',
+            'fname.required' => 'The first name is required',
+            'lname.required' => 'The last name is required',
+            'lname.string' => 'The last name must be a Word',
         ]);
 
-        $fname = $this->slugIt($request->input('fname'));
+        $tempUserName = "@".$request->input('fname')."".$request->input('phone');
+        $slug = $this->slugIt($tempUserName);
+        // dd($tempUserName."   ".$slug);
 
     	// submmiting users details to the db
     	User::create([
             'email' => $request->input('email'),
-            'first_name' => $fname,
+            'username' => $tempUserName,
+            'first_name' => $request->input('fname'),
     		'last_name' => $request->input('lname'),
     		'phone' => $request->input('phone'),
-    		'password' => Hash::make($request->input('password'))
+    		'password' => Hash::make($request->input('password')),
+            'slug'    => $slug,
     	]);
 
         //automatically logging

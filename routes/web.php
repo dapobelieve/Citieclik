@@ -20,10 +20,17 @@ Route::get('service', [
 
 
 //get details of a service
-Route::get('services', function() {
-	return view('pages.servicedetails');
-});
+Route::get('service/detail/{username}/{serslug}', [
+	'uses' => '\App\Http\Controllers\ServiceDetails@index',
+	'as'   => 'service.detail'
 
+]);
+
+
+// Route::get('/service-detail/{username}/{slug}', [
+// 	'uses' => '\App\Http\Controllers\ServiceController@getServiceDetails',
+// 	'as'   => 'service.index'
+// ]);
 
 
 /*

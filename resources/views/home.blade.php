@@ -49,7 +49,7 @@ Welcome | Citieclik
       </div>
   	</section>
       <!-- Top Categories-->
-      <section class="container padding-top-3x">
+      <section class="container padding-top-3x text-center">
         <h3 class="text-center mb-30">Top Categories</h3>
         <div class="row text-center">
           

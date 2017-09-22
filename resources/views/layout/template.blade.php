@@ -113,7 +113,7 @@
       <!-- Page Content-->
       @yield('content')
       <!-- Site Footer-->
-      <footer class="site-footer">
+      <footer class="site-footer mybg">
         <div class="container">
           <div class="row">
             <div class="col-lg-5 col-md-6">

@@ -58,8 +58,8 @@ Services | Citieclik
 
               <div class="isoitem grid-item {{$data->catty->slug}} {{$data->slugIt($data->loca->lga)}} {{$data->slugIt($data->loca->state->state)}}">
                     <div class="product-card mybox">
-                      <div class="product-badge text-primary">{{$data->catty->slug}}</div><br>
-                      <div class="text-right"><small class="text-right">{{$data->loca->state->state}}</small></div>
+                      <div class="product-badge text-primary text-bold">{{$data->catty->slug}}</div><br>
+                      <div class="text-right"><small class=" text-black">{{$data->loca->state->state}}</small></div>
                       <a class="product-thumb" href="shop-single.html"><img src="/assets/img/shop/products/01.jpg" alt="Product"></a>
                       <h3 class="product-title"><a href="shop-single.html">{{$data->title}}</a></h3>
                       <h4 class="product-price">&#8358;49.99</h4>

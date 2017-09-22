@@ -55,19 +55,16 @@ Services | Citieclik
               <div class="grid-sizer"></div>
               <!-- Product-->
               @foreach($sdata as $data)
-
               <div 
                     class="isoitem grid-item 
                           {{$data->slugIt($data->catty->category)}}
                           {{$data->slugIt($data->loca->lga)}} 
                           {{$data->slugIt($data->loca->state->state)}}
-                    ">
+                     mybox">
                     <div class="product-card">
                       <div class="product-badge text-danger">{{$data->slugIt($data->catty->category)}}, <small>{{$data->loca->state->state}}</small></div><a class="product-thumb" href="shop-single.html"><img src="/assets/img/shop/products/01.jpg" alt="Product"></a>
                       <h3 class="product-title"><a href="shop-single.html">{{$data->title}}</a></h3>
-                      <h4 class="product-price">
-                        {{-- <del>$99.99</del> --}}$49.99
-                      </h4>
+                      <h4 class="product-price">&#8358;49.99</h4>
                       <div class="product-buttons">
                         <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button>
                         <button class="btn btn-outline-primary btn-sm">Details</button>

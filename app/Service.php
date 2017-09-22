@@ -39,13 +39,14 @@ class Service extends Model
     {
         $lettersNamesSpaces = '/[^\-\s\pN\pL]+/u';
         $spacesHypens = '/[\-\s]+/';
-        $removeAmpersAnd = '/&/';
+        $removeAmpersAnd = '&';
 
         $slug = preg_replace($lettersNamesSpaces, '', mb_strtolower($slug, 'UTF-8'));
 
         $slug = preg_replace($spacesHypens, '-', $slug);
         $slug = preg_replace($spacesHypens, '-', $slug);
-        $slug = preg_replace($removeAmpersAnd, '-', $slug);
+        $slug = str_replace($removeAmpersAnd, '-', $slug);
+        // also note strip tags
 
         $slug = trim($slug, '-');
 

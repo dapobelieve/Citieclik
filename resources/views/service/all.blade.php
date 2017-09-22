@@ -58,12 +58,12 @@ Services | Citieclik
 
               <div 
                     class="isoitem grid-item 
-                          {{$data->catty->slug}}
+                          {{$data->slugIt($data->catty->category)}}
                           {{$data->slugIt($data->loca->lga)}} 
                           {{$data->slugIt($data->loca->state->state)}}
                     ">
                     <div class="product-card">
-                      <div class="product-badge text-danger">{{$data->catty->slug}}, <small>{{$data->loca->state->state}}</small></div><a class="product-thumb" href="shop-single.html"><img src="/assets/img/shop/products/01.jpg" alt="Product"></a>
+                      <div class="product-badge text-danger">{{$data->slugIt($data->catty->category)}}, <small>{{$data->loca->state->state}}</small></div><a class="product-thumb" href="shop-single.html"><img src="/assets/img/shop/products/01.jpg" alt="Product"></a>
                       <h3 class="product-title"><a href="shop-single.html">{{$data->title}}</a></h3>
                       <h4 class="product-price">
                         {{-- <del>$99.99</del> --}}$49.99
@@ -228,7 +228,9 @@ Services | Citieclik
       var filterValue = slugIt(this.options[this.selectedIndex].text);
       isotopeIt(filterValue);
     })
-// ==================Categories Section============================
+// ==================Categories Section============================\
+// some mad stuffs here, isotope wont take "&" so had to modify my slugIt function in 
+// the service model to replace "&" with "-" #badAss ;)
 $('.hereIt').on('click','.catz',function(event){
       event.preventDefault();
       //get value of currently clicked option
@@ -250,7 +252,7 @@ $('.hereIt').on('click','.catz',function(event){
         //   })
         // });
 
-        isotopeIt('fashion-beauty');
+        isotopeIt(filterValueCat);
      })
 
 

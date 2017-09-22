@@ -62,7 +62,7 @@ Services | Citieclik
                           {{$data->slugIt($data->loca->lga)}} 
                           {{$data->slugIt($data->loca->state->state)}}
                     ">
-                    <div class="product-card">
+                    <div class="product-card mybox">
                       <div class="product-badge text-danger">{{$data->catty->slug}}, <small>{{$data->loca->state->state}}</small></div><a class="product-thumb" href="shop-single.html"><img src="/assets/img/shop/products/01.jpg" alt="Product"></a>
                       <h3 class="product-title"><a href="shop-single.html">{{$data->title}}</a></h3>
                       <h4 class="product-price">

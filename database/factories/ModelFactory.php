@@ -22,19 +22,34 @@
 //         'remember_token' => str_random(10),
 //     ];
 // });
+
+//my favorite slug function ;)
 function slugIt($slug)
-    {
-        $lettersNamesSpaces = '/[^\-\s\pN\pL]+/u';
-        $spacesHypens = '/[\-\s]+/';
+{
+    $lettersNamesSpaces = '/[^\-\s\pN\pL]+/u';
+    $spacesHypens = '/[\-\s]+/';
 
-        $slug = preg_replace($lettersNamesSpaces, '', mb_strtolower($slug, 'UTF-8'));
+    $slug = preg_replace($lettersNamesSpaces, '', mb_strtolower($slug, 'UTF-8'));
 
-        $slug = preg_replace($spacesHypens, '-', $slug);
+    $slug = preg_replace($spacesHypens, '-', $slug);
 
-        $slug = trim($slug, '-');
+    $slug = trim($slug, '-');
 
-        return $slug;
-    };
+    return $slug;
+};
+
+$factory->define(App\Subcategory::class, function (Faker\Generator $faker) {
+    $cat = mt_rand(1, 11);
+    $title = $faker->text(9);
+    $slug = slugIt($title);
+
+
+    return [
+        'category_id' => $cat,
+        'sub_category' => $title,
+        'slug' => $slug,
+    ];
+});
 
 $factory->define(App\Service::class, function (Faker\Generator $faker) {
 
@@ -52,7 +67,6 @@ $factory->define(App\Service::class, function (Faker\Generator $faker) {
 
 
 	//God thank you for this ;)
-
     return [
         'title' => $title,
         'user_id' => 1,

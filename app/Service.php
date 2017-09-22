@@ -35,15 +35,17 @@ class Service extends Model
         ]);
     }
 
-
     public function slugIt($slug)
     {
         $lettersNamesSpaces = '/[^\-\s\pN\pL]+/u';
         $spacesHypens = '/[\-\s]+/';
+        $removeAmpersAnd = '/&(?!amp;)/';
 
         $slug = preg_replace($lettersNamesSpaces, '', mb_strtolower($slug, 'UTF-8'));
 
         $slug = preg_replace($spacesHypens, '-', $slug);
+        $slug = preg_replace($spacesHypens, '-', $slug);
+        $slug = preg_replace($removeAmpersAnd, '-', $slug);
 
         $slug = trim($slug, '-');
 

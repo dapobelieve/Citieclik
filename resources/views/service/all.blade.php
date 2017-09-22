@@ -62,7 +62,7 @@ Services | Citieclik
                           {{$data->slugIt($data->loca->state->state)}}
                     ">
                     <div class="product-card">
-                      <div class="product-badge text-danger">{{$data->catty->category}}, <small>{{$data->loca->state->state}}</small></div><a class="product-thumb" href="shop-single.html"><img src="/assets/img/shop/products/01.jpg" alt="Product"></a>
+                      <div class="product-badge text-danger">{{$data->catty->slug}}, <small>{{$data->loca->state->state}}</small></div><a class="product-thumb" href="shop-single.html"><img src="/assets/img/shop/products/01.jpg" alt="Product"></a>
                       <h3 class="product-title"><a href="shop-single.html">{{$data->title}}</a></h3>
                       <h4 class="product-price">
                         {{-- <del>$99.99</del> --}}$49.99
@@ -99,7 +99,7 @@ Services | Citieclik
                 <h3 class="widget-title">All Categories</h3>
                 <ul>
                   @foreach($cats as $cat)
-                      <li class=""><a href="#" data-filter="{{$cat->slug}}">{{$cat->category}}</a>{{-- <span>(1138)</span> --}}</li>
+                      <li><a href="#" class="catz" data-filter="{{$cat->slug}}">{{$cat->category}}</a>{{-- <span>(1138)</span> --}}</li>
                   @endforeach
                   
                 </ul>
@@ -129,21 +129,11 @@ Services | Citieclik
               <!-- Widget Brand Filter-->
               <section class="widget">
                 <h3 class="widget-title">Filter by Sub Category</h3>
-                <label class="custom-control custom-checkbox d-block">
-                  <input class="custom-control-input" type="checkbox"><span class="custom-control-indicator"></span><span class="custom-control-description">Adidas&nbsp;<span class="text-muted">(254)</span></span>
-                </label>
-                <label class="custom-control custom-checkbox d-block">
-                  <input class="custom-control-input" type="checkbox"><span class="custom-control-indicator"></span><span class="custom-control-description">Bilabong&nbsp;<span class="text-muted">(39)</span></span>
-                </label>
-                <label class="custom-control custom-checkbox d-block">
-                  <input class="custom-control-input" type="checkbox"><span class="custom-control-indicator"></span><span class="custom-control-description">Calvin Klein&nbsp;<span class="text-muted">(128)</span></span>
-                </label>
-                <label class="custom-control custom-checkbox d-block">
-                  <input class="custom-control-input" type="checkbox"><span class="custom-control-indicator"></span><span class="custom-control-description">Nike&nbsp;<span class="text-muted">(310)</span></span>
-                </label>
-                <label class="custom-control custom-checkbox d-block">
-                  <input class="custom-control-input" type="checkbox"><span class="custom-control-indicator"></span><span class="custom-control-description">Tommy Bahama&nbsp;<span class="text-muted">(42)</span></span>
-                </label>
+                <span id="subCatz">
+                    <label class="custom-control custom-checkbox d-block">
+                      <input class="custom-control-input" type="checkbox"><span class="custom-control-indicator"></span><span class="custom-control-description">Adidas&nbsp;<span class="text-muted">(254)</span></span>
+                    </label>
+                </span>
               </section>
               <!-- Widget Size Filter-->
               {{-- <section class="widget">
@@ -179,8 +169,6 @@ Services | Citieclik
 <script type="text/javascript" src="/js/jquery.min.js"></script>
 <script type="text/javascript" src="/assets/js/isotope.js"></script>
 <script type="text/javascript">
-
-
 //js version of slug
     function slugIt(string) {
       return string
@@ -194,6 +182,11 @@ Services | Citieclik
         .replace(/-+$/, "");
     }
 
+    function isotopeIt(theValue)
+    {
+      $grid.isotope({ filter: "."+theValue });
+    }
+
     //initialize isotope
     $grid = $('.isodata').isotope({
       itemSelector: '.isoitem',
@@ -204,6 +197,7 @@ Services | Citieclik
       stagger: 30,
     });
 
+    // filter based on the selected state
     $('.hereIt').on('change','#serState',function(event){
       //get value of currently selected option
         var filterValue = slugIt(this.options[this.selectedIndex].text);
@@ -225,9 +219,38 @@ Services | Citieclik
           })
         });
 
-        $grid.isotope({ filter: "."+filterValue });
-        // alert(filterValue);
+        isotopeIt(filterValue);
+     })
+
+    //filter based on location aka lgas
+    $('.hereIt').on('change','#location', function(event){
+      var filterValue = slugIt(this.options[this.selectedIndex].text);
+      isotopeIt(filterValue);
     })
+// ==================Categories Section============================
+$('.hereIt').on('click','.catz',function(event){
+      event.preventDefault();
+      //get value of currently clicked option
+        var filterValueCat =  slugIt($(this).data('filter'));
+        console.log(filterValueCat);   
+        //load lgas ajaxically       
+        // $('.locs').show();
+        // $.ajax({
+        //   url: "service/state/location/"+$(this).val(),
+        //   method: 'GET',
+        // })
+        // .done(function(data) {
+        //   $location = $('#location');
+        //   $location.removeAttr('disabled');//enable
+        //   $location.children().remove();//clear the select tag first
+        //   var dee = JSON.parse(data); //convert the json data to array here
+        //   $.each(dee,function(index, value){
+        //     $location.append("<option value='"+value.id+"' >"+ value.lga +"</option>");
+        //   })
+        // });
+
+        isotopeIt('fashion-beauty');
+     })
 
 
 

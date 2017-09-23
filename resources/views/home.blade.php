@@ -74,7 +74,7 @@ Welcome | Citieclik
 
       <section class="padding-top-3x padding-bottom-2x">
           <h1 class="text-center">How it works at Citieclik</h1>
-        <div id="particles-js" class="container-fluid row col-md-12 padding-top-3x padding-bottom-2x mybg" style="color: #fff !important; margin-left: 0px !important;">
+          <div id="particles-js" class="container-fluid row col-md-12 padding-top-3x padding-bottom-2x mybg" style="color: #fff !important; margin-left: 0px !important;">
           <div class="col-md-4 col-sm-6 text-center mb-30"><img class="d-block mx-auto mb-4" src="assets/img/icons/step1.png" alt="Register">
             <h3 style="color: #00aeef;">Step 1</h3>
             <h4 style="color: #fff !important; ">Register an Account</h4>
@@ -95,8 +95,8 @@ Welcome | Citieclik
         <script type="text/javascript" src="/assets/js/app.js" ></script>
       </section>
       <!-- Featured Products Carousel-->
-      <section class="container padding-top-3x padding-bottom-3x">
-        <h3 class="text-center mb-30">Featured Services</h3>
+      <section class="container-fluid padding-top-3x padding-bottom-3x">
+        {{-- <h3 class="text-center mb-30">Featured Services</h3>
         <div class="owl-carousel" data-owl-carousel="{ &quot;nav&quot;: false, &quot;dots&quot;: true, &quot;margin&quot;: 30, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;576&quot;:{&quot;items&quot;:2},&quot;768&quot;:{&quot;items&quot;:3},&quot;991&quot;:{&quot;items&quot;:4},&quot;1200&quot;:{&quot;items&quot;:4}} }">
           <!-- Product-->
           <div class="grid-item">
@@ -174,10 +174,10 @@ Welcome | Citieclik
               </div>
             </div>
           </div>
-        </div>
+        </div> --}}
       </section>
       <!-- Product Widgets-->
-      <section class="container padding-bottom-2x">
+      {{-- <section class="container padding-bottom-2x">
         <div class="row">
           <div class="col-md-4 col-sm-6">
             <div class="widget widget-featured-products">
@@ -258,7 +258,7 @@ Welcome | Citieclik
             </div>
           </div>
         </div>
-      </section>
+      </section> --}}
       <!-- Popular Brands-->
      {{--  <section class="bg-faded padding-top-3x padding-bottom-3x">
         <div class="container">

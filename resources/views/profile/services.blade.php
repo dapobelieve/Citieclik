@@ -17,7 +17,6 @@ Services | Citieclik
               <div class="padding-top-2x mt-2 hidden-lg-up"></div>
               <!-- Wishlist Table-->
               <div class="table-responsive wishlist-table  margin-bottom-none">
-              <div class="slimScroll">
                 <table class="table">
                   <thead>
                     <tr>
@@ -25,10 +24,13 @@ Services | Citieclik
                       <th class="text-center"><a class="btn btn-sm btn-outline-primary" href="{{route('addservice')}}">Add new service</a></th>
                     </tr>
                   </thead>
+                </table>
+              <div class="slimScroll">
+                <table class="table">
                   <tbody>
                   
                   @foreach($user->getUserServices() as $servy) 
-                    <tr>
+                    <tr class="">
                       <td>
                         <div class="product-item"><a class="product-thumb" href="shop-single.html"><img src="/assets/img/shop/cart/01.jpg" alt="Product"></a>
                           <div class="product-info">
@@ -40,7 +42,16 @@ Services | Citieclik
                           </div>
                         </div>
                       </td>
-                      <td class="text-center"><a class="remove-from-cart" href="#" data-toggle="tooltip" title="Remove item"><i class="icon-cross"></i></a></td>
+                      <td class="text-center">
+                        {{-- <a class="remove-from-cart" href="#" data-toggle="tooltip" title="Remove item"><i class="icon-cross"></i></a> --}}
+                        <div class="dropdown">
+                          <a class="" href="#"><i class="icon-ellipsis"></i></a>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item text-primary" href="#">Edit</a>
+                            <a class="dropdown-item text-danger" href="#">Delete</a>
+                          </div>
+                        </div>
+                      </td>
                     </tr>
                     @endforeach
                   

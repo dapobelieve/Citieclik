@@ -72,11 +72,12 @@ Welcome | Citieclik
         {{-- <div class="text-center"><a class="btn btn-outline-secondary margin-top-none" href="category">All Categories</a></div> --}}
       </section>
 
-      <section class="container-fluid padding-top-3x padding-bottom-2x margin-bottom-3x">
-        <div id="particles-js" class="row col-md-12 padding-top-3x padding-bottom-2x mybg" style="color: #fff !important; margin-left: 0px !important;">
+      <section class="padding-top-3x padding-bottom-2x">
+          <h1 class="text-center">How it works at Citieclik</h1>
+        <div id="particles-js" class="container-fluid row col-md-12 padding-top-3x padding-bottom-2x mybg" style="color: #fff !important; margin-left: 0px !important;">
           <div class="col-md-4 col-sm-6 text-center mb-30"><img class="d-block mx-auto mb-4" src="assets/img/icons/step1.png" alt="Register">
             <h3 style="color: #00aeef;">Step 1</h3>
-            <h4 style="color: #fff !important; ">Register and Account</h4>
+            <h4 style="color: #fff !important; ">Register an Account</h4>
             <p class="text-muted margin-bottom-none" style="color: #fff !important;">Create your free account to get started</p>
           </div>
           <div class="col-md-4 col-sm-6 text-center mb-30"><img class="d-block mx-auto mb-4" src="assets/img/icons/step2.png" alt="Verify">

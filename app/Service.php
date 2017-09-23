@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Service extends Model
 {
 
+	public function userz()
+	{
+		return $this->belongsTo('App\User', 'user_id');
+	}
 
 	public function catty()
 	{

@@ -189,6 +189,12 @@
         text: "{{ Session::get('authMsg')}}",
         type: 'warning'
       })
+      @elseif(Session::has('info'))
+        swal({
+          title: "Congratulations",
+          text:  "{{Session::get('info')}}",
+          type: 'success'
+        })
       @endif
     </script>
     

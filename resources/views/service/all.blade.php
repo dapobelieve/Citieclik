@@ -55,7 +55,6 @@ Services | Citieclik
               <div class="grid-sizer"></div>
               <!-- Product-->
               @foreach($sdata as $data)
-
               <div class="isoitem grid-item {{$data->catty->slug}} {{$data->slugIt($data->loca->lga)}} {{$data->slugIt($data->loca->state->state)}}">
                     <div class="product-card mybox">
                       <div class="product-badge text-primary text-bold">{{$data->catty->slug}}</div><br>
@@ -65,7 +64,7 @@ Services | Citieclik
                       <h4 class="product-price">&#8358;49.99</h4>
                       <div class="product-buttons">
                         <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button>
-                        <button class="btn btn-outline-primary btn-sm">Details</button>
+                        <a href="{{route('service.detail', ['username' => $data->userz->username,'slug' => $data->slug])}}" class="btn btn-outline-primary btn-sm">Details</a>
                       </div>
                     </div>
               </div>

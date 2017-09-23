@@ -43,12 +43,13 @@ class User extends Authenticatable
         'location',
         'about',
         'state_id',
+        'slug',
     ];
 
        
     public function services()
     {
-        return $this->hasMany('App\Service');
+        return $this->hasMany('App\Service', 'user_id');
     }
    
     protected $hidden = [

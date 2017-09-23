@@ -1,9 +1,16 @@
 @extends('profile.layout.template')
 
 
-  @section('title')
-  Services | Citieclik
-  @endsection
+@section('title')
+Services | Citieclik
+@endsection
+
+@section('style')
+<link rel="stylesheet" type="text/css" href="/assets/css/slimscroll.css">
+@stop
+
+
+
   @section('profileContent')
             <div class="col-lg-8">
               <div class="padding-top-2x mt-2 hidden-lg-up"></div>
@@ -22,10 +29,10 @@
                       <td>
                         <div class="product-item"><a class="product-thumb" href="shop-single.html"><img src="/assets/img/shop/cart/01.jpg" alt="Product"></a>
                           <div class="product-info">
-                            <h4 class="product-title"><a href="shop-single.html">Unionbay Park</a></h4>
-                            <div class="text-lg text-medium text-muted">$43.90</div>
-                            <div>Availability:
-                              <div class="d-inline text-success">In Stock</div>
+                            <h4 class="product-title"><a href="shop-single.html">{{$servy->title}}</a></h4>
+                            <div class="text-lg text-medium text-muted">Category: {{$servy->catty->category}}</div>
+                            <div>Posted:
+                              <div class="d-inline text-success">{{$servy->created_at->diffForHumans()}}</div>
                             </div>
                           </div>
                         </div>
@@ -42,3 +49,8 @@
               </label>
             </div>      
   @endsection
+
+@section('script')
+<script type="text/javascript" src="/assets/js/slimscroll.min.js"></script>
+
+@stop

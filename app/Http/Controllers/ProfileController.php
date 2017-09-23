@@ -17,7 +17,6 @@ class ProfileController extends Controller
     		abort(404);
     	}
 
-        dd($userServices);
     	return view('profile.services')
     			->with('user', $user);
                 // ->with('userServ', $userServices);

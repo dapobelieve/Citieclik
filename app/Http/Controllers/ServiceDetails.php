@@ -12,6 +12,6 @@ class ServiceDetails extends Controller
 {
     public function index($username, $slug)
     {
-    	return 'data ok';
+    	return view('pages.servicedetails');
     }
 }

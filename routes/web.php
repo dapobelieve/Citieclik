@@ -1,5 +1,12 @@
 <?php
 
+Route::get('/test',[
+	'uses' => 'TestController@index',
+	'as'   => 'test'
+
+]);
+
+
 // Homepage
 Route::get('/', [
 	'uses' => 'HomeController@index',
@@ -26,11 +33,6 @@ Route::get('service/detail/{username}/{serslug}', [
 
 ]);
 
-
-// Route::get('/service-detail/{username}/{slug}', [
-// 	'uses' => '\App\Http\Controllers\ServiceController@getServiceDetails',
-// 	'as'   => 'service.index'
-// ]);
 
 
 /*

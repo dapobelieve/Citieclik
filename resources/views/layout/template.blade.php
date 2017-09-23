@@ -193,7 +193,7 @@
         swal({
           title: "Congratulations",
           text:  "{{Session::get('info')}}",
-          type: 'success'
+          type: 'info'
         })
       @endif
     </script>

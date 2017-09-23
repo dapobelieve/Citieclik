@@ -64,12 +64,13 @@ $factory->define(App\Service::class, function (Faker\Generator $faker) {
 	$scat = mt_rand(1, 3);
 	$title = $faker->text(30);
 	$slug = slugIt($title);
+    $user = mt_rand(1, 3);
 
 
 	//God thank you for this ;)
     return [
         'title' => $title,
-        'user_id' => 1,
+        'user_id' => $user,
         'category_id' => $cat,
         'sub_category_id' => $scat,
         'state_id' => $state,

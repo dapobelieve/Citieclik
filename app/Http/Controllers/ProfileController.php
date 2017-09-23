@@ -12,13 +12,15 @@ class ProfileController extends Controller
 	public function getProfile($slug)
     {
     	$user = User::where('slug', $slug)->first();
+        // $userServices = $user->getUserServices();
     	if(!$user){
     		abort(404);
     	}
-    	// $services = $user->services()->get();
-    	return view('profile.index')
+
+        dd($userServices);
+    	return view('profile.services')
     			->with('user', $user);
-                // ->with('services', $services);
+                // ->with('userServ', $userServices);
     }
 
      //Get user Services 

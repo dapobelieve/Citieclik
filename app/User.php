@@ -46,7 +46,7 @@ class User extends Authenticatable
         'slug',
     ];
 
-       
+    // a user hasMany services
     public function services()
     {
         return $this->hasMany('App\Service', 'user_id');
@@ -57,28 +57,33 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    public function categories()
-    {
-        return $this->belongsToMany('App\Category');
-    }
-
     public function state()
     {
         return $this->belongsTo('App\State');
     }
-    public function userCats()
+    // public function userCats()
+    // {
+    //     return $this->categories()->get();
+    // }
+
+    //  public function userCatsCount()
+    // {
+    //     return $this->categories()->count();
+    // }
+
+    // public function isChecked($id)
+    // {
+    //     return (bool) $this->userCats()->where('id', $id)->count();
+    // }
+    //get services posted by a user
+    public function getUserServices()
     {
-        return $this->categories()->get();
+        return $this->services()->where('type', 'p')->get();
     }
 
-     public function userCatsCount()
+    public function getUserRequests()
     {
-        return $this->categories()->count();
-    }
-
-    public function isChecked($id)
-    {
-        return (bool) $this->userCats()->where('id', $id)->count();
+        return $this->services()->where('type', 'r')->get();
     }
 
     public function likes()

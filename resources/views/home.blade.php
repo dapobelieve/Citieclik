@@ -72,11 +72,8 @@ Welcome | Citieclik
         {{-- <div class="text-center"><a class="btn btn-outline-secondary margin-top-none" href="category">All Categories</a></div> --}}
       </section>
 
-      <section class="padding-top-3x padding-bottom-2x margin-bottom-3x">
-        <div class="container-fluid">
-          <div id="particles-js" class="">
-        </div>
-        <div class="row myrow padding-top-3x" style="color: #fff !important;">
+      <section class="container-fluid padding-top-3x padding-bottom-2x margin-bottom-3x">
+        <div id="particles-js" class="row col-md-12 padding-top-3x padding-bottom-2x mybg" style="color: #fff !important; margin-left: 0px !important;">
           <div class="col-md-4 col-sm-6 text-center mb-30"><img class="d-block mx-auto mb-4" src="assets/img/icons/step1.png" alt="Register">
             <h3 style="color: #00aeef;">Step 1</h3>
             <h4 style="color: #fff !important; ">Register and Account</h4>
@@ -95,7 +92,6 @@ Welcome | Citieclik
         </div>
         <script type="text/javascript" src="/assets/js/particles.js" ></script>
         <script type="text/javascript" src="/assets/js/app.js" ></script>
-        </div>
       </section>
       <!-- Featured Products Carousel-->
       <section class="container padding-top-3x padding-bottom-3x">

@@ -6,12 +6,12 @@ html, body{
     outline: none;
 }
 .slimScroll {
-    /*border: 1px solid #CCC;*/
+    /*border: 1px solid #CFD8DC;*/
     margin-top: 20px;
     display: inline-block;
     overflow: hidden;
     position: relative;
-    height: 800px;  /* set this height in percentage to test resizing */
+    height: 600px;  /* set this height in percentage to test resizing */
     width: inherit;
 }
 

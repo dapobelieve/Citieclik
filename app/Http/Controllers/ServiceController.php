@@ -115,4 +115,9 @@ class ServiceController extends Controller
     {
         return view('pages.servicedetails');
     }
+
+    public function getEditService($id)
+    {
+        dd($id);
+    }
 }

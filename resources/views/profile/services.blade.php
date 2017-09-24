@@ -30,7 +30,7 @@ Services | Citieclik
                   <tbody>
                   
                   @foreach($user->getUserServices() as $servy) 
-                    <tr class="">
+                    <tr class="justify-content-end">
                       <td>
                         <div class="product-item"><a class="product-thumb" href="shop-single.html"><img src="/assets/img/shop/cart/01.jpg" alt="Product"></a>
                           <div class="product-info">
@@ -44,14 +44,16 @@ Services | Citieclik
                       </td>
                       <td class="">
                         {{-- <a class="remove-from-cart" href="#" data-toggle="tooltip" title="Remove item"><i class="icon-cross"></i></a> --}}
-                        <div class="dropdown mybox">
+                        <div class="dropdown" aria-haspopup="true" aria-expanded="false">
                           <a class="" href="#"><i class="icon-ellipsis"></i></a>
-                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <div class="dropdown-menu mybox" aria-labelledby="dropdownMenuButton dropdown-menu-left">
                             <a class="dropdown-item text-primary" href="#"><i class="icon-cog"></i> Edit</a>
                             <a class="dropdown-item text-danger" href="#"><i class="icon-cross"></i>Delete</a>
                           </div>
                         </div>
                       </td>
+                      <td></td>
+                      <td></td>
                     </tr>
                     @endforeach
                   

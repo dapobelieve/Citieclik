@@ -200,13 +200,6 @@
     
     <!-- Customizer scripts-->
     <script src="/assets/customizer/customizer.min.js"></script>   
-    <script type="text/javascript">
-      // window.onload = function() {
-      //   Particles.init({
-      //     selector: '.background'
-      //   });
-      // };
-    </script>
   </body>
 
 </html>

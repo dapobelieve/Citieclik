@@ -119,6 +119,17 @@ Route::post('service/add', [
 |
 */
 
+/*
+|
+| Modify Service Route
+|
+*/
+
+	Route::get('service/edit/{id}',[
+		'uses' => 'ServiceController@getEditService',
+		'as'   => 'service.edit'
+	]);
+
 });
 
 

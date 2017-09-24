@@ -7,6 +7,7 @@ Services | Citieclik
 
 @section('style')
 <link rel="stylesheet" type="text/css" href="/assets/css/slimscroll.css">
+<script type="text/javascript" src="/assets/js/slim.js"></script>
 @stop
 
 
@@ -15,7 +16,8 @@ Services | Citieclik
             <div class="col-lg-8">
               <div class="padding-top-2x mt-2 hidden-lg-up"></div>
               <!-- Wishlist Table-->
-              <div class="table-responsive wishlist-table margin-bottom-none">
+              <div class="table-responsive wishlist-table  margin-bottom-none">
+              <div class="slimScroll">
                 <table class="table">
                   <thead>
                     <tr>
@@ -24,6 +26,7 @@ Services | Citieclik
                     </tr>
                   </thead>
                   <tbody>
+                  
                   @foreach($user->getUserServices() as $servy) 
                     <tr>
                       <td>
@@ -40,8 +43,10 @@ Services | Citieclik
                       <td class="text-center"><a class="remove-from-cart" href="#" data-toggle="tooltip" title="Remove item"><i class="icon-cross"></i></a></td>
                     </tr>
                     @endforeach
+                  
                   </tbody>
                 </table>
+                </div>
               </div>
               <hr class="mb-4">
               <label class="custom-control custom-checkbox d-block">
@@ -52,5 +57,4 @@ Services | Citieclik
 
 @section('script')
 <script type="text/javascript" src="/assets/js/slimscroll.min.js"></script>
-
 @stop

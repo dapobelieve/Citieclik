@@ -120,4 +120,11 @@ class ServiceController extends Controller
     {
         dd($id);
     }
+
+    public function getDeleteService($id)
+    {
+        $post = Service::findOrFail($id);
+        $post->delete();
+        return redirect()->back();
+    }
 }

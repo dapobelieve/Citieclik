@@ -125,9 +125,14 @@ Route::post('service/add', [
 |
 */
 
-	Route::get('service/edit/{id}',[
+	Route::get('service-edit/edit/{id}',[
 		'uses' => 'ServiceController@getEditService',
 		'as'   => 'service.edit'
+	]);
+
+	Route::delete('service-delete/delete/{id}',[
+		'uses' => 'ServiceController@getDeleteService',
+		'as'   => 'service.delete'
 	]);
 
 });

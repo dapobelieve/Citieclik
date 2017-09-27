@@ -118,13 +118,15 @@ class ServiceController extends Controller
 
     public function getEditService($id)
     {
-        dd($id);
+        $post = Service::findOrFail($id);
+        return view('pages.edit')->with('sdata', $post);
     }
 
     public function getDeleteService($id)
     {
+        // dd($id);
         $post = Service::findOrFail($id);
         $post->delete();
-        return redirect()->back();
+        return redirect()->back()->with('info', 'Service Deleted.');
     }
 }

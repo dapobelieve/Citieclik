@@ -113,6 +113,16 @@ Route::post('service/add', [
 		'uses' => 'AjaxRequestsController@getSubCat'
 	]);
 
+
+	Route::get('service-edit/edit/state/{id}', [
+		'uses' => 'AjaxRequestsController@getLocation'
+	]);
+
+	Route::get('service-edit/edit/category/{id}', [
+		'uses' => 'AjaxRequestsController@getSubCat'
+	]);
+
+
 /*
 |
 | Ajax Requests Section Ends Here

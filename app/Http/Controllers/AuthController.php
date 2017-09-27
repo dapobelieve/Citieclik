@@ -72,7 +72,7 @@ class AuthController extends Controller
         //automatically logging
     	if(Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')])){
             return redirect()->route('home')
-                     ->with('info', 'You account has been created successfully!');
+                     ->with('success', 'You account has been created successfully!');
         } 
     }
 
@@ -90,10 +90,10 @@ class AuthController extends Controller
                 'password' => $request->input('password1')
             ],$request->has('remember'))){
     		
-    		return redirect()->back()->with('info','Could not sign you in. Invalid Details');
+    		return redirect()->back()->with('Success','Could not sign you in. Invalid Details');
     	}
 
-    	return redirect()->route('home')->with('info','You are now signed in');
+    	return redirect()->route('home')->with('Success','You are now signed in');
     } 
 
     public function getSignout()

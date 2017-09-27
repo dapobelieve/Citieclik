@@ -20,21 +20,21 @@
 @endsection
 
 @section('title')
-Add service | Citieclik
+Edit service | Citieclik
 @endsection
 
 @section('content')
 	<div class="page-title">
         <div class="container">
           <div class="column">
-            <h1>Add New Service</h1>
+            <h1>Edit Service</h1>
           </div>
           <div class="column">
             <ul class="breadcrumbs">
               <li><a href="index-2.html">Home</a>
               </li>
               <li class="separator">&nbsp;</li>
-              <li>Add Service</li>
+              <li>Edit Service</li>
             </ul>
           </div>
         </div>
@@ -55,7 +55,7 @@ Add service | Citieclik
 							</ul>
 		            </div>
 		          @endif
-		            <h4>Post Service</h4>
+		            <h4>Edit Service</h4>
 		            <hr>
 		            <hr class="padding-bottom-1x">
 		            <form class="" role="form" method="POST" enctype="multipart/form-data" action="{{route('addservice')}}">
@@ -63,7 +63,7 @@ Add service | Citieclik
 			              	<div class="col-sm-12">
 				                <div class="form-group {{ $errors->has('serTitle') ? ' has-error' : '' }}">
 				                  	<label for="checkout-fn">Service Title</label>
-				                  	<input class="form-control" name="serTitle" type="text" placeholder="name of your service programmer, hair stylist, barber etc" value="{{ old('serTitle') ?: '' }}" required>
+				                  	<input class="form-control" name="serTitle" type="text" placeholder="name of your service programmer, hair stylist, barber etc" value="{{ old('serTitle') ?: $sdata->title }}" required>
 				                  	@if ($errors->has('serTitle'))
 										<p class="help-block text-danger"><i class="icon-circle-cross"></i>&nbsp;{{ $errors->first('serTitle') }}</p>
 					                	{{-- <span class="help-block"> </span> --}}
@@ -76,7 +76,8 @@ Add service | Citieclik
 				                <div class="form-group {{ $errors->has('serCat') ? ' has-error' : '' }}">
 				                  	<label for="checkout-country">Category</label>
 				                  	<select class="form-control" name="serCat" id="serCat" value="{{ old('serCat') ?: ''  }}">
-					                    <option>Choose a Category</option>
+					                    {{-- <option>Choose a Category</option> --}}
+					                    <option value="{{$sdata->catty->id}}">{{$sdata->catty->category}}</option>
 					                    @foreach($cats as $cat)
 					                        <option value="{{$cat->id}}">{{$cat->category}}</option>
 					                    @endforeach
@@ -90,7 +91,7 @@ Add service | Citieclik
 				                <div class="form-group">
 				                  	<label for="checkout-country">Sub Category</label>
 				                  	<select class="form-control" name="subCat" disabled id="subCat" value="{{ Request::old('subCat') ?: ''  }}">
-				                    	<option>Sub Category</option>
+				                    	<option value="{{$sdata->subCat->id}}">{{$sdata->subCat->sub_category}}</option>
 				                    
 				                  	</select>
 				                </div>
@@ -101,7 +102,7 @@ Add service | Citieclik
 				                <div class="form-group {{ $errors->has('serState') ? ' has-error' : '' }}">
 				                  	<label for="checkout-country">State</label>
 				                  	<select class="form-control" name="serState" id="serState" value="{{ old('serState') ?: ''  }}">
-				                    	<option>Choose a State</option>
+				                    	<option value="{{$sdata->state->id}}">{{$sdata->state->state}}</option>
 					                    @foreach($states as $state)
 					                        <option value="{{$state->id}}">{{$state->state}}</option>
 					                    @endforeach
@@ -115,7 +116,7 @@ Add service | Citieclik
 				                <div class="form-group {{ $errors->has('location') ? ' has-error' : '' }}">
 				                  	<label for="checkout-country">Location</label>
 					                <select class="form-control" name="location" disabled id="location" value="{{ Request::old('location') ?: ''  }}">
-					                    <option>Choose Location</option>
+					                    <option>{{$sdata->loca->lga}}</option>
 					                    
 					                </select>
 			                  		@if ($errors->has('location'))
@@ -138,7 +139,7 @@ Add service | Citieclik
 				            <div class="col-md-6">
 				            	<div class="form-group">
 				            		<label class="col-form-label" for="file-preview">Image Preview</label>
-				            		<img style="width:150px; height:auto " class="d-block mx-auto img-thumbnail mb-3" id="output_image"/>
+				            		<img style="width:150px; height:auto" src="{{$sdata->image}}" class="d-block mx-auto img-thumbnail mb-3" id="output_image"/>
 				            	</div>
 				            </div>
 			            </div>
@@ -147,7 +148,7 @@ Add service | Citieclik
 			            	<div class="col-sm-12">
 			            		<div class="form-group {{ $errors->has('description') ? ' has-error' : '' }}">
 				            		<label for="checkout-description">Description</label>
-				            		<textarea class="my-editor" name="description" value="{{ old('description') ?: ''  }}" placeholder="Your description goes here..."></textarea>
+				            		<textarea class="my-editor" name="description" value="{{ old('description') ?: ''  }}" placeholder="Your description goes here...">{{$sdata->description}}</textarea>
 			                  		@if ($errors->has('description'))
 										<p class="help-block text-danger"><i class="icon-circle-cross"></i>&nbsp;{{ $errors->first('description') }}</p>
 				                	@endif
@@ -244,7 +245,7 @@ Add service | Citieclik
 //script to auto change states and its lgas
 	$('#serState').change(function(){
 		$.ajax({
-			url: "state/location/"+$(this).val(),
+			url: "state/"+$(this).val(),
 			method: 'GET',
 		})
 		.done(function(data) {
@@ -258,10 +259,10 @@ Add service | Citieclik
 		});
 	})
 
-	//same logic as above but for
+	//same logic as above but for categories
 	$('#serCat').change(function(){
 		$.ajax({
-			url: "category/getscat/"+$(this).val(),
+			url: "category/"+$(this).val(),
 			method: 'GET',
 		})
 		.done(function(data) {
@@ -276,10 +277,6 @@ Add service | Citieclik
 	})
 </script>
 
-
-<script type="text/javascript">
-	$('select').selectize(options);
-</script>
 <script type="text/javascript">
 	$('.my-editor').trumbowyg({
 		autogrow: true,
@@ -293,9 +290,8 @@ Add service | Citieclik
 	        'btnGrp-lists',
 	        ['horizontalRule'],
 	        ['removeformat'],
-	        // ['fullscreen']
 	    ]
-	});
+	});   
 </script>
 
 @endsection

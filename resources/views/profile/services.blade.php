@@ -7,39 +7,41 @@ Services | Citieclik
 
 @section('style')
 <link rel="stylesheet" type="text/css" href="/assets/css/slimscroll.css">
+
 <script type="text/javascript" src="/assets/js/slim.js"></script>
+
  <style>
-    *{margin: 0;padding:0px}
+        *{margin: 0;padding:0px}
 
-  
-    .showLeft{
-        text-shadow: none !important;
-        color:#fff !important;
-    }
+      
+        .showLeft{
+            text-shadow: none !important;
+            color:#fff !important;
+        }
 
-    .icons li {
-        background: none repeat scroll 0 0 #b5a4a4;
-        height: 4px;
-        width: 4px;
-        line-height: 0;
-        list-style: none outside none;
-        margin-top: 3px;
-        vertical-align: top;
-        border-radius:50%;
-        pointer-events: none;
-    }
+        .icons li {
+            background: none repeat scroll 0 0 #b5a4a4;
+            height: 4px;
+            width: 4px;
+            line-height: 0;
+            list-style: none outside none;
+            margin-top: 3px;
+            vertical-align: top;
+            border-radius:50%;
+            pointer-events: none;
+        }
 
-    .btn-left, .btn-right {
-        position: absolute;
-    }
+        .btn-left, .btn-right {
+            position: absolute;
+        }
 
-    .dropbtn {
-        color: white;
-        font-size: 16px;
-        border: none;*/
-        cursor: pointer;
-    }
-    .show {display:block;}
+        .dropbtn {
+            color: white;
+            font-size: 16px;
+            border: none;*/
+            cursor: pointer;
+        }
+        .show {display:block;}
 </style>
 @stop
 
@@ -89,7 +91,7 @@ Services | Citieclik
                                              {{csrf_field()}}
                                          </form>
                                          <hr>
-                                         <form method="POST" action="{{route('service.delete', $servy->id)}}">
+                                         <form method="POST" class="deletey" action="{{route('service.delete', $servy->id)}}">
                                              <input class="dropdown-item text-danger" style="cursor:pointer" type="submit" value="Delete">
                                              {{method_field('DELETE')}}
                                              {{csrf_field()}}
@@ -111,5 +113,14 @@ Services | Citieclik
   @endsection
 
 @section('script')
-<script type="text/javascript" src="/assets/js/slimscroll.min.js"></script>
+<script src="/assets/js/slimscroll.min.js"></script>
+<script type="text/javascript">
+ @if(Session::has('info'))
+  swal({
+    title: "",
+    text:  "{{Session::get('info')}}",
+    type: 'info'
+  })
+@endif
+</script>
 @stop

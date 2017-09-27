@@ -10,4 +10,9 @@ class Subcategory extends Model
     {
     	return $this->belongsTo('App\Category');
     }
+
+    public function servy()
+    {
+    	return $this->hasMany('App\Service');
+    }
 }

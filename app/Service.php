@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Service extends Model
 {
 
+// Relationships Start
+
 	public function userz()
 	{
 		return $this->belongsTo('App\User', 'user_id');
@@ -22,11 +24,16 @@ class Service extends Model
 		return $this->belongsTo('App\State', 'state_id');
 	}
 
+    public function subCat()
+    {
+        return $this->belongsTo('App\Subcategory', 'sub_category_id');
+    }
+
 	public function loca()
 	{
 		return $this->belongsTo('App\Location', 'location_id');
 	}
-
+// Relationships Ends
 
 	// A small function to DRY up our queries when
 	// we run it in our controller. something like 

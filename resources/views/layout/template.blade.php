@@ -181,23 +181,7 @@
     <script src="/assets/js/vendor.min.js"></script>
     <script src="/assets/js/scripts.min.js"></script>
     <script src="/assets/js/sweetalert.min.js"></script>
-    @yield('script')
-    <script type="text/javascript">
-     @if(Session::has('authMsg'))
-      swal({
-        title: "oops not allowed",
-        text: "{{ Session::get('authMsg')}}",
-        type: 'warning'
-      })
-      @elseif(Session::has('info'))
-        swal({
-          title: "Congratulations",
-          text:  "{{Session::get('info')}}",
-          type: 'info'
-        })
-      @endif
-    </script>
-    
+    @yield('script')    
     <!-- Customizer scripts-->
     <script src="/assets/customizer/customizer.min.js"></script>   
   </body>

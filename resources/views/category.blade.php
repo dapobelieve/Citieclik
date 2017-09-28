@@ -42,7 +42,7 @@ Category | Citieclik
 			                </div></a>
 			              <div class="card-block text-center">
 			                <h4 class="card-title">{{$cat->category}}</h4>
-			                <a class="btn btn-outline-primary btn-sm" href="#">View Category</a>
+			                <a class="btn btn-outline-primary btn-sm" href="#">View geh Category</a>
 			              </div>
 			            </div>
 		          	</div>

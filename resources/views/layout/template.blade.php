@@ -62,8 +62,8 @@
         <ul>
           <li class="active"><a href="/"><span>Home</span></a>
           </li>
-          <li><a href="#"><span>Shop</span></a>
-            <ul class="sub-menu">
+          <li><a href="{{route('service')}}"><span>Services</span></a>
+            {{-- <ul class="sub-menu">
               <li><a href="category">Categories</a></li>
               <li class="has-children"><a href="shop-grid-ls.html"><span>Shop Grid</span></a>
                 <ul class="sub-menu">
@@ -90,7 +90,7 @@
                     <li><a href="checkout-complete.html">Complete</a></li>
                 </ul>
               </li>
-            </ul>
+            </ul> --}}
           </li>
           <li><a href="#"><span>Account</span></a>
             <ul class="sub-menu">

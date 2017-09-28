@@ -14,8 +14,8 @@ Route::get('/', [
 ]);
 
 // Category 
-Route::get('category', [
-	'uses' => 'CategoryController@index',
+Route::get('category/{slug}', [
+	'uses' => 'PagesController@getCategory',
 	'as' => 'category'
 ]);
 

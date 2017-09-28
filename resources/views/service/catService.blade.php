@@ -9,14 +9,14 @@ Services | Citieclik
       <div class="page-title">
         <div class="container">
           <div class="column">
-            <h1>All Services</h1>
+            <h1>Services</h1>
           </div>
           <div class="column">
             <ul class="breadcrumbs">
               <li><a href="index-2.html">Home</a>
               </li>
               <li class="separator">&nbsp;</li>
-              <li>All Services</li>
+              <li>Services</li>
             </ul>
           </div>
         </div>

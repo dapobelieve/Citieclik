@@ -63,7 +63,7 @@ Welcome | Citieclik
                 <div class="card-block text-center">
                   <h6 class="card-title">{{$cat->category}}</h6>
                   {{-- <p class="text-muted">Starting from $27.00</p> --}}
-                  <a class="" href="#">View Category</a>
+                  <a class="" href="{{route('category', $cat->slug)}}">View Category</a>
                 </div>
               </div>
             </div>

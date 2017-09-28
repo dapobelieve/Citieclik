@@ -107,7 +107,7 @@ class ServiceController extends Controller
         }
 
         $service->save();
-        return redirect()->route('addservice')->with('info', 'Service Posted Successfully');
+        return redirect()->route('profile.services')->with('info', 'Service Posted Successfully');
     }
 
     //Route to get subcategory based on selected category
@@ -125,7 +125,7 @@ class ServiceController extends Controller
     //validate and update service details
     public function postServiceUpdate(Request $serRequest, $id)
     {
-        dd($id);
+        // dd($serRequest->input('subCat'));
 
         $this->validate($serRequest, [
             'serTitle'  =>  'required|string|max:255',
@@ -190,9 +190,8 @@ class ServiceController extends Controller
         }
 
         $service->save();
-        return redirect()->route('addservice')->with('info', 'Service Posted Successfully');
+        return redirect()->route('profile.services')->with('info', 'Service Updated Successfully');
     }
-
 
     public function getDeleteService($id)
     {

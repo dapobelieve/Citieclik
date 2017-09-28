@@ -58,8 +58,14 @@ Edit service | Citieclik
 		            <h4>Edit Service</h4>
 		            <hr>
 		            <hr class="padding-bottom-1x">
-		            <form class="" role="form" method="POST" enctype="multipart/form-data" action="{{route('service.edit', [$sdata->id)]}}">
-		            {{method_field('PUT')}}
+		            <form 
+		            	class="" 
+		            	role="form" 
+		            	method="POST" 
+		            	enctype="multipart/form-data" 
+		            	action="{{route('service.edit', $sdata->id)}}">
+
+		            {{-- {{method_field('PUT')}} --}}
 			            <div class="row" style="margin-top: 20px;">
 			              	<div class="col-sm-12">
 				                <div class="form-group {{ $errors->has('serTitle') ? ' has-error' : '' }}">
@@ -91,7 +97,7 @@ Edit service | Citieclik
 	              			<div class="col-sm-6">
 				                <div class="form-group">
 				                  	<label for="checkout-country">Sub Category</label>
-				                  	<select class="form-control" name="subCat" disabled id="subCat" value="{{ Request::old('subCat') ?: ''  }}">
+				                  	<select class="form-control" name="subCat"  id="subCat" value="{{ Request::old('subCat') ?: $sdata->subCat->id  }}">
 				                    	<option value="{{$sdata->subCat->id}}">{{$sdata->subCat->sub_category}}</option>
 				                    
 				                  	</select>
@@ -116,8 +122,8 @@ Edit service | Citieclik
 			              	<div class="col-sm-6">
 				                <div class="form-group {{ $errors->has('location') ? ' has-error' : '' }}">
 				                  	<label for="checkout-country">Location</label>
-					                <select class="form-control" name="location" disabled id="location" value="{{ Request::old('location') ?: ''  }}">
-					                    <option>{{$sdata->loca->lga}}</option>
+					                <select class="form-control" name="location"  id="location" value="{{ Request::old('location') ?: ''  }}">
+					                    <option value="{{$sdata->loca->lga}}">{{$sdata->loca->lga}}</option>
 					                    
 					                </select>
 			                  		@if ($errors->has('location'))

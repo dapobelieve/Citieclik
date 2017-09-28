@@ -140,6 +140,8 @@ Route::post('service/add', [
 		'as'   => 'service.edit'
 	]);
 
+
+	//edit service route
 	Route::post('service-edit/edit/{id}',[
 		'uses' => 'ServiceController@postServiceUpdate',
 		'as'   => 'service.edit'

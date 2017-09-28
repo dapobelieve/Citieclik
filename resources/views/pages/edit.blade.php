@@ -58,7 +58,8 @@ Edit service | Citieclik
 		            <h4>Edit Service</h4>
 		            <hr>
 		            <hr class="padding-bottom-1x">
-		            <form class="" role="form" method="POST" enctype="multipart/form-data" action="{{route('addservice')}}">
+		            <form class="" role="form" method="POST" enctype="multipart/form-data" action="{{route('service.edit', [$sdata->id)]}}">
+		            {{method_field('PUT')}}
 			            <div class="row" style="margin-top: 20px;">
 			              	<div class="col-sm-12">
 				                <div class="form-group {{ $errors->has('serTitle') ? ' has-error' : '' }}">
@@ -234,10 +235,6 @@ Edit service | Citieclik
 @endsection
 
 @section('script')
-{{-- <script src="path/to/jquery.js"></script>  --}}
-
-{{-- <script src="/dist/summernote.min.js"></script> --}}
-{{-- <script src="/dist/summernoteinit.js"></script> --}}
 
 <script type="text/javascript" src="/js/jquery.min.js"></script>
 <script src="/dist/trumbowyg.min.js"></script>

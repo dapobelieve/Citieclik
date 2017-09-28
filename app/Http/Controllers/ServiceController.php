@@ -122,6 +122,78 @@ class ServiceController extends Controller
         return view('pages.edit')->with('sdata', $post);
     }
 
+    //validate and update service details
+    public function postServiceUpdate(Request $serRequest, $id)
+    {
+        dd($id);
+
+        $this->validate($serRequest, [
+            'serTitle'  =>  'required|string|max:255',
+            'serState'  => 'required|integer',
+            'location'  => 'required|integer',
+            'serCat'    => 'required|integer',
+            'subCat'    => 'required|integer',
+            'serImg'    => "image|mimes:jpeg,jpg,png,bmp,svg|max:2048",
+            // 'servicePrice' => "integer",
+            'description'  => 'required|string'
+        ], 
+        [
+            'serTitle.required'     => 'The service you offer needs to have a name e.g I write final year projects, Hair stylist, Bead Designer etc',
+            'serState.required'     => 'Select the state  where you currently provide this service',
+            'serState.integer'     => 'Select the state  where you currently provide this service',
+            'location.required'     => 'Select the location',
+            'location.integer'     => 'Select the location',
+            'description.required'  => 'Give a short description of the sevice',
+            'serCat.required'       => 'Select a Category',
+            'serCat.integer'       => 'Select a Category',
+            'subCat.required'       => 'Select a Sub Category',
+            'subCat.integer'       => 'Select a Sub Category',
+            // 'servicePrice.integer' => 'The price must be in digits e.g 50000',
+            'serImg.mimes'          => 'The image must have jpeg, jpg or png format',
+            'serImg.max'            => 'The Image is too large, It must not be more than 2MB',
+        ]); 
+
+
+        $slugSer = $this->slugIt($serRequest->input('serviceName'));
+
+        $service =  Service::find($id);
+        $service->title             = $serRequest->input('serTitle');
+        $service->user_id           = Auth::user()->id;
+        $service->category_id       = $serRequest->input('serCat');
+        $service->sub_category_id   = $serRequest->input('subCat');
+        $service->description       = $serRequest->input('description');
+        $service->slug              = $slugSer;
+        $service->type              = 'p';
+        $service->state_id          = $serRequest->input('serState');
+        $service->location_id       = $serRequest->input('location');
+        
+
+        //here i check if an image is in the 
+        //image field and upload it to cloudinary
+        if($serRequest->hasFile('serImg')){
+            $fileUrl = $serRequest->file('serImg')->getRealPath();
+            $result  =  Cloudder::upload($fileUrl,null, $options = array(
+                'folder'   => 'citi',
+                'timeout'  =>  200,
+                'format'   => 'jpg',
+                'quality'  => 'auto'
+            ));            
+
+            $pubId =  Cloudder::getPublicId();
+
+            $file_url  = Cloudder::getResult();
+                        
+            if(!empty($pubId)){
+                $service->imgId = $pubId;
+                $service->image = $file_url['url'];
+            }
+        }
+
+        $service->save();
+        return redirect()->route('addservice')->with('info', 'Service Posted Successfully');
+    }
+
+
     public function getDeleteService($id)
     {
         // dd($id);

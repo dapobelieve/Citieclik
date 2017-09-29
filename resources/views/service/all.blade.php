@@ -48,5 +48,11 @@ Services | Citieclik
 @endsection
 
 @section('script')
-@include('service.layout.script');
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/assets/js/isotope.js"></script>
+<script>
+  var url1 = "service/state/location/";
+  var url2 = "service/state/location/";
+</script>
+<script src="/assets/js/service.js"></script>
 @stop

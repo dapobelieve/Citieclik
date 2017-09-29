@@ -5,18 +5,16 @@
                 <h3 class="widget-title">All Categories</h3>
                 <ul>
                   @foreach($cats as $cat)
-                      <li><a href="#" class="catz" data-filter="{{$cat->slug}}">{{$cat->category}}</a>{{-- <span>(1138)</span> --}}</li>
+                      <li><a href="#" class="catz" data-id="{{$cat->id}}" data-filter="{{$cat->slug}}">{{$cat->category}}</a>{{-- <span>(1138)</span> --}}</li>
                   @endforeach
                   
                 </ul>
               </section>
              
-              <section class="widget">
+              <section class="widget subCatWid" style="display:none" >
                 <h3 class="widget-title">Filter by Sub Category</h3>
                 <span id="subCatz">
-                    <label class="custom-control custom-checkbox d-block">
-                      <input class="custom-control-input" type="checkbox"><span class="custom-control-indicator"></span><span class="custom-control-description">Adidas&nbsp;<span class="text-muted">(254)</span></span>
-                    </label>
+                    
                 </span>
               </section>
               <!-- Widget Size Filter-->

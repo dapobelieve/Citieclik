@@ -1,10 +1,13 @@
 <?php
 
+// For testing purposes
 Route::get('/test',[
 	'uses' => 'TestController@index',
 	'as'   => 'test'
 
 ]);
+
+// ends here
 
 
 // Homepage

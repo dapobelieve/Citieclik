@@ -11,6 +11,10 @@ class PagesController extends Controller
     {
     	$serviceCat = Category::where('slug', $slug)->first();
     	$data = $serviceCat->services;
-    	return view('service.catService')->with('sdata', $data);
+    	$subCat = $serviceCat->subCats;
+    	return view('service.catService')
+    	->with('sdata', $data)
+    	->with('subCats', $subCat)
+    	->with('catName', $serviceCat->category);
     }
 }

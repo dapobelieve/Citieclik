@@ -125,6 +125,13 @@ Route::post('service/add', [
 		'uses' => 'AjaxRequestsController@getSubCat'
 	]);
 
+	Route::get('category/category-h/state/{id}', [
+		'uses' => 'AjaxRequestsController@getLocation'
+	]);
+
+	Route::get('category/category-h/scat/{id}', [
+		'uses' => 'AjaxRequestsController@getSubCat'
+	]);
 
 /*
 |

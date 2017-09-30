@@ -1,7 +1,7 @@
 @extends('layout.template')
 
 @section('title')
-Services | Citieclik
+{{$catName}} Services
 @endsection
 
 @section('content')
@@ -9,7 +9,7 @@ Services | Citieclik
       <div class="page-title">
         <div class="container">
           <div class="column">
-            <h1>Services</h1>
+            <h1>Services | {{$catName}}</h1>
           </div>
           <div class="column">
             <ul class="breadcrumbs">
@@ -41,12 +41,59 @@ Services | Citieclik
           </div>
           <!-- Sidebar          -->
           <div class="col-xl-3 col-lg-4 pull-xl-9 pull-lg-8">
-            @include('service.layout.cat-filter')
+            <aside class="sidebar">
+              <div class="padding-top-2x hidden-lg-up"></div>
+              <!-- Widget Categories-->
+                           
+              <section class="widget subCatWid">
+                <h3 class="widget-title">Sub Categories</h3>
+                <span id="subCatz">
+                @foreach($subCats as $subCat)
+                    <label class="custom-control custom-checkbox d-block">
+                           <input class="custom-control-input" type="checkbox">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">{{$subCat->sub_category}}&nbsp;
+                            <span class="text-muted">(254)</span></span>
+                    </label>
+                @endforeach
+                </span>
+              </section>
+              <!-- Widget Size Filter-->
+              {{-- <section class="widget">
+                <h3 class="widget-title">Filter by Size</h3>
+                <label class="custom-control custom-checkbox d-block">
+                  <input class="custom-control-input" type="checkbox"><span class="custom-control-indicator"></span><span class="custom-control-description">XL&nbsp;<span class="text-muted">(208)</span></span>
+                </label>
+                <label class="custom-control custom-checkbox d-block">
+                  <input class="custom-control-input" type="checkbox"><span class="custom-control-indicator"></span><span class="custom-control-description">L&nbsp;<span class="text-muted">(311)</span></span>
+                </label>
+                <label class="custom-control custom-checkbox d-block">
+                  <input class="custom-control-input" type="checkbox"><span class="custom-control-indicator"></span><span class="custom-control-description">M&nbsp;<span class="text-muted">(485)</span></span>
+                </label>
+                <label class="custom-control custom-checkbox d-block">
+                  <input class="custom-control-input" type="checkbox"><span class="custom-control-indicator"></span><span class="custom-control-description">S&nbsp;<span class="text-muted">(213)</span></span>
+                </label>
+              </section> --}}
+              <!-- Promo Banner-->
+              <section class="promo-box" style="background-image: url(/assets/img/banners/02.jpg);">
+                <!-- Choose between .overlay-dark (#000) or .overlay-light (#fff) with default opacity of 50%. You can overrride default color and opacity values via 'style' attribute.--><span class="overlay-dark" style="opacity: .45;"></span>
+                <div class="promo-box-content text-center padding-top-3x padding-bottom-2x">
+                  <h4 class="text-light text-thin text-shadow">New Collection of</h4>
+                  <h3 class="text-bold text-light text-shadow">Sunglassess</h3><a class="btn btn-sm btn-primary" href="#">Shop Now</a>
+                </div>
+              </section>
+            </aside>
           </div>
         </div>
       </div>
 @endsection
 
 @section('script')
-@include('service.layout.script');
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/assets/js/isotope.js"></script>
+<script>
+  var url1 = "category-h/state/";
+</script>
+<script src="/assets/js/service.js"></script>
+
 @stop

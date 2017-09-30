@@ -61,15 +61,14 @@ $('.hereIt').on('change','#location', function(event){
 // the service model to replace "&" with "-" #badAss huh ;)
 $('.hereIt').on('click','.catz',function(event){
   event.preventDefault();
-  //get value of currently clicked option
+    //get value of currently clicked option
     var filterValueCat =  slugIt($(this).data('filter'));
     var catId = $(this).data('id');
-    console.log(catId);
 
     // load sub cats ajaxically       
     $('.subCatWid').show();
     $.ajax({
-      url: "service/category/getscat/"+catId,
+      url: url2+catId,
       method: 'GET',
     })
     .done(function(data) {

@@ -52,7 +52,7 @@ Services | Citieclik
 <script type="text/javascript" src="/assets/js/isotope.js"></script>
 <script>
   var url1 = "service/state/location/";
-  var url2 = "service/state/location/";
+  var url2 = "service/category/getscat/";
 </script>
 <script src="/assets/js/service.js"></script>
 @stop

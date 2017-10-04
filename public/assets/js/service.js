@@ -76,8 +76,8 @@ $('.hereIt').on('click','.catz',function(event){
       $location.children().remove();//clear the select tag first
       var dee = JSON.parse(data); //convert the json data to array here
       $.each(dee,function(index, value){
-        $location.append("<label class='custom-control custom-checkbox d-block'>"+
-                               "<input class='custom-control-input' type='checkbox'>"+
+        $location.append("<label class='custom-control dcheck custom-checkbox d-block'>"+
+                               "<input class='custom-control-input' type='checkbox' value='"+value.slug+"'>"+
                                 "<span class='custom-control-indicator'></span>"+
                                 "<span class='custom-control-description'>"+value.sub_category+"&nbsp;"+
                                 "<span class='text-muted'>(254)</span></span>"+

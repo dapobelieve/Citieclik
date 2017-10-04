@@ -50,10 +50,10 @@
                 <span id="subCatz">
                 @foreach($subCats as $subCat)
                     <label class="custom-control custom-checkbox d-block">
-                           <input class="custom-control-input" type="checkbox">
+                           <input class="custom-control-input" type="checkbox" value=".{{$subCat->slug}}">
                             <span class="custom-control-indicator"></span>
                             <span class="custom-control-description">{{$subCat->sub_category}}&nbsp;
-                            <span class="text-muted">(254)</span></span>
+                            {{-- <span class="text-muted">(254)</span></span> --}}
                     </label>
                 @endforeach
                 </span>
@@ -95,5 +95,29 @@
   var url1 = "category-h/state/";
 </script>
 <script src="/assets/js/service.js"></script>
+<script type="text/javascript">
+
+function isotopeIts(theValue)
+{
+  $grid.isotope({ filter: theValue });
+}
+
+
+  var checkboxes = $('#subCatz input');
+  checkboxes.change( function() {
+  // map input values to an array
+  var inclusives = [];
+  // inclusive filters from checkboxes
+  checkboxes.each( function( i, elem ) {
+    // if checkbox, use value if checked
+    if ( elem.checked ) {
+      inclusives.push( elem.value );
+    }
+  });
+    var filterValue = inclusives.length ? inclusives.join(', ') : '*';
+    // console.log(filterValue);
+    isotopeIts(filterValue);
+  })
+</script>
 
 @stop

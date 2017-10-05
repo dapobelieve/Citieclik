@@ -167,6 +167,7 @@ return [
          * Package Service Providers...
          */
         Laravel\Tinker\TinkerServiceProvider::class,
+        Laravel\Socialite\SocialiteServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -228,6 +229,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Cloudder' => JD\Cloudder\Facades\Cloudder::class,
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         // 'Nexmo' => Nexmo\Laravel\Facade\Nexmo::class,
 
     ],

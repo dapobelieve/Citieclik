@@ -55,4 +55,31 @@ Services | Citieclik
   var url2 = "service/category/getscat/";
 </script>
 <script src="/assets/js/service.js"></script>
+<script type="text/javascript">
+
+function isotopeIts(theValue)
+{
+  $grid.isotope({ filter: theValue });
+}
+
+
+  var checkboxes = $('.subCatWid');
+  checkboxes.on("change",".dcheck", function(event) {
+  // map input values to an array
+  console.log(event.target.value);
+  var inclusives = [];
+  // inclusive filters from checkboxes
+  checkboxes.each( function( i, elem ) {
+    // if checkbox, use value if checked
+    if ( elem.checked ) {
+      inclusives.push( elem.value );
+    }
+  });
+  // console.log(inclusives);
+
+    // var filterValue = inclusives.length ? inclusives.join(', ') : '*';
+    // console.log(filterValue); 
+    // isotopeIts(filterValue);
+  })
+</script>
 @stop

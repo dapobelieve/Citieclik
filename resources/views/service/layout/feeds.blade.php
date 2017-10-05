@@ -12,14 +12,14 @@
                           <h4 class="product-price">&#8358;49.99</h4>
                           <div class="product-buttons">
                             <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button>
-                            <a href="{{route('service.detail', ['username' => $data->userz->username,'slug' => $data->slug])}}" class="btn btn-outline-primary btn-sm">Details</a>
+                            <a href="{{route('service.detail',['username' => $data->userz->username,'slug' => $data->slug])}}" class="btn btn-outline-primary btn-sm">Details</a>
                           </div>
                         </div>
                   </div>
                   @endforeach
             </div>
             <!-- Pagination-->
-            <nav class="pagination">
+            {{-- <nav class="pagination">
               <div class="column">
                 <ul class="pages">
                   <li class="active"><a href="#">1</a></li>
@@ -31,4 +31,4 @@
                 </ul>
               </div>
               <div class="column text-right hidden-xs-down"><a class="btn btn-outline-secondary btn-sm" href="#">Next&nbsp;<i class="icon-arrow-right"></i></a></div>
-            </nav>
+            </nav> --}}

@@ -68,6 +68,11 @@ Route::get('/signout', [
 	]);
 
 
+Route::get('/redirect/{provider}','SocialAuthController@redirect');
+
+Route::get('/callback/{provider}','SocialAuthController@callback');
+
+
 /*
 |
 | Authentication Section Ends

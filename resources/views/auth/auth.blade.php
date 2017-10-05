@@ -33,9 +33,15 @@ Citieclik: Login
             @endif
             <form class="login-box" method="post" action="{{ route('auth.signin')}}">
               <div class="row margin-bottom-1x">
-                <div class="col-xl-4 col-md-6 col-sm-4"><a class="btn btn-sm btn-block facebook-btn" href="#"><i class="socicon-facebook"></i>&nbsp; login</a></div>
+                <div class="col-xl-4 col-md-6 col-sm-4">
+                  <a class="btn btn-sm btn-block facebook-btn" href="/redirect/facebook">
+                  <i class="socicon-facebook"></i>&nbsp; login
+                  </a>
+                </div>
                 {{-- <div class="col-xl-4 col-md-6 col-sm-4"><a class="btn btn-sm btn-block twitter-btn" href="#"><i class="socicon-twitter"></i>&nbsp;Twitter login</a></div> --}}
-                <div class="col-xl-4 col-md-6 col-sm-4"><a class="btn btn-sm btn-block google-btn" href="#"><i class="socicon-googleplus"></i>&nbsp; login</a></div>
+                <div class="col-xl-4 col-md-6 col-sm-4">
+                  <a class="btn btn-sm btn-block google-btn" href="#">
+                  <i class="socicon-googleplus"></i>&nbsp; login</a></div>
               </div>
               <h4 class="margin-bottom-1x">Or using the form below</h4>
               <div class="form-group input-group">
@@ -68,7 +74,7 @@ Citieclik: Login
           <div class="col-md-6">
             <div class="padding-top-3x hidden-md-up"></div>
             <h3 class="margin-bottom-1x">No Account? Register</h3>
-            <p>Registration takes less than a minute but gives you full control over your orders.</p>
+            <p>Registration takes less than a minute .</p>
             <form class="row" method="post" action="{{ route('auth.signup')}}">
               <div class="col-sm-6">
                 <div class="form-group{{ $errors->has('fname') ? ' has-error' : ''}}">

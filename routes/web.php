@@ -1,11 +1,11 @@
 <?php
 
 // For testing purposes
-Route::get('/test',[
-	'uses' => 'TestController@index',
-	'as'   => 'test'
+// Route::get('/test',[
+// 	'uses' => 'TestController@index',
+// 	'as'   => 'test'
 
-]);
+// ]);
 
 // ends here
 
@@ -183,6 +183,7 @@ Route::post('service/add', [
 |
 */
 // User Profile 
+// AuthCheck:: ensures that this route isnt accessible to not loggd in users
 Route::post('/profile/edit', [
 	'uses' => '\App\Http\Controllers\ProfileController@postEditProfile',
 	'as'   => 'profile.edit',

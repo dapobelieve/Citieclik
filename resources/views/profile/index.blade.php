@@ -62,7 +62,7 @@ Edit | Profile
                           @endif
                         </div>
                       </div>
-                      <div class="col-md-6">
+                      <div class="col-md-12">
                         <div class="form-group{{ $errors->has('username') ? ' has-error' : ''}}">
                           <label for="account-pass">Username</label>
                           <input class="form-control" type="text" name="username" value="{{ Request::old('username') ?: $user->username}}" >
@@ -73,12 +73,18 @@ Edit | Profile
                           @endif
                         </div>
                       </div>
-                      {{-- <div class="col-md-6">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="account-confirm-pass">Please set a Password</label>
+                          <input class="form-control" type="password" >
+                        </div>
+                      </div>
+                      <div class="col-md-6">
                         <div class="form-group">
                           <label for="account-confirm-pass">Confirm Password</label>
                           <input class="form-control" type="password" id="account-confirm-pass">
                         </div>
-                      </div> --}}
+                      </div>
                       <div class="col-12">
                         <hr class="mt-2 mb-3">
                         <div class="d-flex flex-wrap justify-content-between align-items-center">

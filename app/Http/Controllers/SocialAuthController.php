@@ -19,9 +19,9 @@ class SocialAuthController extends Controller
     	$user = $service->createOrGetUser(Socialite::driver($provider));
     	// dd($user);
         auth()->login($user);
-        if(empty(Auth::user()->email) || Auth::user()->userCatsCount() == 0 ){
-        	return redirect()->route('profile.update')
-        		->with('info', 'Hello, we\'re glad you signed up using your '.$provider.' account please update your profile and select categories you\'re interested in.');
+        if(empty(Auth::user()->email) || empty(Auth::user()->phone) ){
+        	return redirect()->route('profile.edit')
+        		->with('info', 'Hello, we\'re glad you signed up using your '.$provider.' account please update your profile, provide your phone number and choose a password.');
         }else {
         	return redirect()->route('home');
         }

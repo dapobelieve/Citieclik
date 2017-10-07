@@ -21,8 +21,6 @@ class SocialAccountService extends Controller
             ->first();
             
         
-        // dd($duser);
-
         if ((!empty($account))) {
 
             $duser = User::where('email',$providerUser->getEmail())->first();
@@ -41,11 +39,14 @@ class SocialAccountService extends Controller
             $user = User::where('email', $providerUser->getEmail())->first();
 
             if (!$user) {
+                $slug = "@".uniqid();
 
                 $user = User::create([
                     'email' => $providerUser->getEmail(),
+                    'username' => $slug,
                     'first_name' => $providerUser->getName(),
                     'image' => $providerUser->getAvatar(),
+                    'slug'    => $slug,
                 ]);
             }
 

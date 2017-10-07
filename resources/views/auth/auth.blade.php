@@ -1,7 +1,7 @@
 @extends('layout.template')
 
 @section('title')
-Citieclik: Login
+Create Account
 @endsection
 
 @section('content')
@@ -9,7 +9,7 @@ Citieclik: Login
 <div class="page-title">
         <div class="container">
           <div class="column">
-            <h1>Login / Register Account</h1>
+            <h1>Login / Create Account</h1>
           </div>
           <div class="column">
             <ul class="breadcrumbs">
@@ -79,7 +79,7 @@ Citieclik: Login
               <div class="col-sm-6">
                 <div class="form-group{{ $errors->has('fname') ? ' has-error' : ''}}">
                   <label for="reg-fn">First Name</label>
-                  <input class="form-control" name="fname" type="text" id="fname" >
+                  <input class="form-control" name="fname" value="{{ Request::old('fname') ?: ''}}" type="text" id="fname" >
                   @if($errors->has('fname'))
                     <span class="help-block">
                       {{$errors->first('fname')}}
@@ -90,7 +90,7 @@ Citieclik: Login
               <div class="col-sm-6">
                 <div class="form-group{{ $errors->has('lname') ? ' has-error' : ''}}">
                   <label for="reg-ln">Last Name</label>
-                  <input class="form-control" name="lname" type="text" id="lname" >
+                  <input class="form-control" name="lname" value="{{ Request::old('lname') ?: ''}}" type="text" id="lname" >
                   @if($errors->has('lname'))
                     <span class="help-block">
                       {{$errors->first('lname')}}
@@ -101,7 +101,7 @@ Citieclik: Login
               <div class="col-sm-6">
                 <div class="form-group{{ $errors->has('email') ? ' has-error' : ''}}">
                   <label for="reg-email">E-mail Address</label>
-                  <input class="form-control" name="email" type="email" id="email" >
+                  <input class="form-control" name="email" value="{{ Request::old('email') ?: ''}}" type="email" id="email" >
                   @if($errors->has('email'))
                     <span class="help-block">
                       {{$errors->first('email')}}
@@ -112,7 +112,7 @@ Citieclik: Login
               <div class="col-sm-6">
                 <div class="form-group{{ $errors->has('phone') ? ' has-error' : ''}}">
                   <label for="reg-phone">Phone Number</label>
-                  <input class="form-control" type="text" name="phone" id="phone" >
+                  <input class="form-control" type="text"  name="phone" value="{{ Request::old('phone') ?: ''}}" id="phone" >
                   @if($errors->has('phone'))
                     <span class="help-block">
                       {{$errors->first('phone')}}

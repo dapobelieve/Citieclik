@@ -183,6 +183,20 @@ Route::post('service/add', [
 |
 */
 // User Profile 
+Route::post('/profile/edit', [
+	'uses' => '\App\Http\Controllers\ProfileController@postEditProfile',
+	'as'   => 'profile.edit',
+
+])->middleware('AuthCheck');
+
+
+Route::get('/profile/edit', [
+	'uses' => '\App\Http\Controllers\ProfileController@getEditProfile',
+	'as'   => 'profile.edit',
+
+])->middleware('AuthCheck');
+
+
 Route::get('/profile/{slug}', [
 	'uses' => '\App\Http\Controllers\ProfileController@getProfile',
 	'as'   => 'profile.index'
@@ -200,6 +214,7 @@ Route::get('/profile/{slug}/requests', [
 	'uses' => '\App\Http\Controllers\ProfileController@getRequests',
 	'as' => 'profile.request',
 ]);
+
 
 /*
 |

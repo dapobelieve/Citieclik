@@ -40,7 +40,6 @@ $('.hereIt').on('change','#serState',function(event){
     })
     .done(function(data) {
       $location = $('#location');
-      // $location.removeAttr('disabled');//enable
       $location.children().remove();//clear the select tag first
       var dee = JSON.parse(data); //convert the json data to array here
       $.each(dee,function(index, value){
@@ -72,6 +71,7 @@ $('.hereIt').on('click','.catz',function(event){
       method: 'GET',
     })
     .done(function(data) {
+      // console.log(data);
       $location = $('#subCatz');
       $location.children().remove();//clear the select tag first
       var dee = JSON.parse(data); //convert the json data to array here

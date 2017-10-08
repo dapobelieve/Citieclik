@@ -79,6 +79,24 @@ Route::get('/callback/{provider}','SocialAuthController@callback');
 |
 */
 
+//Route to get lgas based on selected state
+	Route::get('service/state/location/{id}', [
+		'uses' => 'AjaxRequestsController@getLocation'
+	]);
+	//Route to get subcategory based on selected category
+	Route::get('service/category/getscat/{id}', [
+		'uses' => 'AjaxRequestsController@getSubCat'
+	]);
+
+	Route::get('category/category-h/state/{id}', [
+		'uses' => 'AjaxRequestsController@getLocation'
+	]);
+
+	Route::get('category/category-h/scat/{id}', [
+		'uses' => 'AjaxRequestsController@getSubCat'
+	]);
+
+
 /*
 |
 | Authentication Section For Users
@@ -112,15 +130,7 @@ Route::post('service/add', [
 | Ajax Requests Section
 |
 */
-	//Route to get lgas based on selected state
-	Route::get('service/state/location/{id}', [
-		'uses' => 'AjaxRequestsController@getLocation'
-	]);
-	//Route to get subcategory based on selected category
-	Route::get('service/category/getscat/{id}', [
-		'uses' => 'AjaxRequestsController@getSubCat'
-	]);
-
+	
 
 	Route::get('service-edit/edit/state/{id}', [
 		'uses' => 'AjaxRequestsController@getLocation'
@@ -130,13 +140,7 @@ Route::post('service/add', [
 		'uses' => 'AjaxRequestsController@getSubCat'
 	]);
 
-	Route::get('category/category-h/state/{id}', [
-		'uses' => 'AjaxRequestsController@getLocation'
-	]);
-
-	Route::get('category/category-h/scat/{id}', [
-		'uses' => 'AjaxRequestsController@getSubCat'
-	]);
+	
 
 /*
 |

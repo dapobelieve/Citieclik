@@ -1,7 +1,7 @@
 @extends('layout.template')
 
 @section('title')
-Services | Citieclik
+Oops Link Not Found
 @endsection
 
 @section('content')

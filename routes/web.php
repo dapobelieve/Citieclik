@@ -1,11 +1,11 @@
 <?php
 
 // For testing purposes
-Route::get('/test',[
-	'uses' => 'TestController@index',
-	'as'   => 'test'
+// Route::get('/test',[
+// 	'uses' => 'TestController@index',
+// 	'as'   => 'test'
 
-]);
+// ]);
 
 // ends here
 
@@ -68,11 +68,34 @@ Route::get('/signout', [
 	]);
 
 
+Route::get('/redirect/{provider}','SocialAuthController@redirect');
+
+Route::get('/callback/{provider}','SocialAuthController@callback');
+
+
 /*
 |
 | Authentication Section Ends
 |
 */
+
+//Route to get lgas based on selected state
+	Route::get('service/state/location/{id}', [
+		'uses' => 'AjaxRequestsController@getLocation'
+	]);
+	//Route to get subcategory based on selected category
+	Route::get('service/category/getscat/{id}', [
+		'uses' => 'AjaxRequestsController@getSubCat'
+	]);
+
+	Route::get('category/category-h/state/{id}', [
+		'uses' => 'AjaxRequestsController@getLocation'
+	]);
+
+	Route::get('category/category-h/scat/{id}', [
+		'uses' => 'AjaxRequestsController@getSubCat'
+	]);
+
 
 /*
 |
@@ -107,15 +130,7 @@ Route::post('service/add', [
 | Ajax Requests Section
 |
 */
-	//Route to get lgas based on selected state
-	Route::get('service/state/location/{id}', [
-		'uses' => 'AjaxRequestsController@getLocation'
-	]);
-	//Route to get subcategory based on selected category
-	Route::get('service/category/getscat/{id}', [
-		'uses' => 'AjaxRequestsController@getSubCat'
-	]);
-
+	
 
 	Route::get('service-edit/edit/state/{id}', [
 		'uses' => 'AjaxRequestsController@getLocation'
@@ -125,13 +140,7 @@ Route::post('service/add', [
 		'uses' => 'AjaxRequestsController@getSubCat'
 	]);
 
-	Route::get('category/category-h/state/{id}', [
-		'uses' => 'AjaxRequestsController@getLocation'
-	]);
-
-	Route::get('category/category-h/scat/{id}', [
-		'uses' => 'AjaxRequestsController@getSubCat'
-	]);
+	
 
 /*
 |
@@ -178,6 +187,21 @@ Route::post('service/add', [
 |
 */
 // User Profile 
+// AuthCheck:: ensures that this route isnt accessible to not loggd in users
+Route::post('/profile/edit', [
+	'uses' => '\App\Http\Controllers\ProfileController@postEditProfile',
+	'as'   => 'profile.edit',
+
+])->middleware('AuthCheck');
+
+
+Route::get('/profile/edit', [
+	'uses' => '\App\Http\Controllers\ProfileController@getEditProfile',
+	'as'   => 'profile.edit',
+
+])->middleware('AuthCheck');
+
+
 Route::get('/profile/{slug}', [
 	'uses' => '\App\Http\Controllers\ProfileController@getProfile',
 	'as'   => 'profile.index'
@@ -195,6 +219,7 @@ Route::get('/profile/{slug}/requests', [
 	'uses' => '\App\Http\Controllers\ProfileController@getRequests',
 	'as' => 'profile.request',
 ]);
+
 
 /*
 |

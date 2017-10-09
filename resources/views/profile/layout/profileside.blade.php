@@ -3,7 +3,7 @@
 <div class="col-lg-4">
   <aside class="user-info-wrapper">
     <div class="user-cover" style="background-image: url(/assets/img/account/user-cover-img.jpg);">
-      <div class="info-label" data-toggle="tooltip" title="Verified"><i class="icon-medal"></i>Status</div>
+      <div class="info-label" data-toggle="tooltip" title="Verified"><i class="icon-medal"></i>Not Verified</div>
     </div>
     <div class="user-info">
       <div class="user-avatar">
@@ -17,8 +17,8 @@
   </aside>
   <nav class="list-group">
     @if(Auth::check() && Auth::user()->id == $user->id)
-    <a class="list-group-item {{ Request::is( 'profile') ? ' active' : ''  }}" href="{{route('profile.index', ['slug' => $user->slug ])}}">
-      <i class="icon-head"></i>Profile
+    <a class="list-group-item {{ Request::is( 'profile') ? ' active' : ''  }}" href="{{route('profile.edit')}}">
+      <i class="icon-head"></i>Edit Profile
     </a>
     @endif
     <a class="list-group-item {{ Request::is( '["slug" => $user->slug ]/account') ? ' active' : ''  }}" href="{{ route('profile.address') }}">

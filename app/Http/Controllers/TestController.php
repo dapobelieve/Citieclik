@@ -10,8 +10,7 @@ class TestController extends Controller
 {
     public function index()
     {
-    	$user = User::where('slug', 'believe')->first();
-    	$userServices = $user->getUserServices();
-    	dd($userServices);
+    	$val = "@".uniqid();
+    	dd($val);
     }
 }

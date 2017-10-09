@@ -54,14 +54,13 @@ class AuthController extends Controller
             'lname.string' => 'The last name must be a Word',
         ]);
 
-        $tempUserName = "@".$request->input('fname')."".$request->input('phone');
-        $slug = $this->slugIt($tempUserName);
+        $slug = "@".uniqid();
         // dd($tempUserName."   ".$slug);
 
     	// submmiting users details to the db
     	User::create([
             'email' => $request->input('email'),
-            'username' => $tempUserName,
+            'username' => $slug,
             'first_name' => $request->input('fname'),
     		'last_name' => $request->input('lname'),
     		'phone' => $request->input('phone'),

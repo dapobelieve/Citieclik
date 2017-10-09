@@ -1,7 +1,7 @@
 @extends('layout.template')
 
 @section('title')
-Citieclik: Login
+Create Account
 @endsection
 
 @section('content')
@@ -9,7 +9,7 @@ Citieclik: Login
 <div class="page-title">
         <div class="container">
           <div class="column">
-            <h1>Login / Register Account</h1>
+            <h1>Login / Create Account</h1>
           </div>
           <div class="column">
             <ul class="breadcrumbs">
@@ -33,9 +33,15 @@ Citieclik: Login
             @endif
             <form class="login-box" method="post" action="{{ route('auth.signin')}}">
               <div class="row margin-bottom-1x">
-                <div class="col-xl-4 col-md-6 col-sm-4"><a class="btn btn-sm btn-block facebook-btn" href="#"><i class="socicon-facebook"></i>&nbsp; login</a></div>
+                <div class="col-xl-4 col-md-6 col-sm-4">
+                  <a class="btn btn-sm btn-block facebook-btn" href="/redirect/facebook">
+                  <i class="socicon-facebook"></i>&nbsp; login
+                  </a>
+                </div>
                 {{-- <div class="col-xl-4 col-md-6 col-sm-4"><a class="btn btn-sm btn-block twitter-btn" href="#"><i class="socicon-twitter"></i>&nbsp;Twitter login</a></div> --}}
-                <div class="col-xl-4 col-md-6 col-sm-4"><a class="btn btn-sm btn-block google-btn" href="#"><i class="socicon-googleplus"></i>&nbsp; login</a></div>
+                <div class="col-xl-4 col-md-6 col-sm-4">
+                  <a class="btn btn-sm btn-block google-btn" href="#">
+                  <i class="socicon-googleplus"></i>&nbsp; login</a></div>
               </div>
               <h4 class="margin-bottom-1x">Or using the form below</h4>
               <div class="form-group input-group">
@@ -68,12 +74,12 @@ Citieclik: Login
           <div class="col-md-6">
             <div class="padding-top-3x hidden-md-up"></div>
             <h3 class="margin-bottom-1x">No Account? Register</h3>
-            <p>Registration takes less than a minute but gives you full control over your orders.</p>
+            <p>Registration takes less than a minute .</p>
             <form class="row" method="post" action="{{ route('auth.signup')}}">
               <div class="col-sm-6">
                 <div class="form-group{{ $errors->has('fname') ? ' has-error' : ''}}">
                   <label for="reg-fn">First Name</label>
-                  <input class="form-control" name="fname" type="text" id="fname" >
+                  <input class="form-control" name="fname" value="{{ Request::old('fname') ?: ''}}" type="text" id="fname" >
                   @if($errors->has('fname'))
                     <span class="help-block">
                       {{$errors->first('fname')}}
@@ -84,7 +90,7 @@ Citieclik: Login
               <div class="col-sm-6">
                 <div class="form-group{{ $errors->has('lname') ? ' has-error' : ''}}">
                   <label for="reg-ln">Last Name</label>
-                  <input class="form-control" name="lname" type="text" id="lname" >
+                  <input class="form-control" name="lname" value="{{ Request::old('lname') ?: ''}}" type="text" id="lname" >
                   @if($errors->has('lname'))
                     <span class="help-block">
                       {{$errors->first('lname')}}
@@ -95,7 +101,7 @@ Citieclik: Login
               <div class="col-sm-6">
                 <div class="form-group{{ $errors->has('email') ? ' has-error' : ''}}">
                   <label for="reg-email">E-mail Address</label>
-                  <input class="form-control" name="email" type="email" id="email" >
+                  <input class="form-control" name="email" value="{{ Request::old('email') ?: ''}}" type="email" id="email" >
                   @if($errors->has('email'))
                     <span class="help-block">
                       {{$errors->first('email')}}
@@ -106,7 +112,7 @@ Citieclik: Login
               <div class="col-sm-6">
                 <div class="form-group{{ $errors->has('phone') ? ' has-error' : ''}}">
                   <label for="reg-phone">Phone Number</label>
-                  <input class="form-control" type="text" name="phone" id="phone" >
+                  <input class="form-control" type="text"  name="phone" value="{{ Request::old('phone') ?: ''}}" id="phone" >
                   @if($errors->has('phone'))
                     <span class="help-block">
                       {{$errors->first('phone')}}

@@ -13,4 +13,6 @@ class TestController extends Controller
     	$val = "@".uniqid();
     	dd($val);
     }
+
+    //some code goes here
 }

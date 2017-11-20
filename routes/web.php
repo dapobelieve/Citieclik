@@ -1,11 +1,11 @@
 <?php
 
 // For testing purposes
-// Route::get('/test',[
-// 	'uses' => 'TestController@index',
-// 	'as'   => 'test'
+Route::get('/test',[
+	'uses' => 'TestController@index',
+	'as'   => 'test'
 
-// ]);
+]);
 
 // ends here
 
@@ -105,72 +105,71 @@ Route::get('/callback/{provider}','SocialAuthController@callback');
 
 Route::group(['middleware' => ['AuthCheck']], function () {
 
-/*
-|
-| Add Service
-|
-*/
-Route::get('service/add', [
-	'uses' => 'ServiceController@getAddService',
-	'as'   => 'addservice'
-]);
+		/*
+		|
+		| Add Service
+		|
+		*/
+		Route::get('service/add', [
+			'uses' => 'ServiceController@getAddService',
+			'as'   => 'addservice'
+		]);
 
-Route::post('service/add', [
-	'uses' => 'ServiceController@postService',
-	'as'   => 'addservice'
-]);
-/*
-|
-| Add Service Ends Here
-|
-*/
+		Route::post('service/add', [
+			'uses' => 'ServiceController@postService',
+			'as'   => 'addservice'
+		]);
+		/*
+		|
+		| Add Service Ends Here
+		|
+		*/
 
-/*
-|
-| Ajax Requests Section
-|
-*/
-	
+		/*
+		|
+		| Ajax Requests Section
+		|
+		*/
+			
 
-	Route::get('service-edit/edit/state/{id}', [
-		'uses' => 'AjaxRequestsController@getLocation'
-	]);
+			Route::get('service-edit/edit/state/{id}', [
+				'uses' => 'AjaxRequestsController@getLocation'
+			]);
 
-	Route::get('service-edit/edit/category/{id}', [
-		'uses' => 'AjaxRequestsController@getSubCat'
-	]);
+			Route::get('service-edit/edit/category/{id}', [
+				'uses' => 'AjaxRequestsController@getSubCat'
+			]);
 
-	
+			
 
-/*
-|
-| Ajax Requests Section Ends Here
-|
-*/
+		/*
+		|
+		| Ajax Requests Section Ends Here
+		|
+		*/
 
-/*
-|
-| Modify Service Route
-|
-*/
+		/*
+		|
+		| Modify Service Route
+		|
+		*/
 
-	Route::get('service-edit/edit/{id}',[
-		'uses' => 'ServiceController@getEditService',
-		'as'   => 'service.edit'
-	]);
+			Route::get('service-edit/edit/{id}',[
+				'uses' => 'ServiceController@getEditService',
+				'as'   => 'service.edit'
+			]);
 
 
-	//edit service route
-	Route::post('service-edit/edit/{id}',[
-		'uses' => 'ServiceController@postServiceUpdate',
-		'as'   => 'service.edit'
-	]);
+			//edit service route
+			Route::post('service-edit/edit/{id}',[
+				'uses' => 'ServiceController@postServiceUpdate',
+				'as'   => 'service.edit'
+			]);
 
-	Route::delete('service-delete/delete/{id}',[
-		'uses' => 'ServiceController@getDeleteService',
-		'as'   => 'service.delete'
-	]);
-
+			Route::delete('service-delete/delete/{id}',[
+				'uses' => 'ServiceController@getDeleteService',
+				'as'   => 'service.delete'
+			]);
 });
 
 

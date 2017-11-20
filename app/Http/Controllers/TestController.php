@@ -10,7 +10,7 @@ class TestController extends Controller
 {
     public function index()
     {
-    	$val = "@".uniqid();
+    	$val = uniqid(mt_srand());
     	dd($val);
     }
 

@@ -28,36 +28,41 @@ Service Details | Citieclik
 	            <div class="product-gallery"><span class="product-badge text-danger">30% Off</span>
 	              <div class="gallery-wrapper">
 	                <div class="gallery-item active"><a href="img/shop/single/01.jpg" data-hash="one" data-size="1000x667"></a></div>
-	                <div class="gallery-item"><a href="img/shop/single/02.jpg" data-hash="two" data-size="1000x667"></a></div>
+	                {{-- <div class="gallery-item"><a href="img/shop/single/02.jpg" data-hash="two" data-size="1000x667"></a></div>
 	                <div class="gallery-item"><a href="img/shop/single/03.jpg" data-hash="three" data-size="1000x667"></a></div>
 	                <div class="gallery-item"><a href="img/shop/single/04.jpg" data-hash="four" data-size="1000x667"></a></div>
-	                <div class="gallery-item"><a href="img/shop/single/05.jpg" data-hash="five" data-size="1000x667"></a></div>
+	                <div class="gallery-item"><a href="img/shop/single/05.jpg" data-hash="five" data-size="1000x667"></a></div> --}}
 	              </div>
 	              <div class="product-carousel owl-carousel">
-	                <div data-hash="one"><img src="/assets/img/shop/single/01.jpg" alt="Product"></div>
-	                <div data-hash="two"><img src="/assets/img/shop/single/02.jpg" alt="Product"></div>
-	                <div data-hash="three"><img src="/assets/img/shop/single/03.jpg" alt="Product"></div>
-	                <div data-hash="four"><img src="/assets/img/shop/single/04.jpg" alt="Product"></div>
-	                <div data-hash="five"><img src="/assets/img/shop/single/05.jpg" alt="Product"></div>
+		                <div data-hash="one"><img src="/assets/img/shop/single/01.jpg" alt="Product"></div>
+		                <div data-hash="two"><img src="/assets/img/shop/single/02.jpg" alt="Product"></div>
+		                <div data-hash="three"><img src="/assets/img/shop/single/03.jpg" alt="Product"></div>
+		                <div data-hash="four"><img src="/assets/img/shop/single/04.jpg" alt="Product"></div>
+		                <div data-hash="five"><img src="/assets/img/shop/single/05.jpg" alt="Product"></div>
 	              </div>
-	              <ul class="product-thumbnails">
+	              {{-- <ul class="product-thumbnails">
 	                <li class="active"><a href="#one"><img src="/assets/img/shop/single/th01.jpg" alt="Product"></a></li>
 	                <li><a href="#two"><img src="/assets/img/shop/single/th02.jpg" alt="Product"></a></li>
 	                <li><a href="#three"><img src="/assets/img/shop/single/th03.jpg" alt="Product"></a></li>
 	                <li><a href="#four"><img src="/assets/img/shop/single/th04.jpg" alt="Product"></a></li>
 	                <li><a href="#five"><img src="/assets/img/shop/single/th05.jpg" alt="Product"></a></li>
-	              </ul>
+	              </ul> --}}
 	            </div>
 	          </div>
 	          <!-- Product Info-->
 	          <div class="col-md-6">
 	            <div class="padding-top-2x mt-2 hidden-md-up"></div>
-	              <div class="rating-stars"><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star"></i>
+	              <div class="rating-stars">
+	              	<i class="icon-star filled"></i>
+	              	<i class="icon-star filled"></i>
+	              	<i class="icon-star filled"></i>
+	              	<i class="icon-star filled"></i>
+	              	<i class="icon-star"></i>
 	              </div><span class="text-muted align-middle">&nbsp;&nbsp;4.2 | 3 customer reviews</span>
-	            <h2 class="padding-top-1x text-normal">Reebok Royal CL Jogger 2</h2><span class="h2 d-block">
-	              <del class="text-muted text-normal">$68.00</del>&nbsp; $47.60</span>
-	            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta voluptatibus quos ea dolore rem, molestias laudantium et explicabo assumenda fugiat deserunt in, facilis laborum excepturi aliquid nobis ipsam deleniti aut? Aliquid sit hic id velit qui fuga nemo suscipit obcaecati. Officia nisi quaerat minus nulla saepe aperiam sint possimus magni veniam provident.</p>
-	            <div class="row margin-top-1x">
+	            <h2 class="padding-top-1x text-normal">{{$service->title }}</h2><span class="h2 d-block">
+	               $47.60</span>
+	            {{$service->description }}
+	            {{-- <div class="row margin-top-1x">
 	              <div class="col-sm-4">
 	                <div class="form-group">
 	                  <label for="size">Men's size</label>
@@ -95,9 +100,13 @@ Service Details | Citieclik
 	                  </select>
 	                </div>
 	              </div>
+	            </div> --}}
+	            <br>
+	            <br>
+	           {{--  <div class="pt-1 mb-2"><span class="text-medium">SKU:</span> #21457832</div> --}}
+	            <div class="padding-bottom-1x mb-2"><span class="text-medium">Category:&nbsp;</span>
+	            	<a class="navi-link" href="{{route('category', $service->catty->slug)}}">{{$service->catty->category}}</a>
 	            </div>
-	            <div class="pt-1 mb-2"><span class="text-medium">SKU:</span> #21457832</div>
-	            <div class="padding-bottom-1x mb-2"><span class="text-medium">Categories:&nbsp;</span><a class="navi-link" href="#">Men’s shoes,</a><a class="navi-link" href="#"> Snickers,</a><a class="navi-link" href="#"> Sport shoes</a></div>
 	            <hr class="mb-3">
 	            <div class="d-flex flex-wrap justify-content-between">
 	              <div class="entry-share mt-2 mb-2"><span class="text-muted">Share:</span>
@@ -119,8 +128,7 @@ Service Details | Citieclik
 	            </ul>
 	            <div class="tab-content">
 	              <div class="tab-pane fade show active" id="description" role="tabpanel">
-	                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error blanditiis a, deserunt magnam pariatur quam suscipit quae. Veniam, deserunt reprehenderit quasi hic recusandae itaque omnis fugiat animi architecto facilis repellendus. Commodi dolorem, eius consectetur. Amet maiores nemo at nobi s aspernatur velit, sequi odio, a veritatis inventore autem esse provident in? Placeat, sunt!</p>
-	                <p class="mb-30">Iste assumenda, vitae, aliquam excepturi libero quia ullam quisquam tenetur id sint labore. Pariatur praesentium velit, fugit facere maxime voluptates optio qui? Quidem obcaecati necessitatibus rem aspernatur, mollitia, assumenda explicabo numquam minus eos sapiente totam dicta, laborum dolorum! Vitae distinctio quos non ut fugiat.</p>
+	                {{$service->description }}
 	                <div class="embed-responsive embed-responsive-16by9">
 	                  <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/B81qd2v6alw?rel=0" allowfullscreen></iframe>
 	                </div>

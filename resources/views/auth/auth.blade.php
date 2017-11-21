@@ -152,3 +152,14 @@ Create Account
       </div>
 
 @endsection
+@section('script')
+  <script type="text/javascript">
+   @if(Session::has('Message'))
+    swal({
+    title: "oops not allowed",
+    text: "{{ Session::get('Message')}}",
+    type: 'warning'
+  })
+  @endif
+  </script>
+@stop

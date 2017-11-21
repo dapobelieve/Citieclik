@@ -11,7 +11,7 @@
         {{-- <button class="btn btn-outline-primary" type="button" data-toggle="modal" data-target="#modalDefault">Default Modal</button> --}}
       </div>
       <div class="user-data">
-        <h4>{{$user->first_name}}</h4><span><small>Joined {{$user->created_at->formatLocalized('%B %Y')}}</small></span>
+        <h4>{{$user->getFullName()}}</h4><span><small>Joined {{$user->created_at->formatLocalized('%B %Y')}}</small></span>
       </div>
     </div>
   </aside>

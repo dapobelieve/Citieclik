@@ -63,4 +63,16 @@ class Service extends Model
 
         return $slug;
     }
+
+    public function servieImage()
+    {
+        if(empty($this->image))
+        {
+            $img = "/assets/img/shop/cart/01.jpg";
+        }else
+        {
+            $img = $this->image;
+        }
+        return $img;
+    }
 }

@@ -30,7 +30,7 @@ class User extends Authenticatable
 
     public function getFullName()
     {
-        return ucfirst($this->first_name) ?: ucfirst($this->username);
+        return ucfirst($this->first_name." ".$this->last_name) ?: ucfirst($this->username);
     }
 
     protected $fillable = [

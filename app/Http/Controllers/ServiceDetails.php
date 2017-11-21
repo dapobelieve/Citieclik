@@ -6,12 +6,25 @@ use Illuminate\Http\Request;
 use App\User;
 
 
-
-
 class ServiceDetails extends Controller
 {
     public function index($username, $slug)
     {
-    	return view('pages.servicedetails');
+    	 $user = User::where('username', $username)->first();
+
+        if(!$user)
+        {
+            abort(404);
+        }else{
+             $servDet = $user->services->where('slug', $slug)->first();
+            if(!$servDet)
+            {
+                abort(404);
+            }else{
+                return view('service.servicedetails')
+                        ->with('service', $servDet)
+                        ->with('user', $user);
+            }
+        } 
     }
 }

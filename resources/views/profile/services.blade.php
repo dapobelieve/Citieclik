@@ -66,7 +66,7 @@ Services | Citieclik
                         <div class="row">
                             <div class="col-sm-6 col-md-9">
                                 <div class="product-item"><a class="product-thumb" href="shop-single.html">
-                                    <img src="/assets/img/shop/cart/01.jpg" alt="Product"></a>
+                                    <img src={{$servy->servieImage()}} alt="Service Image"></a>
                                       <div class="product-info">
                                         <h4 class="product-title"><a href="shop-single.html">{{$servy->title}}</a></h4>
                                         <div class="text-lg text-medium text-muted">Category: {{$servy->catty->category}}</div>

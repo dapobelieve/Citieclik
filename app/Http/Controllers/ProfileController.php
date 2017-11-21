@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rule; 
 use App\Category;
 use Auth;
 use App\User;
@@ -35,7 +35,6 @@ class ProfileController extends Controller
 
     	return view('profile.services')
     			->with('user', $user);
-                // ->with('userServ', $userServices);
     }
 
      //Get user Services 
@@ -113,7 +112,6 @@ class ProfileController extends Controller
         ]);
 
         return redirect()->back()->with('info', 'Profile Updated.');
-
     }
 
 }

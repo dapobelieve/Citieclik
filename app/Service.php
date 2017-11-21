@@ -66,13 +66,19 @@ class Service extends Model
 
     public function servieImage()
     {
+        $ran = mt_rand(1,3);
         if(empty($this->image))
         {
-            $img = "/assets/img/shop/cart/01.jpg";
+            $img = "/assets/img/shop/cart/0".$ran.".jpg";
         }else
         {
             $img = $this->image;
         }
         return $img;
+    }
+
+    public function serviceTitle()
+    {
+        return ucwords($this->title);
     }
 }

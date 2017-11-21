@@ -1,21 +1,21 @@
 @extends('layout.template')
 
 @section('title')
-Service Details | Citieclik
+{{$service->serviceTitle()}} | Citieclik
 @endsection
 
 @section('content')
 	<div class="page-title">
         <div class="container">
           <div class="column">
-            <h1>Service Details</h1>
+            <h1>{{$service->serviceTitle()}}</h1>
           </div>
           <div class="column">
             <ul class="breadcrumbs">
               <li><a href="index-2.html">Home</a>
               </li>
               <li class="separator">&nbsp;</li>
-              <li>Service Details</li>
+              <li>{{$service->serviceTitle()}}</li>
             </ul>
           </div>
         </div>
@@ -25,20 +25,20 @@ Service Details | Citieclik
 	        <div class="row">
 	          <!-- Poduct Gallery-->
 	          <div class="col-md-6">
-	            <div class="product-gallery"><span class="product-badge text-danger">30% Off</span>
+	            <div class="product-gallery"><span class="product-badge text-danger"></span>
 	              <div class="gallery-wrapper">
-	                <div class="gallery-item active"><a href="img/shop/single/01.jpg" data-hash="one" data-size="1000x667"></a></div>
+	                <div class="gallery-item active"><a href={{$service->servieImage()}} data-hash="one" data-size="1000x667"></a></div>
 	                {{-- <div class="gallery-item"><a href="img/shop/single/02.jpg" data-hash="two" data-size="1000x667"></a></div>
 	                <div class="gallery-item"><a href="img/shop/single/03.jpg" data-hash="three" data-size="1000x667"></a></div>
 	                <div class="gallery-item"><a href="img/shop/single/04.jpg" data-hash="four" data-size="1000x667"></a></div>
 	                <div class="gallery-item"><a href="img/shop/single/05.jpg" data-hash="five" data-size="1000x667"></a></div> --}}
 	              </div>
 	              <div class="product-carousel owl-carousel">
-		                <div data-hash="one"><img src="/assets/img/shop/single/01.jpg" alt="Product"></div>
+		                <div><img src={{$service->servieImage()}} alt="Product"></div>{{-- 
 		                <div data-hash="two"><img src="/assets/img/shop/single/02.jpg" alt="Product"></div>
 		                <div data-hash="three"><img src="/assets/img/shop/single/03.jpg" alt="Product"></div>
 		                <div data-hash="four"><img src="/assets/img/shop/single/04.jpg" alt="Product"></div>
-		                <div data-hash="five"><img src="/assets/img/shop/single/05.jpg" alt="Product"></div>
+		                <div data-hash="five"><img src="/assets/img/shop/single/05.jpg" alt="Product"></div> --}}
 	              </div>
 	              {{-- <ul class="product-thumbnails">
 	                <li class="active"><a href="#one"><img src="/assets/img/shop/single/th01.jpg" alt="Product"></a></li>
@@ -54,53 +54,15 @@ Service Details | Citieclik
 	            <div class="padding-top-2x mt-2 hidden-md-up"></div>
 	              <div class="rating-stars">
 	              	<i class="icon-star filled"></i>
+	              	{{-- <i class="icon-star filled"></i>
 	              	<i class="icon-star filled"></i>
 	              	<i class="icon-star filled"></i>
-	              	<i class="icon-star filled"></i>
-	              	<i class="icon-star"></i>
+	              	<i class="icon-star"></i> --}}
 	              </div><span class="text-muted align-middle">&nbsp;&nbsp;4.2 | 3 customer reviews</span>
-	            <h2 class="padding-top-1x text-normal">{{$service->title }}</h2><span class="h2 d-block">
+	            <h2 class="padding-top-1x text-normal">{{$service->serviceTitle() }}</h2><span class="h2 d-block">
 	               $47.60</span>
 	            {{$service->description }}
-	            {{-- <div class="row margin-top-1x">
-	              <div class="col-sm-4">
-	                <div class="form-group">
-	                  <label for="size">Men's size</label>
-	                  <select class="form-control" id="size">
-	                    <option>Chooze size</option>
-	                    <option>11.5</option>
-	                    <option>11</option>
-	                    <option>10.5</option>
-	                    <option>10</option>
-	                    <option>9.5</option>
-	                    <option>9</option>
-	                    <option>8.5</option>
-	                  </select>
-	                </div>
-	              </div>
-	              <div class="col-sm-5">
-	                <div class="form-group">
-	                  <label for="color">Choose color</label>
-	                  <select class="form-control" id="color">
-	                    <option>White/Red/Blue</option>
-	                    <option>Black/Orange/Green</option>
-	                    <option>Gray/Purple/White</option>
-	                  </select>
-	                </div>
-	              </div>
-	              <div class="col-sm-3">
-	                <div class="form-group">
-	                  <label for="quantity">Quantity</label>
-	                  <select class="form-control" id="quantity">
-	                    <option>1</option>
-	                    <option>2</option>
-	                    <option>3</option>
-	                    <option>4</option>
-	                    <option>5</option>
-	                  </select>
-	                </div>
-	              </div>
-	            </div> --}}
+	           
 	            <br>
 	            <br>
 	           {{--  <div class="pt-1 mb-2"><span class="text-medium">SKU:</span> #21457832</div> --}}
@@ -120,7 +82,7 @@ Service Details | Citieclik
 	          </div>
 	        </div>
 	        <!-- Product Tabs-->
-	        <div class="row padding-top-3x mb-3">
+	        {{-- <div class="row padding-top-3x mb-3">
 	          <div class="col-lg-10 offset-lg-1">
 	            <ul class="nav nav-tabs" role="tablist">
 	              <li class="nav-item"><a class="nav-link active" href="#description" data-toggle="tab" role="tab">Description</a></li>
@@ -225,7 +187,7 @@ Service Details | Citieclik
 	              </div>
 	            </div>
 	          </div>
-	        </div>
+	        </div> --}}
 	        <!-- Related Products Carousel-->
 	        <h3 class="text-center padding-top-2x mt-2 padding-bottom-1x">You May Also Like</h3>
 	        <!-- Carousel-->

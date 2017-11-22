@@ -8,7 +8,7 @@
 	<div class="page-title">
         <div class="container">
           <div class="column">
-            <h1>{{$service->serviceTitle()}}</h1>
+            <h1>{{$service->serviceTitle()}}</h1>   
           </div>
           <div class="column">
             <ul class="breadcrumbs">

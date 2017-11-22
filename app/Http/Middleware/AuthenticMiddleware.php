@@ -14,6 +14,10 @@ class AuthenticMiddleware
      * @param  \Closure  $next
      * @return mixed
      */
+
+    /*Middleware to ensure users are logged in 
+      to access certain pages
+    */
     public function handle($request, Closure $next)
     {
         if(Auth::check())

@@ -119,6 +119,7 @@ Route::group(['middleware' => ['AuthCheck']], function () {
 			'uses' => 'ServiceController@postService',
 			'as'   => 'addservice'
 		]);
+
 		/*
 		|
 		| Add Service Ends Here
@@ -214,8 +215,11 @@ Route::get('/profile/{slug}/services', [
 	'uses' => '\App\Http\Controllers\ProfileController@getService',
 	'as' => 'profile.service',
 ]);
+
+
+// Requests Section
 Route::get('/profile/{slug}/requests', [
-	'uses' => '\App\Http\Controllers\ProfileController@getRequests',
+	'uses' => '\App\Http\Controllers\RequestController@getRequests',
 	'as' => 'profile.request',
 ]);
 

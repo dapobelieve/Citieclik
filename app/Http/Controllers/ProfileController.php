@@ -50,16 +50,6 @@ class ProfileController extends Controller
     }
 
     // View my requests
-    public function getRequests($slug)
-    {
-    	$user = User::where('slug', $slug)->first();
-    	if(!$user){
-    		abort(404);
-    	}
-    	// $services = $user->services()->get();
-    	return view('profile.requests')
-    			->with('user', $user);
-    }
 
     public function getEditProfile()
     {

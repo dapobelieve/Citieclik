@@ -7,7 +7,7 @@ use App\User;
 
 class RequestController extends Controller
 {
-    public function getRequests($slug)
+    public function getRequest($slug)
     {
     	$user = User::where('slug', $slug)->first();
     	if(!$user){
@@ -16,5 +16,11 @@ class RequestController extends Controller
     	// $services = $user->services()->get();
     	return view('profile.requests')
     			->with('user', $user);
+    }
+
+    public function postRequest(Request $request)
+    {
+    	$data = json_encode($request->all());
+    	dd($data);
     }
 }

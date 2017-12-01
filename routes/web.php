@@ -70,7 +70,7 @@ Route::get('/signout', [
 
 Route::get('/redirect/{provider}','SocialAuthController@redirect');
 
-Route::get('/callback/{provider}','SocialAuthController@callback');
+Route::get('/{provider}/callback','SocialAuthController@callback');
 
 
 /*
@@ -219,9 +219,14 @@ Route::get('/profile/{slug}/services', [
 
 // Requests Section
 Route::get('/profile/{slug}/requests', [
-	'uses' => '\App\Http\Controllers\RequestController@getRequests',
+	'uses' => '\App\Http\Controllers\RequestController@getRequest',
 	'as' => 'profile.request',
 ]);
+
+Route::post('/request/add', [
+	'uses' => '\App\Http\Controllers\RequestController@postRequest',
+	'as' => 'request.add',
+])->middleware('AuthCheck');
 
 
 /*

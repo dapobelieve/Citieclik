@@ -55,8 +55,11 @@ My Requests | Citieclik
           </table>
         </div>
         <hr class="mb-4">
-        <div class="text-right">
-          <button class="btn btn-primary margin-bottom-none" data-toggle="modal" data-target="#openTicket">Submit New Request</button>
-        </div>
+
+        @if(Auth::check())
+            <div class="text-right">
+              <button class="btn btn-primary margin-bottom-none" data-toggle="modal" data-target="#openTicket">Submit New Request</button>
+            </div>
+        @endif
       </div>
   @endsection

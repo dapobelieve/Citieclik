@@ -8,19 +8,16 @@ use App\User;
 
 use Illuminate\Http\Request;
 
-class SocialAccountService extends Controller
+class SocialAccountService extends Controllers
 {
     public function createOrGetUser(Provider $provider)
     {
         $providerUser = $provider->user();
         $providerName = class_basename($provider);
-
-
         $account = SocialAccount::where('provider',$providerName)
             ->where('provider_user_id', $providerUser->getId())
             ->first();
             
-        
         if ((!empty($account))) {
 
             $duser = User::where('email',$providerUser->getEmail())->first();

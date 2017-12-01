@@ -38,6 +38,6 @@ return [
     'facebook' => [
         'client_id' => '279967605847078',
         'client_secret' => '44368230dc098be3afdea7235458952f',
-        'redirect' => 'http://localhost:8000/callback',
+        'redirect' => 'http://citie.dev/facebook/callback',
     ],
 ];

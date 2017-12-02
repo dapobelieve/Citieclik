@@ -36,8 +36,9 @@ return [
     ],
 
     'facebook' => [
-        'client_id' => '279967605847078',
-        'client_secret' => '44368230dc098be3afdea7235458952f',
-        'redirect' => 'http://citie.dev/facebook/callback',
+        'client_id' => env('FB_CLIENT_ID'),
+        'client_secret' => env('FB_CLIENT_SECRET'),
+        'redirect' => env('FB_REDIRECT'),
+
     ],
 ];

@@ -84,14 +84,24 @@ class User extends Authenticatable
         return $this->services()->where('type', 'r')->get();
     }
 
-    public function likes()
+    public function hasSocialLinked($service)
     {
-        return $this->hasMany('App\likeable');
+        return (bool) $this->social->where('service', $service)->count();
     }
 
-    public function hasLikedService(Service $service)
+    // public function likes()
+    // {
+    //     return $this->hasMany('App\likeable');
+    // }
+
+    // public function hasLikedService(Service $service)
+    // {
+    //     return (bool)$service->likes->where('user_id', $this->id)->count();
+    // }
+
+    public function social()
     {
-        return (bool)$service->likes->where('user_id', $this->id)->count();
+        return $this->hasMany(Social::class);
     }
 
 

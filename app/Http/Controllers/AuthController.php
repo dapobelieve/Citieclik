@@ -65,7 +65,7 @@ class AuthController extends Controller
     		'last_name' => $request->input('lname'),
     		'phone' => $request->input('phone'),
     		'password' => Hash::make($request->input('password')),
-            'slug'    => $slug,
+            'slug'    => $this->slugIt($slug),
     	]);
 
         //automatically log in user

@@ -68,9 +68,9 @@ Route::get('/signout', [
 	]);
 
 
-Route::get('/redirect/{provider}','SocialAuthController@redirect');
+Route::get('/redirect/{service}','SocialAuthController@redirect');
 
-Route::get('/{provider}/callback','SocialAuthController@callback');
+Route::get('/{service}/callback','SocialAuthController@callback');
 
 
 /*

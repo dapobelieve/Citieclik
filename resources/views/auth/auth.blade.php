@@ -40,7 +40,7 @@ Create Account
                 </div>
                 {{-- <div class="col-xl-4 col-md-6 col-sm-4"><a class="btn btn-sm btn-block twitter-btn" href="#"><i class="socicon-twitter"></i>&nbsp;Twitter login</a></div> --}}
                 <div class="col-xl-4 col-md-6 col-sm-4">
-                  <a class="btn btn-sm btn-block google-btn" href="#">
+                  <a class="btn btn-sm btn-block google-btn" href="/redirect/google">
                   <i class="socicon-googleplus"></i>&nbsp; login</a></div>
               </div>
               <h4 class="margin-bottom-1x">Or using the form below</h4>

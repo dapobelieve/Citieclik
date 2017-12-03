@@ -55,7 +55,6 @@ class AuthController extends Controller
         ]);
 
         $slug = "@".uniqid();
-        // dd($tempUserName."   ".$slug);
 
     	// submmiting users details to the db
     	User::create([

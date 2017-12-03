@@ -74,7 +74,7 @@ Create Account
           <div class="col-md-6">
             <div class="padding-top-3x hidden-md-up"></div>
             <h3 class="margin-bottom-1x">No Account? Register</h3>
-            <p>Registration takes less than a minute .</p>
+            <p>You can also register with your social accounts.</p>
             <form class="row" method="post" action="{{ route('auth.signup')}}">
               <div class="col-sm-6">
                 <div class="form-group{{ $errors->has('fname') ? ' has-error' : ''}}">

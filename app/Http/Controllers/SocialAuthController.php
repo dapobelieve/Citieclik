@@ -55,7 +55,8 @@ class SocialAuthController extends Controller
 
         Auth::login($user, false);
 
-        return redirect()->intended();    
+        return redirect()->intended();
+            
 
 
         // dd($serviceUser);

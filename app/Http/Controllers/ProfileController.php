@@ -62,7 +62,7 @@ class ProfileController extends Controller
         // validating the data
         $this->validate($request , [
             'fname' => 'required|string',
-            'lname' => 'string',
+            
             'email' => [
                             'required',
                              Rule::unique('users')->ignore(Auth::user()->id),
@@ -87,9 +87,9 @@ class ProfileController extends Controller
             'username.unique' => 'Username Already Exists',
             'phone.digits'    => 'Phone Number must be 11 digits',
             'fname.required'  => 'The first name is required',
-            'lname.required'  => 'The last name is required',
             'lname.string'    => 'The last name must be a Word',
         ]);
+        // $slug = "@".uniqid();
 
         // submmiting users details to the db
         Auth::user()->update([
@@ -98,7 +98,7 @@ class ProfileController extends Controller
             'first_name' => $request->input('fname'),
             'last_name'  => $request->input('lname'),
             'phone'      => $request->input('phone'),
-            // 'slug'       => $this->slugIt($request->input('username')),
+            'slug'       => $this->slugIt($request->input('username')),
         ]);
 
         return redirect()->back()->with('info', 'Profile Updated.');

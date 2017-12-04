@@ -15,8 +15,8 @@ class Social
      */
     public function handle($request, Closure $next)
     {
-        if (!in_array(strtolower($request->service), array_keys(config(social.service)))){
-            return redirect()->back();
+        if (!in_array(strtolower($request->service), array_keys(config('Social.services')))){
+            return redirect()->route('auth.signup');
         }
         return $next($request);
     }

@@ -15,9 +15,9 @@ class Social
      */
     public function handle($request, Closure $next)
     {
-        dd($request->service);
-
-
+        if (!in_array(strtolower($request->service), array_keys(config(social.service)))){
+            return redirect()->back();
+        }
         return $next($request);
     }
 }

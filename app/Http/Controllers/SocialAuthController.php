@@ -10,20 +10,10 @@ use Illuminate\Http\Request;
 
 class SocialAuthController extends Controller
 {
-    private function slugIt($slug)
+    public function __construct()
     {
-        $lettersNamesSpaces = '/[^\-\s\pN\pL]+/u';
-        $spacesHypens = '/[\-\s]+/';
-
-        $slug = preg_replace($lettersNamesSpaces, '', mb_strtolower($slug, 'UTF-8'));
-
-        $slug = preg_replace($spacesHypens, '-', $slug);
-
-        $slug = trim($slug, '-');
-
-        return $slug;
+        $this->middleware(['social', 'guest']);
     }
-
 
     public function redirect($service, Request $request)
     {
@@ -56,7 +46,7 @@ class SocialAuthController extends Controller
         Auth::login($user, false);
 
         return redirect()->intended();
-            
+
 
 
         // dd($serviceUser);

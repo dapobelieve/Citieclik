@@ -8,7 +8,7 @@ return [
                 'name' => 'Facebook'
         ],
 
-        'gmail'  => [
+        'google'  => [
                 'name' => 'Gmail'
         ]
 

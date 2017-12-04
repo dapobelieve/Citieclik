@@ -110,6 +110,19 @@ Route::group(['middleware' => ['AuthCheck']], function () {
 		| Add Service
 		|
 		*/
+		/*
+		 * Profile Picture
+
+
+		*/
+
+		Route::post('profile-pic', [
+			'uses' => 'ProfileController@updatePic',
+			'as'   => 'profile-pic'
+		]);
+
+
+
 		Route::get('service/add', [
 			'uses' => 'ServiceController@getAddService',
 			'as'   => 'addservice'

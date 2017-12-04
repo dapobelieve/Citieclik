@@ -10,6 +10,10 @@ use App\User;
 
 class ProfileController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['AuthCheck']);
+    }
 
     private function slugIt($slug)
     {
@@ -102,6 +106,11 @@ class ProfileController extends Controller
         ]);
 
         return redirect()->back()->with('info', 'Profile Updated.');
+    }
+
+    public function updatePic(Request $request)
+    {
+
     }
 
 }

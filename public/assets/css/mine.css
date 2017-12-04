@@ -60,3 +60,11 @@
 .dropdown:hover>.dropdown-menu {
   display: block;
 }
+
+/* profile
+  
+ */
+ .userImg {
+  height: 150px;
+  width: auto;
+ }

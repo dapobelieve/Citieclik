@@ -81,5 +81,7 @@
           @yield('profileContent')
 
         </div>
-      </div>     
+      </div> 
+
 @endsection
+ 

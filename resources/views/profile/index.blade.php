@@ -98,9 +98,3 @@ Edit | Profile
                     </form>
         </div>
     @stop
-
-@section('scripts')
-
-
-
-@stop

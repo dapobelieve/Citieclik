@@ -238,7 +238,6 @@ Add service | Citieclik
 {{-- <script src="/dist/summernote.min.js"></script> --}}
 {{-- <script src="/dist/summernoteinit.js"></script> --}}
 
-<script type="text/javascript" src="/js/jquery.min.js"></script>
 <script src="/dist/trumbowyg.min.js"></script>
 <script type="text/javascript">
 //script to auto change states and its lgas

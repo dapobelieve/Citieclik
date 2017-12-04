@@ -44,10 +44,7 @@ Services | Citieclik
         .show {display:block;}
 </style>
 @stop
-
-
-
-  @section('profileContent')
+@section('profileContent')
             <div class="col-lg-8">
               <div class="padding-top-2x mt-2 hidden-lg-up"></div>
               <!-- Wishlist Table-->
@@ -123,4 +120,5 @@ Services | Citieclik
   })
 @endif
 </script>
+<script src="/assets/js/citi.js"></script>
 @stop

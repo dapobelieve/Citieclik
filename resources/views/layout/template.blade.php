@@ -183,9 +183,10 @@
     <script src="/assets/js/vendor.min.js"></script>
     <script src="/assets/js/scripts.min.js"></script>
     <script src="/assets/js/sweetalert.min.js"></script>
-    @yield('script')    
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
     <!-- Customizer scripts-->
-    <script src="/assets/customizer/customizer.min.js"></script>   
+    <script src="/assets/customizer/customizer.min.js"></script>  
+    @yield('script')    
   </body>
 
 </html>

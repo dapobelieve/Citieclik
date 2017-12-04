@@ -7,7 +7,10 @@
     </div>
     <div class="user-info">
       <div class="user-avatar">
-        <a class="edit-avatar" data-toggle="modal" data-target="#modalDefault"></a><img src="/assets/img/account/user-ava.jpg" alt="User">
+        @if(Auth::check() && Auth::user()->id == $user->id)
+        <a class="edit-avatar" data-toggle="modal" data-target="#modalDefault"></a>
+        @endif
+        <img src="/assets/img/vatar.png" alt="User">
         {{-- <button class="btn btn-outline-primary" type="button" data-toggle="modal" data-target="#modalDefault">Default Modal</button> --}}
       </div>
       <div class="user-data">

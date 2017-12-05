@@ -1,46 +1,54 @@
 //CitiClick JS 
 
 var profielPic = (function (){
+    var output;
 
-    var ajaxSend = function(output)
+    var setUpEventListeners = function()
     {
-        document.getElementById('userAvatar').addEventListener('submit', function (event) {
-            event.preventDefault();
-            output.src = '/assets/img/loading.gif';
-            console.log(event.target);
-        });
+        document.getElementById('imgField').addEventListener('change', clicky);
+        document.getElementById('userAvatar').addEventListener('submit', ajaxSend);
+    };
+
+
+    var ajaxSend = function(event)
+    {
+        event.preventDefault();
+        // console.log(this);
+        var img = document.getElementById('imgField').value;
+        var token = document.getElementById('_token').value;
         $.ajax({
-            url: '',
+            url: '/profile-pic',
             type: 'POST',
-            data: {},
-            beforeSend: function(){
-
+            data: {
+                token: token,
+                img: img,
             },
-            complete: function(){
-
+            beforeSend: function(){
+                output.src = '/assets/img/loading.gif';  
+            },
+            complete: function(data){
+                // console.log(data);
             }
         });
     };
-    
-    var clicky = function()
+
+    var clicky = function(event)
     {
-        document.getElementById('imgField').addEventListener('change', function (event) {
-             var reader = new FileReader();
-             reader.onload = function()
-             {
-              var output = event.target.parentNode.previousElementSibling.previousElementSibling.firstElementChild;
-              // output.classList.add('userImg')
-              output.className += ' userImg';
-              output.src = reader.result;
-             }
-             reader.readAsDataURL(event.target.files[0]);
-             ajaxSend(output);
-        });
+         var reader = new FileReader();
+         reader.onload = function()
+         {
+          output = event.target.parentNode.previousElementSibling.previousElementSibling.firstElementChild;
+          // output.classList.add('userImg')
+          output.className += ' userImg';
+          output.src = reader.result;
+         }
+         reader.readAsDataURL(event.target.files[0]);
     };
+
     return {
         init: function()
         {
-             clicky();
+             setUpEventListeners();
         },
     }
 })();

@@ -10,7 +10,9 @@
     @yield('request-modal')
     
     <!-- Off-Canvas Mobile Menu-->
-    <div class="offcanvas-container" id="mobile-menu"><a class="account-link" href="account-orders.html">@if(Auth::check())<i class="icon-head"></i><span>Hello</span>, {{Auth::User()->first_name}} @endif</a>
+    <div class="offcanvas-container" id="mobile-menu">
+      <a class="account-link" href="account-orders.html">@if(Auth::check())
+        <i class="icon-head"></i><span>Hello</span>, {{Auth::User()->first_name}} @endif</a>
       @include('layout.nav2')
     </div>
     <!-- Topbar-->

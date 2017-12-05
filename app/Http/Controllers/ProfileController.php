@@ -110,7 +110,9 @@ class ProfileController extends Controller
 
     public function updatePic(Request $request)
     {
-
+       //  $data = $request->toJson();
+       // return $data; 
+        dd($request);
     }
 
 }

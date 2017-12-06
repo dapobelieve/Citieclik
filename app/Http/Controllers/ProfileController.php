@@ -7,6 +7,8 @@ use Illuminate\Validation\Rule;
 use App\Category;
 use Auth;
 use App\User;
+use Cloudder;
+
 
 class ProfileController extends Controller
 {
@@ -110,9 +112,30 @@ class ProfileController extends Controller
 
     public function updatePic(Request $request)
     {
-       //  $data = $request->toJson();
-       // return $data; 
-        dd($request);
+            $fileUrl = $request->file('dfile')->getRealPath();
+
+            $result  =  Cloudder::upload($fileUrl,null, $options = array(
+                'folder'   => 'citi/profile',
+                'timeout'  =>  600,
+                'format'   => 'Webp',
+                'quality'  => '20',
+                'gravity'  => 'face',
+            ));
+
+            if(!$result)
+                return "Error!!!"; 
+            else {
+                $pubId =  Cloudder::getPublicId();
+
+                $file_url  = Cloudder::getResult();
+
+                Auth::user()->update([
+                    'image' => $file_url['url'],
+                ]);
+
+                return $file_url;
+            }
+            
     }
 
 }

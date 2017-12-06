@@ -1,5 +1,5 @@
 <!-- Default Modal-->
-<form method="post" action="{{route('profile-pic')}}" id="userAvatar" enctype="multipart/form-data" >
+<form method="post" action="{{ route('profile-pic') }}" id="userAvatar" enctype="multipart/form-data" >
   <div class="modal fade" id="modalDefault" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -11,18 +11,17 @@
         </div>
         <div class="modal-body">
           <div class="user-avatar">
-            <img class="profile-img" src="/assets/img/vatar.png" alt="User">
-            <img class="profile-img" src="" alt="">
+            <img class="profile-img userImg"  src="{{ $user->getUserImg() }}" alt="User">
           </div>
           <br> 
           <div class="custom-file">
-            <input class="custom-file-input" id="imgField" type="file" id="file-input">
+            <input class="custom-file-input" name="imgField" id="imgField" type="file">
             <span class="custom-file-control"></span>
           </div>
         </div>
         <div class="modal-footer">
           <button class="btn btn-outline-secondary btn-sm" type="button" data-dismiss="modal">Close</button>
-          <button class="btn btn-primary btn-sm" type="submit">Save changes</button>
+          <button class="btn btn-primary btn-sm" id="saveChange" type="submit">Save changes</button>
         </div>
       </div>
     </div>

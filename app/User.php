@@ -42,6 +42,7 @@ class User extends Authenticatable
         'last_name',
         'location',
         'slug',
+        'image',
     ];
 
     // a user hasMany services
@@ -87,6 +88,15 @@ class User extends Authenticatable
     public function hasSocialLinked($service)
     {
         return (bool) $this->social->where('service', $service)->count();
+    }
+
+    public function getUserImg()
+    {
+        if(empty($this->image)){
+            return '/assets/img/vatar.png';
+        }else{
+            return $this->image;
+        }
     }
 
     // public function likes()

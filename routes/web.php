@@ -115,9 +115,8 @@ Route::group(['middleware' => ['AuthCheck']], function () {
 
 
 		*/
-		
-
-		Route::post('profile-pic', [
+	
+		Route::post('/profile/profile-pic', [
 			'uses' => 'ProfileController@updatePic',
 			'as'   => 'profile-pic'
 		]);

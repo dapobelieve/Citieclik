@@ -10,7 +10,7 @@
         @if(Auth::check() && Auth::user()->id == $user->id)
         <a class="edit-avatar" data-toggle="modal" data-target="#modalDefault"></a>
         @endif
-        <img src="/assets/img/vatar.png" alt="User">
+        <img id="userMainAvatar" src="{{ $user->getUserImg() }}" alt="User">
         {{-- <button class="btn btn-outline-primary" type="button" data-toggle="modal" data-target="#modalDefault">Default Modal</button> --}}
       </div>
       <div class="user-data">

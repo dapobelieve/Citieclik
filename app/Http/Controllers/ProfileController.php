@@ -115,7 +115,7 @@ class ProfileController extends Controller
             $fileUrl = $request->file('dfile')->getRealPath();
 
             $result  =  Cloudder::upload($fileUrl,null, $options = array(
-                'folder'   => 'citi/profile',
+                'folder'   => 'citi',
                 'timeout'  =>  600,
                 'format'   => 'Webp',
                 'quality'  => '20',
@@ -135,7 +135,6 @@ class ProfileController extends Controller
 
                 return $file_url;
             }
-            
     }
 
 }

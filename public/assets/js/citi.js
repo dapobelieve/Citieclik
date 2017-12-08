@@ -9,12 +9,10 @@ var profielPic = (function (){
         document.getElementById('userAvatar').addEventListener('submit', ajaxSend);
     };
 
-
     var ajaxSend = function(event)
     {
       var formData;
         event.preventDefault();
-        
         var imge = document.getElementById('imgField').files[0];
         var token = document.getElementById('_token').value;
         formData = new FormData();
@@ -56,11 +54,6 @@ var profielPic = (function (){
          }
          reader.readAsDataURL(event.target.files[0]);
     };
-
-    var reset = function()
-    {
-
-    }
 
     return {
         init: function()

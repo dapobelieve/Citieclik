@@ -95,7 +95,8 @@ class User extends Authenticatable
         if(empty($this->image)){
             return '/assets/img/vatar.png';
         }else{
-            return $this->image;
+            $userImage = json_decode($this->image, true);
+            return $userImage['url'];
         }
     }
 

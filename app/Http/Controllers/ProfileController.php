@@ -112,29 +112,43 @@ class ProfileController extends Controller
 
     public function updatePic(Request $request)
     {
-            $fileUrl = $request->file('dfile')->getRealPath();
+        if(empty(Auth::user()->avatar)){
+            $this->uploadPicture($request);
+            return $this->imageObj;
+        }else{
+            $userImage = json_decode(Auth::user()->avatar, true);
+            $this->deletePicture($userImage['public_id']);
+            $this->uploadPicture($request);
+            return $this->imageObj;
+        }
+    }
 
+    private function uploadPicture(Request $req)
+    {
+        $fileUrl = $req->file('dfile')->getRealPath();
             $result  =  Cloudder::upload($fileUrl,null, $options = array(
-                'folder'   => 'citi',
+                'folder'   => 'profilePics',
                 'timeout'  =>  600,
                 'format'   => 'Webp',
                 'quality'  => '20',
+                'crop'     => 'crop',
                 'gravity'  => 'face',
             ));
 
             if(!$result)
                 return "Error!!!"; 
             else {
-                $pubId =  Cloudder::getPublicId();
-
                 $file_url  = Cloudder::getResult();
-
+                $this->imageObj = $file_url;
                 Auth::user()->update([
-                    'image' => $file_url['url'],
-                ]);
-
-                return $file_url;
+                    'image' => json_encode($file_url),
+                ]);                
             }
+    }
+
+    private function deletePicture($imagePubId)
+    {
+        Cloudder::delete($imagePubId);
     }
 
 }

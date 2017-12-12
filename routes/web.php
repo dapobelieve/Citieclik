@@ -116,7 +116,7 @@ Route::group(['middleware' => ['AuthCheck']], function () {
 
 		*/
 	
-		Route::post('/profile/profile-pic', [
+		Route::post('/profile/editpicture', [
 			'uses' => 'ProfileController@updatePic',
 			'as'   => 'profile-pic'
 		]);
@@ -188,8 +188,21 @@ Route::group(['middleware' => ['AuthCheck']], function () {
 
 
 
+/*
+|
+| Subscription Section Starts
+|
+*/
 
-
+Route::get('subscription', [
+	'uses' => '\App\Http\Controllers\SubController@index',
+	'as'   => 'getSub'
+]);
+/*
+|
+| Subscription Section ends
+|
+*/
 
 
 
@@ -241,6 +254,12 @@ Route::post('/request/add', [
 	'as' => 'request.add',
 ])->middleware('AuthCheck');
 
+
+/*
+|
+| Profile Section Ends
+|
+*/
 
 /*
 |

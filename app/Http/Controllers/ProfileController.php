@@ -112,11 +112,12 @@ class ProfileController extends Controller
 
     public function updatePic(Request $request)
     {
-        if(empty(Auth::user()->avatar)){
+        // return $request;
+        if(empty(Auth::user()->image)){
             $this->uploadPicture($request);
             return $this->imageObj;
         }else{
-            $userImage = json_decode(Auth::user()->avatar, true);
+            $userImage = json_decode(Auth::user()->image, true);
             $this->deletePicture($userImage['public_id']);
             $this->uploadPicture($request);
             return $this->imageObj;

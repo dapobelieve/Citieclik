@@ -7,7 +7,7 @@
     </div>
     <div class="user-info">
       <div class="user-avatar">
-        @if(Auth::check() && Auth::user()->id == $user->id)
+        @if(Auth::check() && Auth::user()->id == $user->id && Request::is('profile/edit'))
         <a class="edit-avatar" data-toggle="modal" data-target="#modalDefault"></a>
         @endif
         <img id="userMainAvatar" src="{{ $user->getUserImg() }}" alt="User">
@@ -20,7 +20,7 @@
   </aside>
   <nav class="list-group">
     @if(Auth::check() && Auth::user()->id == $user->id)
-    <a class="list-group-item {{ Request::is( 'profile') ? ' active' : ''  }}" href="{{route('profile.edit')}}">
+    <a class="list-group-item {{ Request::is('profile') ? ' active' : ''  }}" href="{{route('profile.edit')}}">
       <i class="icon-head"></i>Edit Profile
     </a>
     @endif

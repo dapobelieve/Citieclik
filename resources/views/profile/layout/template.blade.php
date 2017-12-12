@@ -84,4 +84,16 @@
       </div> 
 
 @endsection
- 
+@section('script')
+<script src="/assets/js/slimscroll.min.js"></script>
+<script type="text/javascript">
+ @if(Session::has('info'))
+  swal({
+    title: "",
+    text:  "{{Session::get('info')}}",
+    type: 'info'
+  })
+@endif
+</script>
+<script src="/assets/js/citi.js"></script>
+@stop

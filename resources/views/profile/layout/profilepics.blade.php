@@ -1,5 +1,5 @@
 <!-- Default Modal-->
-<form method="post" action="{{ route('profile-pic') }}" id="userAvatar" enctype="multipart/form-data" >
+<form method="post" action="" id="userAvatar" enctype="multipart/form-data" >
   <div class="modal fade" id="modalDefault" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">

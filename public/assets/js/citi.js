@@ -20,7 +20,7 @@ var profielPic = (function (){
         formData.append('_token',token);
         // console.log(formData);
         $.ajax({
-            url: 'profile-pic',
+            url: 'editpicture',
             type: 'POST',
             contentType: false,
             processData: false,
@@ -31,6 +31,7 @@ var profielPic = (function (){
                 document.getElementById("saveChange").disabled = true;
             },
             complete: function(data){
+              // console.log(data.responseText);
                 var Dimg = JSON.parse(data.responseText);
                 output.src = Dimg.url;
                 document.getElementById("userMainAvatar").src = Dimg.url;

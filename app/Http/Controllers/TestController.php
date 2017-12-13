@@ -10,9 +10,14 @@ class TestController extends Controller
 {
     public function index()
     {
-    	$val = uniqid(mt_srand());
-    	dd($val);
+        return view('test.test');
     }
+    
+    // public function index()
+    // {
+    // 	$val = uniqid(mt_srand());
+    // 	dd($val);
+    // }
 
     //some code goes here
 }

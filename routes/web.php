@@ -196,7 +196,7 @@ Route::group(['middleware' => ['AuthCheck']], function () {
 
 Route::get('subscription', [
 	'uses' => '\App\Http\Controllers\SubController@index',
-	'as'   => 'getSub'
+	'as'   => 'getSubs'
 ]);
 /*
 |
@@ -233,10 +233,6 @@ Route::get('/profile/{slug}', [
 	'as'   => 'profile.index'
 ]);
 
-Route::get('/account', [
-	'uses' => '\App\Http\Controllers\ProfileController@getAccount',
-	'as' => 'profile.address',
-]);
 Route::get('/profile/{slug}/services', [
 	'uses' => '\App\Http\Controllers\ProfileController@getService',
 	'as' => 'profile.service',

@@ -4,9 +4,9 @@
 My Requests | Citieclik
 @endsection
 
-  @section('request-modal')
+{{--   @section('request-modal')
     @include('profile.request-modal')
-  @stop
+  @stop --}}
 
   @section('profileContent')
       <div class="col-lg-8">
@@ -58,7 +58,7 @@ My Requests | Citieclik
 
         @if(Auth::check())
             <div class="text-right">
-              <button class="btn btn-primary margin-bottom-none" data-toggle="modal" data-target="#openTicket">Submit New Request</button>
+              <a href="{{route('request.add')}}" class="btn btn-primary margin-bottom-none">Submit New Request</a>
             </div>
         @endif
       </div>

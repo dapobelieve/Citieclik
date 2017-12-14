@@ -11,6 +11,7 @@ use Auth;
 
 class ServiceController extends Controller
 {
+    private $imgObj;
 	//slug method cool huh ;)
     private function slugIt($slug)
     {
@@ -85,11 +86,12 @@ class ServiceController extends Controller
 
         //here i check if an image is in the 
         //image field and upload it to cloudinary
-        if($serRequest->hasFile('serImg'))
+        if($serRequest->hasFile('serImg')){
             $this->uploadPicture($serRequest);
-
+            $service->image = $this->imgObj;
+        }
         $service->save();
-        return redirect()->route('profile.service')->with('info', 'Service Posted Successfully');
+        return redirect()->route('profile.service', ['slug' => $serRequest->user()->slug])->with('info', 'Service Posted Successfully');
     }
 
     //Route to get subcategory based on selected category
@@ -150,18 +152,23 @@ class ServiceController extends Controller
 
         //here i check if an image is in the 
         //image field and upload it to cloudinary
-        if($serRequest->hasFile('serImg'))
+        if($serRequest->hasFile('serImg')){
             $this->uploadPicture($serRequest);
+            $service->image = $this->imgObj;
+        }
 
         $service->save();
-        return redirect()->route('profile.services')->with('info', 'Service Updated Successfully');
+        return redirect()->route('profile.service', ['slug' => $serRequest->user()->slug])->with('info', 'Service Updated Successfully');
     }
 
     public function getDeleteService($id)
     {
         $post = Service::findOrFail($id);
-        $imageData = json_decode($post->image, true);
-        $this->deletePicture($imageData['public_id']);
+        if(!empty($post->image)){
+            $imageData = json_decode($post->image, true);
+            $this->deletePicture($imageData['public_id']);
+        }
+        
         $post->delete();
         return redirect()->back()->with('info', 'Service Deleted.');
     }
@@ -177,10 +184,10 @@ class ServiceController extends Controller
             ));
 
             if(!$result)
-                return "Error!!!"; 
+                return redirect()->back()->with('info', 'Internal Server Error. Please try again.');
             else {
                 $fileData  = Cloudder::getResult();
-                $service->image = json_encode($fileData);
+                $this->imgObj = json_encode($fileData);
             }
     }
 

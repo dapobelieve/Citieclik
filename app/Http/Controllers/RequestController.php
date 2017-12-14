@@ -9,6 +9,7 @@ use Cloudder;
 
 class RequestController extends Controller
 {
+    private $imgObj;
     public function __construct()
     {
         $this->middleware(['AuthCheck']);
@@ -87,29 +88,30 @@ class RequestController extends Controller
 
         //here i check if an image is in the 
         //image field and upload it to cloudinary
-        if($serRequest->hasFile('serImg'))
+        if($serRequest->hasFile('serImg')){
             $this->uploadPicture($serRequest);
+            $service->image = $this->imgObj;
+        }
 
         $service->save();
-        return redirect()->route('profile.requests')->with('info', 'Request Posted Successfully');
+        return redirect()->route('profile.request', ['slug' => $serRequest->user()->slug])->with('info', 'Request Posted Successfully');
     }
 
     private function uploadPicture(Request $req)
     {
         $fileUrl = $req->file('serImg')->getRealPath();
             $result  =  Cloudder::upload($fileUrl,null, $options = array(
-                'folder'   => 'citi',
+                'folder'   => 'citiRequest',
                 'timeout'  =>  600,
                 'format'   => 'Webp',
                 'quality'  => '20'
             ));
 
             if(!$result)
-                return "Error!!!"; 
+                return redirect()->back()->with('info', 'Internal Server Error. Please try again.');
             else {
                 $fileData  = Cloudder::getResult();
-                dd($fileData);
-                $service->image = json_encode($fileData);
+                $this->imgObj = json_encode($fileData);;
             }
     }
 

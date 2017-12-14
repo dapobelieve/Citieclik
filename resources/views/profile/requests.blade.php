@@ -4,9 +4,9 @@
 My Requests | Citieclik
 @endsection
 
-  @section('request-modal')
+{{--   @section('request-modal')
     @include('profile.request-modal')
-  @stop
+  @stop --}}
 
   @section('profileContent')
       <div class="col-lg-8">

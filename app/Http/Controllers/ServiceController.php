@@ -70,7 +70,6 @@ class ServiceController extends Controller
             'serImg.max'            => 'The Image is too large, It must not be more than 2MB',
         ]); 
 
-
 		$slugSer = $this->slugIt($serRequest->input('serviceName'));
 
 		$service = new Service;
@@ -83,7 +82,6 @@ class ServiceController extends Controller
         $service->type              = 'p';
         $service->state_id          = $serRequest->input('serState');
         $service->location_id       = $serRequest->input('location');
-        
 
         //here i check if an image is in the 
         //image field and upload it to cloudinary
@@ -158,7 +156,7 @@ class ServiceController extends Controller
         $service->save();
         return redirect()->route('profile.services')->with('info', 'Service Updated Successfully');
     }
-    
+
     public function getDeleteService($id)
     {
         $post = Service::findOrFail($id);

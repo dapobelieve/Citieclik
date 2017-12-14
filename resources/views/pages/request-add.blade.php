@@ -57,6 +57,21 @@ Request for a Service
                         </div>
                         <div class="row">
                             <div class="col-sm-6">
+                                <div class="form-group">
+                                  <label for="ticket-priority">Priority</label>
+                                  <select class="form-control" name="priority" id="ticket-priority">
+                                    <option>How urgent is your issue?</option>
+                                    <option>Urgent</option>
+                                    <option>High</option>
+                                    <option>Medium</option>
+                                    <option>Low</option>
+                                  </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
                                 <div class="form-group {{ $errors->has('serCat') ? ' has-error' : '' }}">
                                     <label for="checkout-country">Category</label>
                                     <select class="form-control" name="serCat" id="serCat" value="{{ old('serCat') ?: ''  }}">

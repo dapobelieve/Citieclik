@@ -191,7 +191,7 @@ class ServiceController extends Controller
         }
 
         $service->save();
-        return redirect()->route('profile.services')->with('info', 'Service Updated Successfully');
+        return redirect()->route('profile.service', ['slug' => $serRequest->user()->slug])->with('info', 'Service Updated Successfully');
     }
 
     public function getDeleteService($id)

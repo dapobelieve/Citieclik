@@ -71,9 +71,8 @@ Request for a Service
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                  <label for="ticket-priority">Priority</label>
+                                  <label for="ticket-priority">How urgent is your issue? (Priority)</label>
                                   <select name="serPrior" class="form-control" name="priority" id="ticket-priority">
-                                    <option>How urgent is your issue?</option>
                                     <option value="4">Urgent</option>
                                     <option value="3">High</option>
                                     <option value="2">Medium</option>

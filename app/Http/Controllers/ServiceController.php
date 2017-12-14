@@ -71,7 +71,7 @@ class ServiceController extends Controller
             'serImg.max'            => 'The Image is too large, It must not be more than 2MB',
         ]); 
 
-		$slugSer = $this->slugIt($serRequest->input('serviceName'));
+		$slugSer = $this->slugIt($serRequest->input('serTitle'));
 
 		$service = new Service;
         $service->title             = $serRequest->input('serTitle');
@@ -136,7 +136,7 @@ class ServiceController extends Controller
         ]); 
 
 
-        $slugSer = $this->slugIt($serRequest->input('serviceName'));
+        $slugSer = $this->slugIt($serRequest->input('serTitle'));
 
         $service =  Service::find($id);
         $service->title             = $serRequest->input('serTitle');

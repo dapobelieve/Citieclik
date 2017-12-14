@@ -108,7 +108,7 @@ class ServiceController extends Controller
         }
 
         $service->save();
-        return redirect()->route('profile.services')->with('info', 'Service Posted Successfully');
+        return redirect()->route('profile.service', ['slug' => $serRequest->user()->slug])->with('info', 'Service Posted Successfully');
     }
 
     //Route to get subcategory based on selected category

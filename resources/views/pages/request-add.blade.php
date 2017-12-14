@@ -13,7 +13,7 @@ Request for a Service
     <div class="page-title">
         <div class="container">
           <div class="column">
-            <h1>Request for a Service</h1>
+            <h1>Submit New Request</h1>
           </div>
           <div class="column">
             <ul class="breadcrumbs">
@@ -59,12 +59,12 @@ Request for a Service
                             <div class="col-sm-6">
                                 <div class="form-group">
                                   <label for="ticket-priority">Priority</label>
-                                  <select class="form-control" name="priority" id="ticket-priority">
+                                  <select name="serPrior" class="form-control" name="priority" id="ticket-priority">
                                     <option>How urgent is your issue?</option>
-                                    <option>Urgent</option>
-                                    <option>High</option>
-                                    <option>Medium</option>
-                                    <option>Low</option>
+                                    <option value="4">Urgent</option>
+                                    <option value="3">High</option>
+                                    <option value="2">Medium</option>
+                                    <option value="1">Low</option>
                                   </select>
                                 </div>
                             </div>

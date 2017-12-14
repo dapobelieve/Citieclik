@@ -29,7 +29,7 @@ class RequestController extends Controller
 
     public function postRequest(Request $serRequest)
     {
-        dd($serRequest);
+        dd($serRequest->serPrior);
         // $this->validate($serRequest, [
         //     'serTitle'  =>  'required|string|max:255',
         //     'serState'  => 'required|integer',

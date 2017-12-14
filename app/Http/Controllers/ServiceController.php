@@ -11,7 +11,7 @@ use Auth;
 
 class ServiceController extends Controller
 {
-    private $imgObj;
+    private $imgObj = "";
 	//slug method cool huh ;)
     private function slugIt($slug)
     {
@@ -158,6 +158,7 @@ class ServiceController extends Controller
         }
 
         $service->save();
+        //fire sms sending event
         return redirect()->route('profile.service', ['slug' => $serRequest->user()->slug])->with('info', 'Service Updated Successfully');
     }
 

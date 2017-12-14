@@ -9,7 +9,7 @@ use Cloudder;
 
 class RequestController extends Controller
 {
-    private $imgObj;
+    private $imgOb = "";
     public function __construct()
     {
         $this->middleware(['AuthCheck']);

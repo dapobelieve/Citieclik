@@ -249,10 +249,17 @@ Route::get('/profile/{slug}/requests', [
 	'as' => 'profile.request',
 ]);
 
+
+Route::get('/request/add', [
+	'uses' => '\App\Http\Controllers\RequestController@getRequestAdd',
+	'as' => 'request.add',
+]);
+
+
 Route::post('/request/add', [
 	'uses' => '\App\Http\Controllers\RequestController@postRequest',
 	'as' => 'request.add',
-])->middleware('AuthCheck');
+]);
 
 
 /*

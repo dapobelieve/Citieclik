@@ -7,15 +7,24 @@ use App\User;
 
 class RequestController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['AuthCheck']);
+    }
+
     public function getRequest($slug)
     {
     	$user = User::where('slug', $slug)->first();
     	if(!$user){
     		abort(404);
     	}
-    	// $services = $user->services()->get();
     	return view('profile.requests')
     			->with('user', $user);
+    }
+
+    public function getRequestAdd()
+    {
+        return view('pages.request-add');
     }
 
     public function postRequest(Request $request)

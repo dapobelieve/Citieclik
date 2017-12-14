@@ -3,13 +3,29 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Service;
 use App\User;
+use Cloudder;
 
 class RequestController extends Controller
 {
     public function __construct()
     {
         $this->middleware(['AuthCheck']);
+    }
+
+    private function slugIt($slug)
+    {
+        $lettersNamesSpaces = '/[^\-\s\pN\pL]+/u';
+        $spacesHypens = '/[\-\s]+/';
+
+        $slug = preg_replace($lettersNamesSpaces, '', mb_strtolower($slug, 'UTF-8'));
+
+        $slug = preg_replace($spacesHypens, '-', $slug);
+
+        $slug = trim($slug, '-');
+
+        return $slug;
     }
 
     public function getRequest($slug)
@@ -29,7 +45,7 @@ class RequestController extends Controller
 
     public function postRequest(Request $serRequest)
     {
-        dd($serRequest->serPrior);
+        // dd($serRequest->serPrior);
         // $this->validate($serRequest, [
         //     'serTitle'  =>  'required|string|max:255',
         //     'serState'  => 'required|integer',
@@ -56,25 +72,49 @@ class RequestController extends Controller
         //     'serImg.max'            => 'The Image is too large, It must not be more than 2MB',
         // ]); 
 
-        // $slugSer = $this->slugIt($serRequest->input('serviceName'));
+        $slugSer = $this->slugIt($serRequest->input('serviceName'));
 
-        // $service = new Service;
-        // $service->title             = $serRequest->input('serTitle');
-        // $service->user_id           = $serRequest->user()->id;
-        // $service->category_id       = $serRequest->input('serCat');
-        // $service->sub_category_id   = $serRequest->input('subCat');
-        // $service->description       = $serRequest->input('description');
-        // $service->slug              = $slugSer;
-        // $service->type              = 'r';
-        // $service->state_id          = $serRequest->input('serState');
-        // $service->location_id       = $serRequest->input('location');
+        $service = new Service;
+        $service->title             = $serRequest->input('serTitle');
+        $service->user_id           = $serRequest->user()->id;
+        $service->category_id       = $serRequest->input('serCat');
+        $service->sub_category_id   = $serRequest->input('subCat');
+        $service->description       = $serRequest->input('description');
+        $service->slug              = $slugSer;
+        $service->type              = 'r';
+        $service->state_id          = $serRequest->input('serState');
+        $service->location_id       = $serRequest->input('location');
 
-        // //here i check if an image is in the 
-        // //image field and upload it to cloudinary
-        // if($serRequest->hasFile('serImg'))
-        //     $this->uploadPicture($serRequest);
+        //here i check if an image is in the 
+        //image field and upload it to cloudinary
+        if($serRequest->hasFile('serImg'))
+            $this->uploadPicture($serRequest);
 
-        // $service->save();
-        // return redirect()->route('profile.requests')->with('info', 'Request Posted Successfully');
+        $service->save();
+        return redirect()->route('profile.requests')->with('info', 'Request Posted Successfully');
+    }
+
+    private function uploadPicture(Request $req)
+    {
+        $fileUrl = $req->file('serImg')->getRealPath();
+            $result  =  Cloudder::upload($fileUrl,null, $options = array(
+                'folder'   => 'citi',
+                'timeout'  =>  600,
+                'format'   => 'Webp',
+                'quality'  => '20'
+            ));
+
+            if(!$result)
+                return "Error!!!"; 
+            else {
+                $fileData  = Cloudder::getResult();
+                dd($fileData);
+                $service->image = json_encode($fileData);
+            }
+    }
+
+    private function deletePicture($imagePubId)
+    {
+        Cloudder::delete($imagePubId);
     }
 }

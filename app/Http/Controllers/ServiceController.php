@@ -89,7 +89,7 @@ class ServiceController extends Controller
             $this->uploadPicture($serRequest);
 
         $service->save();
-        return redirect()->route('profile.services')->with('info', 'Service Posted Successfully');
+        return redirect()->route('profile.service')->with('info', 'Service Posted Successfully');
     }
 
     //Route to get subcategory based on selected category
@@ -168,7 +168,7 @@ class ServiceController extends Controller
 
     private function uploadPicture(Request $req)
     {
-        $fileUrl = $req->file('dfile')->getRealPath();
+        $fileUrl = $req->file('serImg')->getRealPath();
             $result  =  Cloudder::upload($fileUrl,null, $options = array(
                 'folder'   => 'citi',
                 'timeout'  =>  600,

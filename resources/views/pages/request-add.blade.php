@@ -3,6 +3,19 @@
      {{-- Summer Note --}}
   {{-- <link href="/assets/css/bootstrap.min.css" rel="stylesheet"> --}}
   <link href="/dist/ui/trumbowyg.min.css" rel="stylesheet">
+  <script type="text/javascript">
+          // image previewwer
+        function preview_image(event) 
+        {
+         var reader = new FileReader();
+         reader.onload = function()
+         {
+          var output = document.getElementById('output_image');
+          output.src = reader.result;
+         }
+         reader.readAsDataURL(event.target.files[0]);
+        };
+  </script>
 @endsection
 
 @section('title')
@@ -285,19 +298,7 @@ $('#serCat').change(function(){
     });
 })();
 
-// image previewwer
-(function(){
-    function preview_image(event) 
-    {
-     var reader = new FileReader();
-     reader.onload = function()
-     {
-      var output = document.getElementById('output_image');
-      output.src = reader.result;
-     }
-     reader.readAsDataURL(event.target.files[0]);
-    }
-})();
+
 $('select').selectize(options);
 </script>
 @endsection

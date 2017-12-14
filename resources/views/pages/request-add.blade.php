@@ -3,20 +3,6 @@
      {{-- Summer Note --}}
   {{-- <link href="/assets/css/bootstrap.min.css" rel="stylesheet"> --}}
   <link href="/dist/ui/trumbowyg.min.css" rel="stylesheet">
-  {{-- <link rel="stylesheet" href="../css/nice-select.css"> --}}
-  <script type='text/javascript'>
-    
-    function preview_image(event) 
-    {
-     var reader = new FileReader();
-     reader.onload = function()
-     {
-      var output = document.getElementById('output_image');
-      output.src = reader.result;
-     }
-     reader.readAsDataURL(event.target.files[0]);
-    }
-    </script>
 @endsection
 
 @section('title')
@@ -55,9 +41,7 @@ Request for a Service
                             </ul>
                     </div>
                   @endif
-                    <h4>Post Service</h4>
-                    <hr>
-                    <hr class="padding-bottom-1x">
+                    <h6><em>*Users will get an sms alert of your request within few minutes.*</em></h6><br>
                     <form class="" role="form" method="POST" enctype="multipart/form-data" action="{{route('request.add')}}">
                         <div class="row" style="margin-top: 20px;">
                             <div class="col-sm-12">
@@ -233,53 +217,42 @@ Request for a Service
 @endsection
 
 @section('script')
-{{-- <script src="path/to/jquery.js"></script>  --}}
-
-{{-- <script src="/dist/summernote.min.js"></script> --}}
-{{-- <script src="/dist/summernoteinit.js"></script> --}}
-
 <script src="/dist/trumbowyg.min.js"></script>
 <script type="text/javascript">
 //script to auto change states and its lgas
-    $('#serState').change(function(){
-        $.ajax({
-            url: "state/location/"+$(this).val(),
-            method: 'GET',
-        })
-        .done(function(data) {
-            $location = $('#location');
-            $location.removeAttr('disabled');//enable
-            $location.children().remove();//clear the select tag first
-            var dee = JSON.parse(data); //convert the json data to array here
-            $.each(dee,function(index, value){
-                $location.append("<option value='"+value.id+"' >"+ value.lga +"</option>");
-            })
-        });
+$('#serState').change(function(){
+    $.ajax({
+        url: "state/location/"+$(this).val(),
+        method: 'GET',
     })
-
-    //same logic as above but for
-    $('#serCat').change(function(){
-        $.ajax({
-            url: "category/getscat/"+$(this).val(),
-            method: 'GET',
+    .done(function(data) {
+        $location = $('#location');
+        $location.removeAttr('disabled');//enable
+        $location.children().remove();//clear the select tag first
+        var dee = JSON.parse(data); //convert the json data to array here
+        $.each(dee,function(index, value){
+            $location.append("<option value='"+value.id+"' >"+ value.lga +"</option>");
         })
-        .done(function(data) {
-            $location = $('#subCat');
-            $location.removeAttr('disabled');//enable
-            $location.children().remove();//clear the kids of the select tag first
-            var dee = JSON.parse(data); //convert the json data to array here
-            $.each(dee,function(index, value){
-                $location.append("<option value='"+value.id+"' >"+ value.sub_category +"</option>");
-            })
-        });
+    });
+});
+//same logic as above but for
+$('#serCat').change(function(){
+    $.ajax({
+        url: "category/getscat/"+$(this).val(),
+        method: 'GET',
     })
-</script>
-
-
-<script type="text/javascript">
-    $('select').selectize(options);
-</script>
-<script type="text/javascript">
+    .done(function(data) {
+        $location = $('#subCat');
+        $location.removeAttr('disabled');//enable
+        $location.children().remove();//clear the kids of the select tag first
+        var dee = JSON.parse(data); //convert the json data to array here
+        $.each(dee,function(index, value){
+            $location.append("<option value='"+value.id+"' >"+ value.sub_category +"</option>");
+        })
+    });
+});
+// text editor
+(function() {
     $('.my-editor').trumbowyg({
         autogrow: true,
         btns: [
@@ -295,6 +268,21 @@ Request for a Service
             // ['fullscreen']
         ]
     });
-</script>
+})();
 
+// image previewwer
+(function(){
+    function preview_image(event) 
+    {
+     var reader = new FileReader();
+     reader.onload = function()
+     {
+      var output = document.getElementById('output_image');
+      output.src = reader.result;
+     }
+     reader.readAsDataURL(event.target.files[0]);
+    }
+})();
+$('select').selectize(options);
+</script>
 @endsection

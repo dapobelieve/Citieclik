@@ -69,7 +69,6 @@ Route::get('/signout', [
 
 
 Route::get('/redirect/{service}','SocialAuthController@redirect');
-
 Route::get('/{service}/callback','SocialAuthController@callback');
 
 
@@ -87,6 +86,14 @@ Route::get('/{service}/callback','SocialAuthController@callback');
 	Route::get('service/category/getscat/{id}', [
 		'uses' => 'AjaxRequestsController@getSubCat'
 	]);
+
+	Route::get('request/state/location/{id}', [
+		'uses' => 'AjaxRequestsController@getLocation'
+	]);
+	Route::get('request/category/getscat/{id}', [
+		'uses' => 'AjaxRequestsController@getSubCat'
+	]);
+
 
 	Route::get('category/category-h/state/{id}', [
 		'uses' => 'AjaxRequestsController@getLocation'
@@ -218,14 +225,14 @@ Route::post('/profile/edit', [
 	'uses' => '\App\Http\Controllers\ProfileController@postEditProfile',
 	'as'   => 'profile.edit',
 
-])->middleware('AuthCheck');
+]);
 
 
 Route::get('/profile/edit', [
 	'uses' => '\App\Http\Controllers\ProfileController@getEditProfile',
 	'as'   => 'profile.edit',
 
-])->middleware('AuthCheck');
+]);
 
 
 Route::get('/profile/{slug}', [

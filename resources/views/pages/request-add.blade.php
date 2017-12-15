@@ -104,6 +104,9 @@ Request for a Service
                                         <option>Sub Category</option>
                                     
                                     </select>
+                                    @if ($errors->has('subCat'))
+                                        <p class="help-block text-danger"><i class="icon-circle-cross"></i>&nbsp;{{ $errors->first('subCat') }}</p>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -158,7 +161,9 @@ Request for a Service
                             <div class="col-sm-12">
                                 <div class="form-group {{ $errors->has('description') ? ' has-error' : '' }}">
                                     <label for="checkout-description">Description</label>
-                                    <textarea class="my-editor" name="description" value="{{ old('description') ?: ''  }}" placeholder="Your description goes here..."></textarea>
+                                    <textarea class="my-editor" name="description" value="" placeholder="Your description goes here...">
+                                        {{  Request::old('description') ?: ''  }}
+                                    </textarea>
                                     @if ($errors->has('description'))
                                         <p class="help-block text-danger"><i class="icon-circle-cross"></i>&nbsp;{{ $errors->first('description') }}</p>
                                     @endif

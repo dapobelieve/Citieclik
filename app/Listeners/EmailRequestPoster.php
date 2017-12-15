@@ -6,7 +6,7 @@ use App\Events\RequestWasMade;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class EmailPoster
+class EmailRequestPoster
 {
     /**
      * Create the event listener.
@@ -26,6 +26,7 @@ class EmailPoster
      */
     public function handle(RequestWasMade $event)
     {
-        //
+        // dd('Email Request Poster');
+        
     }
 }

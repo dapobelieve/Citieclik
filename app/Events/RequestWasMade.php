@@ -10,21 +10,24 @@ use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use App\Service;
+use App\User;
 
 class RequestWasMade
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     public $service;
+    public $user;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(Service $service)
+    public function __construct(Service $service, User $user)
     {
         $this->service = $service;
+        $this->user = $user;
     }
 
     /**

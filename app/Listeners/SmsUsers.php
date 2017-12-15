@@ -26,6 +26,7 @@ class SmsUsers
      */
     public function handle(RequestWasMade $event)
     {
-        dd('Sending SMS to users');
+        // dd('Sending SMS to users');
+        dd($event->user->social());
     }
 }

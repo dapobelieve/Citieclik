@@ -74,10 +74,17 @@ class User extends Authenticatable
     // {
     //     return (bool) $this->userCats()->where('id', $id)->count();
     // }
-    //get services posted by a user
+
+    //gets all services posted by a user
     public function getUserServices()
     {
         return $this->services()->where('type', 'p')->get();
+    }
+
+    // gets the number of posts posted by a user
+    public function getNumberOfPosts()
+    {
+        return $this->getUserServices()->count();
     }
 
     public function getUserRequests()
@@ -90,6 +97,7 @@ class User extends Authenticatable
         return (bool) $this->social->where('service', $service)->count();
     }
 
+    //get the image of a user or set a default one
     public function getUserImg()
     {
         if(empty($this->image)){

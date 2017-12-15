@@ -95,7 +95,7 @@ class RequestController extends Controller
         }
         $service->save();
         //send sms to users
-        event(new RequestWasMade($service));
+        event(new RequestWasMade($service, $serRequest->user()));
 
         return redirect()->route('profile.request', ['slug' => $serRequest->user()->slug])->with('info', 'Request Posted Successfully');
     }

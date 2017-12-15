@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Service;
 use App\User;
 use Cloudder;
+use App\Events\RequestWasMade;
 
 class RequestController extends Controller
 {
@@ -92,8 +93,10 @@ class RequestController extends Controller
             $this->uploadPicture($serRequest);
             $service->image = $this->imgObj;
         }
-
         $service->save();
+        //send sms to users
+        event(new RequestWasMade($service));
+
         return redirect()->route('profile.request', ['slug' => $serRequest->user()->slug])->with('info', 'Request Posted Successfully');
     }
 

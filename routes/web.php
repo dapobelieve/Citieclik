@@ -198,6 +198,11 @@ Route::get('subscription', [
 	'uses' => '\App\Http\Controllers\SubController@index',
 	'as'   => 'getSubs'
 ]);
+
+Route::get('subscription/{plan}', [
+	'uses' => '\App\Http\Controllers\SubController@show',
+	'as'   => 'plan.show'
+]);
 /*
 |
 | Subscription Section ends

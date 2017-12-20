@@ -25,7 +25,9 @@ Subscription
                   <div class="tab-pane transition fade{{$plan->id == 1 ? " show active" : ""}} " id="{{$plan->slug}}" role="tabpanel">
                     <p>{{$plan->desc}}</p>
                     <hr class="margin-bottom-1x">
-                    <a class="btn btn-primary" href="#">Primary</a>
+                    <form method="" action="">
+                        <a class="btn btn-primary" href="{{ route('plan.show',$plan->slug) }}">Choose</a>
+                    </form>
                   </div>
                 @endforeach
             </div>

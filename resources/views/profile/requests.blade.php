@@ -4,10 +4,6 @@
 My Requests | Citieclik
 @endsection
 
-  @section('request-modal')
-    @include('profile.request-modal')
-  @stop
-
   @section('profileContent')
       <div class="col-lg-8">
         <div class="padding-top-2x mt-2 hidden-lg-up"></div>

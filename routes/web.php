@@ -1,13 +1,18 @@
 <?php
 
 // For testing purposes
-Route::get('/test',[
-	'uses' => 'TestController@index',
-	'as'   => 'test'
-
-]);
+Route::get('/test', 'TestController@index')->name('test');
 
 // ends here
+/*
+|
+| Payment Section 
+|
+*/
+
+Route::post('/payciite', 'PaymentController@redirectToGateway')->name('pay');
+
+Route::get('/payment/callback', 'PaymentController@getPayDetails');
 
 
 // Homepage
@@ -199,10 +204,10 @@ Route::get('subscription', [
 	'as'   => 'getSubs'
 ]);
 
-Route::get('subscription/{plan}', [
-	'uses' => '\App\Http\Controllers\SubController@show',
-	'as'   => 'plan.show'
-]);
+// Route::get('subscription/{plan}', [
+// 	'uses' => '\App\Http\Controllers\SubController@show',
+// 	'as'   => 'plan.show'
+// ]);
 /*
 |
 | Subscription Section ends

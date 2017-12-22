@@ -10,7 +10,7 @@ class TestController extends Controller
 {
     public function index()
     {
-    	$val = uniqid(mt_srand());
+    	$val = Auth::user()->subscriptions()->planz->plan;
     	dd($val);
     }
 

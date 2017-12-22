@@ -24,10 +24,20 @@ Subscription
                 @foreach($plans as $plan)
                   <div class="tab-pane transition fade{{$plan->id == 1 ? " show active" : ""}} " id="{{$plan->slug}}" role="tabpanel">
                     <p>{{$plan->desc}}</p>
+                    <p>Cost: {{ number_format($plan->price) }}</p>
                     <hr class="margin-bottom-1x">
-                    <form method="" action="">
-                        <a class="btn btn-primary" href="{{ route('plan.show',$plan->slug) }}">Choose</a>
-                    </form>
+                    @if(!Auth::user()->hasActiveSubscription($plan->id))
+                        <form method="post" action="{{route('pay')}}">
+                            <input type="hidden" name="email" value="{{ Auth::user()->email }}">
+                            <input type="hidden" name="amount" value="{{ $plan->getPrice() }}">
+                            <input type="hidden" name="plan" value="{{ $plan->id }}">
+                            <input type="hidden" name="metadata" value="{{ json_encode($array = ['key_name' => 'value',]) }}" >
+                            <input type="hidden" name="key" value="{{ config('paystack.secretKey') }}">
+                            <input type="hidden" name="reference" value="{{ Paystack::genTranxRef() }}">
+                            <button class="btn btn-primary" type="submit">Subscribe</button>
+                            {{ csrf_field() }}
+                        </form>
+                    @endif
                   </div>
                 @endforeach
             </div>

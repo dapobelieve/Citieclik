@@ -2,6 +2,7 @@
 namespace App;
 
 use App\Service;
+use App\Plan;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -50,6 +51,22 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Service', 'user_id');
     }
+
+    public function subscriptions()
+    {
+        return $this->hasMany(Subscription::class);
+    }
+
+
+    public function hasActiveSubscription($plan)
+    {
+        return (bool) $this->subscriptions()->where([['status', 1],['plan_id', $plan]])->count();
+    }
+
+    // public function getActiveSubscription()
+    // {
+
+    // }
    
     protected $hidden = [
         'password',

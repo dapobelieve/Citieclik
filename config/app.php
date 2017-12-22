@@ -179,6 +179,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         JD\Cloudder\CloudderServiceProvider::class,
+        Unicodeveloper\Paystack\PaystackServiceProvider::class
         // Nexmo\Laravel\NexmoServiceProvider::class,
 
     ],
@@ -231,6 +232,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Cloudder' => JD\Cloudder\Facades\Cloudder::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'Paystack' => Unicodeveloper\Paystack\Facades\Paystack::class,
         // 'Nexmo' => Nexmo\Laravel\Facade\Nexmo::class,
 
     ],

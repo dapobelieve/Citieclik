@@ -26,6 +26,4 @@ class SubController extends Controller
     {
         dd($request->user()->getUserServices()->count()."  ".$plan);
     }
-
-    //a fucntion to create subscriptions
 }

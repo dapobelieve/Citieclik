@@ -36,7 +36,7 @@ Subscription
                                     {{ $plan->getPrice() }}
                                 @endif
                                  ">
-                            <input type="hidden" name="plan" value="{{ $plan->id }}">
+                            <input type="hidden" name="dplan" value="{{ $plan->id }}">
                             <input type="hidden" name="metadata" value="{{ json_encode($array = ['key_name' => 'value',]) }}" >
                             <input type="hidden" name="key" value="{{ config('paystack.secretKey') }}">
                             <input type="hidden" name="reference" value="{{ Paystack::genTranxRef() }}">

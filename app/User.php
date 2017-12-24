@@ -51,17 +51,40 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Service', 'user_id');
     }
-
+    //All about subscriptions
     public function subscriptions()
     {
         return $this->hasMany(Subscription::class);
     }
 
-
-    public function hasActiveSubscription($plan)
+    //check if user has an active subscription
+    public function isSubscribed()
     {
-        return (bool) $this->subscriptions()->where([['status', 1],['plan_id', $plan]])->count();
+        return (bool) $this->subscriptions()->where('status', 1)->count();
     }
+
+    public function getActiveSubscription()
+    {
+        return $this->subscriptions()->where('status', 1)->first();
+    }
+
+    public function getActiveSubFromPlan()
+    {
+        $plan =  $this->getActiveSubscription()->plan()->first();
+        return $plan->price * 100;
+    }
+
+
+    // checks if active subscription is the same as the one in the request
+    public function subscribedToPlan($plan)
+    {
+        return (bool) $this->subscriptions()->where([
+            ['status', 1],
+            ['plan_id', $plan]
+         ])->count();
+    }
+
+    //subscription ends
 
     // public function getActiveSubscription()
     // {

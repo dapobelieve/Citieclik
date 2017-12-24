@@ -15,21 +15,44 @@ class PaymentController extends Controller
 
     public function redirectToGateway(Request $request)
     {
+        dd($request);
         $user = $request->user();
 
-        if($user->hasActiveSubscription($request->plan)){
-            //if user has an active sub of the same ones he's tryna sub too
-            return redirect()->back()->with('message', 'You already subscribed to that plan');
-        }else{
-            dd($user->subscriptions()->active());
-            // return Paystack::getAuthorizationUrl()->redirectNow();
-            //update sub details
-            //log the details etc
-        }
+        //check if user has an active subscription
+        if($user->isSubscribed()){
 
-        return Paystack::getAuthorizationUrl()->redirectNow();
-        //record sub details
-        //log the details etc
+            // check if users active subscription is the same as the one in the request
+            if($user->hasActiveSubscription($request->plan)){
+
+                //if user has an active sub of the same ones he's tryna sub too
+                return redirect()->back()->with('message', 'You already subscribed to that plan');
+            }else{
+
+                return Paystack::getAuthorizationUrl()->redirectNow();
+                //update sub details
+                //log the details etc
+            }
+
+
+        }else{
+
+        }
+        // true:
+            // check if active subscription is the same as the one in the request
+            // true:
+                    // return user back
+            // false
+                    // get diff in prices of users plan and plan requested
+                    // pay
+                    // log details
+        // false:
+            // pay
+            // log details
+
+
+        // return Paystack::getAuthorizationUrl()->redirectNow();
+        // //record sub details
+        // //log the details etc
         
     }
 

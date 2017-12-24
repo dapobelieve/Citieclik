@@ -11,8 +11,8 @@ class Subscription extends Model
         ''
     ];
 
-    public function planz()
+    public function plan()
     {
-        return $this->belongsTo(Plan::class, 'plan_id');
+        return $this->belongsTo(Plan::class);
     }
 }

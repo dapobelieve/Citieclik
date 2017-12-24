@@ -12,7 +12,7 @@ class Plan extends Model
     //     return 'slug';
     // }
 
-    public function subs()
+    public function subscription()
     {
         return $this->hasMany(Subscription::class);
     }

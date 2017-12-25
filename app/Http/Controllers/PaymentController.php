@@ -58,8 +58,9 @@ class PaymentController extends Controller
                 'status'   => 1,
                 'pay_status' => 1,
             ]);
+            // log the trxn too
 
-            return redirect()->back()->with('pay-message','Payment Successful. Your Subscription has been conformed. ');
+            return redirect()->back()->with('pay-message','Payment Successful. Your Subscription has been activated. ');
         }
         // dd($paymentDetails);
     }

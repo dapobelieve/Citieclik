@@ -173,7 +173,7 @@ Request for a Service
                         <div class="form-group">
                             <button type="submit" class="btn btn-outline-primary btn-block">Submit</button>
                         </div>
-                        {{csrf_field()}}
+                        {{ csrf_field() }}
                     </form>
                 </div>
                 <!-- Sidebar          -->

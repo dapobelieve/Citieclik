@@ -5,6 +5,7 @@ namespace App\Listeners;
 use App\Events\RequestWasMade;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use App\Http\Controllers\Sms\SmsController as ibile;
 
 class SmsUsers
 {
@@ -26,7 +27,7 @@ class SmsUsers
      */
     public function handle(RequestWasMade $event)
     {
-        // dd('Sending SMS to users');
-        dd($event->user->social());
+        $sender = new ibile;
+        dd($sender->index());
     }
 }

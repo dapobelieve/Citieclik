@@ -2,13 +2,22 @@
 namespace App\Http\Controllers\Sms;
 
 use Illuminate\Http\Request;
+use App\Setting;
 
 class SmsController
 {
+    
     private $SMS_SENDER = "CitieClik";
     private $RESPONSE_TYPE = 'json';
-    private $SMS_USERNAME = 'Your username';
-    private $SMS_PASSWORD = 'Your password';
+    public  $SMS_USERNAME;
+    private $SMS_PASSWORD;
+
+    public  function __construct()
+    {
+        $smsKeys = new Setting;
+        $this->SMS_USERNAME = $smsKeys->getApiDetails()['username'];
+
+    }
 
 
 
@@ -20,7 +29,7 @@ class SmsController
     private function sender()
     {
         $client = new Client();
-        $message = "";
+        $message = "Hello, compliments of the season from all of us at citieclik a new request has been posted.";
 
         $response = $client->post('http://portal.bulksmsnigeria.net/api/?', [
             'verify'    =>  false,

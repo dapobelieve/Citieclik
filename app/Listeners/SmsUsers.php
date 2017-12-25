@@ -28,6 +28,6 @@ class SmsUsers
     public function handle(RequestWasMade $event)
     {
         $sender = new ibile;
-        dd($sender->index());
+        dd($sender->$SMS_USERNAME);
     }
 }

@@ -8,7 +8,10 @@ class Subscription extends Model
 {
     
     protected $fillable = [
-        ''
+        'trxn_ref',
+        'status',
+        'plan_id',
+        'pay_status'
     ];
 
     public function plan()

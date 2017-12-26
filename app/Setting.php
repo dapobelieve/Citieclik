@@ -10,7 +10,7 @@ class Setting extends Model
 
     public function getApiDetails()
     {
-        dd($this);
+        dd($this->sms_api_password);
         // $smsKeys = array(
         //     'username' => $this->sms_api_username , 
         //     'password' => $this->sms_api_password , 

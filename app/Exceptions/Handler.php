@@ -46,14 +46,14 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        if ($exception instanceof TokenMismatchException){
-            // Catch it here and do what you want. For example...
-            return redirect()->back()->withInput()->with('error', 'Your session has expired');
-        }
-        if ($exception instanceof  MethodNotAllowedHttpException){
-            // Catch it here and do what you want. For example...
-            return redirect()->back()->withInput()->with('error', 'Connection Problem. Please try again');
-        }
+        // if ($exception instanceof TokenMismatchException){
+        //     // Catch it here and do what you want. For example...
+        //     return redirect()->back()->with('error_message', 'Your session has expired');
+        // }
+        // if ($exception instanceof  MethodNotAllowedHttpException){
+        //     // Catch it here and do what you want. For example...
+        //     return redirect()->back()->withInput()->with('error', 'Connection Problem. Please try again');
+        // }
         return parent::render($request, $exception);
     }
 

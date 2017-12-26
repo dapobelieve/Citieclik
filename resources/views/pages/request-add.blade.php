@@ -43,6 +43,9 @@ Request for a Service
             <div class="row">
               <!-- Checkout Adress-->
                 <div class="col-xl-9 col-lg-8">
+                @if(Session::has('error_message') )
+                    {{ Session::get('error_message') }}
+                @endif
                   @if(count($errors) > 0)
                     <div class="alert alert-danger alert-dismissible fade show margin-bottom-1x">
                         <span class="alert-close" data-dismiss="alert"></span><i class="icon-ban"></i>&nbsp;&nbsp;

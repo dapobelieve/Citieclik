@@ -14,6 +14,7 @@ class SmsController
 
     public  function __construct()
     {
+        // dd(Setting::get());
         $smsKeys = new Setting;
         $this->SMS_USERNAME = $smsKeys->getApiDetails()['username'];
 

@@ -2,6 +2,8 @@
 namespace App\Http\Controllers\Sms;
 
 use Illuminate\Http\Request;
+use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Client;
 use App\Setting;
 
 class SmsController
@@ -12,19 +14,21 @@ class SmsController
     public  $SMS_USERNAME;
     private $SMS_PASSWORD;
 
-    public  function __construct()
+    public  function setkeys()
     {
-        // dd(Setting::get());
-        $smsKeys = new Setting;
-        $this->SMS_USERNAME = $smsKeys->getApiDetails()['username'];
-
+        $data  =  Setting::all()->first();
+        $this->SMS_USERNAME = $data->sms_api_username;
+        $this->SMS_PASSWORD = $data->sms_api_password;
+        // dd($data->sms_api_username);
     }
 
 
 
-    public static function index()
+    public function index()
     {
-        return 'Sending SMS...';
+        $this->setkeys();
+        $this->sender();
+        // return $this->SMS_PASSWORD;;
     }
 
     private function sender()
@@ -39,12 +43,13 @@ class SmsController
                 'password' => $this->SMS_PASSWORD,
                 'message' => $message,
                 'sender' => $this->SMS_SENDER,
-                'mobiles' => $phone_number,
+                'mobiles' => '08134327417,09078081328,',
             ],
         ]);
 
 
         $response = json_decode($response->getBody(), true);
+        dd($response);
     }
 
 }

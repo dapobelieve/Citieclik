@@ -90,7 +90,7 @@ Request for a Service
                                 <div class="form-group {{ $errors->has('serCat') ? ' has-error' : '' }}">
                                     <label for="checkout-country">Category</label>
                                     <select class="form-control" name="serCat" id="serCat" value="{{ old('serCat') ?: ''  }}">
-                                        <option>Choose a Category</option>
+                                        <option value="">Choose a Category</option>
                                         @foreach($cats as $cat)
                                             <option value="{{$cat->id}}">{{$cat->category}}</option>
                                         @endforeach
@@ -118,7 +118,7 @@ Request for a Service
                                 <div class="form-group {{ $errors->has('serState') ? ' has-error' : '' }}">
                                     <label for="checkout-country">State</label>
                                     <select class="form-control" name="serState" id="serState" value="{{ old('serState') ?: ''  }}">
-                                        <option>Choose a State</option>
+                                        <option value="">Choose a State</option>
                                         @foreach($states as $state)
                                             <option value="{{$state->id}}">{{$state->state}}</option>
                                         @endforeach
@@ -176,7 +176,7 @@ Request for a Service
                         <div class="form-group">
                             <button type="submit" class="btn btn-outline-primary btn-block">Submit</button>
                         </div>
-                        {{ csrf_field() }}
+                        {{-- {{ csrf_field() }} --}}
                     </form>
                 </div>
                 <!-- Sidebar          -->

@@ -5,7 +5,7 @@ namespace App\Listeners;
 use App\Events\RequestWasMade;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use App\Http\Controllers\Sms\SmsController as ibile;
+use App\Http\Controllers\Sms\SmsController as smser;
 
 class SmsUsers
 {
@@ -27,7 +27,7 @@ class SmsUsers
      */
     public function handle(RequestWasMade $event)
     {
-        $sender = new ibile;
-        dd($sender->$SMS_USERNAME);
+        $sender = new smser;
+        dd($sender->index());
     }
 }

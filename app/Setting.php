@@ -6,15 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Setting extends Model
 {
-    protected $table = 'settings';
-
-    public function getApiDetails()
-    {
-        dd($this->sms_api_password);
-        // $smsKeys = array(
-        //     'username' => $this->sms_api_username , 
-        //     'password' => $this->sms_api_password , 
-        // );
-        // return $smsKeys;
-    }
+    
 }

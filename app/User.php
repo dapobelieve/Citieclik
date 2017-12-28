@@ -85,12 +85,7 @@ class User extends Authenticatable
     }
 
     //subscription ends
-
-    // public function getActiveSubscription()
-    // {
-
-    // }
-   
+       
     protected $hidden = [
         'password',
         'remember_token',

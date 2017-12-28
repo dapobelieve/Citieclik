@@ -280,3 +280,15 @@ Route::post('/request/add', [
 | Profile Section Ends
 |
 */
+
+
+// Admin
+Route::get('adminsignin', [
+	'uses' => '\App\Http\Controllers\AdminController@dashboardSignin',
+	'as' => 'signadmin',
+]);
+
+Route::get('dashboard', [
+	'uses' => '\App\Http\Controllers\AdminController@index',
+	'as' => 'dashboard',
+]);

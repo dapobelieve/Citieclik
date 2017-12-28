@@ -1,5 +1,4 @@
 //CitiClick JS 
-
 var profielPic = (function (){
     var output;
 
@@ -55,7 +54,6 @@ var profielPic = (function (){
          }
          reader.readAsDataURL(event.target.files[0]);
     };
-
     return {
         init: function()
         {

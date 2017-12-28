@@ -10,9 +10,9 @@
 |
 */
 
-Route::post('/payciite', 'PaymentController@redirectToGateway')->name('pay');
+Route::post('/payciite', 'Payment\PaymentController@redirectToGateway')->name('pay');
 
-Route::get('/payment/callback', 'PaymentController@getPayDetails');
+Route::get('/payment/callback', 'Payment\PaymentController@getPayDetails');
 
 
 // Homepage

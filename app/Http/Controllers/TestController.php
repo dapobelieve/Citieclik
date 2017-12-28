@@ -10,9 +10,9 @@ class TestController extends Controller
 {
     public function index()
     {
-    	// $val = Auth::user()->getActiveSubFromPlan();
-     //    $val = $val->price;
-    	// dd($val);
+    	$val = Auth::user()->getActiveSubscription();
+        $val = $val->plan_id;
+    	dd($val);
     }
 
     //some code goes here

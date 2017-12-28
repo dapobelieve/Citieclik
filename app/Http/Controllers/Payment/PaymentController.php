@@ -19,16 +19,26 @@ class PaymentController extends Controller
     public function redirectToGateway(Request $request)
     {
         $user = $request->user();
+        // dd($request);
+        if ($request->amount < 0) {
+
+            $subDetails = $request->user()->getActiveSubscription();
+
+            Auth::user()->subscriptions()->where('plan_id',$subDetails->plan_id)->update([
+                'plan_id' => $request->dplan,
+            ]);
+
+            return redirect()->back()->with('pay-message',' Your Subscription has been activated. ');
+
+        }
 
         //check if user has an active subscription
         if( $user->isSubscribed() && $user->subscribedToPlan($request->dplan) ){
             // check if users active subscription is the same as the one in the request
-            return redirect()->back()->with('message', 'You already subscribed to that plan');
-        }elseif ($request->dplan <= 0) {
-            Auth::user()->subscriptions()->update([
+            return redirect()->back()->with('pay-message', 'You already subscribed to that plan');
 
-            ]);
         }else {
+
              Auth::user()->subscriptions()->create([
                 'trxn_ref' => $request->reference,
                 'status'   => 0,
@@ -42,6 +52,7 @@ class PaymentController extends Controller
     public function getPayDetails()
     {
         $paymentDetails = Paystack::getPaymentData();
+
         if(!$paymentDetails['status'])
         {
             return redirect()->back()->with('pay-message', $paymentDetails['message']);

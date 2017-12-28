@@ -85,7 +85,7 @@ class User extends Authenticatable
     }
 
     //subscription ends
-       
+
     protected $hidden = [
         'password',
         'remember_token',
@@ -95,20 +95,7 @@ class User extends Authenticatable
     {
         return $this->belongsTo('App\State');
     }
-    // public function userCats()
-    // {
-    //     return $this->categories()->get();
-    // }
-
-    //  public function userCatsCount()
-    // {
-    //     return $this->categories()->count();
-    // }
-
-    // public function isChecked($id)
-    // {
-    //     return (bool) $this->userCats()->where('id', $id)->count();
-    // }
+    
     //get services posted by a user
     public function getUserServices()
     {
@@ -134,16 +121,6 @@ class User extends Authenticatable
             return $userImage['url'];
         }
     }
-
-    // public function likes()
-    // {
-    //     return $this->hasMany('App\likeable');
-    // }
-
-    // public function hasLikedService(Service $service)
-    // {
-    //     return (bool)$service->likes->where('user_id', $this->id)->count();
-    // }
 
     public function social()
     {

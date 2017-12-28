@@ -13,7 +13,7 @@
 Route::post('/payciite', 'Payment\PaymentController@redirectToGateway')->name('pay');
 
 Route::get('/payment/callback', 'Payment\PaymentController@getPayDetails');
-
+// ends here
 
 // Homepage
 Route::get('/', [

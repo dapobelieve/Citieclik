@@ -24,8 +24,8 @@
       <i class="icon-head"></i>Edit Profile
     </a>
     @endif
-    <a class="list-group-item {{ Request::is( '["slug" => $user->slug ]/account') ? ' active' : ''  }}" href="{{ route('profile.address') }}">
-      <i class="icon-map"></i>Contact Address
+    <a class="list-group-item {{ Request::is( 'getSubs') ? ' active' : ''  }}" href="{{ route('getSubs') }}">
+      <i class="icon-map"></i>Manage Subscriptions
     </a>
     <a class="list-group-item justify-content-between {{ Request::is( '/services') ? ' active' : ''  }}" href="{{route('profile.service', ['slug' => $user->slug ])}}">
       <span><i class="icon-bag"></i>Services</span><span class="badge badge-primary badge-pill">{{$user->getUserServices()->count()}}</span>

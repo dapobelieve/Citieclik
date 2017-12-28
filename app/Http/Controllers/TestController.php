@@ -10,14 +10,8 @@ class TestController extends Controller
 {
     public function index()
     {
-        return view('test.test');
-    }
-    
-    // public function index()
-    // {
-    // 	$val = uniqid(mt_srand());
-    // 	dd($val);
-    // }
 
-    //some code goes here
-}
+    	$val = Auth::user()->getActiveSubscription();
+        $val = $val->plan_id;
+    	dd($val);
+    }

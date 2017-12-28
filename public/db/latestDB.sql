@@ -5,6 +5,9 @@ SET time_zone = '+00:00';
 SET foreign_key_checks = 0;
 SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
+CREATE DATABASE `citi_db` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `citi_db`;
+
 SET NAMES utf8mb4;
 
 DROP TABLE IF EXISTS `categories`;
@@ -851,23 +854,23 @@ CREATE TABLE `plans` (
 INSERT INTO `plans` (`id`, `plan`, `price`, `listing`, `desc`, `slug`, `created_at`, `updated_at`) VALUES
 (1, 'Basic',  1000, 5,  'Basic Details',  'basic',  '2017-12-13 03:14:13',  '2017-12-13 03:14:13'),
 (2, 'Pro',  5000, 20, 'Pro Details',  'pro',  '2017-12-13 03:15:29',  '2017-12-13 03:15:29'),
-(3, 'Gold', 1000, 25, 'Gold Desc',  'gold', '2017-12-13 03:16:01',  '2017-12-13 03:16:01');
+(3, 'Gold', 10000,  25, 'Gold Desc',  'gold', '2017-12-13 03:16:01',  '2017-12-13 03:16:01');
 
 DROP TABLE IF EXISTS `services`;
 CREATE TABLE `services` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `user_id` int(10) unsigned NOT NULL,
-  `category_id` int(10) unsigned NOT NULL,
-  `sub_category_id` int(10) unsigned NOT NULL,
-  `state_id` int(10) unsigned NOT NULL,
-  `location_id` int(10) unsigned NOT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user_id` int(10) unsigned DEFAULT NULL,
+  `category_id` int(10) unsigned DEFAULT 4,
+  `sub_category_id` int(10) unsigned DEFAULT 4,
+  `state_id` int(10) unsigned DEFAULT NULL,
+  `location_id` int(10) unsigned DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `price` int(11) DEFAULT NULL,
   `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `type` enum('p','r') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` enum('0','1') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '1',
+  `status` enum('0','1') COLLATE utf8mb4_unicode_ci DEFAULT '1',
   `priority` char(1) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -1075,7 +1078,55 @@ INSERT INTO `services` (`id`, `title`, `user_id`, `category_id`, `sub_category_i
 (206, 'believe me', 1,  7,  6,  2,  18, 'some tinshs jndvjsq',  NULL, NULL, '', 'p',  '1',  NULL, '2017-12-14 21:07:52',  '2017-12-14 21:07:52'),
 (207, 'believe me', 1,  7,  6,  2,  18, 'some tinshs jndvjsq',  NULL, NULL, '', 'p',  '1',  NULL, '2017-12-14 21:08:11',  '2017-12-14 21:08:11'),
 (208, 'believe me', 1,  7,  6,  2,  18, 'some tinshs jndvjsq',  NULL, NULL, '', 'p',  '1',  NULL, '2017-12-14 21:09:12',  '2017-12-14 21:09:12'),
-(210, 'believe me', 1,  2,  2,  17, 293,  'some tinshs jndvjsq',  NULL, NULL, '', 'p',  '1',  NULL, '2017-12-14 21:14:00',  '2017-12-14 21:14:00');
+(209, 'hello',  1,  7,  6,  2,  18, 'kkpppfkngpefne<p><br></p>',  NULL, NULL, 'hello',  'r',  '1',  '3',  '2017-12-26 07:55:41',  '2017-12-26 07:55:41'),
+(210, 'olou', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'olou', 'r',  '1',  '4',  '2017-12-26 08:47:20',  '2017-12-26 08:47:20'),
+(211, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 08:48:11',  '2017-12-26 08:48:11'),
+(212, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 08:48:31',  '2017-12-26 08:48:31'),
+(213, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 08:49:37',  '2017-12-26 08:49:37'),
+(214, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 08:51:09',  '2017-12-26 08:51:09'),
+(215, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 08:58:50',  '2017-12-26 08:58:50'),
+(216, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 08:59:48',  '2017-12-26 08:59:48'),
+(217, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:03:10',  '2017-12-26 09:03:10'),
+(218, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:03:54',  '2017-12-26 09:03:54'),
+(219, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:04:14',  '2017-12-26 09:04:14'),
+(220, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:04:22',  '2017-12-26 09:04:22'),
+(221, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:04:47',  '2017-12-26 09:04:47'),
+(222, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:05:08',  '2017-12-26 09:05:08'),
+(223, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:07:02',  '2017-12-26 09:07:02'),
+(224, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:07:11',  '2017-12-26 09:07:11'),
+(225, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:07:29',  '2017-12-26 09:07:29'),
+(226, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:08:04',  '2017-12-26 09:08:04'),
+(227, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:11:22',  '2017-12-26 09:11:22'),
+(228, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:11:40',  '2017-12-26 09:11:40'),
+(229, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:12:40',  '2017-12-26 09:12:40'),
+(230, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:12:57',  '2017-12-26 09:12:57'),
+(231, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:14:08',  '2017-12-26 09:14:08'),
+(232, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:14:56',  '2017-12-26 09:14:56'),
+(233, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:15:28',  '2017-12-26 09:15:28'),
+(234, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:17:25',  '2017-12-26 09:17:25'),
+(235, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:17:58',  '2017-12-26 09:17:58'),
+(236, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:22:29',  '2017-12-26 09:22:29'),
+(237, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:25:36',  '2017-12-26 09:25:36'),
+(238, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:52:09',  '2017-12-26 09:52:09'),
+(239, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 10:07:52',  '2017-12-26 10:07:52'),
+(240, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 10:08:11',  '2017-12-26 10:08:11'),
+(241, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 10:12:01',  '2017-12-26 10:12:01'),
+(242, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 10:12:26',  '2017-12-26 10:12:26'),
+(243, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 10:14:36',  '2017-12-26 10:14:36'),
+(244, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 10:15:32',  '2017-12-26 10:15:32'),
+(245, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 10:18:29',  '2017-12-26 10:18:29'),
+(246, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 10:29:00',  '2017-12-26 10:29:00'),
+(247, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 10:37:22',  '2017-12-26 10:37:22');
+
+DROP TABLE IF EXISTS `settings`;
+CREATE TABLE `settings` (
+  `sms_api_username` varchar(100) NOT NULL,
+  `sms_api_password` varchar(100) NOT NULL,
+  `id` int(11) NOT NULL DEFAULT 123
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `settings` (`sms_api_username`, `sms_api_password`, `id`) VALUES
+('dredsn@gmail.com',  'believe@#%', 123);
 
 DROP TABLE IF EXISTS `socials`;
 CREATE TABLE `socials` (
@@ -1091,9 +1142,6 @@ CREATE TABLE `socials` (
   CONSTRAINT `socials_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Social Login Credentials';
 
-INSERT INTO `socials` (`id`, `user_id`, `social_id`, `service`, `created_at`, `updated_at`) VALUES
-(1, 8,  '1609100312446644', 'facebook', '2017-12-02 00:21:50',  '2017-12-02 00:21:50'),
-(2, 8,  '113286740353134339147',  'google', '2017-12-02 08:45:59',  '2017-12-02 08:45:59');
 
 DROP TABLE IF EXISTS `states`;
 CREATE TABLE `states` (
@@ -1365,12 +1413,34 @@ CREATE TABLE `subscriptions` (
   `plan_id` int(11) unsigned NOT NULL,
   `ends_at` datetime DEFAULT NULL,
   `status` char(2) NOT NULL DEFAULT '0',
+  `pay_status` char(1) NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `trxn_ref` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   KEY `plan_id` (`plan_id`),
   CONSTRAINT `subscriptions_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
   CONSTRAINT `subscriptions_ibfk_2` FOREIGN KEY (`plan_id`) REFERENCES `plans` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `subscriptions` (`id`, `user_id`, `plan_id`, `ends_at`, `status`, `pay_status`, `created_at`, `updated_at`, `trxn_ref`) VALUES
+(1, 1,  1,  NULL, '1',  '1',  '2017-12-25 08:44:58',  '2017-12-25 08:45:17',  'f6oiosTOpTjhw3lW9tHyR5gOO');
+
+DROP TABLE IF EXISTS `trxn_log`;
+CREATE TABLE `trxn_log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) unsigned NOT NULL,
+  `plan_id` int(11) unsigned NOT NULL,
+  `trxn_ref` varchar(200) NOT NULL,
+  `trxn_status` int(1) NOT NULL,
+  `trxn_data` text NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`),
+  KEY `plan_id` (`plan_id`),
+  CONSTRAINT `trxn_log_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+  CONSTRAINT `trxn_log_ibfk_2` FOREIGN KEY (`plan_id`) REFERENCES `plans` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -1394,10 +1464,260 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `users` (`id`, `email`, `username`, `phone`, `password`, `first_name`, `last_name`, `image`, `location`, `status`, `slug`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'dapo@gmail.com', 'dapoBelieves', '07069494803',  '$2y$10$EJJoTfhHe/A2BOzDIB.Dq.eVFraJcpD0XFj8Wmbk860OBvEjoQ4Gy', 'Dapo', 'Michaels', '{\"public_id\":\"profilePics\\/ssdrosh0wwrmav4mermp\",\"version\":1513081396,\"signature\":\"6074cbaa58aba4f422c64a1fe2ad1087e0059b5a\",\"width\":1440,\"height\":900,\"format\":\"webp\",\"resource_type\":\"image\",\"created_at\":\"2017-12-12T12:23:16Z\",\"tags\":[],\"pages\":1,\"bytes\":83368,\"type\":\"upload\",\"etag\":\"a14259ce6c713e4e10c1e768c15d26d8\",\"placeholder\":false,\"url\":\"http:\\/\\/res.cloudinary.com\\/citieclik\\/image\\/upload\\/v1513081396\\/profilePics\\/ssdrosh0wwrmav4mermp.webp\",\"secure_url\":\"https:\\/\\/res.cloudinary.com\\/citieclik\\/image\\/upload\\/v1513081396\\/profilePics\\/ssdrosh0wwrmav4mermp.webp\",\"original_filename\":\"php8CFC\",\"original_extension\":\"tmp\"}',  NULL, '1',  'dapobelieves', 'nljmieeEkuqCFcd7dcr8MhjrJZAgPKJEWXqTG4FPgtX19DBxTA6gJAfLlWk0', '2017-08-23 00:26:49',  '2017-12-12 11:22:48'),
-(2, 'jerexbambex@gmail.com',  'jerexbambex',  '07068261774',  '$2y$10$2pRaUq/UOJVxvd6ebaGNq.3HNA.hsyIm41Y34JauyKfIqm5cYqv.S', 'oluwatosin', 'Ogunniyi', NULL, NULL, '1',  'oluwatosin', 'r9C00x5tUX0nNMMnWpmlomx5yELHVUORJtu5yUFBOMZErjYOI1Fxsz76JEvO', '2017-09-17 01:26:39',  '2017-10-09 18:18:23'),
+(1, 'dapo@gmail.com', 'dapoBelieves', '07069494803',  '$2y$10$EJJoTfhHe/A2BOzDIB.Dq.eVFraJcpD0XFj8Wmbk860OBvEjoQ4Gy', 'Dapo', 'Michaels', '{\"public_id\":\"profilePics\\/jedcqkdggailx63wrftd\",\"version\":1513478385,\"signature\":\"d8f96d7115cfbacebdae9fa254f6a87eea7bbc78\",\"width\":600,\"height\":451,\"format\":\"webp\",\"resource_type\":\"image\",\"created_at\":\"2017-12-17T02:39:45Z\",\"tags\":[],\"pages\":1,\"bytes\":24954,\"type\":\"upload\",\"etag\":\"647503a0175bd744b03cb9a282d8c15d\",\"placeholder\":false,\"url\":\"http:\\/\\/res.cloudinary.com\\/citieclik\\/image\\/upload\\/v1513478385\\/profilePics\\/jedcqkdggailx63wrftd.webp\",\"secure_url\":\"https:\\/\\/res.cloudinary.com\\/citieclik\\/image\\/upload\\/v1513478385\\/profilePics\\/jedcqkdggailx63wrftd.webp\",\"original_filename\":\"phpEC89\",\"original_extension\":\"tmp\"}', NULL, '1',  'dapobelieves', '15dcemkSOlTPqD9gIDCZJJVdJgBh7WBMhlAw1DyUSuMQjEoyq3AboEWEMOfJ', '2017-08-23 00:26:49',  '2017-12-17 01:39:11'),
 (3, 'maryope8@gmail.com', '@Opeyemi08028756291',  '08028756291',  '$2y$10$5ozMKtaqGuiBhqcPcmndzuAlNiHlbaZKt1ELic4xm621GP2BOSr2C', 'Opeyemi',  'Mary', NULL, NULL, '1',  'opeyemi08028756291', 'WISYeq5qEaE8tKUWW4e2slas0JeN3tRYy2P940JyYvxOwpGpQRUtr6mgjfnQ', '2017-09-24 03:41:13',  '2017-09-24 03:41:13'),
 (4, 'jerexbambex@hotmail.com',  '@Oluwafemin08067099420', '08067099420',  '$2y$10$bepvJ9Rk0E61w99DGPzeLOScZMjZGDe0IAhUW/4hlLFIAVs4HceNa', 'Oluwafemin', 'Isaac',  NULL, NULL, '1',  'oluwafemin08067099420',  'ja8FmlSpYhIInKkcEBEJ4VDbtSFLNQ4Ibp5uRlEDxlgbYyXLQGPcYCrY1rzw', '2017-09-24 03:42:15',  '2017-09-24 03:42:15'),
-(8, 'dapomichaels@gmail.com', 'MrBelieve',  '09094642739',  NULL, 'Dapo Michaels',  NULL, 'http://res.cloudinary.com/citieclik/image/upload/v1512690951/citi/apxfhaqqetmqlmh1hduj.webp',  NULL, '1',  '5a21ff29f28dd',  'CS0iocFLj7YY0uGeyiMAR8pvQYuFXLiMFtMUNGyjizV80ldx8lKn3NBIuTjH', '2017-12-02 00:17:29',  '2017-12-07 22:55:26');
+(5, 'deji@gmail.com', '@5a3d6079c69bd', '08134327417',  '$2y$10$93BM1PUO5DeYEQAvsS4.3OHKJu4Bt4CKdmE7hspyZ89RLsmueR0sG', 'deji', 'dxtrim', NULL, NULL, '1',  '5a3d6079c69bd',  'eXIpntMvQ4Fgy9jliackoS2oNlGY8OLMTHeviSG0uqhwVLnrwLnQOpwGpjXH', '2017-12-22 18:43:53',  '2017-12-22 18:43:53');
 
--- 2017-12-14 22:25:23
+CREATE DATABASE `ex_db` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `ex_db`;
+
+DROP TABLE IF EXISTS `categories`;
+CREATE TABLE `categories` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `icon` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `status` char(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '1',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+INSERT INTO `categories` (`id`, `name`, `icon`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Entertainment',  'music',  '1',  NULL, '2017-06-30 03:12:37'),
+(2, 'Transportation', 'bus',  '1',  NULL, NULL),
+(3, 'Housing',  'home', '1',  NULL, '2017-06-29 02:54:41'),
+(4, 'Mobile', 'android',  '1',  NULL, '2017-06-30 03:21:22'),
+(5, 'Medical',  'ambulance',  '1',  NULL, '2017-06-29 02:42:14'),
+(6, 'Catering', 'birthday-cake',  '1',  NULL, '2017-06-30 03:21:42'),
+(7, 'General Repairs',  'cogs', '1',  NULL, '2017-06-30 02:30:14'),
+(8, 'Agriculture',  'leaf', '1',  NULL, NULL),
+(9, 'Business', 'briefcase',  '1',  NULL, NULL),
+(10,  'Automobile', 'wrench', '1',  NULL, '2017-06-30 03:12:36'),
+(12,  'Home Services',  'home', '1',  '2017-06-30 03:22:38',  '2017-06-30 03:22:38'),
+(13,  'Food', 'spoon',  '1',  NULL, NULL),
+(14,  'Education',  'mortar-board', '1',  NULL, '2017-07-04 04:13:47'),
+(15,  'Computer', 'laptop', '1',  NULL, NULL),
+(16,  'Fashion',  'camera', '1',  NULL, NULL),
+(17,  'Music',  'music',  '1',  NULL, NULL),
+(18,  'Event Management', 'calendar', '2',  NULL, NULL);
+
+DROP TABLE IF EXISTS `category_user`;
+CREATE TABLE `category_user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) unsigned DEFAULT NULL,
+  `category_id` int(11) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `category_user` (`id`, `user_id`, `category_id`) VALUES
+(1, 1,  1),
+(2, 4,  1),
+(3, 4,  3),
+(4, 4,  4),
+(5, 4,  5),
+(6, 4,  8),
+(7, 4,  9),
+(8, 4,  10),
+(9, 4,  15),
+(10,  4,  18);
+
+DROP TABLE IF EXISTS `contacts`;
+CREATE TABLE `contacts` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `subject` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `message` text COLLATE utf8_unicode_ci NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT 0,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+INSERT INTO `contacts` (`id`, `name`, `email`, `subject`, `message`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Bally',  'bolanle.alayande@yahoo.com', 'no pix on profile dp', 'My picture is not showing on my profile pix and thank u lomee, i feel honoured to be here with u guys. Thanks frm Bally',  0,  '2017-08-05 00:41:39',  '2017-08-05 00:41:39'),
+(2, 'Bemyguest',  'ajaratraheem12@gmail.com', 'Question ',  'Hello, thanks a lot for this great Avenue. However, how do I know if and when my service is needed even when am not online and how is security guaranteed. \r\nThank you. ', 0,  '2017-08-10 16:24:00',  '2017-08-10 16:24:00'),
+(3, 'Sulaiman Abdulmajeed', 'solex.amanah@gmail.com', 'fofrgotten password',  'please i need help in retrieving my password. Thanks. My contact no. is 08056569485',  0,  '2017-08-15 23:42:00',  '2017-08-15 23:42:00'),
+(4, 'soundfield', 'soundfieldtutors@gmail.com', 'soundfiel Tutors', 'Soundfield Tutors is a register educational Centre know for his excellence, in lectures and qualified lectures for your continuous educational programs.', 0,  '2017-08-26 18:37:36',  '2017-08-26 18:37:36');
+
+DROP TABLE IF EXISTS `likeables`;
+CREATE TABLE `likeables` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `likeable_id` int(11) DEFAULT NULL,
+  `likeable_type` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+INSERT INTO `likeables` (`id`, `user_id`, `likeable_id`, `likeable_type`, `created_at`, `updated_at`) VALUES
+(1, 1,  10, 'App\\Service', '2017-06-22 11:51:53',  '2017-06-22 11:51:53');
+
+DROP TABLE IF EXISTS `migrations`;
+CREATE TABLE `migrations` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `migration` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `batch` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+(1, '2017_05_09_221403_create_users_table', 1),
+(2, '2017_05_15_103604_create_categories_table',  2),
+(5, '2017_05_16_105221_create_services_table',  3),
+(6, '2017_05_17_053057_create_states_table',  4),
+(8, '2017_06_12_220427_create_promotes_table',  5),
+(9, '2017_06_19_110306_create_likeables_table', 6),
+(10,  '2017_06_30_131631_create_social_accounts_table', 7),
+(11,  '2017_11_17_074236_create_reminders_table', 8);
+
+DROP TABLE IF EXISTS `promotes`;
+CREATE TABLE `promotes` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) unsigned NOT NULL,
+  `category_id` int(10) unsigned NOT NULL,
+  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `price` varchar(6) COLLATE utf8_unicode_ci NOT NULL,
+  `state_id` int(10) unsigned NOT NULL,
+  `location` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `duration` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `status` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'P',
+  `p_duration` int(10) unsigned NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `pubId` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+INSERT INTO `promotes` (`id`, `user_id`, `category_id`, `title`, `slug`, `price`, `state_id`, `location`, `duration`, `description`, `image`, `status`, `p_duration`, `created_at`, `updated_at`, `pubId`) VALUES
+(1, 2,  4,  'Buy Mobile Phone', 'buy-mobile-phone', '15000',  24, '29,Tijani street,Agege', '', 'Buy used iPhone  at affordable price', 'http://res.cloudinary.com/believe/image/upload/q_auto,f_auto/v1/serviceimages/muih5betzlicxg0mloj1.jpg', 'R',  2,  '2017-08-02 22:54:13',  '2017-08-02 22:54:13',  'serviceimages/muih5betzlicxg0mloj1');
+
+DROP TABLE IF EXISTS `reminders`;
+CREATE TABLE `reminders` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `code` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+DROP TABLE IF EXISTS `servy`;
+CREATE TABLE `servy` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) unsigned NOT NULL,
+  `category_id` int(10) unsigned NOT NULL,
+  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `price` varchar(6) COLLATE utf8_unicode_ci NOT NULL,
+  `state_id` int(10) unsigned NOT NULL,
+  `location` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `duration` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `status` enum('0','1') COLLATE utf8_unicode_ci NOT NULL DEFAULT '1',
+  `type` enum('P','R') COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `pubId` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+INSERT INTO `servy` (`id`, `user_id`, `category_id`, `title`, `slug`, `price`, `state_id`, `location`, `duration`, `description`, `image`, `status`, `type`, `created_at`, `updated_at`, `pubId`) VALUES
+(1, 2,  7,  'Repair Iphone 5,6,7 @KAYBILL_TECH',  'repair-iphone-567-kaybilltech',  '', 24, '29,Tijani street,Agege', '1 hour', 'Repair your mobile phone.Just  Call our contact number,tell us the faulty and we will be at your service', 'http://res.cloudinary.com/believe/image/upload/q_auto,f_auto/v1/serviceimages/k3h0ryegwaofkfnq7xgm.jpg', '1',  'P',  '2017-08-02 22:49:35',  '2017-08-02 22:49:35',  'serviceimages/k3h0ryegwaofkfnq7xgm');
+
+DROP TABLE IF EXISTS `social_accounts`;
+CREATE TABLE `social_accounts` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `provider` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `provider_user_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+DROP TABLE IF EXISTS `states`;
+CREATE TABLE `states` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+INSERT INTO `states` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 'Abia', NULL, NULL),
+(2, 'Adamawa',  NULL, NULL),
+(3, 'Akwa Ibom',  NULL, NULL),
+(4, 'Anambra',  NULL, NULL),
+(5, 'Bauchi', NULL, NULL),
+(6, 'Bayelsa',  NULL, NULL),
+(7, 'Benue',  NULL, NULL),
+(8, 'Borno',  NULL, NULL),
+(9, 'Cross River',  NULL, NULL),
+(10,  'Delta',  NULL, NULL),
+(11,  'Ebonyi', NULL, NULL),
+(12,  'Edo',  NULL, NULL),
+(13,  'Ekiti',  NULL, NULL),
+(14,  'Enugu',  NULL, NULL),
+(15,  'Gombe',  NULL, NULL),
+(16,  'Imo',  NULL, NULL),
+(17,  'Jigawa', NULL, NULL),
+(18,  'Kaduna', NULL, NULL),
+(19,  'Kano', NULL, NULL),
+(20,  'Kastina',  NULL, NULL),
+(21,  'Kebbi',  NULL, NULL),
+(22,  'Kogi', NULL, NULL),
+(23,  'Kwara',  NULL, NULL),
+(24,  'Lagos',  NULL, NULL),
+(25,  'Nasarawa', NULL, NULL),
+(26,  'Niger',  NULL, NULL),
+(27,  'Ogun', NULL, NULL),
+(28,  'Ondo', NULL, NULL),
+(29,  'Osun', NULL, NULL),
+(30,  'Oyo',  NULL, NULL),
+(31,  'Plateau',  NULL, NULL),
+(32,  'Rivers', NULL, NULL),
+(33,  'Sokoto', NULL, NULL),
+(34,  'Taraba', NULL, NULL),
+(35,  'Yobe', NULL, NULL),
+(36,  'Zamfara',  NULL, NULL),
+(37,  'FCT Abuja',  NULL, NULL);
+
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `username` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `first_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `last_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `phone` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `about` text COLLATE utf8_unicode_ci DEFAULT NULL,
+  `avatar` text COLLATE utf8_unicode_ci DEFAULT NULL,
+  `location` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `state_id` int(11) unsigned DEFAULT NULL,
+  `mgr_id` int(11) DEFAULT NULL,
+  `status` char(1) COLLATE utf8_unicode_ci DEFAULT '1',
+  `reset` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `remember_token` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `mgr_code` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `isAdmin` tinyint(1) DEFAULT 0,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+INSERT INTO `users` (`id`, `email`, `username`, `password`, `first_name`, `last_name`, `phone`, `about`, `avatar`, `location`, `state_id`, `mgr_id`, `status`, `reset`, `remember_token`, `mgr_code`, `isAdmin`, `created_at`, `updated_at`) VALUES
+(1, 'iloriwaliu@gmail.com', 'ExcellentSoft',  '$2y$10$7Q12tmk5CGvPjGKSVwyTIelguZ4ySm/f9bYOI36GOWsHwo2zsVeMy', 'ILORI WALIU OLADIPUPO',  NULL, '08074306999',  'Am a software programmer. coding and design of functional applications', NULL, '106,Dopemu Road Ageege Lagos.',  24, NULL, '1',  '', 'nzluQT3jHUaUTuqSkmXjNQBOm9UG2wwa0lUhcSqpgddIw5FYt1D2sFXoDziL', 'lmK1M717DH0421', 0,  '2017-08-02 22:40:10',  '2017-11-19 05:19:09'),
+(2, 'nukaxewe@reftoken.net',  'KayBill-Tech', NULL, 'Ilori Waliyulah Taiwo',  NULL, '08101032908',  'Computer Engineer, Mobile phone repairer, buying and selling of phone accessories,', NULL, '29 Tijani street Dopemu Agege ', 24, NULL, '1',  'e26aec8e915079b50d410ce40dcab8880956c6b7', 'f6IWFNSxsUatNmjWazeE3RjyaEdNEKrZuDae9PVvdl4vFsHifyuP447iTvVX', NULL, 0,  '2017-08-02 22:42:37',  '2017-11-19 05:00:11'),
+(3, 'bomevalit@ethersports.org',  'Qoreebat', '$2y$10$vjGgpwVCQX.4N6VUJo4s0eRlMdv4NY38FSHpGfD865LLg5HpIllpW', NULL, NULL, '08147417102',  NULL, NULL, NULL, NULL, NULL, '1',  'b30c60a519d8b65257849a96a162c0baea046cf7', NULL, '', 0,  '2017-08-03 01:55:55',  '2017-11-19 05:19:03'),
+(4, 'dapomichaels@gmail.com', 'Believe',  '$2y$10$FMCAus.OoNYQrBcH7tXPOei9KtTN1LgQ6lKw8c6an.lwUtR4Smht6', NULL, NULL, '07069494803',  NULL, '{\"public_id\":\"profilePics\\/j9sppfhmykazvt74adwv\",\"version\":1512696106,\"signature\":\"683727a8b79bf9cecb83b07005729bb6bef6819c\",\"width\":404,\"height\":404,\"format\":\"webp\",\"resource_type\":\"image\",\"created_at\":\"2017-12-08T01:21:46Z\",\"tags\":[],\"pages\":1,\"bytes\":4330,\"type\":\"upload\",\"etag\":\"a129b512a9872e3b36777d6b576b1cd8\",\"placeholder\":false,\"url\":\"http:\\/\\/res.cloudinary.com\\/believe\\/image\\/upload\\/v1512696106\\/profilePics\\/j9sppfhmykazvt74adwv.webp\",\"secure_url\":\"https:\\/\\/res.cloudinary.com\\/believe\\/image\\/upload\\/v1512696106\\/profilePics\\/j9sppfhmykazvt74adwv.webp\",\"original_filename\":\"php3512\",\"original_extension\":\"tmp\"}',  NULL, NULL, NULL, '1',  NULL, '20AUE0Uvern7dvaKa30uSTIs7LAZH5zYtZjJBOy73pfkrMOBBTr8M674hzy5', NULL, 0,  '2017-12-07 15:19:54',  '2017-12-08 00:21:21');

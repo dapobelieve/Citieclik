@@ -166,6 +166,4 @@
     <script src="/assets2/bower_components/jquery-i18next/js/jquery-i18next.min.js"></script>
     <script src="/assets2/js/common-pages.js"></script>
 </body>
-
-<!-- Mirrored from html.codedthemes.com/gradient-able/default/auth-normal-sign-in.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Dec 2017 15:19:08 GMT -->
 </html>

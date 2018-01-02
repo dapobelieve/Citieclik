@@ -277,24 +277,13 @@ Route::post('/request/add', [
 
 /*
 |
-| Profile Section Ends
+| Admin Section Starts
 |
 */
+Route::get('dashboard', 'Admin\HomeController@index')->name('admin.home');
 
 /*
 |
-| Profile Section Ends
+| Admin Section Ends
 |
 */
-
-
-// Admin
-Route::get('adminsignin', [
-	'uses' => '\App\Http\Controllers\AdminController@dashboardSignin',
-	'as' => 'signadmin',
-]);
-
-Route::get('dashboard', [
-	'uses' => '\App\Http\Controllers\AdminController@index',
-	'as' => 'dashboard',
-]);

@@ -58,5 +58,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'AuthCheck'=> \App\Http\Middleware\AuthenticMiddleware::class,
         'social'=> \App\Http\Middleware\Social::class,
+        'citi_admin'=> \App\Http\Middleware\AdminMiddleware::class,
     ];
 } 

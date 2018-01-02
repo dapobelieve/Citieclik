@@ -15,7 +15,7 @@
 						</div>
 					</div>
 				</div>
-				<a href="{{ route('dashboard') }}">
+				<a href="{{ route('admin.home') }}">
 					<img class="img-fluid" src="/assets2/images/logo.png" alt="Theme-Logo" />
 				</a>
 				<a class="mobile-options">

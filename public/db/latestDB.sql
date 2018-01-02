@@ -5,9 +5,6 @@ SET time_zone = '+00:00';
 SET foreign_key_checks = 0;
 SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
-CREATE DATABASE `citi_db` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `citi_db`;
-
 SET NAMES utf8mb4;
 
 DROP TABLE IF EXISTS `categories`;
@@ -1143,6 +1140,8 @@ CREATE TABLE `socials` (
   CONSTRAINT `socials_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Social Login Credentials';
 
+INSERT INTO `socials` (`id`, `user_id`, `social_id`, `service`, `created_at`, `updated_at`) VALUES
+(1, 6,  '1609100312446644', 'facebook', '2017-12-28 15:36:11',  '2017-12-28 15:36:11');
 
 DROP TABLE IF EXISTS `states`;
 CREATE TABLE `states` (
@@ -1429,7 +1428,9 @@ CREATE TABLE `subscriptions` (
 INSERT INTO `subscriptions` (`id`, `user_id`, `plan_id`, `ends_at`, `status`, `amount`, `pay_status`, `created_at`, `updated_at`, `trxn_ref`) VALUES
 (2, 1,  1,  NULL, '1',  '', '1',  '2017-12-28 04:10:33',  '2017-12-28 14:36:06',  'XsK5bQ0b4nmRI4hA3Oeb8YT3r'),
 (8, 1,  3,  NULL, '0',  NULL, '0',  '2017-12-28 14:35:57',  '2017-12-28 14:35:57',  'QhJd2xiSg676HrKnrS63aDFcg'),
-(9, 1,  2,  NULL, '0',  NULL, '0',  '2017-12-28 14:38:06',  '2017-12-28 14:38:06',  '2VYs8CqGu0chQd4BNVwOvv5mZ');
+(9, 1,  2,  NULL, '0',  NULL, '0',  '2017-12-28 14:38:06',  '2017-12-28 14:38:06',  '2VYs8CqGu0chQd4BNVwOvv5mZ'),
+(10,  1,  2,  NULL, '1',  '400000', '1',  '2017-12-28 14:49:06',  '2017-12-28 14:49:34',  '9KvVIdz0XrT3ErT1TADYpU0vl'),
+(11,  6,  1,  NULL, '1',  '100000', '1',  '2017-12-28 15:37:55',  '2017-12-28 15:38:24',  'Nd5QxIsR7O1G6IRiEdii8ZkpQ');
 
 DROP TABLE IF EXISTS `trxn_log`;
 CREATE TABLE `trxn_log` (
@@ -1464,13 +1465,15 @@ CREATE TABLE `users` (
   `remember_token` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
+  `adminer` int(2) DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO `users` (`id`, `email`, `username`, `phone`, `password`, `first_name`, `last_name`, `image`, `location`, `status`, `slug`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'dapo@gmail.com', 'dapoBelieves', '07069494803',  '$2y$10$EJJoTfhHe/A2BOzDIB.Dq.eVFraJcpD0XFj8Wmbk860OBvEjoQ4Gy', 'Dapo', 'Michaels', '', NULL, '1',  'dapobelieves', '15dcemkSOlTPqD9gIDCZJJVdJgBh7WBMhlAw1DyUSuMQjEoyq3AboEWEMOfJ', '2017-08-23 00:26:49',  '2017-12-17 01:39:11'),
-(3, 'maryope8@gmail.com', '@Opeyemi08028756291',  '08028756291',  '$2y$10$5ozMKtaqGuiBhqcPcmndzuAlNiHlbaZKt1ELic4xm621GP2BOSr2C', 'Opeyemi',  'Mary', NULL, NULL, '1',  'opeyemi08028756291', 'WISYeq5qEaE8tKUWW4e2slas0JeN3tRYy2P940JyYvxOwpGpQRUtr6mgjfnQ', '2017-09-24 03:41:13',  '2017-09-24 03:41:13'),
-(4, 'jerexbambex@hotmail.com',  '@Oluwafemin08067099420', '08067099420',  '$2y$10$bepvJ9Rk0E61w99DGPzeLOScZMjZGDe0IAhUW/4hlLFIAVs4HceNa', 'Oluwafemin', 'Isaac',  NULL, NULL, '1',  'oluwafemin08067099420',  'ja8FmlSpYhIInKkcEBEJ4VDbtSFLNQ4Ibp5uRlEDxlgbYyXLQGPcYCrY1rzw', '2017-09-24 03:42:15',  '2017-09-24 03:42:15'),
-(5, 'deji@gmail.com', '@5a3d6079c69bd', '08134327417',  '$2y$10$93BM1PUO5DeYEQAvsS4.3OHKJu4Bt4CKdmE7hspyZ89RLsmueR0sG', 'deji', 'dxtrim', NULL, NULL, '1',  '5a3d6079c69bd',  'eXIpntMvQ4Fgy9jliackoS2oNlGY8OLMTHeviSG0uqhwVLnrwLnQOpwGpjXH', '2017-12-22 18:43:53',  '2017-12-22 18:43:53');
+INSERT INTO `users` (`id`, `email`, `username`, `phone`, `password`, `first_name`, `last_name`, `image`, `location`, `status`, `slug`, `remember_token`, `created_at`, `updated_at`, `adminer`) VALUES
+(1, 'dapo@gmail.com', 'dapoBelieves', '07069494803',  '$2y$10$EJJoTfhHe/A2BOzDIB.Dq.eVFraJcpD0XFj8Wmbk860OBvEjoQ4Gy', 'Dapo', 'Michaels', '', NULL, '1',  'dapobelieves', 'UoMtsaZXCpG79wr4S9hdX31OSFWhVu7pWIEVoWlgU25SWEDpBGd4j09lviYK', '2017-08-23 00:26:49',  '2017-12-17 01:39:11',  1),
+(3, 'maryope8@gmail.com', '@Opeyemi08028756291',  '08028756291',  '$2y$10$5ozMKtaqGuiBhqcPcmndzuAlNiHlbaZKt1ELic4xm621GP2BOSr2C', 'Opeyemi',  'Mary', NULL, NULL, '1',  'opeyemi08028756291', 'WISYeq5qEaE8tKUWW4e2slas0JeN3tRYy2P940JyYvxOwpGpQRUtr6mgjfnQ', '2017-09-24 03:41:13',  '2017-09-24 03:41:13',  0),
+(4, 'jerexbambex@hotmail.com',  '@Oluwafemin08067099420', '08067099420',  '$2y$10$bepvJ9Rk0E61w99DGPzeLOScZMjZGDe0IAhUW/4hlLFIAVs4HceNa', 'Oluwafemin', 'Isaac',  NULL, NULL, '1',  'oluwafemin08067099420',  'ja8FmlSpYhIInKkcEBEJ4VDbtSFLNQ4Ibp5uRlEDxlgbYyXLQGPcYCrY1rzw', '2017-09-24 03:42:15',  '2017-09-24 03:42:15',  0),
+(5, 'deji@gmail.com', '@5a3d6079c69bd', '08134327417',  '$2y$10$93BM1PUO5DeYEQAvsS4.3OHKJu4Bt4CKdmE7hspyZ89RLsmueR0sG', 'deji', 'dxtrim', NULL, NULL, '1',  '5a3d6079c69bd',  'eXIpntMvQ4Fgy9jliackoS2oNlGY8OLMTHeviSG0uqhwVLnrwLnQOpwGpjXH', '2017-12-22 18:43:53',  '2017-12-22 18:43:53',  0),
+(6, 'dapomichaels@gmail.com', '5a451d7bb237a',  NULL, NULL, 'Dapo Michaels',  NULL, NULL, NULL, '1',  '5a451d7bb237a',  NULL, '2017-12-28 15:36:11',  '2017-12-28 15:36:11',  0);
 
--- 2017-12-28 15:47:12
+-- 2018-01-02 21:33:01

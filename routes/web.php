@@ -281,6 +281,7 @@ Route::post('/request/add', [
 |
 */
 Route::get('dashboard', 'Admin\HomeController@index')->name('admin.home');
+Route::get('settings', 'Admin\SettingsController@site')->name('admin.settings.site');
 
 /*
 |

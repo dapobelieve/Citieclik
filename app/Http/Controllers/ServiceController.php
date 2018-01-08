@@ -32,7 +32,7 @@ class ServiceController extends Controller
     {
         $serviceData = Service::take(200)->postOnly()->get();
         // $serviceData = Service::postOnly()->first();
-        // dd($serviceData->userz->phone);
+        // dd($serviceData->userz->username);
     	return view('service.all')->with('sdata', $serviceData);
     }
 

@@ -23,7 +23,7 @@ Subscription
             <ul class="nav nav-tabs" role="tablist">
             @foreach($plans as $plan)
             <li class="nav-item">
-                <a class="nav-link {{$plan->id == 1 ? ' active' : ''}}" href="#{{$plan->slug}}" data-toggle="tab" role="tab">{{$plan->plan}}</a>
+                <a class="nav-link {{ $plan->id == 1 ? ' active' : '' }}" href="#{{ $plan->slug }}" data-toggle="tab" role="tab">{{ $plan->plan }}</a>
             </li>
             @endforeach
             </ul>
@@ -33,22 +33,29 @@ Subscription
                     <p>{{ $plan->desc }}</p>
                     <p>Cost: {{ number_format($plan->price) }}</p>
                     <hr class="margin-bottom-1x">
-                    @if(!Auth::user()->subscribedToPlan($plan->id))
+                    @if( !Auth::user()->subscribedToPlan($plan->id) )
                         <form method="post" action="{{route('pay')}}">
+
                             <input type="hidden" name="email" value="{{ Auth::user()->email }}">
                             <input type="hidden" name="amount" value=" 
-                                @if(Auth::user()->isSubscribed() && (!Auth::user()->subscribedToPlan($plan->id)) )
-                                    {{ ($plan->getPrice() - Auth::user()->getActiveSubFromPlan()) }}
+                            {{-- we have this logic here cos if a user is 
+                                subbed to a plan and wants to sub to
+                             another one --}}
+                                @if( Auth::user()->isSubscribed() )
+                                    {{ ( $plan->getPrice() - Auth::user()->getActiveSubFromPlan() ) }}
                                 @else
                                     {{ $plan->getPrice() }}
                                 @endif
                                  ">
                             <input type="hidden" name="dplan" value="{{ $plan->id }}">
-                            <input type="hidden" name="metadata" value="{{ json_encode($array = ['key_name' => 'value',]) }}" >
+
                             <input type="hidden" name="key" value="{{ config('paystack.secretKey') }}">
+
                             <input type="hidden" name="reference" value="{{ Paystack::genTranxRef() }}">
+                            
                             <button class="btn btn-primary" type="submit">Subscribe</button>
                             {{ csrf_field() }}
+
                         </form>
                     @endif
                   </div>

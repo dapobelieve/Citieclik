@@ -84,6 +84,11 @@ class User extends Authenticatable
          ])->count();
     }
 
+    public function allSubscriptions()
+    {
+        return $this->subscriptions()->where('pay_status', 1);
+    }
+
     //subscription ends
 
     protected $hidden = [

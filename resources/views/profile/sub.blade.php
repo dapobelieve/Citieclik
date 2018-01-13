@@ -1,7 +1,7 @@
 @extends('profile.layout.template')
 
 @section('title')
-Subscription
+Subscription | CitieClik
 @stop
 
 @section('profileContent')

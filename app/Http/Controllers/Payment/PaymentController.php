@@ -62,10 +62,10 @@ class PaymentController extends Controller
 
         if($paymentDetails['data']['status'] == 'success'){
 
-            if( $user->isSubscribed()){
+            if (Auth::user()->isSubscribed()){
 
                 // 1.if user is subscribed we'll get subscription details
-                $subDetails = $request->user()->getActiveSubscription();
+                $subDetails = Auth::user()->getActiveSubscription();
 
                 // 2. update status of that sub to 0
                 Auth::user()->subscriptions()->where('plan_id', $subDetails->plan_id)->update([

@@ -14,8 +14,13 @@ class Subscription extends Model
         'pay_status'
     ];
 
+    public function getf()
+    {
+        return "wo";
+    }
+
     public function plan()
     {
-        return $this->belongsTo(Plan::class);
+        return $this->belongsTo(Plan::class, 'plan_id');
     }
 }

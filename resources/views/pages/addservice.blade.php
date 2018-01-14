@@ -161,7 +161,7 @@ Add service | Citieclik
 			        </form>
 	          	</div>
 	          	<!-- Sidebar          -->
-	          	<div class="col-xl-3 col-lg-4">
+	          	{{-- <div class="col-xl-3 col-lg-4">
 		            <aside class="sidebar">
 		              	<div class="padding-top-2x hidden-lg-up"></div>
 		              	<!-- Order Summary Widget-->
@@ -226,7 +226,7 @@ Add service | Citieclik
 		                	</div>
 		              	</section>
 		            </aside>
-	          	</div>
+	          	</div> --}}
 	        </div>
       	</div>
   	<!--Page Content-->
@@ -281,6 +281,8 @@ Add service | Citieclik
 </script>
 <script type="text/javascript">
 	$('.my-editor').trumbowyg({
+		// prefix: 'modern-ui',
+		imageWidthModalEdit: true,
 		autogrow: true,
 	 	btns: [
 	        // ['viewHTML'],
@@ -288,11 +290,11 @@ Add service | Citieclik
 	        'btnGrp-semantic',
 	        ['superscript', 'subscript'],
 	        ['link'],
-	        'btnGrp-justify',
-	        'btnGrp-lists',
+	        ['btnGrp-justify'],
+	        ['btnGrp-lists'],
 	        ['horizontalRule'],
 	        ['removeformat'],
-	        // ['fullscreen']
+	        ['fullscreen']
 	    ]
 	});
 </script>

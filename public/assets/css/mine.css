@@ -1,18 +1,17 @@
 #particles-js {
-  /*background-color: #3A4DF9;*/
-  /*background: #262624;
-  background-image: url('../../assets/img/Banner4.jpg');
-  background-size: cover;
-  background-position: 50% 50%;*/
-  /*background-repeat: no-repeat;*/
-  /*height: 100%;*/
-  /*width: 100%;*/
-  /*overflow: hidden;*/
-  /*background: #262624;*/
   overflow: hidden;
   background-size: cover;
   background-position: 50% 50%;
   background-repeat: no-repeat;
+}
+.service-list {
+  background-color: #fff;
+  border: 1px solid #d3e0e9;
+  border-radius: 10px;
+  overflow-y: scroll;
+  height: 500px;
+  padding: 5px;
+  /*overflow: hidden;*/
 }
 
 /*#particles-js canvas{

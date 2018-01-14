@@ -1,11 +1,11 @@
 @extends('dashboard.layouts.template')
     @section('title')
-        <title>Dashboard</title>
+        <title>Dashboard :: CitieClik</title>
     @endsection
 
     @section('admin-content')
     <div class="page-body">
-      {{-- <div class="row">
+       <div class="row">
           <div class="col-md-6 col-xl-3">
              <div class="card bg-c-blue order-card">
                 <div class="card-block">
@@ -347,7 +347,7 @@
                 </div>
              </div>
           </div>
-      </div> --}}
+      </div> 
     </div>
 
     @stop

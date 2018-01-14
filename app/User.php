@@ -68,6 +68,11 @@ class User extends Authenticatable
         return $this->subscriptions()->where('status', 1)->first();
     }
 
+    public function getPlan()
+    {
+        return $this->getActiveSubscription()->plan;
+    }
+
     public function getActiveSubFromPlan()
     {
         $plan =  $this->getActiveSubscription()->plan()->first();
@@ -82,6 +87,11 @@ class User extends Authenticatable
             ['status', 1],
             ['plan_id', $plan]
          ])->count();
+    }
+
+    public function allSubscriptions()
+    {
+        return $this->subscriptions()->where('pay_status', 1);
     }
 
     //subscription ends

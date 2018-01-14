@@ -10,7 +10,7 @@
 						</a>
 					</li>
 					<li class="pcoded-hasmenu pcoded-trigger">
-						<a href="{{ route('admin.home') }}">
+						<a href="{{ route('admin.users') }}">
 							<span class="pcoded-micon"><i class="ti-user"></i><b>D</b></span>
 							<span class="pcoded-mtext">Users</span>
 						</a>

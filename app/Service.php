@@ -11,7 +11,7 @@ class Service extends Model
 
 	public function userz()
 	{
-		return $this->belongsTo('App\User', 'user_id');
+		return $this->belongsTo(User::class, 'user_id');
 	}
 
 	public function catty()

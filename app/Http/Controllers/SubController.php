@@ -22,8 +22,4 @@ class SubController extends Controller
             ->with('plans', $plans);
     }
 
-    public function show(Request $request, Plan $plan)
-    {
-        dd($request->user()->getUserServices()->count()."  ".$plan);
-    }
 }

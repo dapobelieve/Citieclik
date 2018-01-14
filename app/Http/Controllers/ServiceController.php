@@ -31,8 +31,7 @@ class ServiceController extends Controller
     public function index()
     {
         $serviceData = Service::take(200)->postOnly()->get();
-        // $serviceData = Service::postOnly()->first();
-        // dd($serviceData->userz->phone);
+
     	return view('service.all')->with('sdata', $serviceData);
     }
 
@@ -45,6 +44,9 @@ class ServiceController extends Controller
     //validate and save service details
     public function postService(Request $serRequest)
     {
+        //check if users posted services >= plans subsribed to
+
+
     	$this->validate($serRequest, [
             'serTitle'  =>  'required|string|max:255',
             'serState'  => 'required|integer',

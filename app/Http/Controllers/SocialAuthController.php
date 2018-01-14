@@ -60,19 +60,6 @@ class SocialAuthController extends Controller
         Auth::login($user, false);
 
         return redirect()->intended();
-
-
-
-        // dd($serviceUser);
-    	// $user = $service->createOrGetUser(Socialite::driver($provider)->user());
-    	// // dd($user);
-     //    auth()->login($user);
-     //    if(empty(Auth::user()->email) || empty(Auth::user()->phone) ){
-     //    	return redirect()->view('profile.edit')
-     //    		->with('info', 'Hello, we\'re glad you signed up using your '.$provider.' account please update your profile, provide your phone number and choose a password.');
-     //    }else {
-     //    	return redirect()->route('home');
-     //    }
     }
 
      protected function needSocial(User $user, $service)

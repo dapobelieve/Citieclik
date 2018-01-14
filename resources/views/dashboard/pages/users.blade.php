@@ -52,7 +52,16 @@
                                         <td>Tokyo</td>
                                         <td>63</td>
                                         <td>2011/07/25</td>
-                                        <td>$170,750</td>
+                                        <td>
+                                            <button class="btn btn-primary btn-sm dropdown-toggle waves-effect waves-light " type="button" id="dropdown-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Action</button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdown-2" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                                                <a class="dropdown-item  waves-effect" href="#">Profile</a>
+                                                <a class="dropdown-item  waves-effect" href="#">Another action</a>
+                                                <a class="dropdown-item  waves-effect" href="#">Something else</a>
+                                                <div class="dropdown-divider"></div>
+                                                <a class="dropdown-item waves-light waves-effect" href="#">Delete</a>
+                                            </div>
+                                    </td>
                                     </tr>
                                     <tr>
                                         <td>Ashton Cox</td>
@@ -199,7 +208,7 @@
                                         <td>$217,500</td>
                                     </tr>
                                 </tbody>
-                                <tfoot>
+                                {{-- <tfoot>
                                     <tr>
                                         <th>Name</th>
                                         <th>Position</th>
@@ -208,7 +217,7 @@
                                         <th>Start date</th>
                                         <th>Salary</th>
                                     </tr>
-                                </tfoot>
+                                </tfoot> --}}
                             </table>
                         </div>
                     </div>
@@ -225,13 +234,9 @@
 
 {{-- JS for this page --}}
 @section('admin-scripts')
-<script src="/assets2/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="/assets2/bower_components/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="/assets2/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-
-
-<script type="text/javascript">
-    $('#simpletable').DataTable();
-</script>
+    <script src="/assets2/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="/assets2/bower_components/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="/assets2/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="/assets/js/citi-admin.js"></script>
 
 @stop

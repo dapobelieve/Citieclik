@@ -19,4 +19,13 @@ class UsersController extends Controller
     {
         return view('dashboard.pages.users');
     }
+
+    public function getUsers(Request $request)
+    {
+        if($request->ajax()){
+            $users = User::get();
+            return $users->toJson();
+        }
+            
+    }
 }

@@ -4,6 +4,8 @@
 // Route::get('/test', 'TestController@index')->name('test');
 
 // ends here
+
+
 /*
 |
 | Payment Section 
@@ -211,10 +213,6 @@ Route::get('subscription', [
 	'as'   => 'getSubs'
 ]);
 
-// Route::get('subscription/{plan}', [
-// 	'uses' => '\App\Http\Controllers\SubController@show',
-// 	'as'   => 'plan.show'
-// ]);
 /*
 |
 | Subscription Section ends
@@ -283,6 +281,9 @@ Route::post('/request/add', [
 Route::get('dashboard', 'Admin\HomeController@index')->name('admin.home');
 Route::get('admin/settings', 'Admin\SettingsController@site')->name('admin.settings.site');
 Route::get('admin/users', 'Admin\UsersController@index')->name('admin.users');
+
+
+Route::get('admin/get-users', 'Admin\UsersController@getUsers')->name('get-users');
 
 /*
 |

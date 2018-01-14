@@ -49,16 +49,16 @@ Services | Citieclik
               <div class="padding-top-2x mt-2 hidden-lg-up"></div>
               <!-- Wishlist Table-->
               <div class="table-responsive wishlist-table  margin-bottom-none">
-                <table class="table">
+                {{-- <table class="table">
                   <thead>
                     <tr>
                       <th>Services</th>
                       <th class="text-center"><a class="btn btn-sm btn-outline-primary" href="{{route('addservice')}}">Add new service</a></th>
                     </tr>
                   </thead>
-                </table>
-              <div class="slimScroll">
-                <div class="container">
+                </table> --}}
+              {{-- <div class="slimScroll"> --}}
+                <div class="container service-list">
                     @foreach($user->getUserServices() as $servy) 
                         <div class="row">
                             <div class="col-sm-6 col-md-9">
@@ -100,7 +100,7 @@ Services | Citieclik
                         </div> 
                     @endforeach
                   </div>
-                </div>
+                {{-- </div> --}}
               </div>
               <hr class="mb-4">
               <label class="custom-control custom-checkbox d-block">

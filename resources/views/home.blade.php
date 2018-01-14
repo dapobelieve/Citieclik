@@ -43,6 +43,7 @@ Welcome | Citieclik
                       <div class="col-xs-6"><button class="btn btn-primary mybox">View Request</button></div>
                     </div>
                   </form>
+                  <example></example>
               </div>
           </div>
         </div>

@@ -25,7 +25,14 @@ class PaymentController extends Controller
             $subDetails = $request->user()->getActiveSubscription();
 
             Auth::user()->subscriptions()->where('plan_id',$subDetails->plan_id)->update([
-                'plan_id' => $request->dplan,
+                'status' => 0,
+            ]);
+
+            Auth::user()->subscriptions()->create([
+                'trxn_ref'     => $request->reference,
+                'status'       => 1,
+                'pay_status'   => 1,
+                'plan_id'      => $request->dplan,
             ]);
 
             return redirect()->back()->with('pay-message',' Your Subscription has been activated. ');

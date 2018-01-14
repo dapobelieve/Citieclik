@@ -58,7 +58,7 @@ Services | Citieclik
                   </thead>
                 </table> --}}
               {{-- <div class="slimScroll"> --}}
-                <div class="container service-list">
+                  <div class="container service-list">
                     @foreach($user->getUserServices() as $servy) 
                         <div class="row">
                             <div class="col-sm-6 col-md-9">
@@ -101,11 +101,11 @@ Services | Citieclik
                     @endforeach
                   </div>
                 {{-- </div> --}}
+                <br>
+                <br>
+                <a class="btn btn-sm btn-outline-success" href="{{route('addservice')}}">Add new service</a>
               </div>
-              <hr class="mb-4">
-              <label class="custom-control custom-checkbox d-block">
-                <a class="btn btn-sm btn-outline-danger" href="{{route('addservice')}}">Add new service</a>
-              </label>
+             
             </div>      
   @endsection
 

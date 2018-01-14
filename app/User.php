@@ -68,6 +68,11 @@ class User extends Authenticatable
         return $this->subscriptions()->where('status', 1)->first();
     }
 
+    public function getPlan()
+    {
+        return $this->getActiveSubscription()->plan;
+    }
+
     public function getActiveSubFromPlan()
     {
         $plan =  $this->getActiveSubscription()->plan()->first();

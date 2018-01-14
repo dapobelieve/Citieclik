@@ -1,7 +1,7 @@
 <?php
 
 // For testing purposes
-Route::get('/test', 'TestController@index')->name('test');
+// Route::get('/test', 'TestController@index')->name('test');
 
 // ends here
 /*
@@ -281,7 +281,8 @@ Route::post('/request/add', [
 |
 */
 Route::get('dashboard', 'Admin\HomeController@index')->name('admin.home');
-Route::get('settings', 'Admin\SettingsController@site')->name('admin.settings.site');
+Route::get('admin/settings', 'Admin\SettingsController@site')->name('admin.settings.site');
+Route::get('admin/users', 'Admin\UsersController@index')->name('admin.users');
 
 /*
 |

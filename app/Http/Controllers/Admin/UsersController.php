@@ -22,10 +22,12 @@ class UsersController extends Controller
 
     public function getUsers(Request $request)
     {
-        if($request->ajax()){
-            $users = User::get();
-            return $users->toJson();
-        }
+            if($request->ajax()){
+                $users = User::get();
+                return $users->toJson();
+            }else{
+                return view('dashboard.pages.home');
+            }
             
     }
 }

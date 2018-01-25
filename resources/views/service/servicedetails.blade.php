@@ -74,9 +74,9 @@
 			            <div class="padding-bottom-1x mb-2">
 			            	<p style="font-size: 19px;" class="text-medium">Category:&nbsp;<span><small><a class="navi-link" href="{{route('category', $service->catty->slug)}}">{{$service->catty->category}}</a></small></span>
 			            	</p>
-			            	<p style="font-size: 19px;" class="text-medium">State:&nbsp;<span><small><a class="navi-link" href="{{route('category', $service->catty->serstate)}}">{{$service->catty->location}}</a></small></span>
+			            	<p style="font-size: 19px;" class="text-medium">State:&nbsp;<span><small><a class="navi-link" href="{{route('category', $service->loca->state->state)}}">{{$service->loca->state->state}}</a></small></span>
 			            	</p>
-			            	<p style="font-size: 19px;" class="text-medium">Location:&nbsp;<span><small><a class="navi-link" href="{{route('category', $service->catty->serstate)}}">{{$service->catty->location}}</a></small></span>
+			            	<p style="font-size: 19px;" class="text-medium">Location:&nbsp;<span><small><a class="navi-link" href="{{route('category', $service->loca->lga)}}">{{$service->catty->location}}</a></small></span>
 			            	</p>
 			            </div>
 			            <hr class="mb-3">
@@ -156,11 +156,11 @@
 					    </div>
 					    <div class="user-info">
 					      	<div class="user-avatar">
-					            <img id="userMainAvatar" src="/assets/img/vatar.png" alt="User">
+					            <img id="userMainAvatar" src="{{$service->userz->getUserImg()}}" alt="User">
 					      	</div>
 					      	<div class="user-data">
-					        	<h4 class="text-primary text-medium">Oluwatosin Ogunniyi</h4><small class="opacity-60">3 days-ago</small>
-					        	<h5>07068261774</h5>
+					        	<h4 class="text-primary text-medium">{{$service->userz->username}}</h4><small class="opacity-60">{{$service->created_at->diffForHumans()}}</small>
+					        	<h5>{{$service->userz->phone}}</h5>
 					      	</div>
 					    </div><br>
 				      	<div class="list-group">

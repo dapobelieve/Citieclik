@@ -34,11 +34,11 @@ Route::get('service', [
 ]);
 
 // Terms and condition page 
-// Route::get('/terms', '\App\Http\Controllers\TermsController@index')->name('terms');
-Route::get('/terms', [
-	'uses' => 'TermsController@index',
-	'as'   => 'terms'
-]);
+Route::get('/terms', '\App\Http\Controllers\TermsController@index')->name('terms');
+// Route::get('/terms', [
+// 	'uses' => 'TermsController@index',
+// 	'as'   => 'terms'
+// ]);
 
 
 //get details of a service

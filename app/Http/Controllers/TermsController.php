@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class TermsConttroller extends Controller
+class TermsController extends Controller
 {
     public function index()
     {

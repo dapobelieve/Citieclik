@@ -66,14 +66,18 @@
 		              {{-- </div><span class="text-muted align-middle">&nbsp;&nbsp;4.2 | 3 customer reviews</span> --}}
 			            <h2 class="padding-top-1x text-normal">{{$service->serviceTitle() }}</h2>
 			            {{-- <span class="h2 d-block">$47.60</span> --}}
-			            {{$service->description }}
+			            {{-- {{$service->location }} --}}
 			           
 			            <br>
 			            <br>
 			           {{--  <div class="pt-1 mb-2"><span class="text-medium">SKU:</span> #21457832</div> --}}
 			            <div class="padding-bottom-1x mb-2">
-			            	<h3 class="text-medium">Category:&nbsp;<span><small><a class="navi-link" href="{{route('category', $service->catty->slug)}}">{{$service->catty->category}}</a></small></span>
-			            	</h3>
+			            	<p style="font-size: 19px;" class="text-medium">Category:&nbsp;<span><small><a class="navi-link" href="{{route('category', $service->catty->slug)}}">{{$service->catty->category}}</a></small></span>
+			            	</p>
+			            	<p style="font-size: 19px;" class="text-medium">State:&nbsp;<span><small><a class="navi-link" href="{{route('category', $service->catty->serstate)}}">{{$service->catty->location}}</a></small></span>
+			            	</p>
+			            	<p style="font-size: 19px;" class="text-medium">Location:&nbsp;<span><small><a class="navi-link" href="{{route('category', $service->catty->serstate)}}">{{$service->catty->location}}</a></small></span>
+			            	</p>
 			            </div>
 			            <hr class="mb-3">
 			            <div class="d-flex flex-wrap justify-content-between">
@@ -164,6 +168,7 @@
 			                    <div class="d-flex w-100 justify-content-between">
 			                      	<h5 class="text-warning">Please read safety tips</h5>
 			                    </div>
+			                    <hr class="">
 			                    <p>
 					            	<ul class="h-list-style-position-inside h-font-13 text-warning">
 					                    <li>NEVER PAY BEFORE PURCHASE</li>
@@ -172,7 +177,7 @@
 					                    <li>Pay only after collecting the item</li>
 						            </ul>
 			                    </p>
-			                    <small class="opacity-60">Donec id elit non mi porta.</small>
+			                    {{-- <small class="opacity-60">Donec id elit non mi porta.</small> --}}
 			                </div>
 				        </div>
 				  	</aside>

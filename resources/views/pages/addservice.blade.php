@@ -285,7 +285,7 @@ Add service | Citieclik
 		imageWidthModalEdit: true,
 		autogrow: true,
 	 	btns: [
-	        // ['viewHTML'],
+	        ['viewHTML'],
 	        ['formatting'],
 	        'btnGrp-semantic',
 	        ['superscript', 'subscript'],

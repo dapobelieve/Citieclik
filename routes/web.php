@@ -45,7 +45,6 @@ Route::get('/terms', '\App\Http\Controllers\TermsController@index')->name('terms
 Route::get('service/detail/{username}/{serslug}', [
 	'uses' => '\App\Http\Controllers\ServiceDetails@index',
 	'as'   => 'service.detail'
-
 ]);
 
 

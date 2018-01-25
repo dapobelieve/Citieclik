@@ -3,6 +3,10 @@
   src: url('/assets/css/fonts/proxima.ttf');
 }
 
+.my-c {
+  display: flex;
+}
+
 #particles-js {
   overflow: hidden;
   background-size: cover;

@@ -10,4 +10,10 @@ class TermsController extends Controller
     {
     	return view('terms');
     }
+
+    //About us page
+    public function aboutUs()
+    {
+    	return view('about');
+    }
 }

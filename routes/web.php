@@ -33,6 +33,13 @@ Route::get('service', [
 	'as'   => 'service'
 ]);
 
+// Terms and condition page 
+// Route::get('/terms', '\App\Http\Controllers\TermsController@index')->name('terms');
+Route::get('/terms', [
+	'uses' => 'TermsController@index',
+	'as'   => 'terms'
+]);
+
 
 //get details of a service
 Route::get('service/detail/{username}/{serslug}', [
@@ -274,12 +281,7 @@ Route::post('/request/add', [
 	'as' => 'request.add',
 ]);
 
-// Terms and condition page 
-// Route::get('/terms', '\App\Http\Controllers\TermsController@index')->name('terms');
-Route::get('/terms', [
-	'uses' => 'TermsController@index',
-	'as'   => 'terms'
-]);
+
 
 /*
 |

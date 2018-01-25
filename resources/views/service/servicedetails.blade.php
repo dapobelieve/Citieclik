@@ -76,7 +76,7 @@
 			            	</p>
 			            	<p style="font-size: 19px;" class="text-medium">State:&nbsp;<span><small><a class="navi-link" href="{{route('category', $service->loca->state->state)}}">{{$service->loca->state->state}}</a></small></span>
 			            	</p>
-			            	<p style="font-size: 19px;" class="text-medium">Location:&nbsp;<span><small><a class="navi-link" href="{{route('category', $service->loca->lga)}}">{{$service->catty->location}}</a></small></span>
+			            	<p style="font-size: 19px;" class="text-medium">Location:&nbsp;<span><small><a class="navi-link" href="{{-- {{route('category', $service->loca->lga)}} --}}">{{$service->loca->lga}}</a></small></span>
 			            	</p>
 			            </div>
 			            <hr class="mb-3">

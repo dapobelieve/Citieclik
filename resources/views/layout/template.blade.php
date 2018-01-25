@@ -148,10 +148,10 @@
               <section class="widget widget-links widget-light-skin">
                 <h3 class="widget-title">About Us</h3>
                 <ul>
-                  <li><a href="#">Jobs</a></li>
+                  <li><a href="/terms">Terms &amp; Conditions</a></li>
                   <li><a href="#">About Citiclik</a></li>
                   <li><a href="#">Our Story</a></li>
-                  <li><a href="#">Services</a></li>
+                  <li><a href="/service">Services</a></li>
                 </ul>
               </section>
             </div>

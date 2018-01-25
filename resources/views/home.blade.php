@@ -17,15 +17,21 @@ Welcome | Citieclik
                       <label class="sr-only" for="inlineFormInputGroupUsername2">What are you looking for?</label>
                       <div class="input-group mb-2 mr-sm-2 mb-sm-0" style="margin-right: 0px !important;">
                         <div class="input-group-addon">?</div>
-                        <input type="text" class="form-control form-control-square form-control-lg" id="inlineFormInputGroupUsername2" placeholder="What are you looking for">
+                        <select class="form-control form-control-square form-control-lg" id="select-input">
+                            <option>Category</option>
+                          @foreach($cats as $cat)
+                                <option>{{ $cat->category }}</option>
+                          @endforeach
+                        </select>
                       </div>
                       <div class="input-group form-group" method="get" style="margin-right: 0px !important;">
                         <span class="input-group-btn">
                           {{-- <button type="submit"><i class="icon-search"></i></button> --}}
                         </span>
                         <select class="form-control form-control-square form-control-lg" id="select-input">
-                          @foreach($cats as $cat)
-                                <option>{{ $cat->category }}</option>
+                          <option>state</option>
+                          @foreach($states as $state)
+                                <option>{{ $state->state }}</option>
                           @endforeach
                         </select>
                         {{-- <input class="form-control form-control-square form-control-lg" type="email" placeholder="Location"> --}}
@@ -36,12 +42,12 @@ Welcome | Citieclik
                     </div>
                     {{-- <button type="submit" class="btn btn-square btn-primary">Submit</button> --}}
                   </form>
-                  <form class="form-inline text-center">
+{{--                   <form class="form-inline text-center">
                     <div class="col-xs-12 form-group">
                       <div class="col-xs-6"><button class="btn btn-danger mybox">Request Service</button></div>
                       <div class="col-xs-6"><button class="btn btn-primary mybox">View Request</button></div>
                     </div>
-                  </form>
+                  </form> --}}
               </div>
           </div>
         </div>

@@ -145,7 +145,7 @@
 				          	</div>
 				        </div>
 				        <div class="col-12 text-right">
-				          	<button class="btn btn-outline-primary" type="submit">Submit Review</button>
+				          	<button class="btn btn-outline-primary" type="submit">Send</button>
 				        </div>
 			      	</form>
 				</div>
@@ -261,7 +261,6 @@
 	                <button class="btn btn-outline-primary btn-sm" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!">Add to Cart</button>
 	              </div>
 	            </div>
-	          </div>
 	        </div>
       	</div>
   	<!--Page Content-->
@@ -276,6 +275,7 @@
 	<script type="text/javascript">
 		$('.my-editor').trumbowyg({
 			// prefix: 'modern-ui',
+			autogrow: true,
 			btns: [],
 			imageWidthModalEdit: true,
 			disabled: true,

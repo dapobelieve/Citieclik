@@ -274,6 +274,12 @@ Route::post('/request/add', [
 	'as' => 'request.add',
 ]);
 
+// Terms and condition page 
+// Route::get('/terms', '\App\Http\Controllers\TermsController@index')->name('terms');
+Route::get('/terms', [
+	'uses' => 'TermsController@index',
+	'as'   => 'terms'
+]);
 
 /*
 |

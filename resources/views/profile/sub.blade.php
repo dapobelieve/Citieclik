@@ -34,7 +34,7 @@ Subscription | CitieClik
                 @foreach($plans as $plan)
                   <div class="tab-pane transition fade{{ $plan->id == 1 ? " show active" : ""}} " id="{{ $plan->slug }}" role="tabpanel">
                     <p>{{ $plan->desc }}</p>
-                    <p>Cost: {{ number_format($plan->price) }}</p>
+                    <p>Cost: &#8358;{{ number_format($plan->price) }}</p>
                     <hr class="margin-bottom-1x">
                     @if( !Auth::user()->subscribedToPlan($plan->id) )
                         <form method="post" action="{{route('pay')}}">

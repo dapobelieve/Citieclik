@@ -25,8 +25,8 @@
         </div>
   	</div>
 	<!-- Page Content-->
-     	<div class="container padding-bottom-3x mb-1">
-	        <div class="row">
+ 	<div class="container padding-bottom-3x mb-1">
+        <div class="row">
 	          <!-- Poduct Gallery-->
 	          	<div class="col-md-6">
 	            	<div class="product-gallery"><span class="product-badge text-danger"></span>
@@ -90,18 +90,7 @@
 			            </div>
 			        </div>
 		        </div>
-	        <!-- Product Tabs-->
-	        {{-- <div class="row padding-top-3x mb-3">" id="review_text" rows="8" required></textarea>
-	                    </div>
-	                  </div>
-	                  <div class="col-12 text-right">
-	                    <button class="btn btn-outline-primary" type="submit">Submit Review</button>
-	                  </div>
-	                </form>
-	              </div>
-	            </div>
-	          </div>
-	        </div> --}}
+	        
 		        <div class="col-lg-8 mt-30">
 		        	<div class="">
 					    <div class="card-header" role="tab">
@@ -187,7 +176,7 @@
 	        	<!-- Carousel-->
 	        <div class="owl-carousel" data-owl-carousel="{ &quot;nav&quot;: false, &quot;dots&quot;: true, &quot;margin&quot;: 30, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;576&quot;:{&quot;items&quot;:2},&quot;768&quot;:{&quot;items&quot;:3},&quot;991&quot;:{&quot;items&quot;:4},&quot;1200&quot;:{&quot;items&quot;:4}} }">
 	          <!-- Product-->
-	          <div class="grid-item">
+	          	<div class="grid-item">
 	            	<div class="product-card">
 	              	<div class="product-badge text-danger">22% Off</div><a class="product-thumb" href="shop-single.html"><img src="/assets/img/shop/products/09.jpg" alt="Product"></a>
 	              		<h3 class="product-title"><a href="shop-single.html">Rockt Dog</a></h3>
@@ -262,12 +251,10 @@
 	              </div>
 	            </div>
 	        </div>
-      	</div>
-  	<!--Page Content-->
-  </div>
+      		</div>
+  		<!--Page Content-->
+  		</div>
   	</div>
-  	</div>
-  </div>
 @endsection
 
 @section('script')

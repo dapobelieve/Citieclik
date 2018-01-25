@@ -161,11 +161,11 @@ Add service | Citieclik
 			        </form>
 	          	</div>
 	          	<!-- Sidebar          -->
-	          	{{-- <div class="col-xl-3 col-lg-4">
+	          	<div class="col-xl-3 col-lg-4">
 		            <aside class="sidebar">
 		              	<div class="padding-top-2x hidden-lg-up"></div>
 		              	<!-- Order Summary Widget-->
-		              	<section class="widget widget-order-summary">
+		              	{{-- <section class="widget widget-order-summary">
 		                	<h3 class="widget-title">Order Summary</h3>
 		                	<table class="table">
 				                <tr>
@@ -185,7 +185,7 @@ Add service | Citieclik
 				                    <td class="text-lg text-medium">$315.60</td>
 				                </tr>
 		                	</table>
-		              	</section>
+		              	</section> --}}
 		              <!-- Featured Products Widget-->
 		              	<section class="widget widget-featured-products">
 		                	<h3 class="widget-title">Recently Viewed</h3>
@@ -226,7 +226,7 @@ Add service | Citieclik
 		                	</div>
 		              	</section>
 		            </aside>
-	          	</div> --}}
+	          	</div>
 	        </div>
       	</div>
   	<!--Page Content-->

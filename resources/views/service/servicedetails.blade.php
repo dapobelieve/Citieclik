@@ -101,7 +101,7 @@
 			      		</textarea>
 					</div>
 				  	<!-- Review Form-->
-		      		<h5 class="mb-30 padding-top-1x">Send a message to the service provider</h5>
+{{-- 		      		<h5 class="mb-30 padding-top-1x">Send a message to the service provider</h5>
 			      	<form class="row" method="post">
 				        <div class="col-sm-6">
 				          <div class="form-group">
@@ -136,7 +136,7 @@
 				        <div class="col-12 text-right">
 				          	<button class="btn btn-outline-primary" type="submit">Send</button>
 				        </div>
-			      	</form>
+			      	</form> --}}
 				</div>
 				<div class="col-lg-4 mt-30">
 					<aside class="user-info-wrapper">

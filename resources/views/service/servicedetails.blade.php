@@ -78,6 +78,8 @@
 			            	</p>
 			            	<p style="font-size: 19px;" class="text-medium">Location:&nbsp;<span><small><a class="navi-link" href="{{-- {{route('category', $service->loca->lga)}} --}}">{{$service->loca->lga}}</a></small></span>
 			            	</p>
+			            	<p style="font-size: 19px;" class="text-medium">Posted:&nbsp;<span><small><a class="navi-link" href="">{{$service->created_at->diffForHumans()}}</a></small></span>
+			            	</p>
 			            </div>
 			            <hr class="mb-3">
 			            <div class="d-flex flex-wrap justify-content-between">
@@ -155,15 +157,16 @@
 				      	<div class="list-group">
 				            <div class="list-group-item flex-column align-items-start" style="border: 0px !important;">
 			                    <div class="d-flex w-100 justify-content-between">
-			                      	<h5 class="text-warning">Please read safety tips</h5>
+			                      	<h5 class="text-warning">YOUR <strong>SAFETY</strong> IS OUR PRIORITY</h5>
 			                    </div>
 			                    <hr class="">
 			                    <p>
 					            	<ul class="h-list-style-position-inside h-font-13 text-warning">
-					                    <li>NEVER PAY BEFORE PURCHASE</li>
-					                    <li>Try to meet at a safe, public location</li>
-					                    <li>Check the item BEFORE you buy it</li>
-					                    <li>Pay only after collecting the item</li>
+					                    <li>Always arrange to meet Buyer/Seller in a Public and Open Location</li>
+								        <li>Always ask for the Buyer/Seller’s ID</li>
+								        <li>Visit the Seller’s Shop/Office if possible</li>
+								        <li>Always Inspect the Product Well Before Buying</li>
+								        <li>Arrange to Make Payment at the Bank (for large amounts)</li>
 						            </ul>
 			                    </p>
 			                    {{-- <small class="opacity-60">Donec id elit non mi porta.</small> --}}

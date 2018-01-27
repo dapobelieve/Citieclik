@@ -1,14 +1,19 @@
 <?php
 
 // For testing purposes
-Route::get('/test',[
-	'uses' => 'TestController@index',
-	'as'   => 'test'
-
-]);
+// Route::get('/test', 'TestController@index')->name('test');
 
 // ends here
+/*
+|
+| Payment Section 
+|
+*/
 
+Route::post('/payciite', 'Payment\PaymentController@redirectToGateway')->name('pay');
+
+Route::get('/payment/callback', 'Payment\PaymentController@getPayDetails');
+// ends here
 
 // Homepage
 Route::get('/', [
@@ -28,12 +33,22 @@ Route::get('service', [
 	'as'   => 'service'
 ]);
 
+// Terms and condition page 
+Route::get('/terms', '\App\Http\Controllers\TermsController@index')->name('terms');
+
+//About us
+Route::get('/about', '\App\Http\Controllers\TermsController@aboutUs')->name('about');
+
+// Route::get('/terms', [
+// 	'uses' => 'TermsController@index',
+// 	'as'   => 'terms'
+// ]);
+
 
 //get details of a service
 Route::get('service/detail/{username}/{serslug}', [
 	'uses' => '\App\Http\Controllers\ServiceDetails@index',
 	'as'   => 'service.detail'
-
 ]);
 
 
@@ -203,8 +218,13 @@ Route::group(['middleware' => ['AuthCheck']], function () {
 
 Route::get('subscription', [
 	'uses' => '\App\Http\Controllers\SubController@index',
-	'as'   => 'getSub'
+	'as'   => 'getSubs'
 ]);
+
+// Route::get('subscription/{plan}', [
+// 	'uses' => '\App\Http\Controllers\SubController@show',
+// 	'as'   => 'plan.show'
+// ]);
 /*
 |
 | Subscription Section ends
@@ -240,10 +260,6 @@ Route::get('/profile/{slug}', [
 	'as'   => 'profile.index'
 ]);
 
-Route::get('/account', [
-	'uses' => '\App\Http\Controllers\ProfileController@getAccount',
-	'as' => 'profile.address',
-]);
 Route::get('/profile/{slug}/services', [
 	'uses' => '\App\Http\Controllers\ProfileController@getService',
 	'as' => 'profile.service',
@@ -269,14 +285,24 @@ Route::post('/request/add', [
 ]);
 
 
-/*
-|
-| Profile Section Ends
-|
-*/
 
 /*
 |
-| Profile Section Ends
+| Admin Section Starts
 |
 */
+Route::get('dashboard', 'Admin\HomeController@index')->name('admin.home');
+Route::get('admin/settings', 'Admin\SettingsController@site')->name('admin.settings.site');
+Route::get('admin/users', 'Admin\UsersController@index')->name('admin.users');
+
+/*
+|
+| Admin Section Ends
+|
+*/
+
+//Request Detail page
+Route::get('request/detail/', [
+	'uses' => '\App\Http\Controllers\RequestDetails@index',
+	'as'   => 'request.detail'
+]);

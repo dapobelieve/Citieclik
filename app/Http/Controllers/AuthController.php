@@ -88,10 +88,10 @@ class AuthController extends Controller
                 'password' => $request->input('password1')
             ],$request->has('remember'))){
     		
-    		return redirect()->back()->with('Message','Could not sign you in. Invalid Details');
+    		return redirect()->back()->with('success','Could not sign you in. Invalid Details');
     	}
 
-    	return redirect()->route('home')->with('Message','You are now signed in');
+    	return redirect()->route('home')->with('success','You are now signed in');
     } 
 
     public function getSignout()

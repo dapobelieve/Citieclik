@@ -2,6 +2,7 @@
 namespace App;
 
 use App\Service;
+use App\Plan;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -50,7 +51,51 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Service', 'user_id');
     }
-   
+    //All about subscriptions
+    public function subscriptions()
+    {
+        return $this->hasMany(Subscription::class);
+    }
+
+    //check if user has an active subscription
+    public function isSubscribed()
+    {
+        return (bool) $this->subscriptions()->where('status', 1)->count();
+    }
+
+    public function getActiveSubscription()
+    {
+        return $this->subscriptions()->where('status', 1)->first();
+    }
+
+    public function getPlan()
+    {
+        return $this->getActiveSubscription()->plan;
+    }
+
+    public function getActiveSubFromPlan()
+    {
+        $plan =  $this->getActiveSubscription()->plan()->first();
+        return $plan->price * 100;
+    }
+
+
+    // checks if active subscription is the same as the one in the request
+    public function subscribedToPlan($plan)
+    {
+        return (bool) $this->subscriptions()->where([
+            ['status', 1],
+            ['plan_id', $plan]
+         ])->count();
+    }
+
+    public function allSubscriptions()
+    {
+        return $this->subscriptions()->where('pay_status', 1);
+    }
+
+    //subscription ends
+
     protected $hidden = [
         'password',
         'remember_token',
@@ -60,22 +105,8 @@ class User extends Authenticatable
     {
         return $this->belongsTo('App\State');
     }
-    // public function userCats()
-    // {
-    //     return $this->categories()->get();
-    // }
 
-    //  public function userCatsCount()
-    // {
-    //     return $this->categories()->count();
-    // }
-
-    // public function isChecked($id)
-    // {
-    //     return (bool) $this->userCats()->where('id', $id)->count();
-    // }
-
-    //gets all services posted by a user
+    //get services posted by a user
     public function getUserServices()
     {
         return $this->services()->where('type', 'p')->get();
@@ -107,16 +138,6 @@ class User extends Authenticatable
             return $userImage['url'];
         }
     }
-
-    // public function likes()
-    // {
-    //     return $this->hasMany('App\likeable');
-    // }
-
-    // public function hasLikedService(Service $service)
-    // {
-    //     return (bool)$service->likes->where('user_id', $this->id)->count();
-    // }
 
     public function social()
     {

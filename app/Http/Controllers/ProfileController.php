@@ -132,8 +132,10 @@ class ProfileController extends Controller
                 'timeout'  =>  600,
                 'format'   => 'Webp',
                 'quality'  => '20',
-                'crop'     => 'crop',
                 'gravity'  => 'face',
+                'width'    => '150',
+                'height'   => '150',
+                'crop'     => 'thumb',
             ));
 
             if(!$result)

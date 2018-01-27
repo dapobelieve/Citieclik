@@ -5,19 +5,24 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\User;
+use App\Plan;
 
 class TestController extends Controller
 {
     public function index()
     {
-        return view('test.test');
-    }
-    
-    // public function index()
-    // {
-    // 	$val = uniqid(mt_srand());
-    // 	dd($val);
-    // }
+    	$val = Auth::user()->subscriptions()
+                            ->select('plan_id')
+                            ->where('pay_status', 1)
+                            ->get();
+        $userPlans = $val->toArray();
 
-    //some code goes here
+        dd($userPlans);
+
+        $sumPlans =  Plan::whereIn('id', $userPlans)
+                            ->sum('listing');
+        $userServices = Auth::user()->getNumberOfPosts();
+
+        dd((int)$sumPlans);
+    }
 }

@@ -17,17 +17,22 @@ Welcome | Citieclik
                       <label class="sr-only" for="inlineFormInputGroupUsername2">What are you looking for?</label>
                       <div class="input-group mb-2 mr-sm-2 mb-sm-0" style="margin-right: 0px !important;">
                         <div class="input-group-addon">?</div>
-                        <input type="text" class="form-control form-control-square form-control-lg" id="inlineFormInputGroupUsername2" placeholder="What are you looking for">
+                        <select class="form-control form-control-square form-control-lg" id="select-input">
+                            <option>Category</option>
+                          @foreach($cats as $cat)
+                                <option>{{ $cat->category }}</option>
+                          @endforeach
+                        </select>
                       </div>
                       <div class="input-group form-group" method="get" style="margin-right: 0px !important;">
                         <span class="input-group-btn">
                           {{-- <button type="submit"><i class="icon-search"></i></button> --}}
                         </span>
                         <select class="form-control form-control-square form-control-lg" id="select-input">
-                          <option>Choose option...</option>
-                          <option>Option item 1</option>
-                          <option>Option item 2</option>
-                          <option>Option item 3</option>
+                          <option>state</option>
+                          @foreach($states as $state)
+                                <option>{{ $state->state }}</option>
+                          @endforeach
                         </select>
                         {{-- <input class="form-control form-control-square form-control-lg" type="email" placeholder="Location"> --}}
                       </div>
@@ -37,12 +42,12 @@ Welcome | Citieclik
                     </div>
                     {{-- <button type="submit" class="btn btn-square btn-primary">Submit</button> --}}
                   </form>
-                  <form class="form-inline text-center">
+{{--                   <form class="form-inline text-center">
                     <div class="col-xs-12 form-group">
                       <div class="col-xs-6"><button class="btn btn-danger mybox">Request Service</button></div>
                       <div class="col-xs-6"><button class="btn btn-primary mybox">View Request</button></div>
                     </div>
-                  </form>
+                  </form> --}}
               </div>
           </div>
         </div>
@@ -56,20 +61,17 @@ Welcome | Citieclik
           @foreach($cats as $cat)
             <div class="col-md-3 col-sm-6">
               <div class="card mb-30 mybox"><a class="card-img-tiles" href="#">
-                  <div class="inner">
-                    <div class="main-img"><img src="/assets/img/category/{{$cat->image}}" alt="Category"></div>
-                    {{-- <div class="thumblist"><img src="assets/img/shop/categories/pcvro2.jpg" alt="Category"><img src="assets/img/shop/categories/pro3.jpg" alt="Category"></div> --}}
-                  </div></a>
+                <div class="inner">
+                  <div class="main-img"><img src="/assets/img/category/{{$cat->image}}" alt="Category"></div>
+                </div></a>
                 <div class="card-block text-center">
                   <h6 class="card-title">{{$cat->category}}</h6>
-                  {{-- <p class="text-muted">Starting from $27.00</p> --}}
                   <a class="" href="{{route('category', $cat->slug)}}">View Category</a>
                 </div>
               </div>
             </div>
           @endforeach
         </div>
-        {{-- <div class="text-center"><a class="btn btn-outline-secondary margin-top-none" href="category">All Categories</a></div> --}}
       </section>
 
       <section class="padding-bottom-none">

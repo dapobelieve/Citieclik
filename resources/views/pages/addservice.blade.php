@@ -165,7 +165,7 @@ Add service | Citieclik
 		            <aside class="sidebar">
 		              	<div class="padding-top-2x hidden-lg-up"></div>
 		              	<!-- Order Summary Widget-->
-		              	<section class="widget widget-order-summary">
+		              	{{-- <section class="widget widget-order-summary">
 		                	<h3 class="widget-title">Order Summary</h3>
 		                	<table class="table">
 				                <tr>
@@ -185,9 +185,9 @@ Add service | Citieclik
 				                    <td class="text-lg text-medium">$315.60</td>
 				                </tr>
 		                	</table>
-		              	</section>
+		              	</section> --}}
 		              <!-- Featured Products Widget-->
-		              	<section class="widget widget-featured-products">
+		              	{{-- <section class="widget widget-featured-products">
 		                	<h3 class="widget-title">Recently Viewed</h3>
 			                <!-- Entry-->
 			                <div class="entry">
@@ -217,12 +217,19 @@ Add service | Citieclik
 		                    		<h4 class="entry-title"><a href="shop-single.html">Big Wordmark Tote</a></h4><span class="entry-meta">$29.99</span>
 		                  		</div>
 		                	</div>
-		              	</section>
+		              	</section> --}}
 		              	<!-- Promo Banner-->
 		              	<section class="promo-box" style="background-image: url(img/banners/02.jpg);"><span class="overlay-dark" style="opacity: .4;"></span>
 		                	<div class="promo-box-content text-center padding-top-2x padding-bottom-2x">
 		                  		<h4 class="text-light text-thin text-shadow">New Collection of</h4>
-		                  		<h3 class="text-bold text-light text-shadow">Sunglasses</h3><a class="btn btn-outline-white btn-sm" href="shop-grid-ls.html">Shop Now</a>
+		                  		<h3 class="text-bold text-light text-shadow">Sunglasses</h3><a class="btn btn-outline-white btn-sm" href="#">Shop Now</a>
+		                	</div>
+		              	</section>
+		              	<div class="clearfix mb-30"></div>
+		              	<section class="promo-box" style="background-image: url(img/banners/02.jpg);"><span class="overlay-dark" style="opacity: .4;"></span>
+		                	<div class="promo-box-content text-center padding-top-2x padding-bottom-2x">
+		                  		<h4 class="text-light text-thin text-shadow">New Collection of</h4>
+		                  		<h3 class="text-bold text-light text-shadow">Sunglasses</h3><a class="btn btn-outline-white btn-sm" href="#">Shop Now</a>
 		                	</div>
 		              	</section>
 		            </aside>
@@ -281,18 +288,20 @@ Add service | Citieclik
 </script>
 <script type="text/javascript">
 	$('.my-editor').trumbowyg({
+		// prefix: 'modern-ui',
+		imageWidthModalEdit: true,
 		autogrow: true,
 	 	btns: [
-	        // ['viewHTML'],
+	        ['viewHTML'],
 	        ['formatting'],
 	        'btnGrp-semantic',
 	        ['superscript', 'subscript'],
 	        ['link'],
-	        'btnGrp-justify',
-	        'btnGrp-lists',
+	        ['btnGrp-justify'],
+	        ['btnGrp-lists'],
 	        ['horizontalRule'],
 	        ['removeformat'],
-	        // ['fullscreen']
+	        ['fullscreen']
 	    ]
 	});
 </script>

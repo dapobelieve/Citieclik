@@ -851,23 +851,23 @@ CREATE TABLE `plans` (
 INSERT INTO `plans` (`id`, `plan`, `price`, `listing`, `desc`, `slug`, `created_at`, `updated_at`) VALUES
 (1, 'Basic',  1000, 5,  'Basic Details',  'basic',  '2017-12-13 03:14:13',  '2017-12-13 03:14:13'),
 (2, 'Pro',  5000, 20, 'Pro Details',  'pro',  '2017-12-13 03:15:29',  '2017-12-13 03:15:29'),
-(3, 'Gold', 1000, 25, 'Gold Desc',  'gold', '2017-12-13 03:16:01',  '2017-12-13 03:16:01');
+(3, 'Gold', 10000,  25, 'Gold Desc',  'gold', '2017-12-13 03:16:01',  '2017-12-13 03:16:01');
 
 DROP TABLE IF EXISTS `services`;
 CREATE TABLE `services` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `user_id` int(10) unsigned NOT NULL,
-  `category_id` int(10) unsigned NOT NULL,
-  `sub_category_id` int(10) unsigned NOT NULL,
-  `state_id` int(10) unsigned NOT NULL,
-  `location_id` int(10) unsigned NOT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user_id` int(10) unsigned DEFAULT NULL,
+  `category_id` int(10) unsigned DEFAULT 4,
+  `sub_category_id` int(10) unsigned DEFAULT 4,
+  `state_id` int(10) unsigned DEFAULT NULL,
+  `location_id` int(10) unsigned DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `price` int(11) DEFAULT NULL,
   `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `type` enum('p','r') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` enum('0','1') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '1',
+  `status` enum('0','1') COLLATE utf8mb4_unicode_ci DEFAULT '1',
   `priority` char(1) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -1075,7 +1075,56 @@ INSERT INTO `services` (`id`, `title`, `user_id`, `category_id`, `sub_category_i
 (206, 'believe me', 1,  7,  6,  2,  18, 'some tinshs jndvjsq',  NULL, NULL, '', 'p',  '1',  NULL, '2017-12-14 21:07:52',  '2017-12-14 21:07:52'),
 (207, 'believe me', 1,  7,  6,  2,  18, 'some tinshs jndvjsq',  NULL, NULL, '', 'p',  '1',  NULL, '2017-12-14 21:08:11',  '2017-12-14 21:08:11'),
 (208, 'believe me', 1,  7,  6,  2,  18, 'some tinshs jndvjsq',  NULL, NULL, '', 'p',  '1',  NULL, '2017-12-14 21:09:12',  '2017-12-14 21:09:12'),
-(210, 'believe me', 1,  2,  2,  17, 293,  'some tinshs jndvjsq',  NULL, NULL, '', 'p',  '1',  NULL, '2017-12-14 21:14:00',  '2017-12-14 21:14:00');
+(209, 'hello',  1,  7,  6,  2,  18, 'kkpppfkngpefne<p><br></p>',  NULL, NULL, 'hello',  'r',  '1',  '3',  '2017-12-26 07:55:41',  '2017-12-26 07:55:41'),
+(210, 'olou', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'olou', 'r',  '1',  '4',  '2017-12-26 08:47:20',  '2017-12-26 08:47:20'),
+(211, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 08:48:11',  '2017-12-26 08:48:11'),
+(212, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 08:48:31',  '2017-12-26 08:48:31'),
+(213, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 08:49:37',  '2017-12-26 08:49:37'),
+(214, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 08:51:09',  '2017-12-26 08:51:09'),
+(215, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 08:58:50',  '2017-12-26 08:58:50'),
+(216, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 08:59:48',  '2017-12-26 08:59:48'),
+(217, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:03:10',  '2017-12-26 09:03:10'),
+(218, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:03:54',  '2017-12-26 09:03:54'),
+(219, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:04:14',  '2017-12-26 09:04:14'),
+(220, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:04:22',  '2017-12-26 09:04:22'),
+(221, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:04:47',  '2017-12-26 09:04:47'),
+(222, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:05:08',  '2017-12-26 09:05:08'),
+(223, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:07:02',  '2017-12-26 09:07:02'),
+(224, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:07:11',  '2017-12-26 09:07:11'),
+(225, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:07:29',  '2017-12-26 09:07:29'),
+(226, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:08:04',  '2017-12-26 09:08:04'),
+(227, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:11:22',  '2017-12-26 09:11:22'),
+(228, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:11:40',  '2017-12-26 09:11:40'),
+(229, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:12:40',  '2017-12-26 09:12:40'),
+(230, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:12:57',  '2017-12-26 09:12:57'),
+(231, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:14:08',  '2017-12-26 09:14:08'),
+(232, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:14:56',  '2017-12-26 09:14:56'),
+(233, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:15:28',  '2017-12-26 09:15:28'),
+(234, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:17:25',  '2017-12-26 09:17:25'),
+(235, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:17:58',  '2017-12-26 09:17:58'),
+(236, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:22:29',  '2017-12-26 09:22:29'),
+(237, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:25:36',  '2017-12-26 09:25:36'),
+(238, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:52:09',  '2017-12-26 09:52:09'),
+(239, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 10:07:52',  '2017-12-26 10:07:52'),
+(240, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 10:08:11',  '2017-12-26 10:08:11'),
+(241, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 10:12:01',  '2017-12-26 10:12:01'),
+(242, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 10:12:26',  '2017-12-26 10:12:26'),
+(243, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 10:14:36',  '2017-12-26 10:14:36'),
+(244, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 10:15:32',  '2017-12-26 10:15:32'),
+(245, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 10:18:29',  '2017-12-26 10:18:29'),
+(246, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 10:29:00',  '2017-12-26 10:29:00'),
+(247, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 10:37:22',  '2017-12-26 10:37:22'),
+(248, 'RFWEA',  1,  10, 14, 17, 293,  'ARGAERGAERG',  NULL, NULL, 'rfwea',  'r',  '1',  '3',  '2017-12-28 03:43:26',  '2017-12-28 03:43:26');
+
+DROP TABLE IF EXISTS `settings`;
+CREATE TABLE `settings` (
+  `sms_api_username` varchar(100) NOT NULL,
+  `sms_api_password` varchar(100) NOT NULL,
+  `id` int(11) NOT NULL DEFAULT 123
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `settings` (`sms_api_username`, `sms_api_password`, `id`) VALUES
+('dredsn@gmail.com',  'believe@#%', 123);
 
 DROP TABLE IF EXISTS `socials`;
 CREATE TABLE `socials` (
@@ -1092,8 +1141,7 @@ CREATE TABLE `socials` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Social Login Credentials';
 
 INSERT INTO `socials` (`id`, `user_id`, `social_id`, `service`, `created_at`, `updated_at`) VALUES
-(1, 8,  '1609100312446644', 'facebook', '2017-12-02 00:21:50',  '2017-12-02 00:21:50'),
-(2, 8,  '113286740353134339147',  'google', '2017-12-02 08:45:59',  '2017-12-02 08:45:59');
+(1, 6,  '1609100312446644', 'facebook', '2017-12-28 15:36:11',  '2017-12-28 15:36:11');
 
 DROP TABLE IF EXISTS `states`;
 CREATE TABLE `states` (
@@ -1365,12 +1413,39 @@ CREATE TABLE `subscriptions` (
   `plan_id` int(11) unsigned NOT NULL,
   `ends_at` datetime DEFAULT NULL,
   `status` char(2) NOT NULL DEFAULT '0',
+  `amount` varchar(100) DEFAULT NULL,
+  `pay_status` char(1) NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `trxn_ref` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   KEY `plan_id` (`plan_id`),
   CONSTRAINT `subscriptions_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
   CONSTRAINT `subscriptions_ibfk_2` FOREIGN KEY (`plan_id`) REFERENCES `plans` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `subscriptions` (`id`, `user_id`, `plan_id`, `ends_at`, `status`, `amount`, `pay_status`, `created_at`, `updated_at`, `trxn_ref`) VALUES
+(2, 1,  1,  NULL, '1',  '', '1',  '2017-12-28 04:10:33',  '2017-12-28 14:36:06',  'XsK5bQ0b4nmRI4hA3Oeb8YT3r'),
+(8, 1,  3,  NULL, '0',  NULL, '0',  '2017-12-28 14:35:57',  '2017-12-28 14:35:57',  'QhJd2xiSg676HrKnrS63aDFcg'),
+(9, 1,  2,  NULL, '0',  NULL, '0',  '2017-12-28 14:38:06',  '2017-12-28 14:38:06',  '2VYs8CqGu0chQd4BNVwOvv5mZ'),
+(10,  1,  2,  NULL, '1',  '400000', '1',  '2017-12-28 14:49:06',  '2017-12-28 14:49:34',  '9KvVIdz0XrT3ErT1TADYpU0vl'),
+(11,  6,  1,  NULL, '1',  '100000', '1',  '2017-12-28 15:37:55',  '2017-12-28 15:38:24',  'Nd5QxIsR7O1G6IRiEdii8ZkpQ');
+
+DROP TABLE IF EXISTS `trxn_log`;
+CREATE TABLE `trxn_log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) unsigned NOT NULL,
+  `plan_id` int(11) unsigned NOT NULL,
+  `trxn_ref` varchar(200) NOT NULL,
+  `trxn_status` int(1) NOT NULL,
+  `trxn_data` text NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`),
+  KEY `plan_id` (`plan_id`),
+  CONSTRAINT `trxn_log_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+  CONSTRAINT `trxn_log_ibfk_2` FOREIGN KEY (`plan_id`) REFERENCES `plans` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -1390,14 +1465,15 @@ CREATE TABLE `users` (
   `remember_token` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
+  `adminer` int(2) DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO `users` (`id`, `email`, `username`, `phone`, `password`, `first_name`, `last_name`, `image`, `location`, `status`, `slug`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'dapo@gmail.com', 'dapoBelieves', '07069494803',  '$2y$10$EJJoTfhHe/A2BOzDIB.Dq.eVFraJcpD0XFj8Wmbk860OBvEjoQ4Gy', 'Dapo', 'Michaels', '{\"public_id\":\"profilePics\\/ssdrosh0wwrmav4mermp\",\"version\":1513081396,\"signature\":\"6074cbaa58aba4f422c64a1fe2ad1087e0059b5a\",\"width\":1440,\"height\":900,\"format\":\"webp\",\"resource_type\":\"image\",\"created_at\":\"2017-12-12T12:23:16Z\",\"tags\":[],\"pages\":1,\"bytes\":83368,\"type\":\"upload\",\"etag\":\"a14259ce6c713e4e10c1e768c15d26d8\",\"placeholder\":false,\"url\":\"http:\\/\\/res.cloudinary.com\\/citieclik\\/image\\/upload\\/v1513081396\\/profilePics\\/ssdrosh0wwrmav4mermp.webp\",\"secure_url\":\"https:\\/\\/res.cloudinary.com\\/citieclik\\/image\\/upload\\/v1513081396\\/profilePics\\/ssdrosh0wwrmav4mermp.webp\",\"original_filename\":\"php8CFC\",\"original_extension\":\"tmp\"}',  NULL, '1',  'dapobelieves', 'nljmieeEkuqCFcd7dcr8MhjrJZAgPKJEWXqTG4FPgtX19DBxTA6gJAfLlWk0', '2017-08-23 00:26:49',  '2017-12-12 11:22:48'),
-(2, 'jerexbambex@gmail.com',  'jerexbambex',  '07068261774',  '$2y$10$2pRaUq/UOJVxvd6ebaGNq.3HNA.hsyIm41Y34JauyKfIqm5cYqv.S', 'oluwatosin', 'Ogunniyi', NULL, NULL, '1',  'oluwatosin', 'r9C00x5tUX0nNMMnWpmlomx5yELHVUORJtu5yUFBOMZErjYOI1Fxsz76JEvO', '2017-09-17 01:26:39',  '2017-10-09 18:18:23'),
-(3, 'maryope8@gmail.com', '@Opeyemi08028756291',  '08028756291',  '$2y$10$5ozMKtaqGuiBhqcPcmndzuAlNiHlbaZKt1ELic4xm621GP2BOSr2C', 'Opeyemi',  'Mary', NULL, NULL, '1',  'opeyemi08028756291', 'WISYeq5qEaE8tKUWW4e2slas0JeN3tRYy2P940JyYvxOwpGpQRUtr6mgjfnQ', '2017-09-24 03:41:13',  '2017-09-24 03:41:13'),
-(4, 'jerexbambex@hotmail.com',  '@Oluwafemin08067099420', '08067099420',  '$2y$10$bepvJ9Rk0E61w99DGPzeLOScZMjZGDe0IAhUW/4hlLFIAVs4HceNa', 'Oluwafemin', 'Isaac',  NULL, NULL, '1',  'oluwafemin08067099420',  'ja8FmlSpYhIInKkcEBEJ4VDbtSFLNQ4Ibp5uRlEDxlgbYyXLQGPcYCrY1rzw', '2017-09-24 03:42:15',  '2017-09-24 03:42:15'),
-(8, 'dapomichaels@gmail.com', 'MrBelieve',  '09094642739',  NULL, 'Dapo Michaels',  NULL, 'http://res.cloudinary.com/citieclik/image/upload/v1512690951/citi/apxfhaqqetmqlmh1hduj.webp',  NULL, '1',  '5a21ff29f28dd',  'CS0iocFLj7YY0uGeyiMAR8pvQYuFXLiMFtMUNGyjizV80ldx8lKn3NBIuTjH', '2017-12-02 00:17:29',  '2017-12-07 22:55:26');
+INSERT INTO `users` (`id`, `email`, `username`, `phone`, `password`, `first_name`, `last_name`, `image`, `location`, `status`, `slug`, `remember_token`, `created_at`, `updated_at`, `adminer`) VALUES
+(1, 'dapo@gmail.com', 'dapoBelieves', '07069494803',  '$2y$10$EJJoTfhHe/A2BOzDIB.Dq.eVFraJcpD0XFj8Wmbk860OBvEjoQ4Gy', 'Dapo', 'Michaels', '', NULL, '1',  'dapobelieves', 'UoMtsaZXCpG79wr4S9hdX31OSFWhVu7pWIEVoWlgU25SWEDpBGd4j09lviYK', '2017-08-23 00:26:49',  '2017-12-17 01:39:11',  1),
+(3, 'maryope8@gmail.com', '@Opeyemi08028756291',  '08028756291',  '$2y$10$5ozMKtaqGuiBhqcPcmndzuAlNiHlbaZKt1ELic4xm621GP2BOSr2C', 'Opeyemi',  'Mary', NULL, NULL, '1',  'opeyemi08028756291', 'WISYeq5qEaE8tKUWW4e2slas0JeN3tRYy2P940JyYvxOwpGpQRUtr6mgjfnQ', '2017-09-24 03:41:13',  '2017-09-24 03:41:13',  0),
+(4, 'jerexbambex@hotmail.com',  '@Oluwafemin08067099420', '08067099420',  '$2y$10$bepvJ9Rk0E61w99DGPzeLOScZMjZGDe0IAhUW/4hlLFIAVs4HceNa', 'Oluwafemin', 'Isaac',  NULL, NULL, '1',  'oluwafemin08067099420',  'ja8FmlSpYhIInKkcEBEJ4VDbtSFLNQ4Ibp5uRlEDxlgbYyXLQGPcYCrY1rzw', '2017-09-24 03:42:15',  '2017-09-24 03:42:15',  0),
+(5, 'deji@gmail.com', '@5a3d6079c69bd', '08134327417',  '$2y$10$93BM1PUO5DeYEQAvsS4.3OHKJu4Bt4CKdmE7hspyZ89RLsmueR0sG', 'deji', 'dxtrim', NULL, NULL, '1',  '5a3d6079c69bd',  'eXIpntMvQ4Fgy9jliackoS2oNlGY8OLMTHeviSG0uqhwVLnrwLnQOpwGpjXH', '2017-12-22 18:43:53',  '2017-12-22 18:43:53',  0),
+(6, 'dapomichaels@gmail.com', '5a451d7bb237a',  NULL, NULL, 'Dapo Michaels',  NULL, NULL, NULL, '1',  '5a451d7bb237a',  NULL, '2017-12-28 15:36:11',  '2017-12-28 15:36:11',  0);
 
--- 2017-12-14 22:25:23
+-- 2018-01-02 21:33:01

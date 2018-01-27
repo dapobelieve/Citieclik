@@ -302,7 +302,5 @@ Route::get('admin/users', 'Admin\UsersController@index')->name('admin.users');
 */
 
 //Request Detail page
-Route::get('request/detail/', [
-	'uses' => '\App\Http\Controllers\RequestDetails@index',
-	'as'   => 'request.detail'
-]);
+// Route::post('/payciite', 'Payment\PaymentController@redirectToGateway')->name('pay');
+Route::get('request/detail/', '\App\Http\Controllers\RequestDetails@index')->name('request.detail');

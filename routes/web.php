@@ -1,7 +1,7 @@
 <?php
 
 // For testing purposes
-// Route::get('/test', 'TestController@index')->name('test');
+Route::get('/test', 'TestController@index')->name('test');
 
 // ends here
 /*
@@ -273,16 +273,15 @@ Route::get('/profile/{slug}/requests', [
 ]);
 
 
-Route::get('/request/add', [
-	'uses' => '\App\Http\Controllers\RequestController@getRequestAdd',
-	'as' => 'request.add',
-]);
+Route::get('/request/add','\App\Http\Controllers\RequestController@getRequestAdd')->name('request.add');
+
+// go to a particular request
+Route::get('/requests/{serviceRequest}','\App\Http\Controllers\RequestController@show')->name('request.show');
 
 
-Route::post('/request/add', [
-	'uses' => '\App\Http\Controllers\RequestController@postRequest',
-	'as' => 'request.add',
-]);
+// /add request
+Route::post('/request/add','\App\Http\Controllers\RequestController@postRequest')->name('request.add');
+
 
 
 

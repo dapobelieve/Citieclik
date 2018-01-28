@@ -19,7 +19,6 @@ class SmsController
         $data  =  Setting::all()->first();
         $this->SMS_USERNAME = $data->sms_api_username;
         $this->SMS_PASSWORD = $data->sms_api_password;
-        // dd($data->sms_api_username);
     }
 
 
@@ -27,14 +26,29 @@ class SmsController
     public function index()
     {
         $this->setkeys();
-        $this->sender();
-        // return $this->SMS_PASSWORD;;
+        // $this->sender();
+    }
+
+    private function shortenUrl($hash)
+    {
+        $body = '{"longUrl" : "http://localhost:8000/request/".$hash}';
+        $client = new GuzzleHttp\Client();
+         
+        $response = $client->request('POST','https://www.googleapis.com/urlshortener/v1/url', [
+            'headers' => ['Content-Type' => 'application/json'],
+            'query' => [
+                'key' => 'AIzaSyC6dSgfZmdrjSCFfa4A13dKZwZFTtxJbj0',
+            ],
+            'body' =>  $body
+        ]);
     }
 
     private function sender()
     {
         $client = new Client();
-        $message = "Hello, compliments of the season from all of us at citieclik a new request has been posted.";
+        $message = "Hello, testing the sms service";
+        $numbers = '07037596271,09078081328,07069494803';
+        // implode(glue, pieces)
 
         $response = $client->post('http://portal.bulksmsnigeria.net/api/?', [
             'verify'    =>  false,
@@ -43,7 +57,7 @@ class SmsController
                 'password' => $this->SMS_PASSWORD,
                 'message' => $message,
                 'sender' => $this->SMS_SENDER,
-                'mobiles' => '08134327417,09078081328,',
+                'mobiles' => $numbers
             ],
         ]);
 

@@ -76,10 +76,10 @@ Request for a Service
                                 <div class="form-group">
                                   <label for="ticket-priority">How urgent is your issue? (Priority)</label>
                                   <select name="serPrior" class="form-control" name="priority" id="ticket-priority">
-                                    <option value="4">Urgent</option>
-                                    <option value="3">High</option>
-                                    <option value="2">Medium</option>
-                                    <option value="1">Low</option>
+                                    <option value="Urgent">Urgent</option>
+                                    <option value="High">High</option>
+                                    <option value="Medium">Medium</option>
+                                    <option value="Low">Low</option>
                                   </select>
                                 </div>
                             </div>

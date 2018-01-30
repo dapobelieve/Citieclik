@@ -273,16 +273,15 @@ Route::get('/profile/{slug}/requests', [
 ]);
 
 
-Route::get('/request/add', [
-	'uses' => '\App\Http\Controllers\RequestController@getRequestAdd',
-	'as' => 'request.add',
-]);
+Route::get('/request/add','\App\Http\Controllers\RequestController@getRequestAdd')->name('request.add');
+
+// go to a particular request
+Route::get('/requests/{serviceRequest}','\App\Http\Controllers\RequestController@show')->name('request.show');
 
 
-Route::post('/request/add', [
-	'uses' => '\App\Http\Controllers\RequestController@postRequest',
-	'as' => 'request.add',
-]);
+// /add request
+Route::post('/request/add','\App\Http\Controllers\RequestController@postRequest')->name('request.add');
+
 
 
 
@@ -300,12 +299,6 @@ Route::get('admin/users', 'Admin\UsersController@index')->name('admin.users');
 | Admin Section Ends
 |
 */
-
-//Request Detail page
-Route::get('request/detail/', [
-	'uses' => '\App\Http\Controllers\RequestDetails@index',
-	'as'   => 'request.detail'
-]);
 
 // Homepage Search
 Route::get('/search', 'SearchController@getResult')->name('search.results');

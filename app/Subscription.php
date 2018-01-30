@@ -14,7 +14,6 @@ class Subscription extends Model
         'pay_status'
     ];
 
-
     public function plan()
     {
         return $this->belongsTo(Plan::class, 'plan_id');

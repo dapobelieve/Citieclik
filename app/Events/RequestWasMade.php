@@ -9,7 +9,7 @@ use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
-use App\Service;
+use App\Request;
 use App\User;
 
 class RequestWasMade
@@ -24,7 +24,7 @@ class RequestWasMade
      *
      * @return void
      */
-    public function __construct(Service $service, User $user)
+    public function __construct(Request $service, User $user)
     {
         $this->service = $service;
         $this->user = $user;

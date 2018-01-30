@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Service;
+use App\Request as serviceRequest;
+use App\Http\Controllers\Funcs\Hasher as Hash;
 use App\User;
 use Cloudder;
 use App\Events\RequestWasMade;
@@ -45,60 +46,67 @@ class RequestController extends Controller
         return view('pages.request-add');
     }
 
-    public function postRequest(Request $serRequest)
+
+    public function postRequest(Request $request)
     {
-        $this->validate($serRequest, [
-            'serTitle'  =>  'required|string|max:255',
-            'serState'  => 'required|integer',
-            'location'  => 'required|integer',
-            'serCat'    => 'required|integer',
-            'subCat'    => 'required|integer',
-            'serImg'    => "image|mimes:jpeg,jpg,png,bmp,svg|max:2048",
-            // 'servicePrice' => "integer",
-            'description'  => 'required|string'
-        ], 
-        [
-            'serTitle.required'     => 'The service you offer needs to have a name e.g I write final year projects, Hair stylist, Bead Designer etc',
-            'serState.required'     => 'Select the state  where you currently provide this service',
-            'serState.integer'     => 'Select the state  where you currently provide this service',
-            'location.required'     => 'Select the location',
-            'location.integer'     => 'Select the location',
-            'description.required'  => 'Give a short description of the sevice',
-            'serCat.required'       => 'Select a Category',
-            'serCat.integer'       => 'Select a Category',
-            'subCat.required'       => 'Select a Sub Category',
-            'subCat.integer'       => 'Select a Sub Category',
-            // 'servicePrice.integer' => 'The price must be in digits e.g 50000',
-            'serImg.mimes'          => 'The image must have jpeg, jpg or png format',
-            'serImg.max'            => 'The Image is too large, It must not be more than 2MB',
-        ]); 
+        // $this->validate($request, [
+        //     'serTitle'  =>  'required|string|max:255',
+        //     'serState'  => 'required|integer',
+        //     'location'  => 'required|integer',
+        //     'serCat'    => 'required|integer',
+        //     'subCat'    => 'required|integer',
+        //     'serImg'    => "image|mimes:jpeg,jpg,png,bmp,svg|max:2048",
+        //     // 'servicePrice' => "integer",
+        //     'description'  => 'required|string'
+        // ], 
+        // [
+        //     'serTitle.required'     => 'The service you offer needs to have a name e.g I write final year projects, Hair stylist, Bead Designer etc',
+        //     'serState.required'     => 'Select the state  where you currently provide this service',
+        //     'serState.integer'     => 'Select the state  where you currently provide this service',
+        //     'location.required'     => 'Select the location',
+        //     'location.integer'     => 'Select the location',
+        //     'description.required'  => 'Give a short description of the sevice',
+        //     'serCat.required'       => 'Select a Category',
+        //     'serCat.integer'       => 'Select a Category',
+        //     'subCat.required'       => 'Select a Sub Category',
+        //     'subCat.integer'       => 'Select a Sub Category',
+        //     // 'servicePrice.integer' => 'The price must be in digits e.g 50000',
+        //     'serImg.mimes'          => 'The image must have jpeg, jpg or png format',
+        //     'serImg.max'            => 'The Image is too large, It must not be more than 2MB',
+        // ]); 
 
-        $slugSer = $this->slugIt($serRequest->input('serTitle'));
-
-        $service = new Service;
-        $service->title             = $serRequest->input('serTitle');
-        $service->user_id           = $serRequest->user()->id;
-        $service->category_id       = $serRequest->input('serCat');
-        $service->sub_category_id   = $serRequest->input('subCat');
-        $service->description       = $serRequest->input('description');
-        $service->slug              = $slugSer;
-        $service->type              = 'r';
-        $service->priority          = $serRequest->serPrior;
-        $service->state_id          = $serRequest->input('serState');
-        $service->location_id       = $serRequest->input('location');
-
-        //here i check if an image is in the 
-        //image field and upload it to cloudinary
-        if($serRequest->hasFile('serImg')){
-            $this->uploadPicture($serRequest);
-            $service->image = $this->imgObj;
+        $imageVal = '';
+        if($request->hasFile('serImg')){
+            $this->uploadPicture($request);
+            $imageVal =  $this->imgObj;
+        }else{
+            $imageVal = null;
         }
-        $service->save();
-        //send sms to users
-        event(new RequestWasMade($service, $serRequest->user()));
 
-        return redirect()->route('profile.request', ['slug' => $serRequest->user()->slug])->with('info', 'Request Posted Successfully');
+        $requestData = serviceRequest::firstOrCreate(
+            ['title' => $request->serTitle, 'user_id' => $request->user()->id],[
+                'title'           => $request->serTitle,
+                'user_id'         => $request->user()->id,
+                'category_id'     => $request->serCat,
+                'sub_category_id' => $request->subCat,
+                'state_id'        => $request->serState,
+                'location_id'     => $request->location,
+                'priority'        => $request->serPrior,
+                'image'           => $imageVal,
+                'hash'            => Hash::getHashedToken(),
+                'description'     => $request->description
+            ]
+        );
+        event(new RequestWasMade($requestData, $request->user()));
+
+        return redirect()->route('profile.request', ['slug' => $request->user()->slug])->with('info', 'Request Posted Successfully');
     }
+
+    public function show(serviceRequest $serviceRequest)
+    {
+        dd($serviceRequest->hash);
+    }
+
 
     private function uploadPicture(Request $req)
     {

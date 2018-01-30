@@ -43,6 +43,9 @@ Request for a Service
             <div class="row">
               <!-- Checkout Adress-->
                 <div class="col-xl-9 col-lg-8">
+                @if(Session::has('error_message') )
+                    {{ Session::get('error_message') }}
+                @endif
                   @if(count($errors) > 0)
                     <div class="alert alert-danger alert-dismissible fade show margin-bottom-1x">
                         <span class="alert-close" data-dismiss="alert"></span><i class="icon-ban"></i>&nbsp;&nbsp;
@@ -73,10 +76,10 @@ Request for a Service
                                 <div class="form-group">
                                   <label for="ticket-priority">How urgent is your issue? (Priority)</label>
                                   <select name="serPrior" class="form-control" name="priority" id="ticket-priority">
-                                    <option value="4">Urgent</option>
-                                    <option value="3">High</option>
-                                    <option value="2">Medium</option>
-                                    <option value="1">Low</option>
+                                    <option value="Urgent">Urgent</option>
+                                    <option value="High">High</option>
+                                    <option value="Medium">Medium</option>
+                                    <option value="Low">Low</option>
                                   </select>
                                 </div>
                             </div>
@@ -87,7 +90,7 @@ Request for a Service
                                 <div class="form-group {{ $errors->has('serCat') ? ' has-error' : '' }}">
                                     <label for="checkout-country">Category</label>
                                     <select class="form-control" name="serCat" id="serCat" value="{{ old('serCat') ?: ''  }}">
-                                        <option>Choose a Category</option>
+                                        <option value="">Choose a Category</option>
                                         @foreach($cats as $cat)
                                             <option value="{{$cat->id}}">{{$cat->category}}</option>
                                         @endforeach
@@ -115,7 +118,7 @@ Request for a Service
                                 <div class="form-group {{ $errors->has('serState') ? ' has-error' : '' }}">
                                     <label for="checkout-country">State</label>
                                     <select class="form-control" name="serState" id="serState" value="{{ old('serState') ?: ''  }}">
-                                        <option>Choose a State</option>
+                                        <option value="">Choose a State</option>
                                         @foreach($states as $state)
                                             <option value="{{$state->id}}">{{$state->state}}</option>
                                         @endforeach
@@ -173,7 +176,7 @@ Request for a Service
                         <div class="form-group">
                             <button type="submit" class="btn btn-outline-primary btn-block">Submit</button>
                         </div>
-                        {{csrf_field()}}
+                        {{-- {{ csrf_field() }} --}}
                     </form>
                 </div>
                 <!-- Sidebar          -->

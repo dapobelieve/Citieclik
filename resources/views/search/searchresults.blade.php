@@ -41,7 +41,7 @@ Services | Citieclik
               <h1>We could not find any, please search for another</h1>
             @else
               <h1>We found {{ $sdata->count() }} results</h1>
-            @include('service.layout.feeds')
+              @include('service.layout.feeds')
             @endif
           </div>
           <!-- Sidebar          -->

@@ -12,15 +12,15 @@ Welcome | Citieclik
           <h1 class="" style="color: #fff !important; text-shadow: 0px 0px 6px rgba(0,0,0,0.4); font-weight: 600;">Find the perfect Link on Citieclik</h1>
           <div class="carousel-inner text-white align-items-center" role="listbox">
               <div class="row align-items-center carousel-item align-items-center flex-column p-4 text-center">
-                  <form class="form-inline text-center padding-bottom-2x">
+                  <form class="form-inline text-center padding-bottom-2x" action="{{ route('search.results') }}">
                     <div class="form-group text-center">
                       <label class="sr-only" for="inlineFormInputGroupUsername2">What are you looking for?</label>
                       <div class="input-group mb-2 mr-sm-2 mb-sm-0" style="margin-right: 0px !important;">
-                        <div class="input-group-addon">?</div>
-                        <select class="form-control form-control-square form-control-lg" id="select-input">
+                        <div class="input-group-addon"></div>
+                        <select class="form-control form-control-square form-control-lg" id="select-input" name="category">
                             <option>Category</option>
                           @foreach($cats as $cat)
-                                <option>{{ $cat->category }}</option>
+                                <option value="{{ $cat->id }}">{{ $cat->category }}</option>
                           @endforeach
                         </select>
                       </div>
@@ -28,10 +28,10 @@ Welcome | Citieclik
                         <span class="input-group-btn">
                           {{-- <button type="submit"><i class="icon-search"></i></button> --}}
                         </span>
-                        <select class="form-control form-control-square form-control-lg" id="select-input">
+                        <select class="form-control form-control-square form-control-lg" id="select-input" name="state">
                           <option>state</option>
                           @foreach($states as $state)
-                                <option>{{ $state->state }}</option>
+                                <option value="{{ $state->id }}">{{ $state->state }}</option>
                           @endforeach
                         </select>
                         {{-- <input class="form-control form-control-square form-control-lg" type="email" placeholder="Location"> --}}

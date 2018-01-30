@@ -853,6 +853,35 @@ INSERT INTO `plans` (`id`, `plan`, `price`, `listing`, `desc`, `slug`, `created_
 (2, 'Pro',  5000, 20, 'Pro Details',  'pro',  '2017-12-13 03:15:29',  '2017-12-13 03:15:29'),
 (3, 'Gold', 10000,  25, 'Gold Desc',  'gold', '2017-12-13 03:16:01',  '2017-12-13 03:16:01');
 
+DROP TABLE IF EXISTS `requests`;
+CREATE TABLE `requests` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) unsigned NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `category_id` int(11) NOT NULL,
+  `sub_category_id` int(11) NOT NULL,
+  `state_id` int(10) NOT NULL,
+  `location_id` int(10) NOT NULL,
+  `description` text DEFAULT NULL,
+  `image` text DEFAULT NULL,
+  `hash` varchar(100) DEFAULT NULL,
+  `priority` varchar(100) NOT NULL,
+  `shortUrl` varchar(100) DEFAULT NULL,
+  `sms_sent_to` text DEFAULT NULL,
+  `sms_status` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `location_id` (`location_id`),
+  KEY `state_id` (`state_id`),
+  CONSTRAINT `requests_ibfk_5` FOREIGN KEY (`location_id`) REFERENCES `locations` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `requests_ibfk_6` FOREIGN KEY (`state_id`) REFERENCES `states` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `requests` (`id`, `user_id`, `title`, `category_id`, `sub_category_id`, `state_id`, `location_id`, `description`, `image`, `hash`, `priority`, `shortUrl`, `sms_sent_to`, `sms_status`, `created_at`, `updated_at`) VALUES
+(4, 1,  'kifbvia',  8,  22, 7,  126,  'sheyyyyyyyyyy',  NULL, '5nlbHYbnLuWUZyqtiCbhJouPJ',  'Medium', NULL, NULL, NULL, '2018-01-28 17:19:22',  '2018-01-28 17:19:22'),
+(5, 1,  'sdfsdf', 10, 14, 11, 212,  'sdfsvsdsdv', NULL, 'drhRfHTTHuglv5hZafr1OjDva',  'Medium', NULL, NULL, NULL, '2018-01-28 22:28:41',  '2018-01-28 22:28:41');
+
 DROP TABLE IF EXISTS `services`;
 CREATE TABLE `services` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -884,7 +913,6 @@ INSERT INTO `services` (`id`, `title`, `user_id`, `category_id`, `sub_category_i
 (13,  'Omnis ut qui dolorum tenetur.',  2,  3,  2,  18, 211,  'Provident aliquid corrupti ducimus fugit exercitationem impedit distinctio soluta neque exercitationem fugit adipisci autem incidunt maxime mollitia id corporis et sed quasi consequatur dolorum corrupti velit sed qui eos nesciunt corrupti earum quia ut ducimus itaque mollitia voluptatem sequi quibusdam ipsum.', NULL, NULL, 'omnis-ut-qui-dolorum-tenetur', 'p',  '1',  '', '2017-09-24 03:46:11',  '2017-09-24 03:46:11'),
 (14,  'Quis est rerum quam cum.', 3,  5,  3,  16, 140,  'Voluptas tempore nihil sint illum aliquid porro odio voluptatibus et et magni omnis nulla corporis facere odio officiis ipsa.',  NULL, NULL, 'quis-est-rerum-quam-cum',  'p',  '1',  '', '2017-09-24 03:46:11',  '2017-09-24 03:46:11'),
 (16,  'Aut voluptas et qui nemo.',  1,  7,  3,  17, 579,  'Vero perspiciatis cupiditate qui eligendi placeat vitae consequatur praesentium sed facilis aut harum expedita aperiam hic aut aut et in.',  NULL, NULL, 'aut-voluptas-et-qui-nemo', 'p',  '1',  '', '2017-09-24 03:46:11',  '2017-09-24 03:46:11'),
-(17,  'Quo eos eius repudiandae.',  1,  4,  3,  36, 221,  'Dolores quis recusandae nostrum quia totam est accusantium fugit quae dolor voluptas officia necessitatibus harum exercitationem harum sunt ut et.', NULL, NULL, 'quo-eos-eius-repudiandae', 'p',  '1',  '', '2017-09-24 03:46:11',  '2017-09-24 03:46:11'),
 (18,  'Aut voluptas velit atque.',  3,  2,  2,  10, 147,  'Voluptates veniam qui esse tempora tenetur omnis recusandae ab rerum et repudiandae tempore optio cupiditate saepe ullam eligendi libero vitae harum ut culpa quia aut provident at vel.', NULL, NULL, 'aut-voluptas-velit-atque', 'p',  '1',  '', '2017-09-24 03:46:11',  '2017-09-24 03:46:11'),
 (19,  'Natus sed aperiam qui.', 1,  2,  1,  15, 639,  'Sit eaque quo velit ratione aut quis sit et sed eum dolores explicabo voluptas quas aliquam molestiae in nam expedita reiciendis nihil accusantium repellat aut ex aliquam commodi ut eveniet id perspiciatis architecto.',  NULL, NULL, 'natus-sed-aperiam-qui',  'p',  '1',  '', '2017-09-24 03:46:11',  '2017-09-24 03:46:11'),
 (20,  'Et quo reiciendis doloremque.',  3,  5,  3,  10, 380,  'Dolorum pariatur repellendus voluptas sint eligendi veritatis doloribus quia fugiat et delectus quam et aut sit ut perferendis est animi et ea consequuntur modi rerum pariatur rerum dolorem.', NULL, NULL, 'et-quo-reiciendis-doloremque', 'p',  '1',  '', '2017-09-24 03:46:11',  '2017-09-24 03:46:11'),
@@ -1076,45 +1104,11 @@ INSERT INTO `services` (`id`, `title`, `user_id`, `category_id`, `sub_category_i
 (207, 'believe me', 1,  7,  6,  2,  18, 'some tinshs jndvjsq',  NULL, NULL, '', 'p',  '1',  NULL, '2017-12-14 21:08:11',  '2017-12-14 21:08:11'),
 (208, 'believe me', 1,  7,  6,  2,  18, 'some tinshs jndvjsq',  NULL, NULL, '', 'p',  '1',  NULL, '2017-12-14 21:09:12',  '2017-12-14 21:09:12'),
 (209, 'hello',  1,  7,  6,  2,  18, 'kkpppfkngpefne<p><br></p>',  NULL, NULL, 'hello',  'r',  '1',  '3',  '2017-12-26 07:55:41',  '2017-12-26 07:55:41'),
-(210, 'olou', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'olou', 'r',  '1',  '4',  '2017-12-26 08:47:20',  '2017-12-26 08:47:20'),
-(211, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 08:48:11',  '2017-12-26 08:48:11'),
-(212, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 08:48:31',  '2017-12-26 08:48:31'),
-(213, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 08:49:37',  '2017-12-26 08:49:37'),
-(214, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 08:51:09',  '2017-12-26 08:51:09'),
-(215, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 08:58:50',  '2017-12-26 08:58:50'),
-(216, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 08:59:48',  '2017-12-26 08:59:48'),
-(217, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:03:10',  '2017-12-26 09:03:10'),
-(218, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:03:54',  '2017-12-26 09:03:54'),
-(219, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:04:14',  '2017-12-26 09:04:14'),
-(220, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:04:22',  '2017-12-26 09:04:22'),
-(221, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:04:47',  '2017-12-26 09:04:47'),
-(222, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:05:08',  '2017-12-26 09:05:08'),
-(223, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:07:02',  '2017-12-26 09:07:02'),
-(224, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:07:11',  '2017-12-26 09:07:11'),
-(225, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:07:29',  '2017-12-26 09:07:29'),
-(226, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:08:04',  '2017-12-26 09:08:04'),
-(227, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:11:22',  '2017-12-26 09:11:22'),
-(228, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:11:40',  '2017-12-26 09:11:40'),
-(229, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:12:40',  '2017-12-26 09:12:40'),
-(230, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:12:57',  '2017-12-26 09:12:57'),
-(231, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:14:08',  '2017-12-26 09:14:08'),
-(232, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:14:56',  '2017-12-26 09:14:56'),
-(233, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:15:28',  '2017-12-26 09:15:28'),
-(234, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:17:25',  '2017-12-26 09:17:25'),
-(235, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:17:58',  '2017-12-26 09:17:58'),
-(236, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:22:29',  '2017-12-26 09:22:29'),
-(237, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:25:36',  '2017-12-26 09:25:36'),
-(238, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 09:52:09',  '2017-12-26 09:52:09'),
-(239, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 10:07:52',  '2017-12-26 10:07:52'),
-(240, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 10:08:11',  '2017-12-26 10:08:11'),
-(241, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 10:12:01',  '2017-12-26 10:12:01'),
-(242, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 10:12:26',  '2017-12-26 10:12:26'),
-(243, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 10:14:36',  '2017-12-26 10:14:36'),
-(244, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 10:15:32',  '2017-12-26 10:15:32'),
-(245, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 10:18:29',  '2017-12-26 10:18:29'),
-(246, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 10:29:00',  '2017-12-26 10:29:00'),
-(247, 'ol', 1,  NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ol', 'r',  '1',  '4',  '2017-12-26 10:37:22',  '2017-12-26 10:37:22'),
-(248, 'RFWEA',  1,  10, 14, 17, 293,  'ARGAERGAERG',  NULL, NULL, 'rfwea',  'r',  '1',  '3',  '2017-12-28 03:43:26',  '2017-12-28 03:43:26');
+(258, 'sele bobo',  1,  11, 68, 14, 259,  'i need sele bobo', NULL, NULL, 'sele-bobo',  'r',  '1',  '2',  '2018-01-27 07:40:07',  '2018-01-27 07:40:07'),
+(259, 'sele bobo',  1,  11, 68, 14, 259,  'i need sele bobo', NULL, NULL, 'sele-bobo',  'r',  '1',  '2',  '2018-01-27 07:40:22',  '2018-01-27 07:40:22'),
+(260, 'dotun',  1,  5,  157,  12, 225,  'dfdssdv',  NULL, NULL, 'dotun',  'r',  '1',  NULL, '2018-01-27 11:09:47',  '2018-01-27 11:09:47'),
+(261, 'dotun',  1,  5,  157,  12, 225,  'dfdssdv',  NULL, NULL, 'dotun',  'r',  '1',  NULL, '2018-01-27 11:10:30',  '2018-01-27 11:10:30'),
+(262, 'dotun',  1,  5,  157,  12, 225,  'dfdssdv',  NULL, NULL, 'dotun',  'r',  '1',  NULL, '2018-01-27 11:11:14',  '2018-01-27 11:11:14');
 
 DROP TABLE IF EXISTS `settings`;
 CREATE TABLE `settings` (
@@ -1415,9 +1409,10 @@ CREATE TABLE `subscriptions` (
   `status` char(2) NOT NULL DEFAULT '0',
   `amount` varchar(100) DEFAULT NULL,
   `pay_status` char(1) NOT NULL DEFAULT '0',
+  `meta` text DEFAULT NULL,
+  `trxn_ref` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `trxn_ref` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   KEY `plan_id` (`plan_id`),
@@ -1425,29 +1420,9 @@ CREATE TABLE `subscriptions` (
   CONSTRAINT `subscriptions_ibfk_2` FOREIGN KEY (`plan_id`) REFERENCES `plans` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO `subscriptions` (`id`, `user_id`, `plan_id`, `ends_at`, `status`, `amount`, `pay_status`, `created_at`, `updated_at`, `trxn_ref`) VALUES
-(2, 1,  1,  NULL, '1',  '', '1',  '2017-12-28 04:10:33',  '2017-12-28 14:36:06',  'XsK5bQ0b4nmRI4hA3Oeb8YT3r'),
-(8, 1,  3,  NULL, '0',  NULL, '0',  '2017-12-28 14:35:57',  '2017-12-28 14:35:57',  'QhJd2xiSg676HrKnrS63aDFcg'),
-(9, 1,  2,  NULL, '0',  NULL, '0',  '2017-12-28 14:38:06',  '2017-12-28 14:38:06',  '2VYs8CqGu0chQd4BNVwOvv5mZ'),
-(10,  1,  2,  NULL, '1',  '400000', '1',  '2017-12-28 14:49:06',  '2017-12-28 14:49:34',  '9KvVIdz0XrT3ErT1TADYpU0vl'),
-(11,  6,  1,  NULL, '1',  '100000', '1',  '2017-12-28 15:37:55',  '2017-12-28 15:38:24',  'Nd5QxIsR7O1G6IRiEdii8ZkpQ');
-
-DROP TABLE IF EXISTS `trxn_log`;
-CREATE TABLE `trxn_log` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(10) unsigned NOT NULL,
-  `plan_id` int(11) unsigned NOT NULL,
-  `trxn_ref` varchar(200) NOT NULL,
-  `trxn_status` int(1) NOT NULL,
-  `trxn_data` text NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  PRIMARY KEY (`id`),
-  KEY `user_id` (`user_id`),
-  KEY `plan_id` (`plan_id`),
-  CONSTRAINT `trxn_log_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
-  CONSTRAINT `trxn_log_ibfk_2` FOREIGN KEY (`plan_id`) REFERENCES `plans` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
+INSERT INTO `subscriptions` (`id`, `user_id`, `plan_id`, `ends_at`, `status`, `amount`, `pay_status`, `meta`, `trxn_ref`, `created_at`, `updated_at`) VALUES
+(1, 2,  1,  NULL, '1',  NULL, '1',  NULL, '9g6l4PFLNi7E8Zy6t6z0o7GMo',  '2018-01-27 09:23:37',  '2018-01-27 09:23:37'),
+(2, 1,  1,  NULL, '1',  '1000000',  '1',  NULL, NULL, '2018-01-27 09:22:41',  '2018-01-27 09:22:41');
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
@@ -1470,10 +1445,10 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `users` (`id`, `email`, `username`, `phone`, `password`, `first_name`, `last_name`, `image`, `location`, `status`, `slug`, `remember_token`, `created_at`, `updated_at`, `adminer`) VALUES
-(1, 'dapo@gmail.com', 'dapoBelieves', '07069494803',  '$2y$10$EJJoTfhHe/A2BOzDIB.Dq.eVFraJcpD0XFj8Wmbk860OBvEjoQ4Gy', 'Dapo', 'Michaels', '', NULL, '1',  'dapobelieves', 'UoMtsaZXCpG79wr4S9hdX31OSFWhVu7pWIEVoWlgU25SWEDpBGd4j09lviYK', '2017-08-23 00:26:49',  '2017-12-17 01:39:11',  1),
-(3, 'maryope8@gmail.com', '@Opeyemi08028756291',  '08028756291',  '$2y$10$5ozMKtaqGuiBhqcPcmndzuAlNiHlbaZKt1ELic4xm621GP2BOSr2C', 'Opeyemi',  'Mary', NULL, NULL, '1',  'opeyemi08028756291', 'WISYeq5qEaE8tKUWW4e2slas0JeN3tRYy2P940JyYvxOwpGpQRUtr6mgjfnQ', '2017-09-24 03:41:13',  '2017-09-24 03:41:13',  0),
-(4, 'jerexbambex@hotmail.com',  '@Oluwafemin08067099420', '08067099420',  '$2y$10$bepvJ9Rk0E61w99DGPzeLOScZMjZGDe0IAhUW/4hlLFIAVs4HceNa', 'Oluwafemin', 'Isaac',  NULL, NULL, '1',  'oluwafemin08067099420',  'ja8FmlSpYhIInKkcEBEJ4VDbtSFLNQ4Ibp5uRlEDxlgbYyXLQGPcYCrY1rzw', '2017-09-24 03:42:15',  '2017-09-24 03:42:15',  0),
-(5, 'deji@gmail.com', '@5a3d6079c69bd', '08134327417',  '$2y$10$93BM1PUO5DeYEQAvsS4.3OHKJu4Bt4CKdmE7hspyZ89RLsmueR0sG', 'deji', 'dxtrim', NULL, NULL, '1',  '5a3d6079c69bd',  'eXIpntMvQ4Fgy9jliackoS2oNlGY8OLMTHeviSG0uqhwVLnrwLnQOpwGpjXH', '2017-12-22 18:43:53',  '2017-12-22 18:43:53',  0),
+(1, 'dapodean@gmail.com', 'dapoBelieve',  '07069494803',  '$2y$10$EJJoTfhHe/A2BOzDIB.Dq.eVFraJcpD0XFj8Wmbk860OBvEjoQ4Gy', 'Dapson', 'Michaels', NULL, NULL, '1',  'dapobelieve',  'UoMtsaZXCpG79wr4S9hdX31OSFWhVu7pWIEVoWlgU25SWEDpBGd4j09lviYK', '2017-08-23 00:26:49',  '2018-01-12 08:18:33',  1),
+(2, 'maryope8@gmail.com', '@Opeyemi08028756291',  '08028756291',  '$2y$10$5ozMKtaqGuiBhqcPcmndzuAlNiHlbaZKt1ELic4xm621GP2BOSr2C', 'Opeyemi',  'Mary', NULL, NULL, '1',  'opeyemi08028756291', 'WISYeq5qEaE8tKUWW4e2slas0JeN3tRYy2P940JyYvxOwpGpQRUtr6mgjfnQ', '2017-09-24 03:41:13',  '2017-09-24 03:41:13',  0),
+(3, 'jerexbambex@hotmail.com',  '@Oluwafemin08067099420', '08067099420',  '$2y$10$bepvJ9Rk0E61w99DGPzeLOScZMjZGDe0IAhUW/4hlLFIAVs4HceNa', 'Oluwafemin', 'Isaac',  NULL, NULL, '1',  'oluwafemin08067099420',  'ja8FmlSpYhIInKkcEBEJ4VDbtSFLNQ4Ibp5uRlEDxlgbYyXLQGPcYCrY1rzw', '2017-09-24 03:42:15',  '2017-09-24 03:42:15',  0),
+(4, 'deji@gmail.com', '@5a3d6079c69bd', '08134327417',  '$2y$10$93BM1PUO5DeYEQAvsS4.3OHKJu4Bt4CKdmE7hspyZ89RLsmueR0sG', 'deji', 'dxtrim', NULL, NULL, '1',  '5a3d6079c69bd',  'eXIpntMvQ4Fgy9jliackoS2oNlGY8OLMTHeviSG0uqhwVLnrwLnQOpwGpjXH', '2017-12-22 18:43:53',  '2017-12-22 18:43:53',  0),
 (6, 'dapomichaels@gmail.com', '5a451d7bb237a',  NULL, NULL, 'Dapo Michaels',  NULL, NULL, NULL, '1',  '5a451d7bb237a',  NULL, '2017-12-28 15:36:11',  '2017-12-28 15:36:11',  0);
 
--- 2018-01-02 21:33:01
+-- 2018-01-30 22:41:34

@@ -1,7 +1,7 @@
 <?php
 
 // For testing purposes
-Route::get('/test', 'TestController@index')->name('test');
+// Route::get('/test', 'TestController@index')->name('test');
 
 // ends here
 /*
@@ -300,6 +300,5 @@ Route::get('admin/users', 'Admin\UsersController@index')->name('admin.users');
 |
 */
 
-//Request Detail page
-// Route::post('/payciite', 'Payment\PaymentController@redirectToGateway')->name('pay');
-Route::get('request/detail/', '\App\Http\Controllers\RequestDetails@index')->name('request.detail');
+// Homepage Search
+Route::get('/search', 'SearchController@getResult')->name('search.results');

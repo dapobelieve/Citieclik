@@ -305,7 +305,11 @@ Route::get('admin/users', 'Admin\UsersController@index')->name('admin.users');
 Route::get('request/detail/', [
 	'uses' => '\App\Http\Controllers\RequestDetails@index',
 	'as'   => 'request.detail'
+<<<<<<< HEAD
 ]);
 
 // Homepage Search
 Route::get('/search', 'SearchController@getResult')->name('search.results');
+=======
+]);
+>>>>>>> 4389283ad1da34582cd0c2364e7ae066ec160eec

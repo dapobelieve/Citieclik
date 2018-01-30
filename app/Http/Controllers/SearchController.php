@@ -13,7 +13,10 @@ class SearchController extends Controller
     	$queryState = $request->input('state');
     	$queryCategory = $request->input('category');
 
-    	// $services = Service::where()
-    	dd($queryState, $queryCategory);
+    	$services = Service::where(DB::raw('state_id'), 'LIKE', " %{$queryState}%")
+    				->orWhere('category_id', 'LIKE', "%{$queryCategory}%")
+    				->get();
+    	// dd($services);
+    	return view('search.searchresults')->with('sdata', $services);
     }
 }

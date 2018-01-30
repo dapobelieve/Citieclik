@@ -33,12 +33,22 @@ Route::get('service', [
 	'as'   => 'service'
 ]);
 
+// Terms and condition page 
+Route::get('/terms', '\App\Http\Controllers\TermsController@index')->name('terms');
+
+//About us
+Route::get('/about', '\App\Http\Controllers\TermsController@aboutUs')->name('about');
+
+// Route::get('/terms', [
+// 	'uses' => 'TermsController@index',
+// 	'as'   => 'terms'
+// ]);
+
 
 //get details of a service
 Route::get('service/detail/{username}/{serslug}', [
 	'uses' => '\App\Http\Controllers\ServiceDetails@index',
 	'as'   => 'service.detail'
-
 ]);
 
 
@@ -275,6 +285,7 @@ Route::post('/request/add', [
 ]);
 
 
+
 /*
 |
 | Admin Section Starts
@@ -289,3 +300,12 @@ Route::get('admin/users', 'Admin\UsersController@index')->name('admin.users');
 | Admin Section Ends
 |
 */
+
+//Request Detail page
+Route::get('request/detail/', [
+	'uses' => '\App\Http\Controllers\RequestDetails@index',
+	'as'   => 'request.detail'
+]);
+
+// Homepage Search
+Route::get('/search', 'SearchController@getResult')->name('search.results');

@@ -4,10 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Carbon;
 
 
 class ServiceDetails extends Controller
 {
+    public function time($time)
+    {
+        Carbon::diffForHumans($time);
+    }
+
     public function index($username, $slug)
     {
     	 $user = User::where('username', $username)->first();

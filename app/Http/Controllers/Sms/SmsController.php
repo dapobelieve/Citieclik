@@ -29,19 +29,19 @@ class SmsController
         // $this->sender();
     }
 
-    private function shortenUrl($hash)
-    {
-        $body = '{"longUrl" : "http://localhost:8000/request/".$hash}';
-        $client = new GuzzleHttp\Client();
+    // private function shortenUrl($hash)
+    // {
+    //     $body = '{"longUrl" : "http://localhost:8000/request/".$hash}';
+    //     $client = new Client();
          
-        $response = $client->request('POST','https://www.googleapis.com/urlshortener/v1/url', [
-            'headers' => ['Content-Type' => 'application/json'],
-            'query' => [
-                'key' => 'AIzaSyC6dSgfZmdrjSCFfa4A13dKZwZFTtxJbj0',
-            ],
-            'body' =>  $body
-        ]);
-    }
+    //     $response = $client->request('POST','https://www.googleapis.com/urlshortener/v1/url', [
+    //         'headers' => ['Content-Type' => 'application/json'],
+    //         'query' => [
+    //             'key' => 'AIzaSyC6dSgfZmdrjSCFfa4A13dKZwZFTtxJbj0',
+    //         ],
+    //         'body' =>  $body
+    //     ]);
+    // }
 
     private function sender()
     {

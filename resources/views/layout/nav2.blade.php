@@ -3,17 +3,17 @@
           <li class="{{ Request::is( '/' ) ? ' active' : ''  }}"><a href="/"><span>Home</span></a>
           </li>
           
-          <li class="has-children"><span><a href="#">Categories</a><span class="sub-menu-toggle"></span></span>
-            <ul class="offcanvas-submenu">
-              @foreach($cats as $cat)
+          <li class=""><span><a href="{{ route('service')}}">Services</a><span class="sub-menu-toggle"></span></span>
+            {{-- <ul class="offcanvas-submenu"> --}}
+              {{-- @foreach($cats as $cat)
                 <li class=""><span><a href="#">{{$cat->category}}</a></span></li>
-              @endforeach
+              @endforeach --}}
               {{-- <li class=""><span><a href="#">Men's Shoes</a></span></li>
               <li class=""><span><a href="#">Women's Shoes</a></span></li>
               <li class=""><span><a href="#">Men's Clothing</a></span></li>
               <li class=""><span><a href="#">Women's Clothing</a></span></li>
               <li class=""><span><a href="#">Bags</a></span></li> --}}
-            </ul>
+            {{-- </ul> --}}
           </li>
           <li class="sub-menu-separator"></li>
           @if(Auth::check())

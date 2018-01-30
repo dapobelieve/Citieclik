@@ -15,7 +15,7 @@
 							<span class="pcoded-mtext">Users</span>
 						</a>
 					</li>
-					<li class="pcoded-hasmenu pcoded-trigger">
+					{{-- <li class="pcoded-hasmenu pcoded-trigger">
 						<a href="javascript:void(0)">
 							<span class="pcoded-micon"><i class="ti-settings"></i><b>P</b></span>
 							<span class="pcoded-mtext">Settings</span>
@@ -44,7 +44,7 @@
                                 </a>
                             </li>
                         </ul>
-					</li>
+					</li> --}}
 				</ul>
 		</div>
 	</nav>

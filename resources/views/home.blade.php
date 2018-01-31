@@ -9,7 +9,7 @@ Welcome | Citieclik
   	<section class="hero-slider text-center" style="background-image: url(assets/img/hero-slider/lagos.jpg); color: #fff !important; ">
       <div class="container padding-top-6x">
         <div id="carouselContent" class="carousel slide bg-chrome item" data-ride="carousel">
-          <h1 class="" style="color: #fff !important; text-shadow: 0px 0px 6px rgba(0,0,0,0.4); font-weight: 600;">Find the perfect Link on Citieclik</h1>
+          <h1 class="" style="color: #fff !important; text-shadow: 0px 0px 6px rgba(0,0,0,0.4); font-weight: 600;">Buy or Sell a Product or Service with Us</h1>
           <div class="carousel-inner text-white align-items-center" role="listbox">
               <div class="row align-items-center carousel-item align-items-center flex-column p-4 text-center">
                   <form class="form-inline text-center padding-bottom-2x" action="{{ route('search.results') }}">

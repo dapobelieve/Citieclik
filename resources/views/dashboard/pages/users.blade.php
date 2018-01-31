@@ -6,6 +6,7 @@
 {{-- //css for this page --}}
 @section('admin-styles')
 <link rel="stylesheet" type="text/css" href="/assets2/bower_components/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/buttons.dataTables.min.css">
     
 @stop
 
@@ -34,6 +35,7 @@
                                         <th>Lastname</th>
                                         <th>Username</th>
                                         <th>Phone No</th>
+                                        <th>Email</th>
                                         <th>Date Joined</th>
                                     </tr>
                                 </thead>
@@ -45,6 +47,7 @@
                                             <td>{{ $user->last_name }}</td>
                                             <td>{{ $user->username }}</td>
                                             <td>{{ $user->phone }}</td>
+                                            <td>{{ $user->email }}</td>
                                             <td>{{ $user->created_at->diffForHumans() }}</td>
                                         </tr>
                                     @endforeach
@@ -56,6 +59,7 @@
                                         <th>Lastname</th>
                                         <th>Username</th>
                                         <th>Phone No</th>
+                                        <th>Email</th>
                                         <th>Date Joined</th>
                                     </tr>
                                 </tfoot>
@@ -78,28 +82,53 @@
 <script src="/assets2/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="/assets2/bower_components/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
 <script src="/assets2/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script type="text/javascript" src="/assets/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" src="/assets/js/buttons.html5.min.js"></script>
+<script type="text/javascript" src="/assets/js/buttons.print.min.js"></script>
 
 
 <script type="text/javascript">
+    // $(document).ready(function (){
+    //     $('#simpletable').DataTable( {
+    //         // dom: 'Bfrtip',
+    //         // buttons: [
+    //         //         {
+    //         //             extend: 'copyHtml5',
+    //         //             exportOptions: {
+    //         //              columns: ':contains("Office")'
+    //         //             }
+    //         //         },
+    //         //         {
+    //         //             extend: 'pdfHtml5',
+    //         //             message: 'PDF created by PDFMake with Buttons for DataTables.'
+    //         //         },
+    //         //         'excelHtml5',
+    //         //         'csvHtml5',
+    //         //         'pdfHtml5',
+    //         //         'print'
+    //         //     ]
+    //     });
+    // });
     $(document).ready(function (){
-        $('#simpletable').DataTable( {
-            // dom: 'Bfrtip',
-            // buttons: [
-            //         {
-            //             extend: 'copyHtml5',
-            //             exportOptions: {
-            //              columns: ':contains("Office")'
-            //             }
-            //         },
-            //         {
-            //             extend: 'pdfHtml5',
-            //             message: 'PDF created by PDFMake with Buttons for DataTables.'
-            //         },
-            //         'excelHtml5',
-            //         'csvHtml5',
-            //         'pdfHtml5',
-            //         'print'
-            //     ]
+        $('#simpletable').DataTable({
+            dom: 'Bfrtip',
+            "pagingType": "full_numbers",
+            buttons: [
+                {
+                    extend: 'copyHtml5',
+                    exportOptions: {
+                     columns: ':contains("Office")'
+                    }
+                },
+                {
+                    extend: 'pdfHtml5',
+                    message: 'PDF created by PDFMake with Buttons for DataTables.'
+                },
+                'excelHtml5',
+                'csvHtml5',
+                'pdfHtml5',
+                'print'
+            ]
         });
     });
 </script>

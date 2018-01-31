@@ -42,7 +42,7 @@
                 </div>
              </div>
           </div>
-          <div class="col-sm-12">
+          {{-- <div class="col-sm-12">
              <div class="card tabs-card">
                 <div class="card-block p-0">
                    <ul class="nav nav-tabs md-tabs" role="tablist">
@@ -207,12 +207,13 @@
                    </div>
                 </div>
              </div>
-          </div>
+          </div> --}}
           <div class="col-md-12 col-lg-4">
              <div class="card">
                 <div class="card-block text-center">
-                   <i class="fa fa-envelope-open text-c-blue d-block f-40"></i>
-                   <h4 class="m-t-20"><span class="text-c-blue">8.62k</span> Subscribers</h4>
+                   {{-- <i class="fa fa-envelope-open text-c-blue d-block f-40">5</i> --}}
+                   <h2>5</h2>
+                   <h4 class="m-t-20"><span class="text-c-blue">Basic Plan</span> Subscribers</h4>
                    <p class="m-b-20">Your main list is growing</p>
                    <button class="btn btn-primary btn-sm btn-round">Manage List</button>
                 </div>
@@ -221,8 +222,9 @@
           <div class="col-md-6 col-lg-4">
              <div class="card">
                 <div class="card-block text-center">
-                   <i class="fa fa-twitter text-c-green d-block f-40"></i>
-                   <h4 class="m-t-20"><span class="text-c-blgreenue">+40</span> Followers</h4>
+                   {{-- <i class="fa fa-twitter text-c-green d-block f-40">2</i> --}}
+                   <h2>2</h2>
+                   <h4 class="m-t-20"><span class="text-c-blgreenue">Pro Plan</span> Subscribers</h4>
                    <p class="m-b-20">Your main list is growing</p>
                    <button class="btn btn-success btn-sm btn-round">Check them out</button>
                 </div>
@@ -231,8 +233,9 @@
           <div class="col-md-6 col-lg-4">
              <div class="card">
                 <div class="card-block text-center">
-                   <i class="fa fa-puzzle-piece text-c-pink d-block f-40"></i>
-                   <h4 class="m-t-20">Business Plan</h4>
+                   {{-- <i class="fa fa-puzzle-piece text-c-pink d-block f-40">2</i> --}}
+                   <h2>{{ $plans->count() }}</h2>
+                   <h4 class="m-t-20"><span class="text-c-blgreenue">Gold Plan</span> Subscribers</h4>
                    <p class="m-b-20">This is your current active plan</p>
                    <button class="btn btn-danger btn-sm btn-round">Upgrade to VIP</button>
                 </div>

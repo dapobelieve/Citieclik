@@ -21,11 +21,13 @@ class HomeController extends Controller
     {
     	$users 		= User::get();
     	$services 	= Service::get();
-    	$subcribers = Subscription::where('pay_status', '1');
+    	$subcribers = Subscription::where('pay_status', '1')->get();
+    	$plans 		= Subscription::select('plan_id');
         return view('dashboard.pages.home')
         		->with('users', $users)
         		->with('services', $services)
-        		->with('subcribers', $subcribers);
+        		->with('subcribers', $subcribers)
+        		->with('plans', $plans);
     }
 }
 

@@ -14,7 +14,7 @@
     <div class="page-header card">
         <div class="card-block">
             <h5 class="m-b-10">Users</h5>
-            <p class="text-muted m-b-10">lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+            <p class="text-muted m-b-10">List of Registered users</p>
         </div>
     </div>
     <div class="page-body">
@@ -111,7 +111,7 @@
     // });
     $(document).ready(function (){
         $('#simpletable').DataTable({
-            dom: 'Bfrtip',
+            dom: 'lBfrtip',
             "pagingType": "full_numbers",
             buttons: [
                 {

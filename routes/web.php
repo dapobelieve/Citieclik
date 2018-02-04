@@ -289,7 +289,7 @@ Route::post('/request/add','\App\Http\Controllers\RequestController@postRequest'
 |
 */
 
-Route::post('/comment/serviceId','Comments\CommentController@store')->name('comment');
+Route::post('/comment','Comments\CommentController@store')->name('comment');
 
 
 // Ends Here

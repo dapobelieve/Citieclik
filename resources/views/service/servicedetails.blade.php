@@ -95,11 +95,11 @@
 	        
 		        <div class="col-lg-8 mt-30">
 		            <ul class="nav nav-tabs" role="tablist">
-		              <li class="nav-item"><a class="nav-link" href="#description" data-toggle="tab" role="tab">Description</a></li>
-		              <li class="nav-item"><a class="nav-link active" href="#reviews" data-toggle="tab" role="tab">Reviews (3)</a></li>
+		              <li class="nav-item"><a class="nav-link active" href="#description" data-toggle="tab" role="tab">Description</a></li>
+		              <li class="nav-item"><a class="nav-link " href="#reviews" data-toggle="tab" role="tab">Reviews ({{ $service->comments->count() }})</a></li>
 		            </ul>
 		            <div class="tab-content">
-		              <div class="tab-pane fade " id="description" role="tabpanel">
+		              <div class="tab-pane fade show active" id="description" role="tabpanel">
 		                <p>{{ $service->description }}</p>
 		              </div>
 		              <div class="tab-pane fade show active" id="reviews" role="tabpanel">
@@ -108,11 +108,11 @@
 		                	@if($service->comments->count())
 		                		@foreach($service->comments as $comment)
 					                <div class="comment">
-					                  <div class="comment-author-ava"><img src="/assets/img/reviews/01.jpg" alt="Review author"></div>
+					                  <div class="comment-author-ava"><img src="{{$service->userz->getUserImg()}}" alt="Review author"></div>
 					                  <div class="comment-body">
 					                    <div class="comment-header d-flex flex-wrap justify-content-between">
 					                    </div>
-					                    <p class="comment-text">{{ $comment->body }}</p>
+					                    <p class="comment-text comment-text">{{ $comment->body }}</p>
 					                    <div class="comment-footer">
 					                    	<span class="comment-meta">{{ $comment->user->getFullName() }}</span>
 					                    </div>
@@ -124,25 +124,31 @@
 
 		                <!-- Review Form-->
 		                {{-- <h5 class="mb-30 padding-top-1x colored">Leave Review</h5> --}}
-		                <form class="row" action="{{ route('comment', ['serviceId' => $service->id])}}" method="post">
-		                  <div class="col-12">
-		                    <div class="form-group">
-		                      <label for="review_text">Drop your Comments </label>
-		                      <textarea name="comment" class="form-control form-control-rounded" id="review_text" rows="8"  placeholder="Say Something..."></textarea>
-		                    </div>
-		                  </div>
-		                  <div class="col-12 text-right">
-		                    <button class="btn btn-sm btn-outline-primary" type="submit">Submit Review</button>
-		                  </div>
-		                </form>
+		                @if(Auth::check())
+			                <form class="row" action="{{ route('comment')}}" method="POST">
+			                  <div class="col-12">
+			                    <div class="form-group">
+			                      <label for="review_text">Drop your Comments </label>
+			                      <textarea name="comment" class="form-control form-control-rounded" id="review_text" rows="8"  placeholder="Say Something..."></textarea>
+			                      <input type="hidden" name="serviceId" value="{{$service->id}}">
+			                    </div>
+			                  </div>
+			                  <div class="col-12 text-right">
+			                    <button class="btn btn-sm btn-outline-primary" type="submit">Submit Review</button>
+			                  </div>
+			                </form>
+			            @else
+			            	<h5 class="mb-30 padding-top-1x colored">Sign in to Post Comments</h5>
+			            @endif
 		              </div>
 		            </div>
 				</div>
 				<div class="col-lg-4 mt-30">
 					<aside class="user-info-wrapper">
 					    <div class="user-cover" style="background-image: url(/assets/img/account/user-cover-img.jpg);">
-					      	<div class="info-label" data-toggle="tooltip" title="" data-original-title="Posted by"><h4>Posted by</h4></div>
+					      	{{-- <div class="info-label" data-toggle="tooltip" title="" data-original-title="Posted by"><h4>Posted by</h4></div> --}}
 					    </div>
+					    @if(Auth::check())
 					    <div class="user-info">
 					      	<div class="user-avatar">
 					            <img id="userMainAvatar" src="{{$service->userz->getUserImg()}}" alt="User">
@@ -151,7 +157,9 @@
 					        	<h4 class="text-primary text-medium">{{$service->userz->username}}</h4><small class="opacity-60">{{$service->created_at->diffForHumans()}}</small>
 					        	<h5>{{$service->userz->phone}}</h5>
 					      	</div>
-					    </div><br>
+					    </div>
+						@endif
+					    <br>
 				      	<div class="list-group">
 				            <div class="list-group-item flex-column align-items-start" style="border: 0px !important;">
 			                    <div class="d-flex w-100 justify-content-between">

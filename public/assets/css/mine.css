@@ -126,3 +126,7 @@
 .service-list::-webkit-scrollbar {
   display: none;
 }
+
+.comment-text {
+  white-space: pre-wrap;
+}

@@ -18,6 +18,32 @@ Class CommentController extends Controller
 
     public function store(Request $request)
     {
-        dd($request);
+        $serviceId = (int)$request->serviceId;
+        $this->validate($request,[
+            "comment" => 'required|max:1000'
+        ],
+        [
+            "required" => 'The reply field cannot be empty'
+        ]
+
+        );
+
+        $service = Service::find($serviceId);
+
+        if(!$service){
+            return redirect()->route('home');
+        }
+
+        $comment = new Comment;
+
+        $comment->body = $request->comment;
+
+        $comment->user()->associate($request->user());
+
+        $service->comments()->save($comment);
+
+        return redirect()->back();
+
+
     }
 }

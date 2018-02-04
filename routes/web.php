@@ -283,7 +283,16 @@ Route::get('/requests/{serviceRequest}','\App\Http\Controllers\RequestController
 Route::post('/request/add','\App\Http\Controllers\RequestController@postRequest')->name('request.add');
 
 
+/*
+|
+| Comments Section Starts
+|
+*/
 
+Route::post('/comment/serviceId','Comments\CommentController@store')->name('comment');
+
+
+// Ends Here
 
 /*
 |

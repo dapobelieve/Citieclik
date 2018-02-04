@@ -20,7 +20,7 @@ class PaymentController extends Controller
     {
         $user = $request->user();
 
-        if ($request->amount < 0) {
+        if ($request->amount < 0) { 
 
             $subDetails = $request->user()->getActiveSubscription();
 

@@ -105,29 +105,34 @@
 		              <div class="tab-pane fade show active" id="reviews" role="tabpanel">
 		                <!-- Review-->
 		                <div class="commentz">
-		                	@if()
-			                <div class="comment">
-			                  <div class="comment-author-ava"><img src="/assets/img/reviews/01.jpg" alt="Review author"></div>
-			                  <div class="comment-body">
-			                    <div class="comment-header d-flex flex-wrap justify-content-between">
-			                    </div>
-			                    <p class="comment-text">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
-			                    <div class="comment-footer"><span class="comment-meta">Francis Burton</span></div>
-			                  </div>
-			                </div>
+		                	@if($service->comments->count())
+		                		@foreach($service->comments as $comment)
+					                <div class="comment">
+					                  <div class="comment-author-ava"><img src="/assets/img/reviews/01.jpg" alt="Review author"></div>
+					                  <div class="comment-body">
+					                    <div class="comment-header d-flex flex-wrap justify-content-between">
+					                    </div>
+					                    <p class="comment-text">{{ $comment->body }}</p>
+					                    <div class="comment-footer">
+					                    	<span class="comment-meta">{{ $comment->user->getFullName() }}</span>
+					                    </div>
+					                  </div>
+					                </div>
+				                @endforeach
+				            @endif
 			            </div>
 
 		                <!-- Review Form-->
 		                {{-- <h5 class="mb-30 padding-top-1x colored">Leave Review</h5> --}}
-		                <form class="row" method="post">
+		                <form class="row" action="{{ route('comment', ['serviceId' => $service->id])}}" method="post">
 		                  <div class="col-12">
 		                    <div class="form-group">
 		                      <label for="review_text">Drop your Comments </label>
-		                      <textarea class="form-control form-control-rounded" id="review_text" rows="8" required placeholder="Say Something..."></textarea>
+		                      <textarea name="comment" class="form-control form-control-rounded" id="review_text" rows="8"  placeholder="Say Something..."></textarea>
 		                    </div>
 		                  </div>
 		                  <div class="col-12 text-right">
-		                    <button class="btn btn-outline-primary" type="submit">Submit Review</button>
+		                    <button class="btn btn-sm btn-outline-primary" type="submit">Submit Review</button>
 		                  </div>
 		                </form>
 		              </div>

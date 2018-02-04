@@ -47,7 +47,7 @@ class SmsController
     {
         $client = new Client();
         $message = "Hello, testing the sms service";
-        $numbers = '07037596271,09078081328,07069494803';
+        // $numbers = '07037596271,09078081328,07069494803';
         // implode(glue, pieces)
 
         $response = $client->post('http://portal.bulksmsnigeria.net/api/?', [

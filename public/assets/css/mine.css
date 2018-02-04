@@ -16,7 +16,7 @@
 .service-list {
   background-color: #fff;
   border: 1px solid #d3e0e9;
-  border-radius: 10px;
+  border-radius: 5px;
   overflow-y: scroll;
   height: 500px;
   padding: 5px;
@@ -111,4 +111,18 @@
     -webkit-border-radius: 4px;
     border-radius: 4px;
     overflow: hidden;
+}
+
+.commentz {
+  height: 800px;
+  max-height: 600px;
+  overflow-y: scroll;
+}
+
+.commentz::-webkit-scrollbar {
+  display: none;
+}
+
+.service-list::-webkit-scrollbar {
+  display: none;
 }

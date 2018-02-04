@@ -94,51 +94,89 @@
 		        </div>
 	        
 		        <div class="col-lg-8 mt-30">
-		        	<div class="">
-					    <div class="card-header" role="tab">
-					      <h4 style="text-decoration: none;">Description</h4>
-					    </div>
-			      		<textarea class="my-editor">
-			      			{{$service->description }}
-			      		</textarea>
-					</div>
-				  	<!-- Review Form-->
-{{-- 		      		<h5 class="mb-30 padding-top-1x">Send a message to the service provider</h5>
-			      	<form class="row" method="post">
-				        <div class="col-sm-6">
-				          <div class="form-group">
-				            <label for="review_name">Your Name</label>
-				            <input class="form-control" id="review_name" required="" type="text">
-				          </div>
-				        </div>
-				        <div class="col-sm-6">
-				          <div class="form-group">
-				            <label for="review_email">Your Email</label>
-				            <input class="form-control" id="review_email" required="" type="email">
-				          </div>
-				        </div>
-				        <div class="col-sm-6">
-				          <div class="form-group">
-				            <label for="review_subject">Subject</label>
-				            <input class="form-control" id="review_subject" required="" type="text">
-				          </div>
-				        </div>
-				        <div class="col-sm-6">
-				          <div class="form-group">
-				            <label for="phone">Phone Number</label>
-				            <input class="form-control" id="phone" required="" type="text">
-				          </div>
-				        </div>
-				        <div class="col-12">
-				          	<div class="form-group">
-				            	<label for="review_text">Review </label>
-				            	<textarea class="form-control" id="review_text" rows="8" required=""></textarea>
-				          	</div>
-				        </div>
-				        <div class="col-12 text-right">
-				          	<button class="btn btn-outline-primary" type="submit">Send</button>
-				        </div>
-			      	</form> --}}
+		            <ul class="nav nav-tabs" role="tablist">
+		              <li class="nav-item"><a class="nav-link" href="#description" data-toggle="tab" role="tab">Description</a></li>
+		              <li class="nav-item"><a class="nav-link active" href="#reviews" data-toggle="tab" role="tab">Reviews (3)</a></li>
+		            </ul>
+		            <div class="tab-content">
+		              <div class="tab-pane fade " id="description" role="tabpanel">
+		                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error blanditiis a, deserunt magnam pariatur quam suscipit quae. Veniam, deserunt reprehenderit quasi hic recusandae itaque omnis fugiat animi architecto facilis repellendus. Commodi dolorem, eius consectetur. Amet maiores nemo at nobi s aspernatur velit, sequi odio, a veritatis inventore autem esse provident in? Placeat, sunt!</p>
+		                <p class="mb-30">Iste assumenda, vitae, aliquam excepturi libero quia ullam quisquam tenetur id sint labore. Pariatur praesentium velit, fugit facere maxime voluptates optio qui? Quidem obcaecati necessitatibus rem aspernatur, mollitia, assumenda explicabo numquam minus eos sapiente totam dicta, laborum dolorum! Vitae distinctio quos non ut fugiat.</p>
+		              </div>
+		              <div class="tab-pane fade show active" id="reviews" role="tabpanel">
+		                <!-- Review-->
+		                <div class="commentz">
+			                <div class="comment">
+			                  <div class="comment-author-ava"><img src="/assets/img/reviews/01.jpg" alt="Review author"></div>
+			                  <div class="comment-body">
+			                    <div class="comment-header d-flex flex-wrap justify-content-between">
+			                    </div>
+			                    <p class="comment-text">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
+			                    <div class="comment-footer"><span class="comment-meta">Francis Burton</span></div>
+			                  </div>
+			                </div>
+			                <div class="comment">
+			                  <div class="comment-author-ava"><img src="/assets/img/reviews/01.jpg" alt="Review author"></div>
+			                  <div class="comment-body">
+			                    <div class="comment-header d-flex flex-wrap justify-content-between">
+			                    </div>
+			                    <p class="comment-text">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
+			                    <div class="comment-footer"><span class="comment-meta">Francis Burton</span></div>
+			                  </div>
+			                </div>
+			                <div class="comment">
+			                  <div class="comment-author-ava"><img src="/assets/img/reviews/01.jpg" alt="Review author"></div>
+			                  <div class="comment-body">
+			                    <div class="comment-header d-flex flex-wrap justify-content-between">
+			                    </div>
+			                    <p class="comment-text">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
+			                    <div class="comment-footer"><span class="comment-meta">Francis Burton</span></div>
+			                  </div>
+			                </div>
+			                <div class="comment">
+			                  <div class="comment-author-ava"><img src="/assets/img/reviews/01.jpg" alt="Review author"></div>
+			                  <div class="comment-body">
+			                    <div class="comment-header d-flex flex-wrap justify-content-between">
+			                    </div>
+			                    <p class="comment-text">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
+			                    <div class="comment-footer"><span class="comment-meta">Francis Burton</span></div>
+			                  </div>
+			                </div>
+			                <div class="comment">
+			                  <div class="comment-author-ava"><img src="/assets/img/reviews/01.jpg" alt="Review author"></div>
+			                  <div class="comment-body">
+			                    <div class="comment-header d-flex flex-wrap justify-content-between">
+			                    </div>
+			                    <p class="comment-text">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
+			                    <div class="comment-footer"><span class="comment-meta">Francis Burton</span></div>
+			                  </div>
+			                </div>
+			                <div class="comment">
+			                  <div class="comment-author-ava"><img src="/assets/img/reviews/01.jpg" alt="Review author"></div>
+			                  <div class="comment-body">
+			                    <div class="comment-header d-flex flex-wrap justify-content-between">
+			                    </div>
+			                    <p class="comment-text">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
+			                    <div class="comment-footer"><span class="comment-meta">Francis Burton</span></div>
+			                  </div>
+			                </div>
+			            </div>
+
+		                <!-- Review Form-->
+		                {{-- <h5 class="mb-30 padding-top-1x colored">Leave Review</h5> --}}
+		                <form class="row" method="post">
+		                  <div class="col-12">
+		                    <div class="form-group">
+		                      <label for="review_text">Drop your Comments </label>
+		                      <textarea class="form-control form-control-rounded" id="review_text" rows="8" required placeholder="Say Something..."></textarea>
+		                    </div>
+		                  </div>
+		                  <div class="col-12 text-right">
+		                    <button class="btn btn-outline-primary" type="submit">Submit Review</button>
+		                  </div>
+		                </form>
+		              </div>
+		            </div>
 				</div>
 				<div class="col-lg-4 mt-30">
 					<aside class="user-info-wrapper">
@@ -177,7 +215,7 @@
 	        	<!-- Related Products Carousel-->
 	        	<h3 class="text-center padding-top-2x mt-2 padding-bottom-1x">You May Also Like</h3>
 	        	<!-- Carousel-->
-	        <div class="owl-carousel" data-owl-carousel="{ &quot;nav&quot;: false, &quot;dots&quot;: true, &quot;margin&quot;: 30, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;576&quot;:{&quot;items&quot;:2},&quot;768&quot;:{&quot;items&quot;:3},&quot;991&quot;:{&quot;items&quot;:4},&quot;1200&quot;:{&quot;items&quot;:4}} }">
+	        {{-- <div class="owl-carousel" data-owl-carousel="{ &quot;nav&quot;: false, &quot;dots&quot;: true, &quot;margin&quot;: 30, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;576&quot;:{&quot;items&quot;:2},&quot;768&quot;:{&quot;items&quot;:3},&quot;991&quot;:{&quot;items&quot;:4},&quot;1200&quot;:{&quot;items&quot;:4}} }">
 	          <!-- Product-->
 	          	<div class="grid-item">
 	            	<div class="product-card">
@@ -254,13 +292,13 @@
 	              </div>
 	            </div>
 	        </div>
-      		</div>
+      		</div> --}}
   		<!--Page Content-->
   		</div>
   	</div>
 @endsection
 
-@section('script')
+{{-- @section('script')
 	<script src="/dist/trumbowyg.min.js"></script>
 	<script type="text/javascript">
 		$('.my-editor').trumbowyg({
@@ -272,4 +310,4 @@
 			hideButtonTexts: true
 		});
 	</script>
-@endsection
+@endsection --}}

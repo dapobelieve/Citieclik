@@ -33,6 +33,13 @@ class Service extends Model
 	{
 		return $this->belongsTo('App\Location', 'location_id');
 	}
+
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable');
+    }
+
+
 // Relationships Ends
 
 	// A small function to DRY up our queries when

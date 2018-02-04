@@ -100,57 +100,12 @@
 		            </ul>
 		            <div class="tab-content">
 		              <div class="tab-pane fade " id="description" role="tabpanel">
-		                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error blanditiis a, deserunt magnam pariatur quam suscipit quae. Veniam, deserunt reprehenderit quasi hic recusandae itaque omnis fugiat animi architecto facilis repellendus. Commodi dolorem, eius consectetur. Amet maiores nemo at nobi s aspernatur velit, sequi odio, a veritatis inventore autem esse provident in? Placeat, sunt!</p>
-		                <p class="mb-30">Iste assumenda, vitae, aliquam excepturi libero quia ullam quisquam tenetur id sint labore. Pariatur praesentium velit, fugit facere maxime voluptates optio qui? Quidem obcaecati necessitatibus rem aspernatur, mollitia, assumenda explicabo numquam minus eos sapiente totam dicta, laborum dolorum! Vitae distinctio quos non ut fugiat.</p>
+		                <p>{{ $service->description }}</p>
 		              </div>
 		              <div class="tab-pane fade show active" id="reviews" role="tabpanel">
 		                <!-- Review-->
 		                <div class="commentz">
-			                <div class="comment">
-			                  <div class="comment-author-ava"><img src="/assets/img/reviews/01.jpg" alt="Review author"></div>
-			                  <div class="comment-body">
-			                    <div class="comment-header d-flex flex-wrap justify-content-between">
-			                    </div>
-			                    <p class="comment-text">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
-			                    <div class="comment-footer"><span class="comment-meta">Francis Burton</span></div>
-			                  </div>
-			                </div>
-			                <div class="comment">
-			                  <div class="comment-author-ava"><img src="/assets/img/reviews/01.jpg" alt="Review author"></div>
-			                  <div class="comment-body">
-			                    <div class="comment-header d-flex flex-wrap justify-content-between">
-			                    </div>
-			                    <p class="comment-text">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
-			                    <div class="comment-footer"><span class="comment-meta">Francis Burton</span></div>
-			                  </div>
-			                </div>
-			                <div class="comment">
-			                  <div class="comment-author-ava"><img src="/assets/img/reviews/01.jpg" alt="Review author"></div>
-			                  <div class="comment-body">
-			                    <div class="comment-header d-flex flex-wrap justify-content-between">
-			                    </div>
-			                    <p class="comment-text">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
-			                    <div class="comment-footer"><span class="comment-meta">Francis Burton</span></div>
-			                  </div>
-			                </div>
-			                <div class="comment">
-			                  <div class="comment-author-ava"><img src="/assets/img/reviews/01.jpg" alt="Review author"></div>
-			                  <div class="comment-body">
-			                    <div class="comment-header d-flex flex-wrap justify-content-between">
-			                    </div>
-			                    <p class="comment-text">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
-			                    <div class="comment-footer"><span class="comment-meta">Francis Burton</span></div>
-			                  </div>
-			                </div>
-			                <div class="comment">
-			                  <div class="comment-author-ava"><img src="/assets/img/reviews/01.jpg" alt="Review author"></div>
-			                  <div class="comment-body">
-			                    <div class="comment-header d-flex flex-wrap justify-content-between">
-			                    </div>
-			                    <p class="comment-text">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
-			                    <div class="comment-footer"><span class="comment-meta">Francis Burton</span></div>
-			                  </div>
-			                </div>
+		                	@if()
 			                <div class="comment">
 			                  <div class="comment-author-ava"><img src="/assets/img/reviews/01.jpg" alt="Review author"></div>
 			                  <div class="comment-body">

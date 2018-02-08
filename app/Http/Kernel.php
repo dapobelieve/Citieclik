@@ -59,5 +59,6 @@ class Kernel extends HttpKernel
         'AuthCheck'=> \App\Http\Middleware\AuthenticMiddleware::class,
         'social'=> \App\Http\Middleware\Social::class,
         'citi_admin'=> \App\Http\Middleware\AdminMiddleware::class,
+        'verified_user'=> \App\Http\Middleware\VerifiedUser::class,
     ];
 } 

@@ -36,6 +36,12 @@ class ServiceController extends Controller
     	return view('service.all')->with('sdata', $serviceData);
     }
 
+    public function getServiceDetails()
+    {
+        return view('pages.servicedetails');
+    }
+
+
     //get Add services page
     public function getAddService()
     {
@@ -95,12 +101,6 @@ class ServiceController extends Controller
         }
         $service->save();
         return redirect()->route('profile.service', ['slug' => $serRequest->user()->slug])->with('info', 'Service Posted Successfully');
-    }
-
-    //Route to get subcategory based on selected category
-    public function getServiceDetails()
-    {
-        return view('pages.servicedetails');
     }
 
     public function getEditService($id)

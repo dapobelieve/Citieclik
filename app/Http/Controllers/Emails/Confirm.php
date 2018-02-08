@@ -9,19 +9,18 @@ use App\User;
 
 class Confirm extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['AuthCheck']);
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware(['AuthCheck']);
+    // }
 
 
     public function getEmailToken(Request $request, Token $token)
     {
-        if($token->user->id == $request->user()->id){
-            User::where('id',$request->user()->id)->update([
+            User::where('id',$token->user->id)->update([
                 'verify' => 1,
             ]);
-        }
-        // dd();
+
+            return view('Mail.verify');
     }
 }

@@ -14,7 +14,7 @@ class ProfileController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['AuthCheck']);
+        $this->middleware(['AuthCheck', 'verified_user']);
     }
 
     private function slugIt($slug)

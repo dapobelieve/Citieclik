@@ -31,6 +31,8 @@ class ConfirmEmail extends Mailable
      */
     public function build()
     {
-        return $this->view('Mail.confirm');
+        return $this->from('confirm@citieclik.com')
+                    ->subject('Email Confirmation')
+                    ->view('Mail.confirm');
     }
 }

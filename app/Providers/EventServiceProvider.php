@@ -15,8 +15,13 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         'App\Events\RequestWasMade' => [
             'App\Listeners\SmsUsers',
-
         ],
+
+        'App\Events\UserRegistered' => [
+            'App\Listeners\EmailConfirm\EmailConfirmation',
+        ],
+
+        
     ];
 
     /**

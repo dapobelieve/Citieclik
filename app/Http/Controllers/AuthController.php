@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 use Auth;
 use Hash;
 use App\User;
+use App\Token;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Funcs\Hasher;
+use App\Events\UserRegistered;
 
 class AuthController extends Controller
 {
@@ -38,26 +41,26 @@ class AuthController extends Controller
     public function postSignup(Request $request)
     {
     	// validating the data
-    	$this->validate($request , [
-            'fname' => 'required|string',
-            'lname' => 'string',
-    		'email' => 'required|unique:users|email|max:255',
-    		'phone' => 'required|unique:users|digits:11',
-    		'password' => 'required|min:6',
-            'password_confirmation' => 'required|same:password'
-    	],
-        [
-            'phone.required' => 'Phone Number Required',
-            'phone.digits' => 'Phone Number must be 11 digits',
-            'fname.required' => 'The first name is required',
-            'lname.required' => 'The last name is required',
-            'lname.string' => 'The last name must be a Word',
-        ]);
+    	// $this->validate($request , [
+     //        'fname' => 'required|string',
+     //        'lname' => 'string',
+    	// 	'email' => 'required|unique:users|email|max:255',
+    	// 	'phone' => 'required|unique:users|digits:11',
+    	// 	'password' => 'required|min:6',
+     //        'password_confirmation' => 'required|same:password'
+    	// ],
+     //    [
+     //        'phone.required' => 'Phone Number Required',
+     //        'phone.digits' => 'Phone Number must be 11 digits',
+     //        'fname.required' => 'The first name is required',
+     //        'lname.required' => 'The last name is required',
+     //        'lname.string' => 'The last name must be a Word',
+     //    ]);
 
         $slug = "@".uniqid();
 
     	// submmiting users details to the db
-    	User::create([
+    	$user = User::create([
             'email' => $request->input('email'),
             'username' => $slug,
             'first_name' => $request->input('fname'),
@@ -67,10 +70,17 @@ class AuthController extends Controller
             'slug'    => $this->slugIt($slug),
     	]);
 
+        //create a token for the user for email confirmation
+        $user->token()->create([
+            'token' => str_random(100), 
+        ]);
+
+        event(new UserRegistered($user));
+
         //automatically log in user
     	if(Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')])){
             return redirect()->route('home')
-                     ->with('success', 'You account has been created successfully!');
+                     ->with('success', 'You account has been created.  Check your mail to complete your registration.');
         } 
     }
 
@@ -99,7 +109,5 @@ class AuthController extends Controller
         Auth::logout();
          return redirect()->route('home');
     }
-
-
 
 }

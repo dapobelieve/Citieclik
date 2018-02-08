@@ -69,7 +69,9 @@ Route::post('/signup', [
 	'uses' => '\App\Http\Controllers\AuthController@postSignup',
 	'as'   => 'auth.signup',
 	'middleware' => ['guest'],
-	]);
+]);
+
+Route::get('/confirm/{token}','Emails\Confirm@getEmailToken')->name('email.token');
 
 Route::post('/signin', [
 	'uses' => '\App\Http\Controllers\AuthController@postSignin',
@@ -293,6 +295,10 @@ Route::post('/comment','Comments\CommentController@store')->name('comment');
 
 
 // Ends Here
+
+
+
+
 
 /*
 |

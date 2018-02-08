@@ -11,6 +11,10 @@ class User extends Authenticatable
     use Notifiable; 
     protected $table = 'users';
 
+    protected $cast = [
+        'verify' => 'boolean'
+    ];
+
     public function getName()
     {
         if($this->first_name){
@@ -44,6 +48,7 @@ class User extends Authenticatable
         'location',
         'slug',
         'image',
+        'verify'
     ];
 
     // a user hasMany services
@@ -103,7 +108,13 @@ class User extends Authenticatable
 
     public function state()
     {
-        return $this->belongsTo('App\State');
+        return $this->belongsTo(State::class);
+    }
+
+    //setup token relationship
+    public function token()
+    {
+        return $this->hasOne(Token::class);
     }
 
     //get services posted by a user

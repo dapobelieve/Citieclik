@@ -63,7 +63,7 @@ Request for a Service
                             <div class="col-sm-12">
                                 <div class="form-group {{ $errors->has('serTitle') ? ' has-error' : '' }}">
                                     <label for="checkout-fn">What Do you Want?</label>
-                                    <input class="form-control" name="serTitle" type="text" placeholder="i need a programmer, hair stylist, barber etc" value="{{ old('serTitle') ?: '' }}" required>
+                                    <input class="form-control" name="serTitle" type="text" placeholder="What Do you Want?" value="{{ old('serTitle') ?: '' }}" required>
                                     @if ($errors->has('serTitle'))
                                         <p class="help-block text-danger"><i class="icon-circle-cross"></i>&nbsp;{{ $errors->first('serTitle') }}</p>
                                         {{-- <span class="help-block"> </span> --}}
@@ -140,31 +140,12 @@ Request for a Service
                                     @endif
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="col-form-label">Select Image</label>
-                                    <div class="">
-                                        <div class="custom-file">
-                                            <input class="custom-file-input form-control-file" name="serImg" type="file" accept="image/*" onchange="preview_image(event)"><span class="custom-file-control"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="col-form-label" for="file-preview">Image Preview</label>
-                                    <img style="width:150px; height:auto " class="d-block mx-auto img-thumbnail mb-3" id="output_image"/>
-                                </div>
-                            </div>
-                        </div>
-                        
+                        </div>                        
                         <div class="row padding-bottom-1x">
                             <div class="col-sm-12">
                                 <div class="form-group {{ $errors->has('description') ? ' has-error' : '' }}">
                                     <label for="checkout-description">Description</label>
-                                    <textarea class="my-editor" name="description" value="" placeholder="Your description goes here...">
+                                    <textarea  name="description" placeholder="Your description goes here..." id="my-editor" >
                                         {{  Request::old('description') ?: ''  }}
                                     </textarea>
                                     @if ($errors->has('description'))
@@ -289,19 +270,19 @@ $('#serCat').change(function(){
 });
 // text editor
 (function() {
-    $('.my-editor').trumbowyg({
+    $('#my-editor').trumbowyg({
         autogrow: true,
         btns: [
             // ['viewHTML'],
             ['formatting'],
             'btnGrp-semantic',
             // ['superscript', 'subscript'],
-            ['link'],
+            // ['link'],
             'btnGrp-justify',
             'btnGrp-lists',
             ['horizontalRule'],
             // ['removeformat'],
-            ['foreColor', 'backColor'],
+            ['backColor'],
             // ['fullscreen']
         ]
     });

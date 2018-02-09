@@ -58,7 +58,7 @@ Welcome | Citieclik
   	</section>
       <!-- Top Categories-->
       <section class="container padding-top-1x text-center">
-        <h3 class="text-center mb-30">Top Categories</h3>
+        <h3 class="text-center mb-30">Explore our top Categories</h3>
         <div class="row justify-content-md-center">
           
           @foreach($cats as $cat)

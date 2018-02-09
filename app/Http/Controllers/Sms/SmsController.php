@@ -29,21 +29,33 @@ class SmsController
         // $this->sender();
     }
 
-    // private function shortenUrl($hash)
-    // {
-    //     $body = '{"longUrl" : "http://localhost:8000/request/".$hash}';
-    //     $client = new Client();
-         
-    //     $response = $client->request('POST','https://www.googleapis.com/urlshortener/v1/url', [
-    //         'headers' => ['Content-Type' => 'application/json'],
-    //         'query' => [
-    //             'key' => 'AIzaSyC6dSgfZmdrjSCFfa4A13dKZwZFTtxJbj0',
-    //         ],
-    //         'body' =>  $body
-    //     ]);
-    // }
+    private function shortenUrl($hash)
+    {
+        $body = '{"longUrl" : ';
+        $body .='"http://localhost:8000/requests/'.$hash;
+        $body .='"}';
+        // dd($body);
 
-    private function sender()
+        $client = new Client();
+         
+        $response = $client->request('POST','https://www.googleapis.com/urlshortener/v1/url', [
+            'headers' => ['Content-Type' => 'application/json'],
+            'query' => [
+                'key' => 'AIzaSyC6dSgfZmdrjSCFfa4A13dKZwZFTtxJbj0',
+            ],
+            'body' =>  $body
+        ]);
+
+     return $response->getBody();
+    }
+
+    public function send($smsTo, $data)
+    {
+        dd($this->shortenUrl($data));
+        // dd($smsTo." ".$data);
+    }
+
+    private function sendSms()
     {
         $client = new Client();
         $message = "Hello, testing the sms service";

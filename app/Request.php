@@ -54,4 +54,15 @@ class Request extends Model
         return $this->belongsTo('App\Location', 'location_id');
     }
 // Relationships Ends
+
+    public function serviceTitle()
+    {
+        return ucwords($this->title);
+    }
+
+    public function serviceDesc()
+    {
+        return htmlentities($this->description);
+        // (string)
+    }
 }

@@ -287,8 +287,6 @@ Route::get('/requests/{serviceRequest}',
 	->name('request.show');
 
 
-
-
 /*
 |
 | Comments Section Starts

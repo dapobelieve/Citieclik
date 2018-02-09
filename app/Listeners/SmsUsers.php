@@ -46,8 +46,6 @@ class SmsUsers
         $sender      = new smser;
         $requestHash = $event->service->hash;
         $smsTo       = $this->subscribedUsers();
-        // dd($event->service->created_at);
-        
-        // dd($event);
+        $sender->send($smsTo,$requestHash);
     }
 }

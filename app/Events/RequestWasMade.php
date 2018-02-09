@@ -28,7 +28,7 @@ class RequestWasMade
     {
         $this->service = $service;
         $this->user = $user;
-        str_random()
+        // str_random()
     }
 
     /**

@@ -100,7 +100,8 @@
 		            </ul>
 		            <div class="tab-content">
 		              <div class="tab-pane fade show active" id="description" role="tabpanel">
-		                <p>{{ $service->description }}</p>
+		                {{-- <p>{{ $service->description }}</p> --}}
+		                <textarea class="my-editor" name="description" value="{{ old('description') ?: ''  }}" placeholder="Your description goes here...">{{ $service->description }}</textarea>
 		              </div>
 		              <div class="tab-pane fade show active" id="reviews" role="tabpanel">
 		                <!-- Review-->
@@ -266,7 +267,7 @@
   	</div>
 @endsection
 
-{{-- @section('script')
+@section('script')
 	<script src="/dist/trumbowyg.min.js"></script>
 	<script type="text/javascript">
 		$('.my-editor').trumbowyg({
@@ -278,4 +279,4 @@
 			hideButtonTexts: true
 		});
 	</script>
-@endsection --}}
+@endsection

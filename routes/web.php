@@ -223,10 +223,6 @@ Route::get('subscription', [
 	'as'   => 'getSubs'
 ]);
 
-// Route::get('subscription/{plan}', [
-// 	'uses' => '\App\Http\Controllers\SubController@show',
-// 	'as'   => 'plan.show'
-// ]);
 /*
 |
 | Subscription Section ends
@@ -274,15 +270,23 @@ Route::get('/profile/{slug}/requests', [
 	'as' => 'profile.request',
 ]);
 
-
-Route::get('/request/add','\App\Http\Controllers\RequestController@getRequestAdd')->name('request.add');
-
-// go to a particular request
-Route::get('/requests/{serviceRequest}','\App\Http\Controllers\RequestController@show')->name('request.show');
-
+// the request page form
+Route::get('/request/add',
+	'\App\Http\Controllers\RequestController@getRequestAdd')
+	->name('request.add');
 
 // /add request
-Route::post('/request/add','\App\Http\Controllers\RequestController@postRequest')->name('request.add');
+Route::post('/request/add',
+	'\App\Http\Controllers\RequestController@postRequest')
+	->name('request.add');
+
+
+// go to a particular request
+Route::get('/requests/{serviceRequest}',
+	'\App\Http\Controllers\RequestController@show')
+	->name('request.show');
+
+
 
 
 /*

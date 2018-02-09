@@ -104,7 +104,8 @@ class RequestController extends Controller
 
     public function show(serviceRequest $serviceRequest)
     {
-        dd($serviceRequest->hash);
+        // dd($serviceRequest);
+        return view('pages.requestdetail');
     }
 
 

@@ -9,7 +9,7 @@ Welcome | Citieclik
   	<section class="hero-slider text-center" style="background-image: url(assets/img/hero-slider/lagos.jpg); color: #fff !important; ">
       <div class="container padding-top-6x">
         <div id="carouselContent" class="carousel slide bg-chrome item" data-ride="carousel">
-          <h1 class="" style="color: #fff !important; text-shadow: 0px 0px 6px rgba(0,0,0,0.4); font-weight: 600;">Buy or Sell a Product or Service with Us</h1>
+          <h1 class="" style="color: #fff !important; text-shadow: 0px 0px 6px rgba(0,0,0,0.4); font-weight: 600;">Connect the City with a Click</h1>
           <div class="carousel-inner text-white align-items-center" role="listbox">
               <div class="row align-items-center carousel-item align-items-center flex-column p-4 text-center">
                   <form class="form-inline text-center padding-bottom-2x" action="{{ route('search.results') }}">
@@ -18,7 +18,7 @@ Welcome | Citieclik
                       <div class="input-group mb-2 mr-sm-2 mb-sm-0" style="margin-right: 0px !important;">
                         <div class="input-group-addon"></div>
                         <select class="form-control form-control-square form-control-lg" id="select-input" name="category">
-                            <option>Category</option>
+                            <option>Select a Category</option>
                           @foreach($cats as $cat)
                                 <option value="{{ $cat->id }}">{{ $cat->category }}</option>
                           @endforeach
@@ -29,7 +29,7 @@ Welcome | Citieclik
                           {{-- <button type="submit"><i class="icon-search"></i></button> --}}
                         </span>
                         <select class="form-control form-control-square form-control-lg" id="select-input" name="state">
-                          <option>state</option>
+                          <option>Pick a Location</option>
                           @foreach($states as $state)
                                 <option value="{{ $state->id }}">{{ $state->state }}</option>
                           @endforeach
@@ -124,7 +124,7 @@ Welcome | Citieclik
 })
 @elseif(Session::has('success'))
   swal({
-    title: "Congratulations",
+    title: "Welcome back",
     text:  "{{Session::get('success')}}",
     type: 'info'
   })

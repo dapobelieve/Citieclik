@@ -1,8 +1,8 @@
 @extends('layout.template')
 @section('style')
      {{-- Summer Note --}}
-  {{-- <link href="/assets/css/bootstrap.min.css" rel="stylesheet"> --}}
   <link href="/dist/ui/trumbowyg.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/dist/plugins/colors/ui/trumbowyg.colors.css"">
   <script type="text/javascript">
           // image previewwer
         function preview_image(event) 
@@ -43,9 +43,9 @@ Request for a Service
             <div class="row">
               <!-- Checkout Adress-->
                 <div class="col-xl-9 col-lg-8">
-                @if(Session::has('error_message') )
-                    {{ Session::get('error_message') }}
-                @endif
+                    @if(Session::has('error_message') )
+                        {{ Session::get('error_message') }}
+                    @endif
                   @if(count($errors) > 0)
                     <div class="alert alert-danger alert-dismissible fade show margin-bottom-1x">
                         <span class="alert-close" data-dismiss="alert"></span><i class="icon-ban"></i>&nbsp;&nbsp;
@@ -181,7 +181,7 @@ Request for a Service
                 </div>
                 <!-- Sidebar          -->
                 <div class="col-xl-3 col-lg-4">
-                    <aside class="sidebar">
+                    {{-- <aside class="sidebar">
                         <div class="padding-top-2x hidden-lg-up"></div>
                         <!-- Order Summary Widget-->
                         <section class="widget widget-order-summary">
@@ -244,7 +244,7 @@ Request for a Service
                                 <h3 class="text-bold text-light text-shadow">Sunglasses</h3><a class="btn btn-outline-white btn-sm" href="shop-grid-ls.html">Shop Now</a>
                             </div>
                         </section>
-                    </aside>
+                    </aside> --}}
                 </div>
             </div>
         </div>
@@ -253,6 +253,7 @@ Request for a Service
 
 @section('script')
 <script src="/dist/trumbowyg.min.js"></script>
+<script src="/dist/plugins/colors/trumbowyg.colors.min.js"></script>
 <script type="text/javascript">
 //script to auto change states and its lgas
 $('#serState').change(function(){
@@ -294,18 +295,19 @@ $('#serCat').change(function(){
             // ['viewHTML'],
             ['formatting'],
             'btnGrp-semantic',
-            ['superscript', 'subscript'],
+            // ['superscript', 'subscript'],
             ['link'],
             'btnGrp-justify',
             'btnGrp-lists',
             ['horizontalRule'],
-            ['removeformat'],
+            // ['removeformat'],
+            ['foreColor', 'backColor'],
             // ['fullscreen']
         ]
     });
 })();
 
-
-$('select').selectize(options);
+// $('select').selectize(options);
 </script>
+
 @endsection

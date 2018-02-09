@@ -104,19 +104,17 @@ Request Details | Citieclik
 	})
 </script>
 <script>
-	// text editor
-(function() {
-    $('.my-editor').trumbowyg({
-		// prefix: 'modern-ui',
-		autogrow: true,
-		btns: [],
-		imageWidthModalEdit: true,
-		disabled: true,
-		hideButtonTexts: true
-	});
-})();
-
-</script>
+	/<script src="/dist/trumbowyg.min.js"></script>
+	<script type="text/javascript">
+		$('.my-editor').trumbowyg({
+			// prefix: 'modern-ui',
+			autogrow: true,
+			btns: [],
+			imageWidthModalEdit: true,
+			disabled: true,
+			hideButtonTexts: true
+		});
+	</script>
 
 
 <script type="text/javascript">

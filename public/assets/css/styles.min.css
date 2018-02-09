@@ -4942,7 +4942,7 @@ video {
     top: 0;
     left: 0;
     width: 100%;
-    min-height: 84px;
+    min-height: 54px;
     border-bottom: 1px solid #e1e7ec;
     background-color: #fff;
     z-index: 9000

@@ -32,9 +32,8 @@ class SmsController
     private function shortenUrl($hash)
     {
         $body = '{"longUrl" : ';
-        $body .='"http://localhost:8000/requests/'.$hash;
-        $body .='"}';
-        // dd($body);
+        $body .= '"http://localhost:8000/requests/'.$hash;
+        $body .= '"}';
 
         $client = new Client();
          
@@ -45,22 +44,24 @@ class SmsController
             ],
             'body' =>  $body
         ]);
+        $shortUrl = json_decode($response->getBody(), true);
 
-     return $response->getBody();
+        return $shortUrl['id'];
     }
 
     public function send($smsTo, $data)
     {
-        dd($this->shortenUrl($data));
+        $link = $this->shortenUrl($data);
+        $this->sendSms($link);
         // dd($smsTo." ".$data);
     }
 
-    private function sendSms()
+    private function sendSms($link)
     {
         $client = new Client();
-        $message = "Hello, testing the sms service";
-        // $numbers = '07037596271,09078081328,07069494803';
-        // implode(glue, pieces)
+        $message = "Hello, testing the sms service. click here ".$link." to view the latest request";
+        $numbers = '09078081328,07069494803,08129615513,';
+        implode(glue, pieces)
 
         $response = $client->post('http://portal.bulksmsnigeria.net/api/?', [
             'verify'    =>  false,

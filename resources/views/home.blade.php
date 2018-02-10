@@ -14,9 +14,12 @@ Welcome | Citieclik
               <div class="row align-items-center carousel-item align-items-center flex-column p-4 text-center">
                   <form class="form-inline text-center padding-bottom-2x" action="{{ route('search.results') }}">
                     <div class="form-group text-center">
-                      <label class="sr-only" for="inlineFormInputGroupUsername2">What are you looking for?</label>
-                      <div class="input-group mb-2 mr-sm-2 mb-sm-0" style="margin-right: 0px !important;">
-                        <div class="input-group-addon"></div>
+                      {{-- <label class="sr-only" for="inlineFormInputGroupUsername2">What are you looking for?</label> --}}
+                      <div class="input-group form-group" style="margin-right: 0px !important;">
+                        {{-- <div class="input-group-addon"></div> --}}
+                        <span class="input-group-btn">
+                          {{-- <button type="submit"><i class="icon-search"></i></button> --}}
+                        </span>
                         <select class="form-control form-control-square form-control-lg" id="select-input" name="category">
                             <option>Select a Category</option>
                           @foreach($cats as $cat)
@@ -54,19 +57,19 @@ Welcome | Citieclik
       </div>
   	</section>
       <!-- Top Categories-->
-      <section class="container padding-top-3x text-center">
-        <h3 class="text-center mb-30">Top Categories</h3>
+      <section class="container padding-top-1x text-center">
+        <h3 class="text-center mb-30">Explore our top Categories</h3>
         <div class="row justify-content-md-center">
           
           @foreach($cats as $cat)
             <div class="col-md-3 col-sm-6">
-              <div class="card mb-30 mybox"><a class="card-img-tiles" href="#">
+              <div class="card mb-30 mybox"><a class="card-img-tiles" href="{{route('category', $cat->slug)}}">
                 <div class="inner">
                   <div class="main-img"><img src="/assets/img/category/{{$cat->image}}" alt="Category"></div>
                 </div></a>
                 <div class="card-block text-center">
                   <h6 class="card-title">{{$cat->category}}</h6>
-                  <a class="" href="{{route('category', $cat->slug)}}">View Category</a>
+                  {{-- <a class="" href="{{route('category', $cat->slug)}}">View Category</a> --}}
                 </div>
               </div>
             </div>

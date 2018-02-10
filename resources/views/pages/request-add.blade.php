@@ -276,7 +276,7 @@ $('#serCat').change(function(){
             // ['viewHTML'],
             ['formatting'],
             'btnGrp-semantic',
-            // ['superscript', 'subscript'],
+            ['superscript', 'subscript'],
             // ['link'],
             'btnGrp-justify',
             'btnGrp-lists',

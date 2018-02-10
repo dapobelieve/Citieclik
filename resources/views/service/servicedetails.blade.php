@@ -32,10 +32,6 @@
 	            	<div class="product-gallery"><span class="product-badge text-danger"></span>
 	              <div class="gallery-wrapper">
 	                <div class="gallery-item active"><a href={{$service->servieImage()}} data-hash="one" data-size="1000x667"></a></div>
-	                {{-- <div class="gallery-item"><a href="img/shop/single/02.jpg" data-hash="two" data-size="1000x667"></a></div>
-	                <div class="gallery-item"><a href="img/shop/single/03.jpg" data-hash="three" data-size="1000x667"></a></div>
-	                <div class="gallery-item"><a href="img/shop/single/04.jpg" data-hash="four" data-size="1000x667"></a></div>
-	                <div class="gallery-item"><a href="img/shop/single/05.jpg" data-hash="five" data-size="1000x667"></a></div> --}}
 	              </div>
 	              <div class="product-carousel owl-carousel">
 		                <div><img src={{$service->servieImage()}} alt="Product"></div>{{-- 
@@ -44,13 +40,6 @@
 		                <div data-hash="four"><img src="/assets/img/shop/single/04.jpg" alt="Product"></div>
 		                <div data-hash="five"><img src="/assets/img/shop/single/05.jpg" alt="Product"></div> --}}
 	              </div>
-	              {{-- <ul class="product-thumbnails">
-	                <li class="active"><a href="#one"><img src="/assets/img/shop/single/th01.jpg" alt="Product"></a></li>
-	                <li><a href="#two"><img src="/assets/img/shop/single/th02.jpg" alt="Product"></a></li>
-	                <li><a href="#three"><img src="/assets/img/shop/single/th03.jpg" alt="Product"></a></li>
-	                <li><a href="#four"><img src="/assets/img/shop/single/th04.jpg" alt="Product"></a></li>
-	                <li><a href="#five"><img src="/assets/img/shop/single/th05.jpg" alt="Product"></a></li>
-	              </ul> --}}
 	            	</div>
 	          	</div>
 	          	<!-- Product Info-->
@@ -103,44 +92,44 @@
 		                {{-- <p>{{ $service->description }}</p> --}}
 		                <textarea class="my-editor" name="description" value="{{ old('description') ?: ''  }}" placeholder="Your description goes here...">{{ $service->description }}</textarea>
 		              </div>
-		              <div class="tab-pane fade show active" id="reviews" role="tabpanel">
-		                <!-- Review-->
-		                <div class="commentz">
-		                	@if($service->comments->count())
-		                		@foreach($service->comments as $comment)
-					                <div class="comment">
-					                  <div class="comment-author-ava"><img src="{{$service->userz->getUserImg()}}" alt="Review author"></div>
-					                  <div class="comment-body">
-					                    <div class="comment-header d-flex flex-wrap justify-content-between">
-					                    </div>
-					                    <p class="comment-text comment-text">{{ $comment->body }}</p>
-					                    <div class="comment-footer">
-					                    	<span class="comment-meta">{{ $comment->user->getFullName() }}</span>
-					                    </div>
-					                  </div>
-					                </div>
-				                @endforeach
-				            @endif
-			            </div>
+		              <div class="tab-pane fade " id="reviews" role="tabpanel">
+		                	<!-- Review-->
+			                <div class="commentz">
+			                	@if($service->comments->count())
+			                		@foreach($service->comments as $comment)
+						                <div class="comment">
+						                  <div class="comment-author-ava"><img src="{{$service->userz->getUserImg()}}" alt="Review author"></div>
+						                  <div class="comment-body">
+						                    <div class="comment-header d-flex flex-wrap justify-content-between">
+						                    </div>
+						                    <p class="comment-text comment-text">{{ $comment->body }}</p>
+						                    <div class="comment-footer">
+						                    	<span class="comment-meta">{{ $comment->user->getFullName() }}</span>
+						                    </div>
+						                  </div>
+						                </div>
+					                @endforeach
+					            @endif
+				            </div>
 
-		                <!-- Review Form-->
-		                {{-- <h5 class="mb-30 padding-top-1x colored">Leave Review</h5> --}}
-		                @if(Auth::check())
-			                <form class="row" action="{{ route('comment')}}" method="POST">
-			                  <div class="col-12">
-			                    <div class="form-group">
-			                      <label for="review_text">Drop your Comments </label>
-			                      <textarea name="comment" class="form-control form-control-rounded" id="review_text" rows="8"  placeholder="Say Something..."></textarea>
-			                      <input type="hidden" name="serviceId" value="{{$service->id}}">
-			                    </div>
-			                  </div>
-			                  <div class="col-12 text-right">
-			                    <button class="btn btn-sm btn-outline-primary" type="submit">Submit Review</button>
-			                  </div>
-			                </form>
-			            @else
-			            	<h5 class="mb-30 padding-top-1x colored">Sign in to Post Comments</h5>
-			            @endif
+			                <!-- Review Form-->
+			                {{-- <h5 class="mb-30 padding-top-1x colored">Leave Review</h5> --}}
+			                @if(Auth::check())
+				                <form class="row" action="{{ route('comment')}}" method="POST">
+				                  <div class="col-12">
+				                    <div class="form-group">
+				                      <label for="review_text">Drop your Comments </label>
+				                      <textarea name="comment" class="form-control form-control-rounded" id="review_text" rows="8"  placeholder="Say Something..."></textarea>
+				                      <input type="hidden" name="serviceId" value="{{$service->id}}">
+				                    </div>
+				                  </div>
+				                  <div class="col-12 text-right">
+				                    <button class="btn btn-sm btn-outline-primary" type="submit">Submit Review</button>
+				                  </div>
+				                </form>
+				            @else
+				            <h5 class="mb-30 padding-top-1x colored">Sign in to Post Comments</h5>
+				            @endif
 		              </div>
 		            </div>
 				</div>

@@ -14,7 +14,7 @@ class SmsController
     public  $SMS_USERNAME;
     private $SMS_PASSWORD;
 
-    public  function setkeys()
+    public function __construct()
     {
         $data  =  Setting::all()->first();
         $this->SMS_USERNAME = $data->sms_api_username;
@@ -61,7 +61,6 @@ class SmsController
         $client = new Client();
         $message = "Hello, testing the sms service. click here ".$link." to view the latest request";
         $numbers = '09078081328,07069494803,08129615513,';
-        implode(glue, pieces)
 
         $response = $client->post('http://portal.bulksmsnigeria.net/api/?', [
             'verify'    =>  false,

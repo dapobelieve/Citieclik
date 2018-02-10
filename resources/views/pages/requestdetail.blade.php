@@ -45,18 +45,15 @@ Request Details | Citieclik
 		      </div> --}}
 		    </div>
 		    <h2 class="padding-top-2x">{{ $requestData->serviceTitle() }}</h2>
-		    <p class="my-editor">
+		    {{-- <p class="my-editor">
 		    	{{ $requestData->serviceDesc() }}
-		    </p>
+		    </p> --}}
+		    <textarea class="my-editor" name="description" value="{{ old('description') ?: ''  }}" placeholder="Your description goes here...">{{ $requestData->serviceDesc() }}</textarea>
+ 	
 		    	
 
 		    <div class="single-post-footer">
 		      <div class="column"><a class="sp-tag" href="#">#design,</a><a class="sp-tag" href="#">&nbsp;#fashion,</a><a class="sp-tag" href="#">&nbsp;#travelling</a></div>
-		      {{-- <div class="column">
-		        <div class="entry-share"><span class="text-muted">Share post:</span>
-		          <div class="share-links"><a class="social-button shape-circle sb-facebook" href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="socicon-facebook"></i></a><a class="social-button shape-circle sb-twitter" href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="socicon-twitter"></i></a><a class="social-button shape-circle sb-instagram" href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="socicon-instagram"></i></a><a class="social-button shape-circle sb-google-plus" href="#" data-toggle="tooltip" data-placement="top" title="Google +"><i class="socicon-googleplus"></i></a></div>
-		        </div>
-		      </div> --}}
 		    </div>
 		  </div>
 		</div>
@@ -67,7 +64,7 @@ Request Details | Citieclik
 
 @section('script')
 
-<script src="/dist/trumbowyg.js"></script>
+<script src="/dist/trumbowyg.min.js"></script>
 <script type="text/javascript">
 //script to auto change states and its lgas
 	$('#serState').change(function(){
@@ -104,17 +101,16 @@ Request Details | Citieclik
 	})
 </script>
 <script>
-	/<script src="/dist/trumbowyg.min.js"></script>
-	<script type="text/javascript">
-		$('.my-editor').trumbowyg({
-			// prefix: 'modern-ui',
-			autogrow: true,
-			btns: [],
-			imageWidthModalEdit: true,
-			disabled: true,
-			hideButtonTexts: true
-		});
-	</script>
+{{-- <script src="/dist/trumbowyg.min.js"></script> --}}
+	$('.my-editor').trumbowyg({
+		// prefix: 'modern-ui',
+		autogrow: true,
+		btns: [],
+		imageWidthModalEdit: true,
+		disabled: true,
+		hideButtonTexts: true
+	});
+</script>
 
 
 <script type="text/javascript">

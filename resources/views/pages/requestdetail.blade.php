@@ -37,7 +37,7 @@ Request Details | Citieclik
 		    <div class="single-post-meta">
 		      <div class="column">
 		        <div class="meta-link"><span>by</span>{{ $requestData->userz->getFullName() }}</div>
-		        <div class="meta-link"><span>in</span><a href="#">Fashion,&nbsp;</a><a href="#">Travel</a></div>
+		        {{-- <div class="meta-link"><span>in</span><a href="#">Fashion,&nbsp;</a><a href="#">Travel</a></div> --}}
 		      </div>
 		      {{-- <div class="column">
 		        <div class="meta-link"><a href="#"><i class="icon-clock"></i>Feb 11, 2017</a></div>
@@ -53,7 +53,7 @@ Request Details | Citieclik
 		    	
 
 		    <div class="single-post-footer">
-		      <div class="column"><a class="sp-tag" href="#">#design,</a><a class="sp-tag" href="#">&nbsp;#fashion,</a><a class="sp-tag" href="#">&nbsp;#travelling</a></div>
+		      {{-- <div class="column"><a class="sp-tag" href="#">#design,</a><a class="sp-tag" href="#">&nbsp;#fashion,</a><a class="sp-tag" href="#">&nbsp;#travelling</a></div> --}}
 		    </div>
 		  </div>
 		</div>
@@ -101,7 +101,6 @@ Request Details | Citieclik
 	})
 </script>
 <script>
-{{-- <script src="/dist/trumbowyg.min.js"></script> --}}
 	$('.my-editor').trumbowyg({
 		// prefix: 'modern-ui',
 		autogrow: true,
@@ -112,9 +111,5 @@ Request Details | Citieclik
 	});
 </script>
 
-
-<script type="text/javascript">
-	$('select').selectize(options);
-</script>
 
 @endsection

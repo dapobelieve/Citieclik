@@ -54,7 +54,11 @@ class User extends Authenticatable
     // a user hasMany services
     public function services()
     {
-        return $this->hasMany('App\Service', 'user_id');
+        return $this->hasMany(Service::class, 'user_id');
+    }
+    public function requests()
+    {
+        return $this->hasMany(Request::class, 'user_id');
     }
     //All about subscriptions
     public function subscriptions()
@@ -121,6 +125,11 @@ class User extends Authenticatable
     public function getUserServices()
     {
         return $this->services()->where('type', 'p')->get();
+    }
+
+    public function getUserReq()
+    {
+        return $this->requests()->get();
     }
 
     // gets the number of posts posted by a user

@@ -55,8 +55,6 @@ class ProfileController extends Controller
     			->with('user', $user);
     }
 
-    // View my requests
-
     public function getEditProfile()
     {
         $user = User::where('id', Auth::user()->id)->first();

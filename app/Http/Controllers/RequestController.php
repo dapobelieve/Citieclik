@@ -102,7 +102,7 @@ class RequestController extends Controller
 
     public function show(serviceRequest $serviceRequest)
     {
-        // dd($serviceRequest);
+        //awesome route model binding here
         return view('pages.requestdetail')->with('requestData', $serviceRequest);
     }
 

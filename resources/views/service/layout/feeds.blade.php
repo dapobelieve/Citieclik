@@ -7,7 +7,7 @@
           <div class="product-card mybox">
             <div class="product-badge text-primary text-bold">{{$data->catty->category}}</div><br>
             <div class="text-right"><small class=" text-black">{{$data->loca->state->state}}</small></div>
-            <a class="product-thumb" href="{{route('service.detail',['username' => $data->userz->username,'slug' => $data->slug])}}"><img src={{$data->servieImage()}} alt="Product"></a>
+            <a class="product-thumb" href="{{route('service.detail',['username' => $data->userz->username,'slug' => $data->slug])}}"><img src={{$data->servieImage()}} alt="Product" height="150"></a>
             <h3 class="product-title"><a href="{{route('service.detail',['username' => $data->userz->username,'slug' => $data->slug])}}">{{$data->title}}</a></h3>
             {{-- <h4 class="product-price">&#8358;49.99</h4> --}}
             <div class="product-buttons">

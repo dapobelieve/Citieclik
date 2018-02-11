@@ -12,7 +12,7 @@ My Requests | Citieclik
           <table class="table table-hover margin-bottom-none">
             <thead>
               <tr>
-                <th>Request hey Name</th>
+                <th>Request Title</th>
                 <th>Date Submitted</th>
                 {{-- <th>Type</th> --}}
                 <th>Priority</th>

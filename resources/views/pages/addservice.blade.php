@@ -292,16 +292,16 @@ Add service | Citieclik
 		imageWidthModalEdit: true,
 		autogrow: true,
 	 	btns: [
-	        ['viewHTML'],
+	        // ['viewHTML'],
 	        ['formatting'],
-	        'btnGrp-semantic',
-	        ['superscript', 'subscript'],
-	        ['link'],
-	        ['btnGrp-justify'],
-	        ['btnGrp-lists'],
-	        ['horizontalRule'],
-	        ['removeformat'],
-	        ['fullscreen']
+            'btnGrp-semantic',
+            ['superscript', 'subscript'],
+            // ['link'],
+            'btnGrp-justify',
+            'btnGrp-lists',
+            ['horizontalRule'],
+            // ['removeformat'],
+            ['backColor'],
 	    ]
 	});
 </script>

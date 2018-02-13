@@ -23,7 +23,7 @@ Edit | Profile
                           <label for="account-fn">First Name</label>
                           <input class="form-control" name="fname" value="{{ Request::old('fname') ?: $user->first_name}}" type="text" id="fname" required >
                           @if($errors->has('fname'))
-                            <span class="help-block">
+                            <span class="help-block formlert">
                               {{$errors->first('fname')}}
                             </span>
                           @endif
@@ -34,7 +34,7 @@ Edit | Profile
                           <label for="account-ln">Last Name</label>
                            <input class="form-control" name="lname" value="{{ Request::old('lname') ?: $user->last_name}}" type="text" id="lname" >
                            @if($errors->has('lname'))
-                              <span class="help-block">
+                              <span class="help-block formlert">
                                 {{$errors->first('lname')}}
                               </span>
                             @endif
@@ -45,7 +45,7 @@ Edit | Profile
                           <label for="account-email">E-mail Address</label>
                           <input class="form-control" name="email" type="email" value="{{ Request::old('email') ?: $user->email}}" id="email" >
                           @if($errors->has('email'))
-                            <span class="help-block">
+                            <span class="help-block formlert">
                               {{$errors->first('email')}}
                             </span>
                           @endif
@@ -56,7 +56,7 @@ Edit | Profile
                           <label for="account-phone">Phone Number</label>
                           <input class="form-control" type="text" name="phone" value="{{ Request::old('phone') ?: $user->phone}}" id="phone" >
                           @if($errors->has('phone'))
-                            <span class="help-block">
+                            <span class="help-block formlert">
                               {{$errors->first('phone')}}
                             </span>
                           @endif
@@ -67,24 +67,26 @@ Edit | Profile
                           <label for="account-pass">Username</label>
                           <input class="form-control" type="text" name="username" value="{{ Request::old('username') ?: $user->username}}" >
                           @if($errors->has('username'))
-                            <span class="help-block">
+                            <span class="help-block formlert">
                               {{$errors->first('username')}}
                             </span>
                           @endif
                         </div>
                       </div>
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label for="account-confirm-pass">Please set a Password</label>
-                          <input class="form-control" type="password" >
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label for="account-confirm-pass">Confirm Password</label>
-                          <input class="form-control" type="password" id="account-confirm-pass">
-                        </div>
-                      </div>
+                      @if(empty($user->password))
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="account-confirm-pass">Please set a Password</label>
+                              <input class="form-control" type="password" >
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="account-confirm-pass">Confirm Password</label>
+                              <input class="form-control" type="password" id="account-confirm-pass">
+                            </div>
+                          </div>
+                      @endif
                       <div class="col-12">
                         <hr class="mt-2 mb-3">
                         <div class="d-flex flex-wrap justify-content-between align-items-center">

@@ -17,6 +17,6 @@ class VerifiedUser
     {
         if(Auth::user()->verify)
             return $next($request);
-        return redirect()->route('home')->with('authMsg', 'Your account has not been verified.');
+        return redirect()->route('home')->with('authMsg', 'Your account has not been verified. Check your mail and click the link sent to you upon registration');
     }
 }

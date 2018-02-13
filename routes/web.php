@@ -327,8 +327,8 @@ Route::get('agents/{agent}', 'Agent\AgentController@index')->name('agent.registe
 Route::post('agent', 'Agent\AgentController@store')->name('agent.register');
 
 
-//get a sales agents profile
-Route::get('agent/{user}','Agent\AgentController@profile')->name('agent.profile');
+//get a sales agents profile only accessible to agents
+Route::get('agent/{user}','Agent\AgentController@profile')->name('agent.profile')->middleware('salesAgent');
 
 /*
 |

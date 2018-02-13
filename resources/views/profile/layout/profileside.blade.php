@@ -20,17 +20,17 @@
   </aside>
   <nav class="list-group">
     @if(Auth::check() && Auth::user()->id == $user->id)
-    <a class="list-group-item {{ Request::is('profile') ? ' active' : ''  }}" href="{{route('profile.edit')}}">
+    <a class="list-group-item {{ Request::is('profile/edit') ? ' active' : ''  }}" href="{{route('profile.edit')}}">
       <i class="icon-head"></i>Edit Profile
     </a>
     @endif
-    <a class="list-group-item {{ Request::is( 'getSubs') ? ' active' : ''  }}" href="{{ route('getSubs') }}">
+    <a class="list-group-item {{ Request::is( 'subscription') ? ' active' : ''  }}" href="{{ route('getSubs') }}">
       <i class="icon-map"></i>Manage Subscriptions
     </a>
-    <a class="list-group-item justify-content-between {{ Request::is( '/services') ? ' active' : ''  }}" href="{{route('profile.service', ['slug' => $user->slug ])}}">
+    <a class="list-group-item justify-content-between {{ Request::is( 'profile/'.$user->slug.'/services') ? ' active' : ''  }}" href="{{route('profile.service', ['slug' => $user->slug ])}}">
       <span><i class="icon-bag"></i>Services</span><span class="badge badge-primary badge-pill">{{$user->getUserServices()->count()}}</span>
     </a>
-    <a class="list-group-item justify-content-between{{ Request::is( 'request') ? ' active' : ''  }}" href="{{ route('profile.request', ['slug' =>$user->slug ]) }}">
+    <a class="list-group-item justify-content-between{{ Request::is( 'profile/'.$user->slug.'/requests') ? ' active' : ''  }}" href="{{ route('profile.request', ['slug' =>$user->slug ]) }}">
       <span><i class="icon-tag"></i>My Requests</span>
       <span class="badge badge-primary badge-pill">{{$user->getUserRequests()->count()}}</span>
     </a>

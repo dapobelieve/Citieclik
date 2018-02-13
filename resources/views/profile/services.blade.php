@@ -59,46 +59,50 @@ Services | Citieclik
                 </table> --}}
               {{-- <div class="slimScroll"> --}}
                   <div class="container service-list">
-                    @foreach($user->getUserServices() as $servy) 
-                        <div class="row">
-                            <div class="col-sm-6 col-md-9">
-                                <div class="product-item"><a class="product-thumb" href="shop-single.html">
-                                    <img src={{$servy->servieImage()}} alt="Service Image"></a>
-                                      <div class="product-info">
-                                        <h4 class="product-title"><a href="shop-single.html">{{$servy->title}}</a></h4>
-                                        <div class="text-lg text-medium text-muted">Category: {{$servy->catty->category}}</div>
-                                        <div>Posted:
-                                          <div class="d-inline text-success">{{$servy->created_at->diffForHumans()}}</div>
-                                        </div>
-                                      </div>
+                    @if($user->getUserServices()->count())
+                        @foreach($user->getUserServices() as $servy) 
+                            <div class="row">
+                                <div class="col-sm-6 col-md-9">
+                                    <div class="product-item"><a class="product-thumb" href="shop-single.html">
+                                        <img src={{$servy->servieImage()}} alt="Service Image"></a>
+                                          <div class="product-info">
+                                            <h4 class="product-title"><a href="shop-single.html">{{$servy->title}}</a></h4>
+                                            <div class="text-lg text-medium text-muted">Category: {{$servy->catty->category}}</div>
+                                            <div>Posted:
+                                              <div class="d-inline text-success">{{$servy->created_at->diffForHumans()}}</div>
+                                            </div>
+                                          </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-sm-3 col-md-3" style="padding-left:100px">
-                                 @if(Auth::check() && Auth::user()->id == $user->id)
-                                    <span class="dropdown">
-                                        <!-- three dots -->
-                                        <ul style="cursor:pointer" class="dropbtn icons btn-right showLeft" >
-                                            <li></li>
-                                            <li></li>
-                                            <li></li>
-                                        </ul>
-                                         <div class="dropdown-menu  mybox" style="min-width:0rem; margin-top 12rem"  aria-labelledby="dropdownMenuButton dropdown-menu-left">
-                                         <form method="GET" action="{{route('service.edit', $servy->id)}}">
-                                             <input class="dropdown-item text-primary" style="cursor:pointer" type="submit" value="Edit">
-                                             {{csrf_field()}}
-                                         </form>
-                                         <hr>
-                                         <form method="POST" class="deletey" action="{{route('service.delete', $servy->id)}}">
-                                             <input class="dropdown-item text-danger" style="cursor:pointer" type="submit" value="Delete">
-                                             {{method_field('DELETE')}}
-                                             {{csrf_field()}}
-                                         </form>
-                                        </div>
-                                    </span>
-                                @endif
-                            </div>
-                        </div> 
-                    @endforeach
+                                <div class="col-sm-3 col-md-3" style="padding-left:100px">
+                                     @if(Auth::check() && Auth::user()->id == $user->id)
+                                        <span class="dropdown">
+                                            <!-- three dots -->
+                                            <ul style="cursor:pointer" class="dropbtn icons btn-right showLeft" >
+                                                <li></li>
+                                                <li></li>
+                                                <li></li>
+                                            </ul>
+                                             <div class="dropdown-menu  mybox" style="min-width:0rem; margin-top 12rem"  aria-labelledby="dropdownMenuButton dropdown-menu-left">
+                                             <form method="GET" action="{{route('service.edit', $servy->id)}}">
+                                                 <input class="dropdown-item text-primary" style="cursor:pointer" type="submit" value="Edit">
+                                                 {{csrf_field()}}
+                                             </form>
+                                             <hr>
+                                             <form method="POST" class="deletey" action="{{route('service.delete', $servy->id)}}">
+                                                 <input class="dropdown-item text-danger" style="cursor:pointer" type="submit" value="Delete">
+                                                 {{method_field('DELETE')}}
+                                                 {{csrf_field()}}
+                                             </form>
+                                            </div>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div> 
+                        @endforeach
+                    @else
+                        <h2>No Services </h2>
+                    @endif
                   </div>
                 {{-- </div> --}}
                 <br>

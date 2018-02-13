@@ -3,6 +3,27 @@
   src: url('/assets/css/fonts/proxima.ttf');
 }
 
+.small-nav {
+  display: inline-flex;
+}
+
+.sagent {
+  text-decoration: none;
+}
+
+.dparent {
+	display: grid;
+	grid-template-columns: repeat(10, 1fr);
+}
+
+.pikin {
+	grid-column: 2 / 10;
+}
+
+.agent-form {
+	border: 1px solid red;
+}
+
 .my-c {
   display: flex;
 }

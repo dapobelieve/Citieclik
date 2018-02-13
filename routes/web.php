@@ -317,5 +317,20 @@ Route::get('admin/users', 'Admin\UsersController@index')->name('admin.users');
 |
 */
 
+/*
+|
+| Agent Section Starts
+|
+*/
+
+Route::get('agent/{agent}', 'Agent\AgentController@index')->name('agent.register');
+Route::post('agent', 'Agent\AgentController@store')->name('agent.register');
+
+/*
+|
+| Agent Section Starts
+|
+*/
+
 // Homepage Search
 Route::get('/search', 'SearchController@getResult')->name('search.results');

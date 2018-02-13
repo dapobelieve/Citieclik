@@ -121,7 +121,7 @@ Welcome | Citieclik
 <script type="text/javascript">
  @if(Session::has('authMsg'))
   swal({
-  title: "oops not allowed",
+  title: "Alert",
   text: "{{ Session::get('authMsg')}}",
   type: 'warning'
 })

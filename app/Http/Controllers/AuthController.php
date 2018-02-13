@@ -1,6 +1,7 @@
 <?php
-
 namespace App\Http\Controllers;
+
+
 use Auth;
 use Hash;
 use App\User;
@@ -25,11 +26,6 @@ class AuthController extends Controller
 
         return $slug;
     }
-
-    // public function username()
-    // {
-    //     return 'phone';
-    // }
 
 
     public function getSignup()
@@ -75,7 +71,16 @@ class AuthController extends Controller
             'token' => str_random(100), 
         ]);
 
-        event(new UserRegistered($user));
+        // email user for verification
+        // event(new UserRegistered($user));
+
+        //if the user tick the agent box create a record for him
+        if($request->input('agent')){
+
+            $user->agent()->create([
+                'code' => Hasher::getHashedToken(30),
+            ]);
+        }
 
         //automatically log in user
     	if(Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')])){

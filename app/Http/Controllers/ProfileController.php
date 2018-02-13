@@ -93,7 +93,6 @@ class ProfileController extends Controller
             'fname.required'  => 'The first name is required',
             'lname.string'    => 'The last name must be a Word',
         ]);
-        // $slug = "@".uniqid();
 
         // submmiting users details to the db
         Auth::user()->update([

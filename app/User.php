@@ -23,6 +23,13 @@ class User extends Authenticatable
         return null;
     }
 
+
+    // an agent has only 1 record in the agents table
+    public function agent()
+    {
+        return $this->hasOne(Agent::class);
+    }
+
     public function getUsername()
     {
         return ucwords($this->username);
@@ -48,7 +55,8 @@ class User extends Authenticatable
         'location',
         'slug',
         'image',
-        'verify'
+        'verify',
+        'ag_id'
     ];
 
     // a user hasMany services

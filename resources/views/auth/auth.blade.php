@@ -142,6 +142,13 @@ Create Account
                   @endif
                 </div>
               </div>
+              <div class="d-flex flex-wrap justify-content-between padding-bottom-1x">
+                <label class="custom-control custom-checkbox">
+                  <input class="custom-control-input" name="agent" type="checkbox" ><span class="custom-control-indicator"></span><span class="custom-control-description">Register as a 
+                  <a href="#" data-toggle="tooltip" data-placement="top" title="Learn More" class="sagent">Sales Agent</a>
+                  </span>
+                </label>{{-- <a class="navi-link" href="#">Forgot password?</a> --}}
+              </div>
               <div class="col-12 text-center text-sm-right">
                 <button class="btn btn-primary margin-bottom-none" type="submit">Register</button>
               </div>

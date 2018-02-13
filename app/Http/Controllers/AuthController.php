@@ -37,21 +37,21 @@ class AuthController extends Controller
     public function postSignup(Request $request)
     {
     	// validating the data
-    	// $this->validate($request , [
-     //        'fname' => 'required|string',
-     //        'lname' => 'string',
-    	// 	'email' => 'required|unique:users|email|max:255',
-    	// 	'phone' => 'required|unique:users|digits:11',
-    	// 	'password' => 'required|min:6',
-     //        'password_confirmation' => 'required|same:password'
-    	// ],
-     //    [
-     //        'phone.required' => 'Phone Number Required',
-     //        'phone.digits' => 'Phone Number must be 11 digits',
-     //        'fname.required' => 'The first name is required',
-     //        'lname.required' => 'The last name is required',
-     //        'lname.string' => 'The last name must be a Word',
-     //    ]);
+    	$this->validate($request , [
+            'fname' => 'required|string',
+            'lname' => 'string',
+    		'email' => 'required|unique:users|email|max:255',
+    		'phone' => 'required|unique:users|digits:11',
+    		'password' => 'required|min:6',
+            'password_confirmation' => 'required|same:password'
+    	],
+        [
+            'phone.required' => 'Phone Number Required',
+            'phone.digits' => 'Phone Number must be 11 digits',
+            'fname.required' => 'The first name is required',
+            'lname.required' => 'The last name is required',
+            'lname.string' => 'The last name must be a Word',
+        ]);
 
         $slug = "@".uniqid();
 

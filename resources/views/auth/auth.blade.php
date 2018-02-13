@@ -47,7 +47,7 @@ Create Account
               <div class="form-group input-group">
                 <input class="form-control" type="text" name="phone1" placeholder="Phone Number" ><span class="input-group-addon"><i class="icon-mail"></i></span>
                 @if($errors->has('phone1'))
-                  <span class="help-block">
+                  <span class="help-block formlert">
                     {{$errors->first('phone1')}}
                   </span>
                 @endif
@@ -55,7 +55,7 @@ Create Account
               <div class="form-group input-group">
                 <input class="form-control" type="password" name="password1" placeholder="Password" ><span class="input-group-addon"><i class="icon-lock"></i></span>
                 @if($errors->has('password1'))
-                  <span class="help-block">
+                  <span class="help-block formlert">
                     {{$errors->first('password1')}}
                   </span>
                 @endif
@@ -81,7 +81,7 @@ Create Account
                   <label for="reg-fn">First Name</label>
                   <input class="form-control" name="fname" value="{{ Request::old('fname') ?: ''}}" type="text" id="fname" >
                   @if($errors->has('fname'))
-                    <span class="help-block">
+                    <span class="help-block formlert">
                       {{$errors->first('fname')}}
                     </span>
                   @endif
@@ -92,7 +92,7 @@ Create Account
                   <label for="reg-ln">Last Name</label>
                   <input class="form-control" name="lname" value="{{ Request::old('lname') ?: ''}}" type="text" id="lname" >
                   @if($errors->has('lname'))
-                    <span class="help-block">
+                    <span class="help-block formlert">
                       {{$errors->first('lname')}}
                     </span>
                   @endif
@@ -103,7 +103,7 @@ Create Account
                   <label for="reg-email">E-mail Address</label>
                   <input class="form-control" name="email" value="{{ Request::old('email') ?: ''}}" type="email" id="email" >
                   @if($errors->has('email'))
-                    <span class="help-block">
+                    <span class="help-block formlert">
                       {{$errors->first('email')}}
                     </span>
                   @endif
@@ -114,7 +114,7 @@ Create Account
                   <label for="reg-phone">Phone Number</label>
                   <input class="form-control" type="text"  name="phone" value="{{ Request::old('phone') ?: ''}}" id="phone" >
                   @if($errors->has('phone'))
-                    <span class="help-block">
+                    <span class="help-block formlert">
                       {{$errors->first('phone')}}
                     </span>
                   @endif
@@ -125,7 +125,7 @@ Create Account
                   <label for="reg-pass">Password</label>
                   <input class="form-control" type="password" name="password" id="password" >
                   @if($errors->has('password'))
-                    <span class="help-block">
+                    <span class="help-block formlert">
                       {{$errors->first('password')}}
                     </span>
                   @endif
@@ -136,7 +136,7 @@ Create Account
                   <label for="reg-pass-confirm">Confirm Password</label>
                   <input class="form-control" type="password" name="password_confirmation" id="password_confirmation" >
                   @if($errors->has('password_confirmation'))
-                    <span class="help-block">
+                    <span class="help-block formlert">
                       {{$errors->first('password_confirmation')}}
                     </span>
                   @endif
@@ -145,7 +145,8 @@ Create Account
               <div class="d-flex flex-wrap justify-content-between padding-bottom-1x">
                 <label class="custom-control custom-checkbox">
                   <input class="custom-control-input" name="agent" type="checkbox" ><span class="custom-control-indicator"></span><span class="custom-control-description">Register as a 
-                  <a href="#" data-toggle="tooltip" data-placement="top" title="Learn More" class="sagent">Sales Agent</a>
+                  <a href="#" style="color: #15ca13" class="sagent">Sales Agent</a> |
+                  <a class="sagent" data-toggle="tooltip" data-placement="top" title="Learn More" href="#">Who is a Sales Agent ?</a>
                   </span>
                 </label>{{-- <a class="navi-link" href="#">Forgot password?</a> --}}
               </div>

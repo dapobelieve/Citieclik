@@ -34,6 +34,11 @@
       <span><i class="icon-tag"></i>My Requests</span>
       <span class="badge badge-primary badge-pill">{{$user->getUserRequests()->count()}}</span>
     </a>
+    @if(Auth::user()->agent())
+        <a class="list-group-item {{ Request::is( 'subscription') ? ' active' : ''  }}" href="{{ route('getSubs') }}">
+          <i class="icon-map"></i>Manage Subscriptions
+        </a>
+    @endif
   </nav>
 </div>
 

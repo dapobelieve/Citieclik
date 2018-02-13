@@ -15,6 +15,11 @@ class User extends Authenticatable
         'verify' => 'boolean'
     ];
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     public function getName()
     {
         if($this->first_name){
@@ -28,6 +33,17 @@ class User extends Authenticatable
     public function agent()
     {
         return $this->hasOne(Agent::class);
+    }
+
+    public function isAgent()
+    {
+        return (bool) $this->agent()->where('status', 1)->count();
+    }
+
+    public function downLiners()
+    {
+        $users = User::where('ag_id', $this->id)->get();
+        return $users;
     }
 
     public function getUsername()

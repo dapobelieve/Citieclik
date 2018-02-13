@@ -34,9 +34,9 @@
       <span><i class="icon-tag"></i>My Requests</span>
       <span class="badge badge-primary badge-pill">{{$user->getUserRequests()->count()}}</span>
     </a>
-    @if(Auth::user()->agent())
-        <a class="list-group-item {{ Request::is( 'subscription') ? ' active' : ''  }}" href="{{ route('getSubs') }}">
-          <i class="icon-map"></i>Manage Subscriptions
+    @if(Auth::user()->isAgent())
+        <a class="list-group-item {{ Request::is( 'agent/'.$user->slug) ? ' active' : ''  }}" href="{{ route('agent.profile', ['slug' => $user->slug ]) }}">
+          <i class="icon-users"></i>Agent Mode
         </a>
     @endif
   </nav>

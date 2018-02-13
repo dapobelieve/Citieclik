@@ -323,8 +323,12 @@ Route::get('admin/users', 'Admin\UsersController@index')->name('admin.users');
 |
 */
 
-Route::get('agent/{agent}', 'Agent\AgentController@index')->name('agent.register');
+Route::get('agents/{agent}', 'Agent\AgentController@index')->name('agent.register');
 Route::post('agent', 'Agent\AgentController@store')->name('agent.register');
+
+
+//get a sales agents profile
+Route::get('agent/{user}','Agent\AgentController@profile')->name('agent.profile');
 
 /*
 |

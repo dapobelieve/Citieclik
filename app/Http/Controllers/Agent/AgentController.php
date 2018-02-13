@@ -9,6 +9,7 @@ use App\Http\Controllers\Funcs\Slug;
 use App\Events\UserRegistered;
 use App\Agent;
 use App\User;
+use Auth;
 use Hash;
 
 class AgentController extends Controller
@@ -17,6 +18,9 @@ class AgentController extends Controller
 
     public function index(Agent $agent)
     {
+        if($agent->status != 1){
+            return redirect()->route('home')->with('authMsg', 'Inactive Link');
+        }
         return view('agent.index')->with('agentToken', $agent);
     }
 
@@ -81,5 +85,17 @@ class AgentController extends Controller
             return redirect()->route('home')
                      ->with('success', 'You account has been created.  Check your mail to complete your registration.');
         } 
+    }
+
+    public function profile(User $user)
+    { 
+        if(!$user->isAgent()){
+           return redirect()->route('home');
+        }
+        
+        return view('agent.profile')->with('user', $user);
+        //i used Auth here cos i want to return on detials related
+        // ti the currently authenticated user
+        // dd(Auth::user()->downLiners());
     }
 }

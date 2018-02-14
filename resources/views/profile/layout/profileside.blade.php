@@ -35,7 +35,7 @@
       <span class="badge badge-primary badge-pill">{{$user->getUserRequests()->count()}}</span>
     </a>
     @if(Auth::user()->isAgent())
-        <a class="list-group-item {{ Request::is( 'agent/'.$user->slug) ? ' active' : ''  }}" href="{{ route('agent.profile', ['slug' => $user->slug ]) }}">
+        <a class="list-group-item {{ Request::is( 'agent/'.Auth::user()->slug) ? ' active' : ''  }}" href="{{ route('agent.profile', ['slug' => Auth::user()->slug ]) }}">
           <i class="icon-check text-success"></i>Agent Dashboard
         </a>
     @endif

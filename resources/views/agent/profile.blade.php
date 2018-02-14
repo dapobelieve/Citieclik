@@ -35,11 +35,11 @@ Sales Agent | Citieclik
                   </tr>
                 </thead>
                 <tbody>
-                    @foreach(Auth::user()->downLiners() as $user )
+                    @foreach(Auth::user()->downLiners() as $downliner )
                       <tr>
-                        <td>{{ $user->username }}</td>
+                        <td>{{ $downliner->username }}</td>
                         <td>
-                            @if($user->isSubscribed())
+                            @if($downliner->isSubscribed())
                             {{ 'good' }}
                                 <span class="label label-success">Subscribed</span>
                             @endif

@@ -36,7 +36,7 @@
     </a>
     @if(Auth::user()->isAgent())
         <a class="list-group-item {{ Request::is( 'agent/'.$user->slug) ? ' active' : ''  }}" href="{{ route('agent.profile', ['slug' => $user->slug ]) }}">
-          <i class="icon-users"></i>Agent Mode
+          <i class="icon-check text-success"></i>Agent Dashboard
         </a>
     @endif
   </nav>

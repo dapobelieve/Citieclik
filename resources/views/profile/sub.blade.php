@@ -13,13 +13,17 @@ Subscription | CitieClik
               <strong>Info: </strong>{{Session('pay-message')}}
             </div>
         @endif
-        <div class="alert alert-primary alert-dismissible fade show text-center margin-bottom-1x">
-          {{-- <span class="alert-close" data-dismiss="alert"></span> --}}
-          @if($user->isSubscribed())
-                You are currently subscribed to the "<strong>{{ $user->getPlan()->plan }}</strong>" plan.
-          @else
-                <strong>Info:</strong> You are currently not subscribed to any plan
-          @endif
+        {{--  --}}
+        <div class="card card-inverse card-{{ $user->isSubscribed() ? 'success' : 'danger'}} text-center mb-2">
+              <div class="card-block">
+                 @if($user->isSubscribed())
+                    <h6 class="card-title">You are currently subscribed to the "<strong>{{ $user->getPlan()->plan }}</strong>" plan.</h6>
+                    {{-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> --}}
+                    @else
+                         <h6 class="card-title"> <strong>Info:</strong> You are currently not subscribed to any plan</h6>
+                    {{-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> --}}
+                    @endif
+              </div>
         </div>
         <h6 class="text-muted text-normal text-uppercase padding-top-2x mt-2">Subscriptions</h6>
             <hr class="margin-bottom-1x">

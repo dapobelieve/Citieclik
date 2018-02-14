@@ -16,7 +16,7 @@ class SalesAgentMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if(!Auth::user()->isAgent())
+        if(Auth::check() && !Auth::user()->isAgent())
             return redirect()->route('home');
         return $next($request);
     }

@@ -94,8 +94,5 @@ class AgentController extends Controller
         }
         
         return view('agent.profile')->with('user', $user);
-        //i used Auth here cos i want to return on detials related
-        // ti the currently authenticated user
-        // dd(Auth::user()->downLiners());
     }
 }

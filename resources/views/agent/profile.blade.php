@@ -16,8 +16,8 @@ Sales Agent | Citieclik
             <h6 class="text-muted text-normal text-uppercase padding-top-2x mt-2"></h6>
             {{-- <hr class="margin-bottom-1x"> --}}
             <ul class="nav nav-tabs" role="tablist">
-              <li class="nav-item"><a class="nav-link active" href="#archive" data-toggle="tab" role="tab"><i class="icon-help"></i>Help</a></li>
-              <li class="nav-item"><a class="nav-link" href="#profile5" data-toggle="tab" role="tab"><i class="icon-graph"></i>Downlines</a></li>
+              <li class="nav-item"><a class="nav-link " href="#archive" data-toggle="tab" role="tab"><i class="icon-help"></i>Help</a></li>
+              <li class="nav-item"><a class="nav-link active" href="#profile5" data-toggle="tab" role="tab"><i class="icon-graph"></i>Downlines</a></li>
               <li class="nav-item"><a class="nav-link" href="#settings5" data-toggle="tab" role="tab"><i class="icon-cog"> </i>Settings</a></li>
             </ul>
             <div class="tab-content">
@@ -29,7 +29,7 @@ Sales Agent | Citieclik
               <table class="table table-hover">
                 <thead>
                   <tr>
-                    <th>{{Auth::user()->getFullName()}}</th>
+                    <th>Users</th>
                     <th>Status (Plan)</th>
                     <th>Actions</th>
                   </tr>
@@ -37,11 +37,12 @@ Sales Agent | Citieclik
                 <tbody>
                     @foreach(Auth::user()->downLiners() as $downliner )
                       <tr>
-                        <td>{{ $downliner->username }}</td>
+                        <td>{{ $downliner->getFullName() }}</td>
                         <td>
                             @if($downliner->isSubscribed())
-                            {{ 'good' }}
-                                <span class="label label-success">Subscribed</span>
+                                Subscribed
+                            @else
+                                Not Subscribed
                             @endif
 
                         </td>

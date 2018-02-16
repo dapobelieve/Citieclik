@@ -42,8 +42,5 @@ class TestController extends Controller
      //    $userServices = Auth::user()->getNumberOfPosts();
 
      //    dd((int)$sumPlans);
-
-
-
     }
 }

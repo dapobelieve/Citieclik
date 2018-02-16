@@ -42,8 +42,7 @@ class User extends Authenticatable
 
     public function downLiners()
     {
-        $users = User::where('ag_id', $this->id)->get();
-        return $users;
+        return User::where('ag_id', $this->id)->get();
     }
 
     public function getUsername()
@@ -94,6 +93,14 @@ class User extends Authenticatable
     public function isSubscribed()
     {
         return (bool) $this->subscriptions()->where('status', 1)->count();
+    }
+
+    public function isUserSubscribed($id)
+    {
+        return (bool) $this->subscriptions()->where([
+            ['status', 1],
+            ['user_id', $id]
+        ])->count();
     }
 
     public function getActiveSubscription()

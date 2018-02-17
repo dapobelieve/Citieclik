@@ -9,8 +9,8 @@ Sales Agent | Citieclik
         <div class="col-lg-8">
             <h6 class="text-muted text-normal text-uppercase padding-top-2x mt-2"></h6>
             <div class="alert alert-image-bg alert-dismissible fade show text-center " style="background-image: url(/assets/img/banners/alert-bg.jpg);">
-              <div class="h5 text-medium text-white padding-top-1x padding-bottom-1x"><i class="icon-clock" style="font-size: 33px; margin-top: -5px;"></i>&nbsp;&nbsp;Check our Limited Offers. Save up to 50%&nbsp;&nbsp;&nbsp;
-                <div class="mt-3 hidden-xl-up"></div><a class="btn btn-primary" href="#">View Offers</a>
+              <div class="h5 text-medium text-white padding-top-1x padding-bottom-1x"><i class="icon-clock" style="font-size: 33px; margin-top: -5px;"></i>&nbsp;&nbsp;Agents Link would be displayed here
+                <div class="mt-3 hidden-xl-up"></div><a class="btn btn-primary" href="#">Link Status (active/inactive)</a>
               </div>
             </div>
             <h6 class="text-muted text-normal text-uppercase padding-top-2x mt-2"></h6>
@@ -54,7 +54,8 @@ Sales Agent | Citieclik
             </div>
               </div>
               <div class="tab-pane fade" id="settings5" role="tabpanel">
-                <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater. Lomo wolf viral, mustache readymade thundercats keffiyeh craft beer marfa ethical. Wolf salvia freegan.</p>
+                {{-- a vue component ;) --}}
+                <test></test> 
               </div>
             </div>
         </div>

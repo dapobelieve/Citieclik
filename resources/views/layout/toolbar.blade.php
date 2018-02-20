@@ -21,8 +21,8 @@
       @if(!Auth::check())
         <div class="toolbar">
           <div class="inner">
-            <div class="tools">
-              <a href="{{route('signup')}}">Login</a>
+            <div class="tools ">
+              <a href="{{route('signup')}}" class="sagent">Sign up</a>
             </div>
           </div>
         </div>

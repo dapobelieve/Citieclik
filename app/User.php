@@ -15,12 +15,34 @@ class User extends Authenticatable
         'verify' => 'boolean'
     ];
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     public function getName()
     {
         if($this->first_name){
             return ucwords($this->first_name);
         }
         return null;
+    }
+
+
+    // an agent has only 1 record in the agents table
+    public function agent()
+    {
+        return $this->hasOne(Agent::class);
+    }
+
+    public function isAgent()
+    {
+        return (bool) $this->agent()->where('status', 1)->count();
+    }
+
+    public function downLiners()
+    {
+        return User::where('ag_id', $this->id)->get();
     }
 
     public function getUsername()
@@ -48,7 +70,8 @@ class User extends Authenticatable
         'location',
         'slug',
         'image',
-        'verify'
+        'verify',
+        'ag_id'
     ];
 
     // a user hasMany services
@@ -70,6 +93,14 @@ class User extends Authenticatable
     public function isSubscribed()
     {
         return (bool) $this->subscriptions()->where('status', 1)->count();
+    }
+
+    public function isUserSubscribed($id)
+    {
+        return (bool) $this->subscriptions()->where([
+            ['status', 1],
+            ['user_id', $id]
+        ])->count();
     }
 
     public function getActiveSubscription()

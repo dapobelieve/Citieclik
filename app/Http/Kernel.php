@@ -60,5 +60,6 @@ class Kernel extends HttpKernel
         'social'=> \App\Http\Middleware\Social::class,
         'citi_admin'=> \App\Http\Middleware\AdminMiddleware::class,
         'verified_user'=> \App\Http\Middleware\VerifiedUser::class,
+        'salesAgent'=> \App\Http\Middleware\SalesAgentMiddleware::class,
     ];
 } 

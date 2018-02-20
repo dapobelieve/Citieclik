@@ -1,6 +1,7 @@
 <?php
-
 namespace App\Http\Controllers;
+
+
 use Auth;
 use Hash;
 use App\User;
@@ -26,11 +27,6 @@ class AuthController extends Controller
         return $slug;
     }
 
-    // public function username()
-    // {
-    //     return 'phone';
-    // }
-
 
     public function getSignup()
     {
@@ -41,21 +37,21 @@ class AuthController extends Controller
     public function postSignup(Request $request)
     {
     	// validating the data
-    	// $this->validate($request , [
-     //        'fname' => 'required|string',
-     //        'lname' => 'string',
-    	// 	'email' => 'required|unique:users|email|max:255',
-    	// 	'phone' => 'required|unique:users|digits:11',
-    	// 	'password' => 'required|min:6',
-     //        'password_confirmation' => 'required|same:password'
-    	// ],
-     //    [
-     //        'phone.required' => 'Phone Number Required',
-     //        'phone.digits' => 'Phone Number must be 11 digits',
-     //        'fname.required' => 'The first name is required',
-     //        'lname.required' => 'The last name is required',
-     //        'lname.string' => 'The last name must be a Word',
-     //    ]);
+    	$this->validate($request , [
+            'fname' => 'required|string',
+            'lname' => 'string',
+    		'email' => 'required|unique:users|email|max:255',
+    		'phone' => 'required|unique:users|digits:11',
+    		'password' => 'required|min:6',
+            'password_confirmation' => 'required|same:password'
+    	],
+        [
+            'phone.required' => 'Phone Number Required',
+            'phone.digits' => 'Phone Number must be 11 digits',
+            'fname.required' => 'The first name is required',
+            'lname.required' => 'The last name is required',
+            'lname.string' => 'The last name must be a Word',
+        ]);
 
         $slug = "@".uniqid();
 
@@ -75,7 +71,16 @@ class AuthController extends Controller
             'token' => str_random(100), 
         ]);
 
-        event(new UserRegistered($user));
+        // email user for verification
+        // event(new UserRegistered($user));
+
+        //if the user tick the agent box create a record for him
+        if($request->input('agent')){
+
+            $user->agent()->create([
+                'code' => Hasher::getHashedToken(30),
+            ]);
+        }
 
         //automatically log in user
     	if(Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')])){
@@ -101,7 +106,7 @@ class AuthController extends Controller
     		return redirect()->back()->with('success','Could not sign you in. Invalid Details');
     	}
 
-    	return redirect()->route('home')->with('success','You are now signed in');
+    	return redirect()->route('home')->with('success','');
     } 
 
     public function getSignout()

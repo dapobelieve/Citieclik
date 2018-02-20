@@ -1,7 +1,7 @@
 <?php
 
 // For testing purposes
-// Route::get('/test', 'TestController@index')->name('test');
+Route::get('/test', 'TestController@lete')->name('test');
 
 // ends here
 /*
@@ -314,6 +314,25 @@ Route::get('admin/users', 'Admin\UsersController@index')->name('admin.users');
 /*
 |
 | Admin Section Ends
+|
+*/
+
+/*
+|
+| Agent Section Starts
+|
+*/
+
+Route::get('agents/{agent}', 'Agent\AgentController@index')->name('agent.register');
+Route::post('agent', 'Agent\AgentController@store')->name('agent.register');
+
+
+//get a sales agents profile only accessible to agents
+Route::get('agent/{user}','Agent\AgentController@profile')->name('agent.profile')->middleware('salesAgent');
+
+/*
+|
+| Agent Section Starts
 |
 */
 

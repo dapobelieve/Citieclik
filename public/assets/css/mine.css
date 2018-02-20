@@ -3,6 +3,50 @@
   src: url('/assets/css/fonts/proxima.ttf');
 }
 
+@font-face {
+  font-family: "feather";
+  src: url('/assets/fonts/feather-webfont.ttf') format('truetype'),
+}
+
+.icon {
+  font-family: 'feather' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.small-nav {
+  display: inline-flex;
+}
+
+.formlert {
+  color: red;
+}
+
+.sagent {
+  text-decoration: none;
+}
+
+.dparent {
+	display: grid;
+	grid-template-columns: repeat(10, 1fr);
+}
+
+.pikin {
+	grid-column: 2 / 10;
+}
+
+.agent-form {
+	border: 1px solid red;
+}
+
 .my-c {
   display: flex;
 }

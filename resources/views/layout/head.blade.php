@@ -18,7 +18,6 @@
     <link rel="stylesheet" media="screen" href="/assets/css/vendor.min.css">
     <!-- Main Template Styles-->
     <link id="mainStyles" rel="stylesheet" media="screen" href="/assets/css/styles.min.css">
-    <link id="mainStyles" rel="stylesheet" media="screen" href="/assets/css/styles.min.css">
     <link rel="stylesheet" media="screen" href="/assets/css/mine.css">
     <link rel="stylesheet" media="screen" href="/assets/css/sweetalert.css">
    

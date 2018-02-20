@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Middleware;
-use Auth;
-use Closure;
 
-class VerifiedUser
+use Closure;
+use Auth;
+
+class SalesAgentMiddleware
 {
     /**
      * Handle an incoming request.
@@ -15,8 +16,8 @@ class VerifiedUser
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::user()->verify)
-            return $next($request);
-        return redirect()->route('home')->with('authMsg', 'Your account has not been verified. Check your mail and click the link sent to you upon registration');
+        if(Auth::check() && !Auth::user()->isAgent())
+            return redirect()->route('home');
+        return $next($request);
     }
 }

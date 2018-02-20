@@ -113,7 +113,7 @@
      @include('layout.toolbar')
     </header>
     <!-- Off-Canvas Wrapper-->
-    <div class="offcanvas-wrapper">
+    <div id="app" class="offcanvas-wrapper">
       <!-- Page Content-->
       @yield('content')
       <!-- Site Footer-->
@@ -182,6 +182,7 @@
     <!-- Backdrop-->
     <div class="site-backdrop"></div>
     <!-- JavaScript (jQuery) libraries, plugins and custom scripts-->
+    <script src="{{ asset('js/app.js') }}"></script>
     <script src="/assets/js/vendor.min.js"></script>
     <script src="/assets/js/scripts.min.js"></script>
     <script src="/assets/js/sweetalert.min.js"></script>

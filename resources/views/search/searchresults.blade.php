@@ -26,27 +26,41 @@ Services | Citieclik
       <div class="container padding-bottom-3x mb-1">
         <div class="row hereIt">
           <!-- Products-->
-          <div class="col-xl-9 col-lg-8 push-xl-3 push-lg-4">
+          <div class="col-xl-9 col-lg-8">
             <!-- Shop Toolbar-->
-            <div class="shop-toolbar padding-bottom-1x mb-2">
+            {{-- <div class="shop-toolbar padding-bottom-1x mb-2">
               <div class="column">
                 @include('service.layout.state-filter')
               </div>
               <div class="column">
-                  {{--  --}}
               </div>
-            </div>
+            </div> --}}
             <!-- Products Grid-->
             @if (!$sdata->count())
-              <h1>We could not find any, please search for another</h1>
+              <h4>We could not find any, please search for another</h4>
             @else
-              <h1>We found {{ $sdata->count() }} results</h1>
-              @include('service.layout.feeds')
+              <h4>We found {{ $sdata->count() }} results</h4>
+              @include('search.template.results')
             @endif
           </div>
           <!-- Sidebar          -->
-          <div class="col-xl-3 col-lg-4 pull-xl-9 pull-lg-8">
-            @include('service.layout.cat-filter')
+          <div class="col-xl-3 col-lg-4">
+            <aside class="sidebar">
+              <div class="padding-top-2x hidden-lg-up"></div>
+              <section class="promo-box" style="background-image: url(img/banners/02.jpg);"><span class="overlay-dark" style="opacity: .4;"></span>
+                <div class="promo-box-content text-center padding-top-2x padding-bottom-2x">
+                    <h4 class="text-light text-thin text-shadow">New Collection of</h4>
+                    <h3 class="text-bold text-light text-shadow">Sunglasses</h3><a class="btn btn-outline-white btn-sm" href="#">Shop Now</a>
+                </div>
+              </section>
+              <div class="clearfix mb-30"></div>
+              <section class="promo-box" style="background-image: url(img/banners/02.jpg);"><span class="overlay-dark" style="opacity: .4;"></span>
+                <div class="promo-box-content text-center padding-top-2x padding-bottom-2x">
+                    <h4 class="text-light text-thin text-shadow">New Collection of</h4>
+                    <h3 class="text-bold text-light text-shadow">Sunglasses</h3><a class="btn btn-outline-white btn-sm" href="#">Shop Now</a>
+                </div>
+              </section>
+            </aside>
           </div>
         </div>
       </div>

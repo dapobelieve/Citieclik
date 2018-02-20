@@ -96,7 +96,7 @@ class ServiceController extends Controller
         //here i check if an image is in the 
         //image field and upload it to cloudinary
         if($serRequest->hasFile('serImg')){
-            $this->uploadPicture($serRequest, array("width" => 100, "height" => 150, "crop" => "limit", "html_height" => 150));
+            $this->uploadPicture($serRequest, array("height"=>50, "crop"=>"mfit", "html_height" => 50));
             $service->image = $this->imgObj;
         }
         $service->save();

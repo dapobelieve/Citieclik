@@ -6,9 +6,6 @@ Services | Citieclik
 @endsection
 
 @section('style')
-<link rel="stylesheet" type="text/css" href="/assets/css/slimscroll.css">
-
-<script type="text/javascript" src="/assets/js/slim.js"></script>
 
  <style>
         *{margin: 0;padding:0px}

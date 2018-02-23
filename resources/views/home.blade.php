@@ -127,7 +127,7 @@ Welcome | Citieclik
 })
 @elseif(Session::has('success'))
   swal({
-    title: "Welcome back",
+    title: "{{Session::get('title')}}",
     text:  "{{Session::get('success')}}",
     type: 'info'
   })

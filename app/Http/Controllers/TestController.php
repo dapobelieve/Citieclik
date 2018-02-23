@@ -43,4 +43,9 @@ class TestController extends Controller
 
      //    dd((int)$sumPlans);
     }
+
+    public function getMail()
+    {
+        return view('Mail.verify');
+    }
 }

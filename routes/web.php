@@ -1,7 +1,7 @@
 <?php
 
 // For testing purposes
-Route::get('/test', 'TestController@lete')->name('test');
+Route::get('/test', 'TestController@getMail')->name('test');
 
 // ends here
 /*

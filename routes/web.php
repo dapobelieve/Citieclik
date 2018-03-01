@@ -323,6 +323,9 @@ Route::get('admin/users', 'Admin\UsersController@index')->name('admin.users');
 |
 */
 
+Route::get('salesagents', 'Agent\AgentController@getPage')->name('salesagent.register');
+
+
 Route::get('agents/{agent}', 'Agent\AgentController@index')->name('agent.register');
 Route::post('agent', 'Agent\AgentController@store')->name('agent.register');
 

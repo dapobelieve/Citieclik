@@ -24,6 +24,11 @@ class AgentController extends Controller
         return view('agent.index')->with('agentToken', $agent);
     }
 
+    public function getPage()
+    {
+        return view('agent.register');
+    }
+
     public function store(Request $request)
     {  
         //1. check if that link exists

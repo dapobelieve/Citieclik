@@ -79,7 +79,21 @@ Welcome | Citieclik
           @endforeach
         </div>
       </section>
-
+      <section class="container-fluid">
+        <div class="row">
+          <div class=" col-lg-12 ">
+            <div class="fw-section rounded padding-top-4x padding-bottom-4x" style="background-image: url(/assets/img/banners/home02.jpg);"><span class="overlay rounded" style="opacity: .35;"></span>
+              <div class="text-center">
+                <h3 class="display-4 text-normal text-white text-shadow mb-1">Become a </h3>
+                <h2 class="display-2 text-bold text-white text-shadow">SALES AGENT</h2>
+                <h4 class="d-inline-block h2 text-normal text-white text-shadow border-default border-left-0 border-right-0 mb-4">Earn on CitiClik</h4><br>
+                <a class="btn mybtn " href="{{ route('salesagent.register') }}">Register</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+        <br>
       <section class="padding-bottom-none">
           
           <div id="particles-js" class="container-fluid row col-md-12 padding-bottom-2x mybg" style="color: #fff !important; margin-left: 0px !important;">
@@ -101,16 +115,7 @@ Welcome | Citieclik
             <h4 style="color: #fff !important; ">Add Services & Request</h4>
             <p class="text-muted margin-bottom-none" style="color: #fff !important;">Add your own services or apply to requests</p>
           </div>
-        </div>
-        <div class="alert alert-image-bg fade show text-center " style="
-        background-image: url(/assets/img/account/alert-bg.jpg);
-        padding-right: 12px;
-        padding-left: 12px;">
-              <div class="h3 text-medium text-white padding-top-1x padding-bottom-1x">
-                <i class="icon-clock" style="font-size: 33px; margin-top: -5px;"></i>&nbsp;&nbsp;Earn With CitiClik. Become a Sales Agent
-                <a class="btn btn-primary" href="#">Learn More</a>
-              </div>
-        </div>
+        </div>       
         <script type="text/javascript" src="/assets/js/particles.js" ></script>
         <script type="text/javascript" src="/assets/js/app.js" ></script>
       </section>

@@ -41,7 +41,7 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Username</th>
-                                        <th>Last Name</th>
+                                        <th>Status</th>
                                         <th>Username</th>
                                     </tr>
                                 </thead>

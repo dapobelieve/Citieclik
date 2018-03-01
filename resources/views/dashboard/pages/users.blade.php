@@ -52,17 +52,6 @@
                                         </tr>
                                     @endforeach
                                 </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th>Id</th>
-                                        <th>Firstname</th>
-                                        <th>Lastname</th>
-                                        <th>Username</th>
-                                        <th>Phone No</th>
-                                        <th>Email</th>
-                                        <th>Date Joined</th>
-                                    </tr>
-                                </tfoot>
                             </table>
                         </div>
                     </div>
@@ -88,27 +77,7 @@
 
 
 <script type="text/javascript">
-    // $(document).ready(function (){
-    //     $('#simpletable').DataTable( {
-    //         // dom: 'Bfrtip',
-    //         // buttons: [
-    //         //         {
-    //         //             extend: 'copyHtml5',
-    //         //             exportOptions: {
-    //         //              columns: ':contains("Office")'
-    //         //             }
-    //         //         },
-    //         //         {
-    //         //             extend: 'pdfHtml5',
-    //         //             message: 'PDF created by PDFMake with Buttons for DataTables.'
-    //         //         },
-    //         //         'excelHtml5',
-    //         //         'csvHtml5',
-    //         //         'pdfHtml5',
-    //         //         'print'
-    //         //     ]
-    //     });
-    // });
+
     $(document).ready(function (){
         $('#simpletable').DataTable({
             dom: 'lBfrtip',

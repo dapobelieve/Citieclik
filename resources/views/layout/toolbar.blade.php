@@ -22,7 +22,7 @@
         <div class="toolbar">
           <div class="inner">
             <div class="tools ">
-              <a href="{{route('signup')}}" class="sagent">Sign up</a>
+              <a href="{{route('signup')}}" class="sagent">Sign up / Sign in</a>
             </div>
           </div>
         </div>

@@ -45,12 +45,6 @@ Welcome | Citieclik
                     </div>
                     {{-- <button type="submit" class="btn btn-square btn-primary">Submit</button> --}}
                   </form>
-{{--                   <form class="form-inline text-center">
-                    <div class="col-xs-12 form-group">
-                      <div class="col-xs-6"><button class="btn btn-danger mybox">Request Service</button></div>
-                      <div class="col-xs-6"><button class="btn btn-primary mybox">View Request</button></div>
-                    </div>
-                  </form> --}}
               </div>
           </div>
         </div>

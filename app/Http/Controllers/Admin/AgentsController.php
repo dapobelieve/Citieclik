@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 
 use App\User;
 
-class UsersController extends Controller
+class AgentsController extends Controller
 {
     public function __construct()
     {
@@ -17,7 +17,10 @@ class UsersController extends Controller
 
     public function index()
     {
-    	$users = User::get();
-        return view('dashboard.pages.users')->with('users', $users);
+        //select all users that have an agent record
+        $agents = User::has('agent')->get();
+
+
+        return view('dashboard.pages.agents')->with('agents',$agents);
     }
 }

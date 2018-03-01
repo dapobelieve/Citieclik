@@ -106,7 +106,7 @@ class AuthController extends Controller
     		return redirect()->back()->with('success','Could not sign you in. Invalid Details');
     	}
 
-    	return redirect()->route('home')->with('success','');
+    	return redirect()->route('home');
     } 
 
     public function getSignout()

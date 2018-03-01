@@ -1,14 +1,10 @@
 <!DOCTYPE html>
-<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
-<!--[if !IE]><!-->
-<html lang="en">
-    <!--<![endif]-->
 
-    
-<!-- Mirrored from htmlcoder.me/preview/the_project/v.1.0/template/page-signup-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 21 May 2015 07:18:01 GMT -->
+<html lang="en">
+
 <head>
         <meta charset="utf-8">
-        <title>The Project | Page Sign Up Fullscreen</title>
+        <title>Sales Agent | Registeration</title>
         <meta name="description" content="The Project a Bootstrap-based, Responsive HTML5 Template">
         <meta name="author" content="htmlcoder.html">
 

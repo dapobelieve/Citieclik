@@ -16,8 +16,10 @@
 .mybtn {
   font-size: 16px;
   color: #ffffff;
-  background: #4FC3F7 ;
-  box-shadow: 0, 2px, 0, 0 !important;
+  background: #4FC3F7;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 2px 0 0 #316CB0;
 }
 
 .icon {

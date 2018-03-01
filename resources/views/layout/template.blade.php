@@ -48,77 +48,7 @@
     </div>
     <!-- Navbar-->
     <!-- Remove ".navbar-sticky" class to make navigation bar scrollable with the page.-->
-    <header class="navbar navbar-sticky">
-      <!-- Search-->
-      <form class="site-search" method="get">
-        <input type="text" name="site_search" placeholder="Type to search...">
-        <div class="search-tools"><span class="clear-search">Clear</span><span class="close-search"><i class="icon-cross"></i></span></div>
-      </form>
-      <div class="site-branding">
-        <div class="inner">
-          {{-- <!-- Off-Canvas Toggle (#shop-categories)--><a class="offcanvas-toggle cats-toggle" href="#shop-categories" data-toggle="offcanvas"></a> --}}
-          <!-- Off-Canvas Toggle (#mobile-menu)--><a class="offcanvas-toggle menu-toggle" href="#mobile-menu" data-toggle="offcanvas"></a>
-          <!-- Site Logo--><a class="site-logo" href="/"><img src="/assets/img/logo/logo_bw.png" alt="Citieclik"></a>
-        </div>
-      </div>
-      <!-- Main Navigation-->
-      <nav class="site-menu">
-        <ul>
-          <li class="{{ Request::is('/') ? 'active' : '' }}"><a href="/"><span>Products</span></a>
-          </li>
-          <li class="{{ Request::is('service') ? 'active' : '' }} has-megamenu"><a href="{{route('service')}}"><span>Services</span></a>
-            <ul class="mega-menu">
-              <li><span class="mega-menu-title">Top Categories</span>
-                <section class="promo-box" style="background-image: url(img/banners/02.jpg);"><span class="overlay-dark" style="opacity: .4;"></span>
-                  <div class="promo-box-content text-center padding-top-2x padding-bottom-2x">
-                    <h4 class="text-light text-thin text-shadow">New Collection of</h4>
-                    <h3 class="text-bold text-light text-shadow">Sunglasses</h3><a class="btn btn-sm btn-primary" href="#">Shop Now</a>
-                  </div>
-                </section>
-              </li>
-              <li><span class="mega-menu-title">Specialty Shops</span>
-                <section class="promo-box" style="background-image: url(img/banners/02.jpg);"><span class="overlay-dark" style="opacity: .4;"></span>
-                  <div class="promo-box-content text-center padding-top-2x padding-bottom-2x">
-                    <h4 class="text-light text-thin text-shadow">New Collection of</h4>
-                    <h3 class="text-bold text-light text-shadow">Sunglasses</h3><a class="btn btn-sm btn-primary" href="#">Shop Now</a>
-                  </div>
-                </section>
-              </li>
-              <li><span class="mega-menu-title">Top Categories</span>
-                <section class="promo-box" style="background-image: url(img/banners/02.jpg);"><span class="overlay-dark" style="opacity: .4;"></span>
-                  <div class="promo-box-content text-center padding-top-2x padding-bottom-2x">
-                    <h4 class="text-light text-thin text-shadow">New Collection of</h4>
-                    <h3 class="text-bold text-light text-shadow">Sunglasses</h3><a class="btn btn-sm btn-primary" href="#">Shop Now</a>
-                  </div>
-                </section>
-              </li>
-              <li><span class="mega-menu-title">Specialty Shops</span>
-                <section class="promo-box" style="background-image: url(img/banners/03.jpg);">
-                  <!-- Choose between .overlay-dark (#000) or .overlay-light (#fff) with default opacity of 50%. You can overrride default color and opacity values via 'style' attribute.--><span class="overlay-dark" style="opacity: .45;"></span>
-                  <div class="promo-box-content text-center padding-top-2x padding-bottom-2x">
-                    <h3 class="text-bold text-light text-shadow">Limited Offer</h3>
-                    <h4 class="text-light text-thin text-shadow">save up to 50%!</h4><a class="btn btn-sm btn-primary" href="#">Learn More</a>
-                  </div>
-                </section>
-              </li>
-            </ul>
-          </li>
-          {{-- <li><a href="#"><span>Account</span></a> --}}
-            <ul class="sub-menu">
-                <li><a href="{{route('signup')}}">Login / Register</a></li>
-                <li><a href="account-orders.html">Orders List</a></li>
-                <li><a href="account-wishlist.html">Wishlist</a></li>
-                <li><a href="account-profile.html">Profile Page</a></li>
-                <li><a href="account-address.html">Contact / Shipping Address</a></li>
-                <li><a href="account-tickets.html">My Tickets</a></li>
-            </ul>
-          </li>
-          
-        </ul>
-      </nav>
-      <!-- Toolbar-->
-     @include('layout.toolbar')
-    </header>
+    
     <!-- Off-Canvas Wrapper-->
     <div id="app" class="offcanvas-wrapper">
       <!-- Page Content-->

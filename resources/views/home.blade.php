@@ -25,6 +25,9 @@ Welcome | Citieclik
                           @foreach($cats as $cat)
                                 <option value="{{ $cat->id }}">{{ $cat->category }}</option>
                           @endforeach
+                          @foreach($cats as $cat)
+                                <option value="{{ $cat->id }}">{{ $cat->category }}</option>
+                          @endforeach
                         </select>
                       </div>
                       <div class="input-group form-group" method="get" style="margin-right: 0px !important;">
@@ -98,6 +101,15 @@ Welcome | Citieclik
             <h4 style="color: #fff !important; ">Add Services & Request</h4>
             <p class="text-muted margin-bottom-none" style="color: #fff !important;">Add your own services or apply to requests</p>
           </div>
+        </div>
+        <div class="alert alert-image-bg fade show text-center " style="
+        background-image: url(/assets/img/account/alert-bg.jpg);
+        padding-right: 12px;
+        padding-left: 12px;">
+              <div class="h3 text-medium text-white padding-top-1x padding-bottom-1x">
+                <i class="icon-clock" style="font-size: 33px; margin-top: -5px;"></i>&nbsp;&nbsp;Earn With CitiClik. Become a Sales Agent
+                <a class="btn btn-primary" href="#">Learn More</a>
+              </div>
         </div>
         <script type="text/javascript" src="/assets/js/particles.js" ></script>
         <script type="text/javascript" src="/assets/js/app.js" ></script>

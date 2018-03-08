@@ -25,32 +25,36 @@
          </div>
          --}}
       </div>
-      <div id="pcoded" class="pcoded">
-         <div class="pcoded-overlay-box"></div>
-         <div class="pcoded-container navbar-wrapper">
-            @include('dashboard.layouts.navbar-header')
-            <div class="pcoded-main-container">
-               <div class="pcoded-wrapper">
-                  @include('dashboard.layouts.sidenav')
-                  <div class="pcoded-content">
-                     <div class="pcoded-inner-content">
-                        <div class="main-body">
-                           <div class="page-wrapper">
-                              
-                                  @yield('admin-content')
-                             
-                           </div>
-                           {{-- 
-                           <div id="styleSelector"> </div>
-                           --}}
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
+      <div id="app">
+          <div id="pcoded" class="pcoded">
+             <div class="pcoded-overlay-box"></div>
+             <div class="pcoded-container navbar-wrapper">
+                @include('dashboard.layouts.navbar-header')
+                <div class="pcoded-main-container">
+                   <div class="pcoded-wrapper">
+                      @include('dashboard.layouts.sidenav')
+                      <div class="pcoded-content">
+                         <div class="pcoded-inner-content">
+                            <div class="main-body">
+                               <div class="page-wrapper">
+                                  
+                                      @yield('admin-content')
+                                 
+                               </div>
+                               {{-- 
+                               <div id="styleSelector"> </div>
+                               --}}
+                            </div>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>
       </div>
       
+
+      <script src="{{ asset('js/app.js') }}"></script>
       <script src="/assets2/bower_components/jquery/js/jquery.min.js"></script>
       {{-- <script src="/assets2/bower_components/jquery-ui/js/jquery-ui.min.js"></script> --}}
       <script src="/assets2/bower_components/popper.js/js/popper.min.js"></script>

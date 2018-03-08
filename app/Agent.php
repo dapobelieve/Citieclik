@@ -13,8 +13,8 @@ class Agent extends Model
         return 'code';
     }
 
-    // public function user()
-    // {
-    //     return $this->hasMany(User::class);
-    // }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

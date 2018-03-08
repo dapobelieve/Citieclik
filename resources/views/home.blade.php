@@ -15,26 +15,21 @@ Welcome | Citieclik
                   <form class="form-inline text-center padding-bottom-2x" action="{{ route('search.results') }}">
                     <div class="form-group text-center">
                       {{-- <label class="sr-only" for="inlineFormInputGroupUsername2">What are you looking for?</label> --}}
-                      <div class="input-group form-group" style="margin-right: 0px !important;">
+                      <div class="input-group form-group" style="margin-right: 2px !important;">
                         {{-- <div class="input-group-addon"></div> --}}
-                        <span class="input-group-btn">
-                          {{-- <button type="submit"><i class="icon-search"></i></button> --}}
-                        </span>
-                        <select class="form-control form-control-square form-control-lg" id="select-input" name="category">
-                            <option>Select a Category</option>
-                          @foreach($cats as $cat)
-                                <option value="{{ $cat->id }}">{{ $cat->category }}</option>
-                          @endforeach
-                          @foreach($cats as $cat)
-                                <option value="{{ $cat->id }}">{{ $cat->category }}</option>
-                          @endforeach
+                        <select class="form-control" onchange="getCats(this.value)" id="select-input" name="category">
+                                <option>Select a Category</option>
+                                <option value="products">Products</option>
+                                <option value="services">Services</option>
                         </select>
                       </div>
+                      <div class="input-group form-group" style="margin-right: 2px !important;">
+                        {{-- <div class="input-group-addon"></div> --}}
+                        <span id="sList2"></span>
+                        
+                      </div>
                       <div class="input-group form-group" method="get" style="margin-right: 0px !important;">
-                        <span class="input-group-btn">
-                          {{-- <button type="submit"><i class="icon-search"></i></button> --}}
-                        </span>
-                        <select class="form-control form-control-square form-control-lg" id="select-input" name="state">
+                        <select class="form-control " id="select-input" name="state">
                           <option>Pick a Location</option>
                           @foreach($states as $state)
                                 <option value="{{ $state->id }}">{{ $state->state }}</option>
@@ -43,7 +38,7 @@ Welcome | Citieclik
                         {{-- <input class="form-control form-control-square form-control-lg" type="email" placeholder="Location"> --}}
                       </div>
                           <div class="col-auto">
-                            <button type="submit" class="btn btn-primary btn-lg btn-square mybox"><i class="icon-search"></i> Search</button>
+                            <button type="submit" class="btn btn-primary "><i class="icon-search"></i> Search</button>
                           </div>
                     </div>
                     {{-- <button type="submit" class="btn btn-square btn-primary">Submit</button> --}}
@@ -86,7 +81,7 @@ Welcome | Citieclik
               <div class="text-center">
                 <h3 class="display-4 text-normal text-white text-shadow mb-1">Become a </h3>
                 <h2 class="display-2 text-bold text-white text-shadow">SALES AGENT</h2>
-                <h4 class="d-inline-block h2 text-normal text-white text-shadow border-default border-left-0 border-right-0 mb-4">Earn on CitiClik</h4><br>
+                <h4 class="d-inline-block h2 text-normal text-white text-shadow border-default border-left-0 border-right-0 mb-4">Earn on CitieClik</h4><br>
                 <a class="mybtn btn btn-rounded" href="{{ route('salesagent.register') }}"><i class="icon-signal"></i>&nbsp;Get Started</a>
               </div>
             </div>
@@ -149,6 +144,28 @@ Welcome | Citieclik
     type: 'info'
   })
 @endif
+</script>
+<script>
+
+    data = {
+        'products' : ['product1','product2','product3','product4','product5'],
+        'services' : ['service1','service2','service3','service4','service5']
+    }
+    
+    function getCats(section)
+    {
+        // alert(data[section]);
+        // document.getElementById('sList');
+        var selectData = `<select class="form-control" name="subCat">
+                            <option value="">---</option>`;
+        for( var i=0; i<data[section].length; i++){
+            selectData += `<option value="${data[section][i]}">${data[section][i]}</option>`;
+        }
+
+        selectData += `</select>`;
+
+        document.getElementById('sList2').insertAdjacentHTML('beforeend', selectData);
+    }
 </script>
 
 @stop

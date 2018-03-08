@@ -315,7 +315,6 @@ Route::get('admin/users', 'Admin\UsersController@index')->name('admin.users');
 Route::get('admin/agents', 'Admin\AgentsController@index')->name('admin.agents');
 
 
-Route::get('admin/get-users', 'Admin\UsersController@getUsers')->name('get-users');
 
 /*
 |

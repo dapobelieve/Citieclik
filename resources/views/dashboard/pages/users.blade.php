@@ -51,8 +51,9 @@
                                             <td>{{ $user->created_at->diffForHumans() }}</td>
                                         </tr>
                                     @endforeach
+
                                 </tbody>
-                                <tfoot>
+                                {{-- <tfoot>
                                     <tr>
                                         <th>Id</th>
                                         <th>Firstname</th>
@@ -62,7 +63,7 @@
                                         <th>Email</th>
                                         <th>Date Joined</th>
                                     </tr>
-                                </tfoot>
+                                </tfoot> --}}
                             </table>
                         </div>
                     </div>
@@ -79,6 +80,7 @@
 
 {{-- JS for this page --}}
 @section('admin-scripts')
+<<<<<<< HEAD
 <script src="/assets2/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="/assets2/bower_components/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
 <script src="/assets2/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
@@ -132,5 +134,11 @@
         });
     });
 </script>
+=======
+    <script src="/assets2/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="/assets2/bower_components/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="/assets2/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="/assets/js/citi-admin.js"></script>
+>>>>>>> admin
 
 @stop

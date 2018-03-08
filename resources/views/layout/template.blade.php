@@ -48,7 +48,70 @@
     </div>
     <!-- Navbar-->
     <!-- Remove ".navbar-sticky" class to make navigation bar scrollable with the page.-->
-    
+    <header class="navbar navbar-sticky">
+      <!-- Search-->
+      <form class="site-search" method="get">
+        <input type="text" name="site_search" placeholder="Type to search...">
+        <div class="search-tools"><span class="clear-search">Clear</span><span class="close-search"><i class="icon-cross"></i></span></div>
+      </form>
+      <div class="site-branding">
+        <div class="inner">
+          {{-- <!-- Off-Canvas Toggle (#shop-categories)--><a class="offcanvas-toggle cats-toggle" href="#shop-categories" data-toggle="offcanvas"></a> --}}
+          <!-- Off-Canvas Toggle (#mobile-menu)--><a class="offcanvas-toggle menu-toggle" href="#mobile-menu" data-toggle="offcanvas"></a>
+          <!-- Site Logo--><a class="site-logo" href="/"><img src="/assets/img/logo/logo_bw.png" alt="Citieclik"></a>
+        </div>
+      </div>
+      <!-- Main Navigation-->
+      <nav class="site-menu">
+        <ul>
+          <li class="{{ Request::is('/') ? 'active' : '' }}"><a href="/"><span>Products</span></a>
+          </li>
+          <li class="{{ Request::is('service') ? 'active' : '' }}"><a href="{{route('service')}}"><span>Services</span></a>
+            {{-- <ul class="sub-menu">
+              <li><a href="category">Categories</a></li>
+              <li class="has-children"><a href="shop-grid-ls.html"><span>Shop Grid</span></a>
+                <ul class="sub-menu">
+                    <li><a href="shop-grid-ls.html">Grid Left Sidebar</a></li>
+                    <li><a href="shop-grid-rs.html">Grid Right Sidebar</a></li>
+                    <li><a href="shop-grid-ns.html">Grid No Sidebar</a></li>
+                </ul>
+              </li>
+              <li class="has-children"><a href="shop-list-ls.html"><span>Shop List</span></a>
+                <ul class="sub-menu">
+                    <li><a href="shop-list-ls.html">List Left Sidebar</a></li>
+                    <li><a href="shop-list-rs.html">List Right Sidebar</a></li>
+                    <li><a href="shop-list-ns.html">List No Sidebar</a></li>
+                </ul>
+              </li>
+                <li><a href="shop-single.html">Single Product</a></li>
+                <li><a href="cart.html">Cart</a></li>
+              <li class="has-children"><a href="checkout-address.html"><span>Checkout</span></a>
+                <ul class="sub-menu">             
+                    <li><a href="checkout-address.html">Address</a></li>
+                    <li><a href="checkout-shipping.html">Shipping</a></li>
+                    <li><a href="checkout-payment.html">Payment</a></li>
+                    <li><a href="checkout-review.html">Review</a></li>
+                    <li><a href="checkout-complete.html">Complete</a></li>
+                </ul>
+              </li>
+            </ul> --}}
+          </li>
+          {{-- <li><a href="#"><span>Account</span></a> --}}
+            <ul class="sub-menu">
+                <li><a href="{{route('signup')}}">Login / Register</a></li>
+                <li><a href="account-orders.html">Orders List</a></li>
+                <li><a href="account-wishlist.html">Wishlist</a></li>
+                <li><a href="account-profile.html">Profile Page</a></li>
+                <li><a href="account-address.html">Contact / Shipping Address</a></li>
+                <li><a href="account-tickets.html">My Tickets</a></li>
+            </ul>
+          </li>
+          
+        </ul>
+      </nav>
+      <!-- Toolbar-->
+     @include('layout.toolbar')
+    </header>
     <!-- Off-Canvas Wrapper-->
     <div id="app" class="offcanvas-wrapper">
       <!-- Page Content-->

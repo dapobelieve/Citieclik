@@ -3,13 +3,13 @@
 		<div class="pcoded-inner-navbar main-menu">
 			<div class="pcoded-navigation-label">Navigation</div>
 			<ul class="pcoded-item pcoded-left-item">
-					<li class="pcoded-hasmenu active pcoded-trigger">
+					<li class="pcoded-hasmenu {{ Request::is( 'dashboard' ) ? ' active' : ''  }}  pcoded-trigger">
 						<a href="{{ route('admin.home') }}">
 							<span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
 							<span class="pcoded-mtext">Dashboard</span>
 						</a>
 					</li>
-					<li class="pcoded-hasmenu pcoded-trigger">
+					<li class="pcoded-hasmenu {{ Request::is( 'admin/users' ) ? ' active' : ''  }} pcoded-trigger">
 						<a href="{{ route('admin.users') }}">
 							<span class="pcoded-micon"><i class="ti-user"></i><b>D</b></span>
 							<span class="pcoded-mtext">Users</span>
@@ -46,5 +46,6 @@
                         </ul>
 					</li> --}}
 				</ul>
+					</li>
 		</div>
 	</nav>

@@ -11,7 +11,6 @@
                 <div class="card-block">
                    <h6 class="m-b-20">Registered Users</h6>
                    <h2 class="text-right"><i class="ti-user f-left"></i><span>{{ $users->count() }}</span></h2>
-                   {{-- <p class="m-b-0">Completed Orders<span class="f-right">351</span></p> --}}
                 </div>
              </div>
           </div>

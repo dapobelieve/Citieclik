@@ -81,7 +81,7 @@
 				                  			Service Title
 				                  		@endif
 				                  	</label>
-				                  	<input class="form-control" name="serTitle" type="text" placeholder="" value="{{ old('serTitle') ?: '' }}" required>
+				                  	<input class="form-control" name="serTitle" type="text" placeholder="" value="{{ old('serTitle') ?: '' }}" >
 				                  	@if ($errors->has('serTitle'))
 										<p class="help-block text-danger"><i class="icon-circle-cross"></i>&nbsp;{{ $errors->first('serTitle') }}</p>
 					                	{{-- <span class="help-block"> </span> --}}
@@ -167,18 +167,37 @@
 				            	</div>
 				            </div>
 			            </div>
-			            
+			            <div class="col-sm-12">
+			                <div class="form-group {{ $errors->has('serTitle') ? ' has-error' : '' }}">
+			                  	<label for="checkout-fn">
+			                  		@if($tdata == 'p')
+			                  			Product Price
+			                  		@else
+			                  			Service Price
+			                  		@endif
+			                  	</label>
+			                  	<input class="form-control" name="serPrice" type="number" placeholder="Price " value="{{ old('serPrice') ?: '' }}" >
+			                  	@if ($errors->has('serPrice'))
+									<p class="help-block text-danger"><i class="icon-circle-cross"></i>&nbsp;{{ $errors->first('serPrice') }}</p>
+			                	@endif
+			                </div>
+		              	</div>			            
 			            <div class="row padding-bottom-1x">
 			            	<div class="col-sm-12">
 			            		<div class="form-group {{ $errors->has('description') ? ' has-error' : '' }}">
 				            		<label for="checkout-description">Description</label>
-				            		<textarea class="my-editor" name="description" value="{{ old('description') ?: ''  }}" placeholder="Your description goes here..."></textarea>
+				            		<textarea class="my-editor" name="description" value="{{ old('description') ?: ''  }}" placeholder="detailed description goes here..."></textarea>
 			                  		@if ($errors->has('description'))
 										<p class="help-block text-danger"><i class="icon-circle-cross"></i>&nbsp;{{ $errors->first('description') }}</p>
 				                	@endif
 			            		</div>
 			            	</div>
 			            </div>
+			            @if($tdata == 'p')
+			            	<input type="hidden" name="typo" value="p">
+			            @elseif($tdata == 's')
+			            	<input type="hidden" name="typo" value="s">
+			            @endif
 			            <div class="form-group">
 			            	<button type="submit" class="btn btn-outline-primary btn-block">Submit</button>
 			            </div>

@@ -58,7 +58,7 @@ class ServiceController extends Controller
     {
         //check if users posted services >= plans subsribed to
 
-        dd($serRequest);
+        // dd($serRequest);123123333333333333333333333333333333333333333333344422222222222222222222222222222222222222222222222222222
     	$this->validate($serRequest, [
             'serTitle'  =>  'required|string|max:255',
             'serState'  => 'required|integer',
@@ -95,6 +95,7 @@ class ServiceController extends Controller
         $service->sub_category_id   = $serRequest->input('subCat');
         $service->description       = $serRequest->input('description');
         $service->slug              = $slugSer;
+        $service->price             = $serRequest->input('serPrice');
         $service->type              = $serRequest->input('typo');
         $service->state_id          = $serRequest->input('serState');
         $service->location_id       = $serRequest->input('location');
@@ -102,7 +103,7 @@ class ServiceController extends Controller
         //here i check if an image is in the 
         //image field and upload it to cloudinary
         if($serRequest->hasFile('serImg')){
-            $this->uploadPicture($serRequest, array("height"=>50, "crop"=>"mfit", "html_height" => 50));
+            $this->uploadPicture($serRequest);
             $service->image = $this->imgObj;
         }
         $service->save();

@@ -58,7 +58,7 @@ class ServiceController extends Controller
     {
         //check if users posted services >= plans subsribed to
 
-        // dd($serRequest);123123333333333333333333333333333333333333333333344422222222222222222222222222222222222222222222222222222
+        // dd($serRequest);
     	$this->validate($serRequest, [
             'serTitle'  =>  'required|string|max:255',
             'serState'  => 'required|integer',
@@ -193,8 +193,8 @@ class ServiceController extends Controller
                 'timeout'  =>  600,
                 'format'   => 'Webp',
                 'quality'  => '20',
-                "width" => 2000,
-                "height" => 1000,
+                // "width" => 'max',
+                "height" => 500,
                 "crop" => "limit"
             ));
 

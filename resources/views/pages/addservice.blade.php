@@ -77,7 +77,7 @@ Add service | Citieclik
 				                  	<label for="checkout-country">Category</label>
 				                  	<select class="form-control" name="serCat" id="serCat" value="{{ old('serCat') ?: ''  }}">
 					                    <option>Choose a Category</option>
-					                    @foreach($cats as $cat)
+					                    @foreach($cats->where('type', 's') as $cat)
 					                        <option value="{{$cat->id}}">{{$cat->category}}</option>
 					                    @endforeach
 				                  	</select>

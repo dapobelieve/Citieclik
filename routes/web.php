@@ -314,7 +314,19 @@ Route::get('admin/settings', 'Admin\SettingsController@site')->name('admin.setti
 Route::get('admin/users', 'Admin\UsersController@index')->name('admin.users');
 Route::get('admin/agents', 'Admin\AgentsController@index')->name('admin.agents');
 
+/*
+|
+| Products Section Starts
+|
+*/
 
+Route::get('/products', 'Actions\Product\ProductController@index');
+
+/*
+|
+| Products Section Ends
+|
+*/
 
 /*
 |

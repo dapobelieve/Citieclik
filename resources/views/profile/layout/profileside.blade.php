@@ -30,10 +30,13 @@
     <a class="list-group-item justify-content-between {{ Request::is( 'profile/'.$user->slug.'/services') ? ' active' : ''  }}" href="{{route('profile.service', ['slug' => $user->slug ])}}">
       <span><i class="icon-bag"></i>Services</span><span class="badge badge-primary badge-pill">{{$user->getUserServices()->count()}}</span>
     </a>
-    <a class="list-group-item justify-content-between{{ Request::is( 'profile/'.$user->slug.'/requests') ? ' active' : ''  }}" href="{{ route('profile.request', ['slug' =>$user->slug ]) }}">
+    <a class="list-group-item justify-content-between {{ Request::is( 'profile/'.$user->slug.'/products') ? ' active' : ''  }}" href="{{route('profile.service', ['slug' => $user->slug ])}}">
+      <span><i class="icon-bag"></i>Products</span><span class="badge badge-primary badge-pill">{{$user->getUserServices()->count()}}</span>
+    </a>
+    {{-- <a class="list-group-item justify-content-between{{ Request::is( 'profile/'.$user->slug.'/requests') ? ' active' : ''  }}" href="{{ route('profile.request', ['slug' =>$user->slug ]) }}">
       <span><i class="icon-tag"></i>My Requests</span>
       <span class="badge badge-primary badge-pill">{{$user->getUserRequests()->count()}}</span>
-    </a>
+    </a> --}}
     @if(Auth::user()->isAgent())
         <a class="list-group-item {{ Request::is( 'agent/'.Auth::user()->slug) ? ' active' : ''  }}" href="{{ route('agent.profile', ['slug' => Auth::user()->slug ]) }}">
           <i class="icon-check text-success"></i>Agent Dashboard

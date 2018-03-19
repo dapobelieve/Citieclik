@@ -155,7 +155,7 @@ class User extends Authenticatable
     //get services posted by a user
     public function getUserServices()
     {
-        return $this->services()->where('type', 'p')->get();
+        return $this->services()->where('status', 1)->get();
     }
 
     public function getUserReq()

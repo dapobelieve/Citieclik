@@ -1,7 +1,7 @@
 <?php
 
 // For testing purposes
-Route::get('/test', 'TestController@getMail')->name('test');
+// Route::get('/test', 'TestController@getMail')->name('test');
 
 // ends here
 
@@ -159,6 +159,11 @@ Route::group(['middleware' => ['AuthCheck']], function () {
 			'as'   => 'addservice'
 		]);
 
+		Route::get('product/add', [
+			'uses' => 'ServiceController@getAddProduct',
+			'as'   => 'addproduct'
+		]);
+
 		/*
 		|
 		| Add Service Ends Here
@@ -263,6 +268,11 @@ Route::get('/profile/{slug}', [
 Route::get('/profile/{slug}/services', [
 	'uses' => '\App\Http\Controllers\ProfileController@getService',
 	'as' => 'profile.service',
+]);
+
+Route::get('/profile/{slug}/products', [
+	'uses' => '\App\Http\Controllers\ProfileController@getProducts',
+	'as' => 'profile.products',
 ]);
 
 

@@ -45,7 +45,12 @@ class ServiceController extends Controller
     //get Add services page
     public function getAddService()
     {
-    	return view('pages.addservice');
+    	return view('pages.addservice')->with('tdata', 's');;
+    }
+
+    public function getAddProduct()
+    {
+        return view('pages.addservice')->with('tdata', 'p');
     }
 
     //validate and save service details
@@ -185,7 +190,10 @@ class ServiceController extends Controller
                 'folder'   => 'citi',
                 'timeout'  =>  600,
                 'format'   => 'Webp',
-                'quality'  => '20'
+                'quality'  => '20',
+                "width" => 2000,
+                "height" => 1000,
+                "crop" => "limit"
             ));
 
             if(!$result)

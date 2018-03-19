@@ -3,7 +3,7 @@
               <li class="{{ Request::is( '/' ) ? ' active' : ''  }}"><a href="/"><span>Home</span></a>
               </li>
               
-              <li class=""><span><a href="{{ route('service')}}">Services</a><span class="sub-menu-toggle"></span></span>
+              <li class=""><span><a href="{{ route('service')}}">Serfvices</a><span class="sub-menu-toggle"></span></span>
               </li>
               <li class="sub-menu-separator"></li>
               @if(Auth::check())

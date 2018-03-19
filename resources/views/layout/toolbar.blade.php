@@ -4,7 +4,7 @@
             <div class="tools">
               <div class="search"><i class="icon-search"></i></div>
               <div class="account"><a href="#"></a><i class="icon-head"></i>
-                <ul class="toolbar-dropdown">
+                <ul class="toolbar-dropdown pull-left">
                   <li class="sub-menu-title" style="font-size: 12px;"><span>Hello,</span>{{Auth::User()->first_name}}</li>
                     <li><a href="{{route('profile.index', ['slug' =>Auth::User()->slug ])}}">Dashboard</a></li>
                     <li><a href="{{route('profile.service', ['slug' =>Auth::User()->slug ])}}">My Services</a></li>

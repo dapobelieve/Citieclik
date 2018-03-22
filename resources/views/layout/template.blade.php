@@ -63,8 +63,8 @@
       </div>
       <!-- Main Navigation-->
       <nav class="site-menu">
-        <ul>
-          <li class="{{ Request::is('/') ? 'active' : '' }}"><a href="/"><span>Products</span></a>
+        <ul> 
+          <li class="{{ Request::is('/products') ? 'active' : '' }}"><a href="{{route('product')}}"><span>Products</span></a>
           </li>
           <li class="{{ Request::is('service') ? 'active' : '' }}"><a href="{{route('service')}}"><span>Services</span></a>
             {{-- <ul class="sub-menu">

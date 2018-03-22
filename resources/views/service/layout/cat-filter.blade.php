@@ -4,7 +4,7 @@
               <section class="widget widget-categories">
                 <h3 class="widget-title">Service Categories</h3>
                 <ul>
-                  @foreach($cats->where('type', 's') as $cat)
+                  @foreach($cats->where('type', $type) as $cat)
                       <li><a href="#" class="catz" data-id="{{$cat->id}}" data-filter="{{$cat->slug}}">{{$cat->category}}</a>{{-- <span>(1138)</span> --}}</li>
                   @endforeach
                   

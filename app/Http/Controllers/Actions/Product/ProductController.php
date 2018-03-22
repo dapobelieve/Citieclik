@@ -14,7 +14,8 @@ class ProductController extends Controller
     {
         $serviceData = Service::take(200)->postOnly()->where('type', 'p')->get();
 
-        return view('service.product')->with('sdata', $serviceData);
+        return view('service.product')->with('sdata', $serviceData)
+                                    ->with('type', 'p');
     }
 
 }

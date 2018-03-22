@@ -33,7 +33,8 @@ class ServiceController extends Controller
     {
         $serviceData = Service::take(200)->postOnly()->where('type', 's')->get();
 
-    	return view('service.service')->with('sdata', $serviceData);
+    	return view('service.service')->with('sdata', $serviceData)
+                                    ->with('type', 's');
     }
 
     public function getServiceDetails()

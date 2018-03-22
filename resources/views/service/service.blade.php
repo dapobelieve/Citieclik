@@ -77,9 +77,9 @@ function isotopeIts(theValue)
   });
   console.log(inclusives);
 
-	// var filterValue = inclusives.length ? inclusives.join(', ') : '*';
-	// console.log(filterValue); 
-	// isotopeIts(filterValue);
+	var filterValue = inclusives.length ? inclusives.join(', ') : '*';
+	console.log(filterValue); 
+	isotopeIts(filterValue);
   })
 </script>
 @stop

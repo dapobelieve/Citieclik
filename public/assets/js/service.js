@@ -63,7 +63,8 @@ $('.hereIt').on('click','.catz',function(event){
     //get value of currently clicked option
     var filterValueCat =  slugIt($(this).data('filter'));
     var catId = $(this).data('id');
-
+    isotopeIt(filterValueCat);
+    console.log(filterValueCat)
     // load sub cats ajaxically       
     $('.subCatWid').show();
     $.ajax({
@@ -85,5 +86,5 @@ $('.hereIt').on('click','.catz',function(event){
       })
     });
 
-    isotopeIt(filterValueCat);
+    
  })

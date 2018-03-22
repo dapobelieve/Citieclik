@@ -82,11 +82,11 @@ function isotopeIts(theValue)
 			inclusives.push( elem.value );
 		}
 	});
-	// console.log(inclusives);
+	console.log(inclusives);
 
-		// var filterValue = inclusives.length ? inclusives.join(', ') : '*';
-		// console.log(filterValue); 
-		// isotopeIts(filterValue);
+		var filterValue = inclusives.length ? inclusives.join(', ') : '*';
+		console.log(filterValue); 
+		isotopeIts(filterValue);
 	})
 </script>
 @stop

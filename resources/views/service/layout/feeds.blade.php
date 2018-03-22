@@ -4,7 +4,7 @@
 	<!-- Product-->
 	@foreach($sdata as $data)
 		<div class="isoitem grid-item 
-		{{$data->slugIt($data->catty->category)}} 
+		{{$data->slugIt($data->catty->slug)}} 
 		{{$data->slugIt($data->subCat->sub_category)}} 
 		{{$data->slugIt($data->loca->lga)}} 
 		{{$data->slugIt($data->loca->state->state)}}">

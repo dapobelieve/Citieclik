@@ -3,7 +3,11 @@
 	<div class="grid-sizer"></div>
 	<!-- Product-->
 	@foreach($sdata as $data)
-		<div class="isoitem grid-item {{$data->slugIt($data->catty->category)}} {{$data->slugIt($data->subCat->sub_category)}} {{$data->slugIt($data->loca->lga)}} {{$data->slugIt($data->loca->state->state)}}">
+		<div class="isoitem grid-item 
+		{{$data->slugIt($data->catty->category)}} 
+		{{$data->slugIt($data->subCat->sub_category)}} 
+		{{$data->slugIt($data->loca->lga)}} 
+		{{$data->slugIt($data->loca->state->state)}}">
 					<div class="product-card mybox">
 						<div class="product-badge text-primary text-bold">{{$data->catty->category}}</div><br>
 						<div class="text-right"><small class=" text-black">{{$data->loca->state->state}}</small></div>

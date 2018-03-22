@@ -5,15 +5,16 @@ namespace App\Http\Controllers\Actions\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\Service;
+
 class ProductController extends Controller
 {
+    // get all services view
     public function index()
     {
-        dd('Works');
+        $serviceData = Service::take(200)->postOnly()->where('type', 'p')->get();
+
+        return view('service.product')->with('sdata', $serviceData);
     }
 
-    public function create()
-    {
-        return view('pages.productAdd.php')->with('type','p');
-    }
 }

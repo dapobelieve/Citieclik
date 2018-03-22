@@ -31,9 +31,9 @@ class ServiceController extends Controller
     // get all services view
     public function index()
     {
-        $serviceData = Service::take(200)->postOnly()->get();
+        $serviceData = Service::take(200)->postOnly()->where('type', 's')->get();
 
-    	return view('service.all')->with('sdata', $serviceData);
+    	return view('service.service')->with('sdata', $serviceData);
     }
 
     public function getServiceDetails()

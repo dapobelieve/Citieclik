@@ -30,10 +30,11 @@ Route::get('category/{slug}', [
 ]);
 
 //View All Services
-Route::get('service', [
+Route::get('listed-services', [
 	'uses' => 'ServiceController@index',
 	'as'   => 'service'
 ]);
+
 
 // Terms and condition page 
 Route::get('/terms', '\App\Http\Controllers\TermsController@index')->name('terms');
@@ -337,7 +338,7 @@ Route::get('admin/agents', 'Admin\AgentsController@index')->name('admin.agents')
 |
 */
 
-Route::get('/products', 'Actions\Product\ProductController@index');
+Route::get('/products', 'Actions\Product\ProductController@index')->name('product');
 
 /*
 |

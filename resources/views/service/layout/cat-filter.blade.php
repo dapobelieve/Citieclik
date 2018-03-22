@@ -2,9 +2,9 @@
               <div class="padding-top-2x hidden-lg-up"></div>
               <!-- Widget Categories-->
               <section class="widget widget-categories">
-                <h3 class="widget-title">All Categories</h3>
+                <h3 class="widget-title">Service Categories</h3>
                 <ul>
-                  @foreach($cats as $cat)
+                  @foreach($cats->where('type', 's') as $cat)
                       <li><a href="#" class="catz" data-id="{{$cat->id}}" data-filter="{{$cat->slug}}">{{$cat->category}}</a>{{-- <span>(1138)</span> --}}</li>
                   @endforeach
                   

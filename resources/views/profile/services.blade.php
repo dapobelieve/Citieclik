@@ -56,8 +56,8 @@ Services | Citieclik
                 </table> --}}
               {{-- <div class="slimScroll"> --}}
                   <div class="container service-list">
-                    @if($user->getUserServices()->count())
-                        @foreach($user->getUserServices() as $servy) 
+                    @if($user->getUserServices('s')->count())
+                        @foreach($user->getUserServices('s') as $servy) 
                             <div class="row">
                                 <div class="col-sm-6 col-md-9">
                                     <div class="product-item"><a class="product-thumb" href="shop-single.html">

@@ -61,7 +61,6 @@ class ProfileController extends Controller
         if(!$user){
             abort(404);
         }
-        // $services = $user->services()->get();
         return view('profile.products')
                 ->with('user', $user);
     }

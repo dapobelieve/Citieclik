@@ -116,8 +116,10 @@
 				                  	<label for="checkout-country">Sub Category</label>
 				                  	<select class="form-control" name="subCat" disabled id="subCat" value="{{ Request::old('subCat') ?: ''  }}">
 				                    	<option>Sub Category</option>
-				                    
 				                  	</select>
+				                  	 @if ($errors->has('subCat'))
+                                        <p class="help-block text-danger"><i class="icon-circle-cross"></i>&nbsp;{{ $errors->first('subCat') }}</p>
+                                    @endif
 				                </div>
 			              	</div>
 		            	</div>
@@ -167,21 +169,19 @@
 				            	</div>
 				            </div>
 			            </div>
+			            @if($tdata == 'p')
 			            <div class="col-sm-12">
 			                <div class="form-group {{ $errors->has('serTitle') ? ' has-error' : '' }}">
 			                  	<label for="checkout-fn">
-			                  		@if($tdata == 'p')
 			                  			Product Price
-			                  		@else
-			                  			Service Price
-			                  		@endif
 			                  	</label>
 			                  	<input class="form-control" name="serPrice" type="number" placeholder="Price " value="{{ old('serPrice') ?: '' }}" >
 			                  	@if ($errors->has('serPrice'))
 									<p class="help-block text-danger"><i class="icon-circle-cross"></i>&nbsp;{{ $errors->first('serPrice') }}</p>
 			                	@endif
 			                </div>
-		              	</div>			            
+		              	</div>
+		              	@endif		            
 			            <div class="row padding-bottom-1x">
 			            	<div class="col-sm-12">
 			            		<div class="form-group {{ $errors->has('description') ? ' has-error' : '' }}">

@@ -2,7 +2,7 @@
 
 
 @section('title')
-Services | Citieclik
+Products | Citieclik
 @endsection
 
 @section('style')
@@ -47,8 +47,8 @@ Services | Citieclik
               <!-- Wishlist Table-->
               <div class="table-responsive wishlist-table  margin-bottom-none">
                   <div class="container service-list">
-                    @if($user->getUserServices()->count())
-                        @foreach($user->getUserServices()->where('type', 'p') as $servy) 
+                    @if($user->getUserServices('p')->count())
+                        @foreach($user->getUserServices('p') as $servy) 
                             <div class="row">
                                 <div class="col-sm-6 col-md-9">
                                     <div class="product-item"><a class="product-thumb" href="shop-single.html">

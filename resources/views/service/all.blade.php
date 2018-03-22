@@ -6,45 +6,45 @@ Services | Citieclik
 
 @section('content')
 <!-- Page Title-->
-      <div class="page-title">
-        <div class="container">
-          <div class="column">
-            <h1>All Services</h1>
-          </div>
-          <div class="column">
-            <ul class="breadcrumbs">
-              <li><a href="index-2.html">Home</a>
-              </li>
-              <li class="separator">&nbsp;</li>
-              <li>All Services</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+	  <div class="page-title">
+		<div class="container">
+		  <div class="column">
+			<h1>Listed Services</h1>
+		  </div>
+		  <div class="column">
+			<ul class="breadcrumbs">
+			  <li><a href="#">Home</a>
+			  </li>
+			  <li class="separator">&nbsp;</li>
+			  <li>Listed Services</li>
+			</ul>
+		  </div>
+		</div>
+	  </div>
 
-      <!-- Page Content-->
-      <div class="container padding-bottom-3x mb-1">
-        <div class="row hereIt">
-          <!-- Products-->
-          <div class="col-xl-9 col-lg-8 push-xl-3 push-lg-4">
-            <!-- Shop Toolbar-->
-            <div class="shop-toolbar padding-bottom-1x mb-2">
-              <div class="column">
-                @include('service.layout.state-filter')
-              </div>
-              <div class="column">
-                  {{--  --}}
-              </div>
-            </div>
-            <!-- Products Grid-->
-            @include('service.layout.feeds')
-          </div>
-          <!-- Sidebar          -->
-          <div class="col-xl-3 col-lg-4 pull-xl-9 pull-lg-8">
-            @include('service.layout.cat-filter')
-          </div>
-        </div>
-      </div>
+	  <!-- Page Content-->
+	  <div class="container padding-bottom-3x mb-1">
+		<div class="row hereIt">
+		  <!-- Products-->
+		  <div class="col-xl-9 col-lg-8 push-xl-3 push-lg-4">
+			<!-- Shop Toolbar-->
+			<div class="shop-toolbar padding-bottom-1x mb-2">
+			  <div class="column">
+				@include('service.layout.state-filter')
+			  </div>
+			  <div class="column">
+				  {{--  --}}
+			  </div>
+			</div>
+			<!-- Products Grid-->
+			@include('service.layout.feeds')
+		  </div>
+		  <!-- Sidebar          -->
+		  <div class="col-xl-3 col-lg-4 pull-xl-9 pull-lg-8">
+			@include('service.layout.cat-filter')
+		  </div>
+		</div>
+	  </div>
 @endsection
 
 @section('script')
@@ -70,16 +70,16 @@ function isotopeIts(theValue)
   var inclusives = [];
   // inclusive filters from checkboxes
   checkboxes.each( function( i, elem ) {
-    // if checkbox, use value if checked
-    if ( elem.checked ) {
-      inclusives.push( elem.value );
-    }
+	// if checkbox, use value if checked
+	if ( elem.checked ) {
+	  inclusives.push( elem.value );
+	}
   });
   // console.log(inclusives);
 
-    // var filterValue = inclusives.length ? inclusives.join(', ') : '*';
-    // console.log(filterValue); 
-    // isotopeIts(filterValue);
+	// var filterValue = inclusives.length ? inclusives.join(', ') : '*';
+	// console.log(filterValue); 
+	// isotopeIts(filterValue);
   })
 </script>
 @stop

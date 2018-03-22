@@ -107,18 +107,26 @@ class ServiceController extends Controller
             $service->image = $this->imgObj;
         }
         $service->save();
-        return redirect()->route('profile.service', ['slug' => $serRequest->user()->slug])->with('info', 'Service Posted Successfully');
+
+        if($serRequest->input('location') == 's'){
+            return redirect()->route('profile.service', ['slug' => $serRequest->user()->slug])->with('info', 'Service Posted Successfully');
+        }elseif($serRequest->input('location') == 'p'){
+            return redirect()->route('profile.products', ['slug' => $serRequest->user()->slug])->with('info', 'Product Posted Successfully');
+        }
+        
     }
 
     public function getEditService($id)
     {
         $post = Service::findOrFail($id);
+        // dd($post->type);
         return view('pages.edit')->with('sdata', $post);
     }
 
     //validate and update service details
     public function postServiceUpdate(Request $serRequest, $id)
     {
+        // dd($serRequest);
         $this->validate($serRequest, [
             'serTitle'  =>  'required|string|max:255',
             'serState'  => 'required|integer',
@@ -155,7 +163,7 @@ class ServiceController extends Controller
         $service->sub_category_id   = $serRequest->input('subCat');
         $service->description       = $serRequest->input('description');
         $service->slug              = $slugSer;
-        $service->type              = 'p';
+        $service->type              = $serRequest->input('typo');
         $service->state_id          = $serRequest->input('serState');
         $service->location_id       = $serRequest->input('location');
         
@@ -170,7 +178,11 @@ class ServiceController extends Controller
         $service->save();
 
         //fire sms sending event
-        return redirect()->route('profile.service', ['slug' => $serRequest->user()->slug])->with('info', 'Service Updated Successfully');
+        if($serRequest->input('typo') == 's'){
+            return redirect()->route('profile.service', ['slug' => $serRequest->user()->slug])->with('info', 'Service Updated Successfully');
+        }elseif($serRequest->input('typo') == 'p'){
+            return redirect()->route('profile.products', ['slug' => $serRequest->user()->slug])->with('info', 'Product Updated Successfully');
+        }
     }
 
     public function getDeleteService($id)
@@ -182,7 +194,7 @@ class ServiceController extends Controller
         }
         
         $post->delete();
-        return redirect()->back()->with('info', 'Service Deleted.');
+        return redirect()->back()->with('info', 'Deleted.');
     }
 
     private function uploadPicture(Request $req)

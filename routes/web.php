@@ -49,7 +49,7 @@ Route::get('/about', '\App\Http\Controllers\TermsController@aboutUs')->name('abo
 
 
 //get details of a service
-Route::get('service/detail/{username}/{serslug}', [
+Route::get('/details/{username}/{serslug}', [
 	'uses' => '\App\Http\Controllers\ServiceDetails@index',
 	'as'   => 'service.detail'
 ]);

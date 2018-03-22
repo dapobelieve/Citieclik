@@ -36,38 +36,10 @@ Products | Citieclik
 							</div>
 			            </div>
 			            <!-- Product-->
-			            @foreach($sdata as $data)
-			            <div class="product-card product-list"><a class="product-thumb" href="shop-single.html">
-			                    <div class="product-badge text-danger">50% Off</div><img src="img/shop/products/01.jpg" alt="Product"></a>
-				                <div class="product-info">
-				                    <h3 class="product-title"><a href="shop-single.html">Unionbay Park</a></h3>
-				                    <h4 class="product-price">
-				                        <del>$99.99</del>$49.99
-				                    </h4>
-				                    <p class="hidden-xs-down">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore odit officiis illo perferendis deserunt, ipsam dolor ad dolorem eaque veritatis harum facilis aliquid id doloribus incidunt quam beatae, soluta magni alori sedum quanto.</p>
-				                    <div class="product-buttons">
-				                        <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button>
-				                        <button class="btn btn-outline-primary btn-sm" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!">Add to Cart</button>
-				                    </div>
-				                </div>
-			            </div>
-			            @endforeach
+			           @include('service.layout.feeds')
 
 			            <div class="pt-2">
 			                <!-- Pagination-->
-			                <nav class="pagination">
-			                    <div class="column">
-			                        <ul class="pages">
-			                            <li class="active"><a href="#">1</a></li>
-			                            <li><a href="#">2</a></li>
-			                            <li><a href="#">3</a></li>
-			                            <li><a href="#">4</a></li>
-			                            <li>...</li>
-			                            <li><a href="#">12</a></li>
-			                        </ul>
-			                    </div>
-			                    <div class="column text-right hidden-xs-down"><a class="btn btn-outline-secondary btn-sm" href="#">Next&nbsp;<i class="icon-arrow-right"></i></a></div>
-			                </nav>
 			            </div>
 			        </div>
 			        <!-- Sidebar          -->

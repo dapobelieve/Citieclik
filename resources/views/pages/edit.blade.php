@@ -27,14 +27,14 @@ Edit service | Citieclik
 	<div class="page-title">
         <div class="container">
           <div class="column">
-            <h1>Edit Service</h1>
+            <h1>Edit</h1>
           </div>
           <div class="column">
             <ul class="breadcrumbs">
               <li><a href="index-2.html">Home</a>
               </li>
               <li class="separator">&nbsp;</li>
-              <li>Edit Service</li>
+              <li>Edit</li>
             </ul>
           </div>
         </div>
@@ -85,9 +85,15 @@ Edit service | Citieclik
 				                  	<select class="form-control" name="serCat" id="serCat" value="{{ old('serCat') ?: ''  }}">
 					                    {{-- <option>Choose a Category</option> --}}
 					                    <option value="{{$sdata->catty->id}}">{{$sdata->catty->category}}</option>
-					                    @foreach($cats as $cat)
-					                        <option value="{{$cat->id}}">{{$cat->category}}</option>
-					                    @endforeach
+					                    @if($sdata->type == 'p')
+					                    	@foreach($cats->where('type', 'p') as $cat)
+					                        	<option value="{{$cat->id}}">{{$cat->category}}</option>
+					                    	@endforeach
+					                    @elseif($sdata->type == 's')
+					                    	@foreach($cats->where('type', 's') as $cat)
+						                        <option value="{{$cat->id}}">{{$cat->category}}</option>
+						                    @endforeach
+					                    @endif
 				                  	</select>
 		  		                  	@if ($errors->has('serCat'))
 										<p class="help-block text-danger"><i class="icon-circle-cross"></i>&nbsp;{{ $errors->first('serCat') }}</p>

@@ -66,7 +66,7 @@ function isotopeIts(theValue)
   var checkboxes = $('.subCatWid');
   checkboxes.on("change",".dcheck", function(event) {
   // map input values to an array
-  console.log(event.target.value);
+  // console.log(event.target.value);
   var inclusives = [];
   // inclusive filters from checkboxes
   checkboxes.each( function( i, elem ) {
@@ -75,7 +75,7 @@ function isotopeIts(theValue)
 	  inclusives.push( elem.value );
 	}
   });
-  // console.log(inclusives);
+  console.log(inclusives);
 
 	// var filterValue = inclusives.length ? inclusives.join(', ') : '*';
 	// console.log(filterValue); 

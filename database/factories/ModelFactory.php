@@ -38,18 +38,18 @@ function slugIt($slug)
     return $slug;
 };
 
-$factory->define(App\Subcategory::class, function (Faker\Generator $faker) {
-    $cat = mt_rand(1, 11);
-    $title = $faker->text(9);
-    $slug = slugIt($title);
+// $factory->define(App\Subcategory::class, function (Faker\Generator $faker) {
+//     $cat = mt_rand(1, 11);
+//     $title = $faker->text(9);
+//     $slug = slugIt($title);
 
 
-    return [
-        'category_id' => $cat,
-        'sub_category' => $title,
-        'slug' => $slug,
-    ];
-});
+//     return [
+//         'category_id' => $cat,
+//         'sub_category' => $title,
+//         'slug' => $slug,
+//     ];
+// });
 
 $factory->define(App\Service::class, function (Faker\Generator $faker) {
 
@@ -66,6 +66,13 @@ $factory->define(App\Service::class, function (Faker\Generator $faker) {
 	$slug = slugIt($title);
     $user = mt_rand(1, 3);
 
+    $t = mt_rand(1, 2);
+
+    if($t == 1)
+        $typ = 's';
+    else
+        $typ = 'p';
+
 
 	//God thank you for this ;)
     return [
@@ -76,7 +83,7 @@ $factory->define(App\Service::class, function (Faker\Generator $faker) {
         'state_id' => $state,
         'location_id' => $loc,
         'description' => $faker->sentence(30),
-        'type' => 'p',
+        'type' => $typ,
         'slug' => $slug,
     ];
 });

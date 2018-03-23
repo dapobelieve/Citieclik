@@ -16,11 +16,11 @@ class SearchController extends Controller
     	$services = Service::where(DB::raw('state_id'), 'LIKE', " %{$queryState}%")
     				->where('category_id', 'LIKE', "%{$queryCategory}%")
     				->get();
-     //    $services = Service::where([
-     //                ['state_id', $queryState],
-     //                ['category_id', $queryCategory]
-     //                ])->get();
-    	dd($services);
-    	// return view('search.searchresults')->with('sdata', $services);
+        $services = Service::where([
+                    ['state_id', $queryState],
+                    ['category_id', $queryCategory]
+                    ])->get();
+    	// dd($request);
+    	return view('search.searchresults')->with('sdata', $services);
     }
 }

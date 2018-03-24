@@ -5,6 +5,8 @@
               
               <li class=""><span><a href="{{ route('service')}}">Services</a><span class="sub-menu-toggle"></span></span>
               </li>
+              <li class=""><span><a href="{{ route('product')}}">Products</a><span class="sub-menu-toggle"></span></span>
+              </li>
               <li class="sub-menu-separator"></li>
               @if(Auth::check())
                 <li><a href="{{route('profile.index', ['slug' =>Auth::User()->slug ])}}">Dashboard</a></li>

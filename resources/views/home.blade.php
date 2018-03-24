@@ -82,7 +82,7 @@ Welcome | Citieclik
                 <h3 class="display-4 text-normal text-white text-shadow mb-1">Become a </h3>
                 <h2 class="display-2 text-bold text-white text-shadow">SALES AGENT</h2>
                 <h4 class="d-inline-block h2 text-normal text-white text-shadow border-default border-left-0 border-right-0 mb-4">Earn on CitieClik</h4><br>
-                <a class="mybtn btn btn-rounded" href="{{ route('salesagent.register') }}"><i class="icon-signal"></i>&nbsp;Get Started</a>
+                <a class="btn btn-primary" href="{{ route('salesagent.register') }}"><i class="icon-signal"></i>&nbsp;Get Started</a>
               </div>
             </div>
           </div>

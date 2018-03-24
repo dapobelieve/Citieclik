@@ -9,10 +9,10 @@ use Carbon;
 
 class ServiceDetails extends Controller
 {
-    public function time($time)
-    {
-        Carbon::diffForHumans($time);
-    }
+    // public function time($time)
+    // {
+    //     Carbon::diffForHumans($time);
+    // }
 
     public function index($username, $slug)
     {

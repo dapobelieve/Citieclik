@@ -1,7 +1,7 @@
 <?php
 
 // For testing purposes
-Route::get('/test', 'TestController@getMail')->name('test');
+// Route::get('/test', 'TestController@getMail')->name('test');
 
 // ends here
 
@@ -30,10 +30,11 @@ Route::get('category/{slug}', [
 ]);
 
 //View All Services
-Route::get('service', [
+Route::get('listed-services', [
 	'uses' => 'ServiceController@index',
 	'as'   => 'service'
 ]);
+
 
 // Terms and condition page 
 Route::get('/terms', '\App\Http\Controllers\TermsController@index')->name('terms');
@@ -48,7 +49,7 @@ Route::get('/about', '\App\Http\Controllers\TermsController@aboutUs')->name('abo
 
 
 //get details of a service
-Route::get('service/detail/{username}/{serslug}', [
+Route::get('/details/{username}/{serslug}', [
 	'uses' => '\App\Http\Controllers\ServiceDetails@index',
 	'as'   => 'service.detail'
 ]);
@@ -105,6 +106,13 @@ Route::get('/{service}/callback','SocialAuthController@callback');
 	Route::get('service/category/getscat/{id}', [
 		'uses' => 'AjaxRequestsController@getSubCat'
 	]);
+	Route::get('product/state/location/{id}', [
+		'uses' => 'AjaxRequestsController@getLocation'
+	]);
+	//Route to get subcategory based on selected category
+	Route::get('product/category/getscat/{id}', [
+		'uses' => 'AjaxRequestsController@getSubCat'
+	]);
 
 	Route::get('request/state/location/{id}', [
 		'uses' => 'AjaxRequestsController@getLocation'
@@ -157,6 +165,11 @@ Route::group(['middleware' => ['AuthCheck']], function () {
 		Route::post('service/add', [
 			'uses' => 'ServiceController@postService',
 			'as'   => 'addservice'
+		]);
+
+		Route::get('product/add', [
+			'uses' => 'ServiceController@getAddProduct',
+			'as'   => 'addproduct'
 		]);
 
 		/*
@@ -265,6 +278,11 @@ Route::get('/profile/{slug}/services', [
 	'as' => 'profile.service',
 ]);
 
+Route::get('/profile/{slug}/products', [
+	'uses' => '\App\Http\Controllers\ProfileController@getProducts',
+	'as' => 'profile.products',
+]);
+
 
 // Requests Section
 Route::get('/profile/{slug}/requests', [
@@ -314,7 +332,19 @@ Route::get('admin/settings', 'Admin\SettingsController@site')->name('admin.setti
 Route::get('admin/users', 'Admin\UsersController@index')->name('admin.users');
 Route::get('admin/agents', 'Admin\AgentsController@index')->name('admin.agents');
 
+/*
+|
+| Products Section Starts
+|
+*/
 
+Route::get('/products', 'Actions\Product\ProductController@index')->name('product');
+
+/*
+|
+| Products Section Ends
+|
+*/
 
 /*
 |

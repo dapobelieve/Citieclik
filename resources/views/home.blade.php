@@ -19,8 +19,8 @@ Welcome | Citieclik
                         {{-- <div class="input-group-addon"></div> --}}
                         <select class="form-control" onchange="getCats(this.value)" id="select-input" name="category">
                                 <option>Select a Category</option>
-                                <option value="products">Products</option>
-                                <option value="services">Services</option>
+                                <option value="p">Products</option>
+                                <option value="s">Services</option>
                         </select>
                       </div>
                       <div class="input-group form-group" style="margin-right: 2px !important;">
@@ -154,6 +154,13 @@ Welcome | Citieclik
     
     function getCats(section)
     {
+      $.ajax({
+        url: "category/getscat/"+$(this).val(),
+        method: 'GET',
+      })
+      .done(function(data) {
+        
+      });
         // alert(data[section]);
         // document.getElementById('sList');
         var selectData = `<select class="form-control" name="subCat">

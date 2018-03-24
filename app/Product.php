@@ -4,35 +4,32 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Service extends Model
+class Products extends Model
 {
+        public function userz()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 
-// Relationships Start
+    public function catty()
+    {
+        return $this->belongsTo('App\Category', 'category_id');
+    }
 
-	public function userz()
-	{
-		return $this->belongsTo(User::class, 'user_id');
-	}
-
-	public function catty()
-	{
-		return $this->belongsTo('App\Category', 'category_id');
-	}
-
-	public function state()
-	{
-		return $this->belongsTo('App\State', 'state_id');
-	}
+    public function state()
+    {
+        return $this->belongsTo('App\State', 'state_id');
+    }
 
     public function subCat()
     {
         return $this->belongsTo('App\Subcategory', 'sub_category_id');
     }
 
-	public function loca()
-	{
-		return $this->belongsTo('App\Location', 'location_id');
-	}
+    public function loca()
+    {
+        return $this->belongsTo('App\Location', 'location_id');
+    }
 
     public function comments()
     {
@@ -42,9 +39,9 @@ class Service extends Model
 
 // Relationships Ends
 
-	// A small function to DRY up our queries when
-	// we run it in our controller. something like 
-	// a way to just filter the resullts
+    // A small function to DRY up our queries when
+    // we run it in our controller. something like 
+    // a way to just filter the resullts
     public function scopePostOnly($query)
     {
         return $query->where([

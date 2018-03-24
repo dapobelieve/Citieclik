@@ -27,14 +27,14 @@ Edit service | Citieclik
 	<div class="page-title">
         <div class="container">
           <div class="column">
-            <h1>Edit Service</h1>
+            <h1>Edit</h1>
           </div>
           <div class="column">
             <ul class="breadcrumbs">
               <li><a href="index-2.html">Home</a>
               </li>
               <li class="separator">&nbsp;</li>
-              <li>Edit Service</li>
+              <li>Edit</li>
             </ul>
           </div>
         </div>
@@ -85,9 +85,15 @@ Edit service | Citieclik
 				                  	<select class="form-control" name="serCat" id="serCat" value="{{ old('serCat') ?: ''  }}">
 					                    {{-- <option>Choose a Category</option> --}}
 					                    <option value="{{$sdata->catty->id}}">{{$sdata->catty->category}}</option>
-					                    @foreach($cats as $cat)
-					                        <option value="{{$cat->id}}">{{$cat->category}}</option>
-					                    @endforeach
+					                    @if($sdata->type == 'p')
+					                    	@foreach($cats->where('type', 'p') as $cat)
+					                        	<option value="{{$cat->id}}">{{$cat->category}}</option>
+					                    	@endforeach
+					                    @elseif($sdata->type == 's')
+					                    	@foreach($cats->where('type', 's') as $cat)
+						                        <option value="{{$cat->id}}">{{$cat->category}}</option>
+						                    @endforeach
+					                    @endif
 				                  	</select>
 		  		                  	@if ($errors->has('serCat'))
 										<p class="help-block text-danger"><i class="icon-circle-cross"></i>&nbsp;{{ $errors->first('serCat') }}</p>
@@ -123,7 +129,7 @@ Edit service | Citieclik
 				                <div class="form-group {{ $errors->has('location') ? ' has-error' : '' }}">
 				                  	<label for="checkout-country">Location</label>
 					                <select class="form-control" name="location"  id="location" value="{{ Request::old('location') ?: ''  }}">
-					                    <option value="{{$sdata->loca->lga}}">{{$sdata->loca->lga}}</option>
+					                    <option value="{{$sdata->loca->id}}">{{$sdata->loca->lga}}</option>
 					                    
 					                </select>
 			                  		@if ($errors->has('location'))
@@ -146,7 +152,7 @@ Edit service | Citieclik
 				            <div class="col-md-6">
 				            	<div class="form-group">
 				            		<label class="col-form-label" for="file-preview">Image Preview</label>
-				            		<img style="width:150px; height:auto" src="{{$sdata->image}}" class="d-block mx-auto img-thumbnail mb-3" id="output_image"/>
+				            		<img style="width:150px; height:auto" src="{{$sdata->servieImage()}}" class="d-block mx-auto img-thumbnail mb-3" id="output_image"/>
 				            	</div>
 				            </div>
 			            </div>
@@ -162,6 +168,11 @@ Edit service | Citieclik
 			            		</div>
 			            	</div>
 			            </div>
+			             @if($sdata->type == 'p')
+			            	<input type="hidden" name="typo" value="p">
+			            @elseif($sdata->type == 's')
+			            	<input type="hidden" name="typo" value="s">
+			            @endif
 			            <div class="form-group">
 			            	<button type="submit" class="btn btn-outline-primary btn-block">Submit</button>
 			            </div>

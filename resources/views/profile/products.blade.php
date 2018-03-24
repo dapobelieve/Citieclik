@@ -2,7 +2,7 @@
 
 
 @section('title')
-Services | Citieclik
+Products | Citieclik
 @endsection
 
 @section('style')
@@ -46,18 +46,9 @@ Services | Citieclik
               <div class="padding-top-2x mt-2 hidden-lg-up"></div>
               <!-- Wishlist Table-->
               <div class="table-responsive wishlist-table  margin-bottom-none">
-                {{-- <table class="table">
-                  <thead>
-                    <tr>
-                      <th>Services</th>
-                      <th class="text-center"><a class="btn btn-sm btn-outline-primary" href="{{route('addservice')}}">Add new service</a></th>
-                    </tr>
-                  </thead>
-                </table> --}}
-              {{-- <div class="slimScroll"> --}}
                   <div class="container service-list">
-                    @if($user->getUserServices('s')->count())
-                        @foreach($user->getUserServices('s') as $servy) 
+                    @if($user->getUserServices('p')->count())
+                        @foreach($user->getUserServices('p') as $servy) 
                             <div class="row">
                                 <div class="col-sm-6 col-md-9">
                                     <div class="product-item"><a class="product-thumb" href="shop-single.html">
@@ -98,13 +89,13 @@ Services | Citieclik
                             </div> 
                         @endforeach
                     @else
-                        <h2>No Services </h2>
+                        <h2>No Products Listed yet </h2>
                     @endif
                   </div>
                 {{-- </div> --}}
                 <br>
                 <br>
-                <a class="btn btn-sm btn-outline-success" href="{{route('addservice')}}">Add new service</a>
+                <a class="btn btn-sm btn-outline-success" href="{{route('addproduct')}}">Post new Product</a>
               </div>
              
             </div>      

@@ -12,7 +12,12 @@
 	<div class="page-title">
         <div class="container">
           <div class="column">
-            <h1>{{-- {{$service->serviceTitle()}}  --}}Service Detail</h1>   
+          	@if($service->type == 'p')
+          	    <h1>Product Details</h1> 
+          	@elseif($service->type == 's')
+          		<h1>Service Details</h1> 
+          	@endif
+              
           </div>
           <div class="column">
             <ul class="breadcrumbs">

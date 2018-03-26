@@ -18,11 +18,8 @@ Route::get('/payment/callback', 'Payment\PaymentController@getPayDetails');
 // ends here
 
 // Homepage
-Route::get('/', [
-	'uses' => 'HomeController@index',
-	'as'   => 'home'
-]);
 
+Route::get('/','HomeController@index')->name('home');
 // Category 
 Route::get('category/{slug}', [
 	'uses' => 'PagesController@getCategory',
@@ -73,6 +70,9 @@ Route::post('/signup', [
 	'as'   => 'auth.signup',
 	'middleware' => ['guest'],
 ]);
+
+// sales agent signup
+Route::post('/salesagent-signup','Agent\AgentController@postSignup')->name('signup-sales');
 
 Route::get('/confirm/{token}','Emails\Confirm@getEmailToken')->name('email.token');
 
@@ -357,8 +357,9 @@ Route::get('/products', 'Actions\Product\ProductController@index')->name('produc
 | Agent Section Starts
 |
 */
-
+// sign up as a Sales agents 
 Route::get('salesagents', 'Agent\AgentController@getPage')->name('salesagent.register');
+
 
 
 Route::get('agents/{agent}', 'Agent\AgentController@index')->name('agent.register');

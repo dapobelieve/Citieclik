@@ -24,57 +24,80 @@ Become a sales agent | Citieclik
     <div class="container padding-bottom-2x mb-2">
         <div class="row align-items-center padding-bottom-2x">
           <div class="col-md-5"><img class="d-block w-270 m-auto" src="/assets/img/features/03.jpg" alt="Online Shopping"></div>
-          <div class="col-md-7 text-md-left text-center">
-            <div class="mt-30 hidden-md-up"></div>
-            <h2>Sign up.</h2>
-            <div class="form-group row">
-                <label class="col-2 col-form-label" for="text-input">First name</label>
-                <div class="col-10">
-                    <input class="form-control" type="text" id="text-input" value="" name="first_name">
-                </div>
+            <div class="col-md-7 text-md-left text-center">
+                <form class="row" method="post" action="{{ route('signup-sales')}}">
+                          <div class="col-sm-6">
+                            <div class="form-group{{ $errors->has('fname') ? ' has-error' : ''}}">
+                              <label for="reg-fn">First Name</label>
+                              <input class="form-control" name="fname" value="{{ Request::old('fname') ?: ''}}" type="text" id="fname" >
+                              @if($errors->has('fname'))
+                                <span class="help-block formlert">
+                                  {{$errors->first('fname')}}
+                                </span>
+                              @endif
+                            </div>
+                          </div>
+                          <div class="col-sm-6">
+                            <div class="form-group{{ $errors->has('lname') ? ' has-error' : ''}}">
+                              <label for="reg-ln">Last Name</label>
+                              <input class="form-control" name="lname" value="{{ Request::old('lname') ?: ''}}" type="text" id="lname" >
+                              @if($errors->has('lname'))
+                                <span class="help-block formlert">
+                                  {{$errors->first('lname')}}
+                                </span>
+                              @endif
+                            </div>
+                          </div>
+                          <div class="col-sm-6">
+                            <div class="form-group{{ $errors->has('email') ? ' has-error' : ''}}">
+                              <label for="reg-email">E-mail Address</label>
+                              <input class="form-control" name="email" value="{{ Request::old('email') ?: ''}}" type="email" id="email" >
+                              @if($errors->has('email'))
+                                <span class="help-block formlert">
+                                  {{$errors->first('email')}}
+                                </span>
+                              @endif
+                            </div>
+                          </div>
+                          <div class="col-sm-6">
+                            <div class="form-group{{ $errors->has('phone') ? ' has-error' : ''}}">
+                              <label for="reg-phone">Phone Number</label>
+                              <input class="form-control" type="text"  name="phone" value="{{ Request::old('phone') ?: ''}}" id="phone" >
+                              @if($errors->has('phone'))
+                                <span class="help-block formlert">
+                                  {{$errors->first('phone')}}
+                                </span>
+                              @endif
+                            </div>
+                          </div>
+                          <div class="col-sm-6">
+                            <div class="form-group{{ $errors->has('password') ? ' has-error' : ''}}">
+                              <label for="reg-pass">Password</label>
+                              <input class="form-control" type="password" name="password" id="password" >
+                              @if($errors->has('password'))
+                                <span class="help-block formlert">
+                                  {{$errors->first('password')}}
+                                </span>
+                              @endif
+                            </div>
+                          </div>
+                          <div class="col-sm-6{{ $errors->has('password_confirmation') ? ' has-error' : ''}}">
+                            <div class="form-group">
+                              <label for="reg-pass-confirm">Confirm Password</label>
+                              <input class="form-control" type="password" name="password_confirmation" id="password_confirmation" >
+                              @if($errors->has('password_confirmation'))
+                                <span class="help-block formlert">
+                                  {{$errors->first('password_confirmation')}}
+                                </span>
+                              @endif
+                            </div>
+                          </div>
+                          <div class="col-12 text-center text-sm-right">
+                            <button class="btn btn-primary margin-bottom-none" type="submit">Register</button>
+                          </div>
+                          {{csrf_field()}}
+                </form>
             </div>
-            <div class="form-group row">
-                <label class="col-2 col-form-label" for="text-input">Last name</label>
-                <div class="col-10">
-                    <input class="form-control" type="text" id="text-input" value="" name="last_name">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-2 col-form-label" for="text-input">Username</label>
-                <div class="col-10">
-                    <input class="form-control" type="text" id="text-input" value="" name="username">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-2 col-form-label" for="text-input">Email</label>
-                <div class="col-10">
-                    <input class="form-control" type="email" id="text-input" value="" name="email">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-2 col-form-label" for="text-input">Password</label>
-                <div class="col-10">
-                    <input class="form-control" type="password" id="text-input" value="" name="password">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-2 col-form-label" for="text-input">Confirm Password</label>
-                <div class="col-10">
-                    <input class="form-control" type="password" id="text-input" value="" name="password">
-                </div>
-            </div>
-            <div class="d-flex flex-wrap justify-content-between padding-bottom-1x">
-                <label class="custom-control custom-checkbox">
-                    <input class="custom-control-input" type="checkbox" checked=""><span class="custom-control-indicator"></span><span class="custom-control-description">Remember me</span>
-                </label>
-                <div class="text-center text-sm-right">
-                    <button class="btn btn-primary margin-bottom-none" type="submit">Register</button>
-                </div>
-            </div>
-            
-
-          </div>
         </div>
-        <hr>
     </div>
 @endsection

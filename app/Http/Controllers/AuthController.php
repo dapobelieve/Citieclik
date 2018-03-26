@@ -74,7 +74,7 @@ class AuthController extends Controller
         // email user for verification
         event(new UserRegistered($user));
 
-        //if the user tick the agent box create a record for him
+        //if the user ticked the agent box create a record for him
         if($request->input('agent')){
 
             $user->agent()->create([
@@ -82,12 +82,9 @@ class AuthController extends Controller
             ]);
         }
 
-        //automatically log in user
-    	// if(Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')])){
             return redirect()->route('home')
                     ->with('title', 'Congratulations')
-                     ->with('success', 'You account has been created.  Check your mail to complete your registration.');
-        // } 
+                     ->with('success', 'You account has been created. Check your mail to complete your registration.');
     }
 
 

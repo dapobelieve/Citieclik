@@ -44,10 +44,12 @@ Welcome | Citieclik
                     {{-- <button type="submit" class="btn btn-square btn-primary">Submit</button> --}}
                   </form>
                   <form class="form-inline text-center">
+                    {{-- @if(Auth::check()) --}}
                     <div class="col-xs-12 form-group">
-                      <div class="col-xs-6"><button class="btn btn-danger mybox">Request Service</button></div>
-                      <div class="col-xs-6"><button class="btn btn-primary mybox">View Request</button></div>
+                      <div class="col-xs-6"><a href="{{ route('') }}" class="btn btn-danger mybox">Post Service/Product</a></div>
+                      <div class="col-xs-6"><a href="{{ route('request.add') }}" class="btn btn-primary mybox">Post Request</a></div>
                     </div>
+                    {{-- @endif --}}
                   </form>
               </div>
           </div>
@@ -127,7 +129,6 @@ Welcome | Citieclik
           </div>
         </div>
       </section>      
->>>>>>> 944d376d996a7eff402c729bd923113f4426cb6b
 @endsection
 
 @section('script')

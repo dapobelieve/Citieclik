@@ -22,6 +22,6 @@ class AuthenticMiddleware
     {
         if(Auth::check())
             return $next($request);
-        return redirect()->route('signup')->with('authMsg', 'You have to be logged in to access that page');
+        return redirect()->route('signup')->with('authMsg', 'Signin or Signup to access that page');
     }
 }

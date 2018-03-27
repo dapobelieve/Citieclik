@@ -14,7 +14,7 @@ class UpdateSubCommand extends Command
      */
     protected $signature = 'update:sub';
 
-    /**
+    /**]
      * The console command description.
      *
      * @var string
@@ -38,6 +38,19 @@ class UpdateSubCommand extends Command
      */
     public function handle()
     {
-        //
+        //check all subscriptions and update status 
+        Subscription::where('status', 1)->chunk(20, function ($subers) {
+
+            foreach ($subers as $suber) {
+
+                $x = Carbon::createFromTimestampUTC(strtotime($suber->ends_at));
+
+                if($this->today->gte($x)){
+
+                    $suber->update(['status' => 0]);
+                }
+
+            }
+        });
     }
 }

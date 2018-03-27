@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Carbon\Carbon;
 use App\Subscription;
 
 class UpdateSubCommand extends Command
@@ -20,6 +21,7 @@ class UpdateSubCommand extends Command
      * @var string
      */
     protected $description = 'Updates the subscription status of subscribed users!';
+    private $today;
 
     /**
      * Create a new command instance.
@@ -29,6 +31,7 @@ class UpdateSubCommand extends Command
     public function __construct()
     {
         parent::__construct();
+        $this->today = Carbon::now('Africa/Lagos');
     }
 
     /**
@@ -45,12 +48,14 @@ class UpdateSubCommand extends Command
 
                 $x = Carbon::createFromTimestampUTC(strtotime($suber->ends_at));
 
-                if($this->today->gte($x)){
+                if($this->today->lte($x)){
 
                     $suber->update(['status' => 0]);
                 }
 
             }
         });
+
+        echo "Great job Subscribers Updated!!!";
     }
 }

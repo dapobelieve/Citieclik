@@ -5,21 +5,21 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use App\Subscription;
 
-class TestCommand extends Command
+class UpdateSubCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'test:app';
+    protected $signature = 'update:sub';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'testing the work of this before going live with it';
+    protected $description = 'Updates the subscription status of subscribed users!';
 
     /**
      * Create a new command instance.

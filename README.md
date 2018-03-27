@@ -5,7 +5,7 @@ This README would normally document whatever steps are necessary to get your app
 ### What is this repository for? ###
 
 * The project files for citiclick platform
-* Version
+* Version 1.0
 * [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
 
 ### How do I get set up? ###
@@ -13,6 +13,10 @@ This README would normally document whatever steps are necessary to get your app
 * Summary of set up
 * Configuration
 * Dependencies
+Cloudinary
+Socialite
+Paystack Api
+Vue js
 * Database configuration
 * How to run tests
 * Deployment instructions

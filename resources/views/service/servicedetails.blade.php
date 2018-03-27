@@ -12,7 +12,12 @@
 	<div class="page-title">
         <div class="container">
           <div class="column">
-            <h1>{{-- {{$service->serviceTitle()}}  --}}Service Detail</h1>   
+          	@if($service->type == 'p')
+          	    <h1>Product Details</h1> 
+          	@elseif($service->type == 's')
+          		<h1>Service Details</h1> 
+          	@endif
+              
           </div>
           <div class="column">
             <ul class="breadcrumbs">
@@ -85,7 +90,7 @@
 		        <div class="col-lg-8 mt-30">
 		            <ul class="nav nav-tabs" role="tablist">
 		              <li class="nav-item"><a class="nav-link active" href="#description" data-toggle="tab" role="tab">Description</a></li>
-		              <li class="nav-item"><a class="nav-link " href="#reviews" data-toggle="tab" role="tab">Reviews ({{ $service->comments->count() }})</a></li>
+		              <li class="nav-item"><a class="nav-link " href="#reviews" data-toggle="tab" role="tab">Reviews <span class="badge badge-danger badge-pill">{{ $service->comments->count() }}</span></a></li>
 		            </ul>
 		            <div class="tab-content">
 		              <div class="tab-pane fade show active" id="description" role="tabpanel">
@@ -171,7 +176,7 @@
 				  	</aside>
 				</div>
 	        	<!-- Related Products Carousel-->
-	        	<h3 class="text-center padding-top-2x mt-2 padding-bottom-1x">You May Also Like</h3>
+	        	{{-- <h3 class="text-center padding-top-2x mt-2 padding-bottom-1x">You May Also Like</h3> --}}
 	        	<!-- Carousel-->
 	        {{-- <div class="owl-carousel" data-owl-carousel="{ &quot;nav&quot;: false, &quot;dots&quot;: true, &quot;margin&quot;: 30, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;576&quot;:{&quot;items&quot;:2},&quot;768&quot;:{&quot;items&quot;:3},&quot;991&quot;:{&quot;items&quot;:4},&quot;1200&quot;:{&quot;items&quot;:4}} }">
 	          <!-- Product-->

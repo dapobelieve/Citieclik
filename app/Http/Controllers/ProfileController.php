@@ -55,6 +55,16 @@ class ProfileController extends Controller
     			->with('user', $user);
     }
 
+    public function getProducts($slug)
+    {
+        $user = User::where('slug', $slug)->first();
+        if(!$user){
+            abort(404);
+        }
+        return view('profile.products')
+                ->with('user', $user);
+    }
+
     public function getEditProfile()
     {
         $user = User::where('id', Auth::user()->id)->first();

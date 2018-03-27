@@ -72,9 +72,9 @@ class AuthController extends Controller
         ]);
 
         // email user for verification
-        // event(new UserRegistered($user));
+        event(new UserRegistered($user));
 
-        //if the user tick the agent box create a record for him
+        //if the user ticked the agent box create a record for him
         if($request->input('agent')){
 
             $user->agent()->create([
@@ -82,11 +82,9 @@ class AuthController extends Controller
             ]);
         }
 
-        //automatically log in user
-    	if(Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')])){
             return redirect()->route('home')
-                     ->with('success', 'You account has been created.  Check your mail to complete your registration.');
-        } 
+                    ->with('title', 'Congratulations')
+                     ->with('success', 'You account has been created. Check your mail to complete your registration.');
     }
 
 
@@ -96,14 +94,21 @@ class AuthController extends Controller
     		'phone1' => 'required',
     		'password1' => 'required',
     	]);
+
+        //do the double login here
+        $loginType = filter_var($request->input('phone1'), FILTER_VALIDATE_EMAIL) ? 'email' : 'phone';
+
+        $request->merge([
+            $loginType => $request->input('phone1'),
+        ]);
   	
     	if(!Auth::attempt(
             [
-                'phone' => $request->input('phone1'),
+                $loginType => $request->input('phone1'),
                 'password' => $request->input('password1')
             ],$request->has('remember'))){
     		
-    		return redirect()->back()->with('success','Could not sign you in. Invalid Details');
+    		return redirect()->back()->with('authMsg','Could not sign you in. Invalid Details');
     	}
 
     	return redirect()->route('home');

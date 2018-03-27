@@ -1,0 +1,88 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Products extends Model
+{
+        public function userz()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function catty()
+    {
+        return $this->belongsTo('App\Category', 'category_id');
+    }
+
+    public function state()
+    {
+        return $this->belongsTo('App\State', 'state_id');
+    }
+
+    public function subCat()
+    {
+        return $this->belongsTo('App\Subcategory', 'sub_category_id');
+    }
+
+    public function loca()
+    {
+        return $this->belongsTo('App\Location', 'location_id');
+    }
+
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable');
+    }
+
+
+// Relationships Ends
+
+    // A small function to DRY up our queries when
+    // we run it in our controller. something like 
+    // a way to just filter the resullts
+    public function scopePostOnly($query)
+    {
+        return $query->where([
+            ['status', '1'],
+        ]);
+    }
+
+    public function slugIt($slug)
+    {
+        $lettersNamesSpaces = '/[^\-\s\pN\pL]+/u';
+        $spacesHypens = '/[\-\s]+/';
+        $removeAmpersAnd = '&';//added this to remove ampersand
+
+        $slug = preg_replace($lettersNamesSpaces, '', mb_strtolower($slug, 'UTF-8'));
+
+        $slug = preg_replace($spacesHypens, '-', $slug);
+        $slug = preg_replace($spacesHypens, '-', $slug);
+        $slug = str_replace($removeAmpersAnd, '-', $slug);
+        // also note strip tags
+
+        $slug = trim($slug, '-');
+
+        return $slug;
+    }
+
+    public function servieImage()
+    {
+        if(empty($this->image))
+        {
+            $ran = mt_rand(1,3);
+            $img = "/assets/img/shop/cart/0".$ran.".jpg";
+        }else
+        {
+            $img = json_decode($this->image, true);
+            return $img['url'];
+        }
+        return $img;
+    }
+
+    public function serviceTitle()
+    {
+        return ucwords($this->title);
+    }
+}

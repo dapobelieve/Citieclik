@@ -1,9 +1,11 @@
 <?php
 
 // For testing purposes
-Route::get('/test', 'TestController@lete')->name('test');
+Route::get('/test', 'TestController@carbon')->name('test');
 
 // ends here
+
+
 /*
 |
 | Payment Section 
@@ -16,11 +18,8 @@ Route::get('/payment/callback', 'Payment\PaymentController@getPayDetails');
 // ends here
 
 // Homepage
-Route::get('/', [
-	'uses' => 'HomeController@index',
-	'as'   => 'home'
-]);
 
+Route::get('/','HomeController@index')->name('home');
 // Category 
 Route::get('category/{slug}', [
 	'uses' => 'PagesController@getCategory',
@@ -28,10 +27,11 @@ Route::get('category/{slug}', [
 ]);
 
 //View All Services
-Route::get('service', [
+Route::get('listed-services', [
 	'uses' => 'ServiceController@index',
 	'as'   => 'service'
 ]);
+
 
 // Terms and condition page 
 Route::get('/terms', '\App\Http\Controllers\TermsController@index')->name('terms');
@@ -46,7 +46,7 @@ Route::get('/about', '\App\Http\Controllers\TermsController@aboutUs')->name('abo
 
 
 //get details of a service
-Route::get('service/detail/{username}/{serslug}', [
+Route::get('/details/{username}/{serslug}', [
 	'uses' => '\App\Http\Controllers\ServiceDetails@index',
 	'as'   => 'service.detail'
 ]);
@@ -70,6 +70,9 @@ Route::post('/signup', [
 	'as'   => 'auth.signup',
 	'middleware' => ['guest'],
 ]);
+
+// sales agent signup
+Route::post('/salesagent-signup','Agent\AgentController@postSignup')->name('signup-sales');
 
 Route::get('/confirm/{token}','Emails\Confirm@getEmailToken')->name('email.token');
 
@@ -101,6 +104,13 @@ Route::get('/{service}/callback','SocialAuthController@callback');
 	]);
 	//Route to get subcategory based on selected category
 	Route::get('service/category/getscat/{id}', [
+		'uses' => 'AjaxRequestsController@getSubCat'
+	]);
+	Route::get('product/state/location/{id}', [
+		'uses' => 'AjaxRequestsController@getLocation'
+	]);
+	//Route to get subcategory based on selected category
+	Route::get('product/category/getscat/{id}', [
 		'uses' => 'AjaxRequestsController@getSubCat'
 	]);
 
@@ -155,6 +165,11 @@ Route::group(['middleware' => ['AuthCheck']], function () {
 		Route::post('service/add', [
 			'uses' => 'ServiceController@postService',
 			'as'   => 'addservice'
+		]);
+
+		Route::get('product/add', [
+			'uses' => 'ServiceController@getAddProduct',
+			'as'   => 'addproduct'
 		]);
 
 		/*
@@ -263,6 +278,11 @@ Route::get('/profile/{slug}/services', [
 	'as' => 'profile.service',
 ]);
 
+Route::get('/profile/{slug}/products', [
+	'uses' => '\App\Http\Controllers\ProfileController@getProducts',
+	'as' => 'profile.products',
+]);
+
 
 // Requests Section
 Route::get('/profile/{slug}/requests', [
@@ -312,6 +332,7 @@ Route::get('admin/settings', 'Admin\SettingsController@site')->name('admin.setti
 Route::get('admin/users', 'Admin\UsersController@index')->name('admin.users');
 Route::get('admin/agents', 'Admin\AgentsController@index')->name('admin.agents');
 
+
 /*
 |
 | Admin Section Ends
@@ -323,6 +344,10 @@ Route::get('admin/agents', 'Admin\AgentsController@index')->name('admin.agents')
 | Agent Section Starts
 |
 */
+// sign up as a Sales agents 
+Route::get('salesagents', 'Agent\AgentController@getPage')->name('salesagent.register');
+
+
 
 Route::get('agents/{agent}', 'Agent\AgentController@index')->name('agent.register');
 Route::post('agent', 'Agent\AgentController@store')->name('agent.register');

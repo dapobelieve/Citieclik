@@ -31,9 +31,10 @@ class ServiceController extends Controller
     // get all services view
     public function index()
     {
-        $serviceData = Service::take(200)->postOnly()->get();
+        $serviceData = Service::take(200)->postOnly()->where('type', 's')->get();
 
-    	return view('service.all')->with('sdata', $serviceData);
+    	return view('service.service')->with('sdata', $serviceData)
+                                    ->with('type', 's');
     }
 
     public function getServiceDetails()
@@ -45,7 +46,12 @@ class ServiceController extends Controller
     //get Add services page
     public function getAddService()
     {
-    	return view('pages.addservice');
+    	return view('pages.addservice')->with('tdata', 's');;
+    }
+
+    public function getAddProduct()
+    {
+        return view('pages.addservice')->with('tdata', 'p');
     }
 
     //validate and save service details
@@ -53,7 +59,7 @@ class ServiceController extends Controller
     {
         //check if users posted services >= plans subsribed to
 
-
+        // dd($serRequest);
     	$this->validate($serRequest, [
             'serTitle'  =>  'required|string|max:255',
             'serState'  => 'required|integer',
@@ -61,24 +67,25 @@ class ServiceController extends Controller
             'serCat'    => 'required|integer',
             'subCat'    => 'required|integer',
             'serImg'    => "image|mimes:jpeg,jpg,png,bmp,svg|max:2048",
-            // 'servicePrice' => "integer",
+            // 'serPrice' => "integer",
             'description'  => 'required|string'
         ], 
         [
-            'serTitle.required'     => 'The service you offer needs to have a name e.g I write final year projects, Hair stylist, Bead Designer etc',
+            'serTitle.required'     => 'a title is required',
             'serState.required'     => 'Select the state  where you currently provide this service',
             'serState.integer'     => 'Select the state  where you currently provide this service',
             'location.required'     => 'Select the location',
             'location.integer'     => 'Select the location',
-            'description.required'  => 'Give a short description of the sevice',
+            'description.required'  => 'a short detailed description is required',
             'serCat.required'       => 'Select a Category',
             'serCat.integer'       => 'Select a Category',
             'subCat.required'       => 'Select a Sub Category',
             'subCat.integer'       => 'Select a Sub Category',
-            // 'servicePrice.integer' => 'The price must be in digits e.g 50000',
+            // 'serPrice.integer' => 'The price must be in digits e.g 50000',
             'serImg.mimes'          => 'The image must have jpeg, jpg or png format',
             'serImg.max'            => 'The Image is too large, It must not be more than 2MB',
-        ]); 
+        ]);
+        
 
 		$slugSer = $this->slugIt($serRequest->input('serTitle'));
 
@@ -89,29 +96,38 @@ class ServiceController extends Controller
         $service->sub_category_id   = $serRequest->input('subCat');
         $service->description       = $serRequest->input('description');
         $service->slug              = $slugSer;
-        $service->type              = 'p';
+        $service->price             = $serRequest->input('serPrice');
+        $service->type              = $serRequest->input('typo');
         $service->state_id          = $serRequest->input('serState');
         $service->location_id       = $serRequest->input('location');
 
         //here i check if an image is in the 
         //image field and upload it to cloudinary
         if($serRequest->hasFile('serImg')){
-            $this->uploadPicture($serRequest, array("width" => 100, "height" => 150, "crop" => "limit", "html_height" => 150));
+            $this->uploadPicture($serRequest);
             $service->image = $this->imgObj;
         }
         $service->save();
-        return redirect()->route('profile.service', ['slug' => $serRequest->user()->slug])->with('info', 'Service Posted Successfully');
+
+        if($serRequest->input('location') == 's'){
+            return redirect()->route('profile.service', ['slug' => $serRequest->user()->slug])->with('info', 'Service Posted Successfully');
+        }elseif($serRequest->input('location') == 'p'){
+            return redirect()->route('profile.products', ['slug' => $serRequest->user()->slug])->with('info', 'Product Posted Successfully');
+        }
+        
     }
 
     public function getEditService($id)
     {
         $post = Service::findOrFail($id);
+        // dd($post->type);
         return view('pages.edit')->with('sdata', $post);
     }
 
     //validate and update service details
     public function postServiceUpdate(Request $serRequest, $id)
     {
+        // dd($serRequest);
         $this->validate($serRequest, [
             'serTitle'  =>  'required|string|max:255',
             'serState'  => 'required|integer',
@@ -148,7 +164,7 @@ class ServiceController extends Controller
         $service->sub_category_id   = $serRequest->input('subCat');
         $service->description       = $serRequest->input('description');
         $service->slug              = $slugSer;
-        $service->type              = 'p';
+        $service->type              = $serRequest->input('typo');
         $service->state_id          = $serRequest->input('serState');
         $service->location_id       = $serRequest->input('location');
         
@@ -163,7 +179,11 @@ class ServiceController extends Controller
         $service->save();
 
         //fire sms sending event
-        return redirect()->route('profile.service', ['slug' => $serRequest->user()->slug])->with('info', 'Service Updated Successfully');
+        if($serRequest->input('typo') == 's'){
+            return redirect()->route('profile.service', ['slug' => $serRequest->user()->slug])->with('info', 'Service Updated Successfully');
+        }elseif($serRequest->input('typo') == 'p'){
+            return redirect()->route('profile.products', ['slug' => $serRequest->user()->slug])->with('info', 'Product Updated Successfully');
+        }
     }
 
     public function getDeleteService($id)
@@ -175,7 +195,7 @@ class ServiceController extends Controller
         }
         
         $post->delete();
-        return redirect()->back()->with('info', 'Service Deleted.');
+        return redirect()->back()->with('info', 'Deleted.');
     }
 
     private function uploadPicture(Request $req)
@@ -185,7 +205,10 @@ class ServiceController extends Controller
                 'folder'   => 'citi',
                 'timeout'  =>  600,
                 'format'   => 'Webp',
-                'quality'  => '20'
+                'quality'  => '20',
+                // "width" => 'max',
+                "height" => 500,
+                "crop" => "limit"
             ));
 
             if(!$result)

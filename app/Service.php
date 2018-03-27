@@ -48,7 +48,6 @@ class Service extends Model
     public function scopePostOnly($query)
     {
         return $query->where([
-            ['type', 'P'],
             ['status', '1'],
         ]);
     }

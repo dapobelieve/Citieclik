@@ -5,33 +5,31 @@ Welcome | Citieclik
 @endsection
 
 @section('content')
-  	<!-- Main Slider-->
-  	<section class="hero-slider text-center" style="background-image: url(assets/img/hero-slider/lagos.jpg); color: #fff !important; ">
+    <!-- Main Slider-->
+    <section class="hero-slider text-center" style="background-image: url(assets/img/hero-slider/lagos.jpg); color: #fff !important; ">
       <div class="container padding-top-6x">
         <div id="carouselContent" class="carousel slide bg-chrome item" data-ride="carousel">
-          <h1 class="" style="color: #fff !important; text-shadow: 0px 0px 6px rgba(0,0,0,0.4); font-weight: 600;">Connect the City with a Click</h1>
+          <h1 class="" style="color: #fff !important; text-shadow: 0px 0px 6px rgba(0,0,0,0.4); font-weight: 600;">Connecting the City with a Click</h1>
           <div class="carousel-inner text-white align-items-center" role="listbox">
               <div class="row align-items-center carousel-item align-items-center flex-column p-4 text-center">
                   <form class="form-inline text-center padding-bottom-2x" action="{{ route('search.results') }}">
                     <div class="form-group text-center">
                       {{-- <label class="sr-only" for="inlineFormInputGroupUsername2">What are you looking for?</label> --}}
-                      <div class="input-group form-group" style="margin-right: 0px !important;">
+                      <div class="input-group form-group" style="margin-right: 2px !important;">
                         {{-- <div class="input-group-addon"></div> --}}
-                        <span class="input-group-btn">
-                          {{-- <button type="submit"><i class="icon-search"></i></button> --}}
-                        </span>
-                        <select class="form-control form-control-square form-control-lg" id="select-input" name="category">
-                            <option>Select a Category</option>
-                          @foreach($cats as $cat)
-                                <option value="{{ $cat->id }}">{{ $cat->category }}</option>
-                          @endforeach
+                        <select class="form-control" onchange="getCats(this.value)" id="select-input" name="category">
+                                <option>Select a Category</option>
+                                <option value="p">Products</option>
+                                <option value="s">Services</option>
                         </select>
                       </div>
+                      <div class="input-group form-group" style="margin-right: 2px !important;">
+                        {{-- <div class="input-group-addon"></div> --}}
+                        <span id="sList2"></span>
+                        
+                      </div>
                       <div class="input-group form-group" method="get" style="margin-right: 0px !important;">
-                        <span class="input-group-btn">
-                          {{-- <button type="submit"><i class="icon-search"></i></button> --}}
-                        </span>
-                        <select class="form-control form-control-square form-control-lg" id="select-input" name="state">
+                        <select class="form-control " id="select-input" name="state">
                           <option>Pick a Location</option>
                           @foreach($states as $state)
                                 <option value="{{ $state->id }}">{{ $state->state }}</option>
@@ -40,16 +38,25 @@ Welcome | Citieclik
                         {{-- <input class="form-control form-control-square form-control-lg" type="email" placeholder="Location"> --}}
                       </div>
                           <div class="col-auto">
-                            <button type="submit" class="btn btn-primary btn-lg btn-square mybox"><i class="icon-search"></i> Search</button>
+                            <button type="submit" class="btn btn-primary "><i class="icon-search"></i> Search</button>
                           </div>
                     </div>
                     {{-- <button type="submit" class="btn btn-square btn-primary">Submit</button> --}}
+                  </form>
+
+                  <form class="form-inline text-center">
+                    {{-- @if(Auth::check()) --}}
+                    <div class="col-xs-12 form-group">
+                      <div class="col-xs-6"><a href="#" class="btn btn-danger mybox">Post Service/Product</a></div>
+                      <div class="col-xs-6"><a href="{{ route('request.add') }}" class="btn btn-primary mybox">Post Request</a></div>
+                    </div>
+                    {{-- @endif --}}
                   </form>
               </div>
           </div>
         </div>
       </div>
-  	</section>
+    </section>
       <!-- Top Categories-->
       <section class="container padding-top-1x text-center">
         <h3 class="text-center mb-30">Explore our top Categories</h3>
@@ -70,7 +77,21 @@ Welcome | Citieclik
           @endforeach
         </div>
       </section>
-
+      <section class="container-fluid">
+        <div class="row">
+          <div class=" col-lg-12 ">
+            <div class="fw-section rounded padding-top-4x padding-bottom-4x" style="background-image: url(/assets/img/banners/home02.jpg);"><span class="overlay rounded" style="opacity: .35;"></span>
+              <div class="text-center">
+                <h3 class="display-4 text-normal text-white text-shadow mb-1">Become a </h3>
+                <h2 class="display-2 text-bold text-white text-shadow">SALES AGENT</h2>
+                <h4 class="d-inline-block h2 text-normal text-white text-shadow border-default border-left-0 border-right-0 mb-4">Earn on CitieClik</h4><br>
+                <a class="btn btn-primary" href="{{ route('salesagent.register') }}"><i class="icon-signal"></i>&nbsp;Get Started</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+        <br>
       <section class="padding-bottom-none">
           
           <div id="particles-js" class="container-fluid row col-md-12 padding-bottom-2x mybg" style="color: #fff !important; margin-left: 0px !important;">
@@ -92,7 +113,7 @@ Welcome | Citieclik
             <h4 style="color: #fff !important; ">Add Services & Request</h4>
             <p class="text-muted margin-bottom-none" style="color: #fff !important;">Add your own services or apply to requests</p>
           </div>
-        </div>
+        </div>       
         <script type="text/javascript" src="/assets/js/particles.js" ></script>
         <script type="text/javascript" src="/assets/js/app.js" ></script>
       </section>
@@ -121,11 +142,40 @@ Welcome | Citieclik
 })
 @elseif(Session::has('success'))
   swal({
-    title: "Welcome back",
-    text:  "{{Session::get('success')}}",
-    type: 'info'
+	title: "{{Session::get('title')}}",
+	text:  "{{Session::get('success')}}",
+	type: 'info'
   })
 @endif
+</script>
+<script>
+
+	data = {
+		'p' : ['product1','product2','product3','product4','product5'],
+		's' : ['service1','service2','service3','service4','service5']
+	}
+	
+	function getCats(section)
+	{
+	 //  $.ajax({
+		// url: "getCatz/"+section,
+		// method: 'GET',
+	 //  })
+	 //  .done(function(data) {
+		
+	 //  });
+		// alert(data[section]);
+		// document.getElementById('sList');
+		var selectData = `<select class="form-control" name="category">
+							<option value="">---</option>`;
+		for( var i=0; i<data[section].length; i++){
+			selectData += `<option value="${data[section][i]}">${data[section][i]}</option>`;
+		}
+
+		selectData += `</select>`;
+
+		document.getElementById('sList2').insertAdjacentHTML('beforeend', selectData);
+	}
 </script>
 
 @stop

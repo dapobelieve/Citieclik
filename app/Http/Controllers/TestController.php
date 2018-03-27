@@ -6,10 +6,42 @@ use Illuminate\Http\Request;
 use Auth;
 use App\User;
 use App\Plan;
-// use App\Subscription;
+use Carbon\Carbon;
+use App\Subscription;
+/**
+* A contorller to test
+* some logics before 
+* using them in my app 
+*/
 
 class TestController extends Controller
 {
+    private $today;
+
+    public function __construct()
+    {
+        $this->today = Carbon::now('Africa/Lagos');
+    }
+
+    public function carbon()
+    {
+        Subscription::where('status', 1)->chunk(20, function ($subers) {
+
+            foreach ($subers as $suber) {
+
+                $x = Carbon::createFromTimestampUTC(strtotime($suber->ends_at));
+
+                if($this->today->gte($x)){
+
+                    $suber->update(['status' => 0]);
+                }
+
+            }
+        });
+    }
+
+
+
     public function index()
     {
         // isSubscribed()
@@ -42,5 +74,10 @@ class TestController extends Controller
      //    $userServices = Auth::user()->getNumberOfPosts();
 
      //    dd((int)$sumPlans);
+    }
+
+    public function getMail()
+    {
+        return view('Mail.verify');
     }
 }

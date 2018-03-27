@@ -20,4 +20,15 @@ class UsersController extends Controller
     	$users = User::get();
         return view('dashboard.pages.users')->with('users', $users);
     }
+
+    public function getUsers(Request $request)
+    {
+            if($request->ajax()){
+                $users = User::get();
+                return $users->toJson();
+            }else{
+                return view('dashboard.pages.home');
+            }
+            
+    }
 }

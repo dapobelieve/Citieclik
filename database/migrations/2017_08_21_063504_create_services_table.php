@@ -26,7 +26,6 @@ class CreateServicesTable extends Migration
             $table->string('image');
             $table->string('imgId');
             $table->string('slug');
-            $table->enum('type', ['p', 'r']);            
             $table->enum('status', [0, 1])->default(1);
             $table->timestamps();
         });

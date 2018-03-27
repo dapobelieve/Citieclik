@@ -45,7 +45,7 @@ Create Account
               </div>
               <h4 class="margin-bottom-1x">Or using the form below</h4>
               <div class="form-group input-group">
-                <input class="form-control" type="text" name="phone1" placeholder="Phone Number" ><span class="input-group-addon"><i class="icon-mail"></i></span>
+                <input class="form-control" type="text" name="phone1" placeholder="Email or Phone Number" ><span class="input-group-addon"><i class="icon-mail"></i></span>
                 @if($errors->has('phone1'))
                   <span class="help-block formlert">
                     {{$errors->first('phone1')}}
@@ -142,14 +142,7 @@ Create Account
                   @endif
                 </div>
               </div>
-              <div class="d-flex flex-wrap justify-content-between padding-bottom-1x">
-                <label class="custom-control custom-checkbox">
-                  <input class="custom-control-input" name="agent" type="checkbox" ><span class="custom-control-indicator"></span><span class="custom-control-description">Register as a 
-                  <a href="#" style="color: #15ca13" class="sagent">Sales Agent</a> |
-                  <a class="sagent" data-toggle="tooltip" data-placement="top" title="Learn More" href="#">Who is a Sales Agent ?</a>
-                  </span>
-                </label>{{-- <a class="navi-link" href="#">Forgot password?</a> --}}
-              </div>
+              {{--  --}}
               <div class="col-12 text-center text-sm-right">
                 <button class="btn btn-primary margin-bottom-none" type="submit">Register</button>
               </div>
@@ -162,11 +155,11 @@ Create Account
 @endsection
 @section('script')
   <script type="text/javascript">
-   @if(Session::has('Message'))
+   @if(Session::has('authMsg'))
     swal({
-    title: "oops not allowed",
-    text: "{{ Session::get('Message')}}",
-    type: 'warning'
+    title: "",
+    text: "{{ Session::get('authMsg')}}",
+    type: 'info'
   })
   @endif
   </script>

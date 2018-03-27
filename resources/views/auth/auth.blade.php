@@ -45,7 +45,7 @@ Create Account
               </div>
               <h4 class="margin-bottom-1x">Or using the form below</h4>
               <div class="form-group input-group">
-                <input class="form-control" type="text" name="phone1" placeholder="Phone Number" ><span class="input-group-addon"><i class="icon-mail"></i></span>
+                <input class="form-control" type="text" name="phone1" placeholder="Email or Phone Number" ><span class="input-group-addon"><i class="icon-mail"></i></span>
                 @if($errors->has('phone1'))
                   <span class="help-block formlert">
                     {{$errors->first('phone1')}}

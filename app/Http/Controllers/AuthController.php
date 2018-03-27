@@ -94,14 +94,21 @@ class AuthController extends Controller
     		'phone1' => 'required',
     		'password1' => 'required',
     	]);
+
+        //do the double login here
+        $loginType = filter_var($request->input('phone1'), FILTER_VALIDATE_EMAIL) ? 'email' : 'phone';
+
+        $request->merge([
+            $loginType => $request->input('phone1'),
+        ]);
   	
     	if(!Auth::attempt(
             [
-                'phone' => $request->input('phone1'),
+                $loginType => $request->input('phone1'),
                 'password' => $request->input('password1')
             ],$request->has('remember'))){
     		
-    		return redirect()->back()->with('success','Could not sign you in. Invalid Details');
+    		return redirect()->back()->with('authMsg','Could not sign you in. Invalid Details');
     	}
 
     	return redirect()->route('home');

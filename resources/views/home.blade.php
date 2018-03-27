@@ -46,7 +46,7 @@ Welcome | Citieclik
                   <form class="form-inline text-center">
                     {{-- @if(Auth::check()) --}}
                     <div class="col-xs-12 form-group">
-                      <div class="col-xs-6"><a href="{{ route('') }}" class="btn btn-danger mybox">Post Service/Product</a></div>
+                      <div class="col-xs-6"><a href="#" class="btn btn-danger mybox">Post Service/Product</a></div>
                       <div class="col-xs-6"><a href="{{ route('request.add') }}" class="btn btn-primary mybox">Post Request</a></div>
                     </div>
                     {{-- @endif --}}

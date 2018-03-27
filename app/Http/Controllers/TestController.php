@@ -6,10 +6,18 @@ use Illuminate\Http\Request;
 use Auth;
 use App\User;
 use App\Plan;
-// use App\Subscription;
+use Carbon\Carbon;
 
 class TestController extends Controller
 {
+    public function carbon()
+    {
+        $current = Carbon::now('Africa/Lagos');
+        $next = Carbon::now('Africa/Lagos');
+        $month = $next->addDays(30);
+        dd($current."<----------->".$month);
+    }
+
     public function index()
     {
         // isSubscribed()

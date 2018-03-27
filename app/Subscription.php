@@ -11,7 +11,9 @@ class Subscription extends Model
         'trxn_ref',
         'status',
         'plan_id',
-        'pay_status'
+        'pay_status',
+        'starts_at',
+        'ends_at'
     ];
 
     public function plan()

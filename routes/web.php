@@ -331,6 +331,7 @@ Route::get('dashboard', 'Admin\HomeController@index')->name('admin.home');
 Route::get('admin/settings', 'Admin\SettingsController@site')->name('admin.settings.site');
 Route::get('admin/users', 'Admin\UsersController@index')->name('admin.users');
 Route::get('admin/agents', 'Admin\AgentsController@index')->name('admin.agents');
+Route::get('admin/category', 'Admin\CategoryController@getCategory')->name('admin.category');
 
 /*
 |

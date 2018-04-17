@@ -57,8 +57,6 @@ class ServiceController extends Controller
     //validate and save service details
     public function postService(Request $serRequest)
     {
-        //check if users posted services >= plans subsribed to
-
         // dd($serRequest);
     	$this->validate($serRequest, [
             'serTitle'  =>  'required|string|max:255',

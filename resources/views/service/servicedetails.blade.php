@@ -144,15 +144,7 @@
 					      	{{-- <div class="info-label" data-toggle="tooltip" title="" data-original-title="Posted by"><h4>Posted by</h4></div> --}}
 					    </div>
 					    @if(Auth::check())
-					    <div class="user-info">
-					      	<div class="user-avatar">
-					            <img id="userMainAvatar" src="{{$service->userz->getUserImg()}}" alt="User">
-					      	</div>
-					      	<div class="user-data">
-					        	<h4 class="text-primary text-medium">{{$service->userz->username}}</h4><small class="opacity-60">{{$service->created_at->diffForHumans()}}</small>
-					        	<h5>{{$service->userz->phone}}</h5>
-					      	</div>
-					    </div>
+					    <clicker></clicker>
 						@endif
 					    <br>
 				      	<div class="list-group">

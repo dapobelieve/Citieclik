@@ -81,7 +81,7 @@
 				                  			Service Title
 				                  		@endif
 				                  	</label>
-				                  	<input class="form-control" name="serTitle" type="text" placeholder="" value="{{ old('serTitle') ?: '' }}" >
+				                  	<input class="form-control" name="serTitle"  type="text" placeholder="" value="{{ Request::old('serTitle') ?: '' }}" >
 				                  	@if ($errors->has('serTitle'))
 										<p class="help-block text-danger"><i class="icon-circle-cross"></i>&nbsp;{{ $errors->first('serTitle') }}</p>
 					                	{{-- <span class="help-block"> </span> --}}
@@ -93,7 +93,7 @@
 			              	<div class="col-sm-6">
 				                <div class="form-group {{ $errors->has('serCat') ? ' has-error' : '' }}">
 				                  	<label for="checkout-country">Category</label>
-				                  	<select class="form-control" name="serCat" id="serCat" value="{{ old('serCat') ?: ''  }}">
+				                  	<select class="form-control" name="serCat" id="serCat" value="{{ Request::old('serCat') ?: ''  }}">
 					                    <option>Choose a Category</option>
 					                    @if($tdata == 'p')
 					                    	@foreach($cats->where('type', 'p') as $cat)
@@ -127,7 +127,7 @@
 			              	<div class="col-sm-6">
 				                <div class="form-group {{ $errors->has('serState') ? ' has-error' : '' }}">
 				                  	<label for="checkout-country">State</label>
-				                  	<select class="form-control" name="serState" id="serState" value="{{ old('serState') ?: ''  }}">
+				                  	<select class="form-control" name="serState" id="serState" value="{{ Request::old('serState') ?: ''  }}">
 				                    	<option>Choose a State</option>
 					                    @foreach($states as $state)
 					                        <option value="{{$state->id}}">{{$state->state}}</option>
@@ -175,7 +175,7 @@
 			                  	<label for="checkout-fn">
 			                  			Product Price
 			                  	</label>
-			                  	<input class="form-control" name="serPrice" type="number" placeholder="Price " value="{{ old('serPrice') ?: '' }}" >
+			                  	<input class="form-control" name="serPrice" type="number" placeholder="Price " value="{{ Request::old('serPrice') ?: '' }}" >
 			                  	@if ($errors->has('serPrice'))
 									<p class="help-block text-danger"><i class="icon-circle-cross"></i>&nbsp;{{ $errors->first('serPrice') }}</p>
 			                	@endif
@@ -186,7 +186,7 @@
 			            	<div class="col-sm-12">
 			            		<div class="form-group {{ $errors->has('description') ? ' has-error' : '' }}">
 				            		<label for="checkout-description">Description</label>
-				            		<textarea class="my-editor" name="description" value="{{ old('description') ?: ''  }}" placeholder="detailed description goes here..."></textarea>
+				            		<textarea class="my-editor" name="description" value="{{ Request::old('description') ?: ''  }}" placeholder="detailed description goes here..."></textarea>
 			                  		@if ($errors->has('description'))
 										<p class="help-block text-danger"><i class="icon-circle-cross"></i>&nbsp;{{ $errors->first('description') }}</p>
 				                	@endif

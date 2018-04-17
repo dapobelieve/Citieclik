@@ -39,6 +39,11 @@ class Service extends Model
         return $this->morphMany(Comment::class, 'commentable');
     }
 
+    public function clicks()
+    {
+        return $this->hasMany(Click::class);
+    }
+
 
 // Relationships Ends
 

@@ -145,7 +145,12 @@
 					    </div>
 					    @if(Auth::check())
                         {{-- user clciking system --}}
-					    <clicker></clicker>
+                        <div class="user-info">
+                            <div class="user-avatar">
+                                <img id="userMainAvatar" src="{{ $service->userz->getUserImg() }}"  alt="User">
+                            </div>
+                            <clicker :service="{{ $service }}"  :user="{{ $service->userz }}"></clicker>
+                        </div>
 						@endif
 					    <br>
 				      	<div class="list-group">

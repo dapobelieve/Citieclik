@@ -8,6 +8,7 @@
 
 <script>
     export default {
+        props: ['user'],
         mounted () {
             alert('User Clicking System');
         }

@@ -144,6 +144,7 @@
 					      	{{-- <div class="info-label" data-toggle="tooltip" title="" data-original-title="Posted by"><h4>Posted by</h4></div> --}}
 					    </div>
 					    @if(Auth::check())
+                        {{-- user clciking system --}}
 					    <clicker></clicker>
 						@endif
 					    <br>

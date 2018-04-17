@@ -11,7 +11,7 @@ use Paystack;
 
 class PaymentController extends Controller
 {
-    // set the date (start and end)
+    // set the dates (start and end)
     private $start;
     private $next;
     private $end;
@@ -98,7 +98,7 @@ class PaymentController extends Controller
 
             Auth::user()->subscriptions()->where('trxn_ref', $paymentDetails['data']['reference'] )->update([
                 'status'     => 1,
-                'amount'     => $paymentDetails['data']['amount'],
+                'amount'     => ($paymentDetails['data']['amount'] / 100),
                 'pay_status' => 1,
                 'starts_at'  => $this->start,
                 'ends_at'    => $this->end
@@ -108,8 +108,4 @@ class PaymentController extends Controller
         }
     }
 
-    public function processDate($start, $end)
-    {
-        // 
-    }
 }

@@ -11473,7 +11473,7 @@ exports = module.exports = __webpack_require__(10)(false);
 
 
 // module
-exports.push([module.i, "\n.shwbtn {\r\n    color: green;\r\n    font-weight: 600;\r\n    padding: 0.4rem 1.3rem;\r\n    text-decoration: none;\r\n    cursor: pointer;\n}\r\n    \r\n", ""]);
+exports.push([module.i, "\n.shwbtn {\r\n    color: #36f936 !important;\r\n    font-weight: 500;\r\n    cursor: pointer;\n}\r\n    \r\n", ""]);
 
 // exports
 
@@ -11962,14 +11962,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 alert('Come on, you already know your contact information');
                 return;
             }
-            this.show = true;
+
             this.send();
         },
         send: function send() {
+            var _this = this;
+
             axios.post('api/click', {
                 user_id: Laravel.user.id,
                 service_id: this.service.id
             }).then(function (response) {
+                _this.show = true;
                 console.log(response.data);
             }).catch(function (error) {
                 console.log(error);

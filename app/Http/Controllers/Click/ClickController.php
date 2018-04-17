@@ -12,6 +12,19 @@ class ClickController extends Controller
 {
     public function store(Request $request)
     {
-        return response()->json($request, 200);
+        $serviceId = $request->service_id;
+        $userId    = $request->user_id;
+
+        $service = Service::find($serviceId);
+
+        // $service->clicks()->create([
+        //     'user_id' => $userId,
+        // ]);
+        $user = $service->userz;
+
+        $serv = $service->clicks()->count();
+
+
+        return response()->json($user, 200);
     }
 }

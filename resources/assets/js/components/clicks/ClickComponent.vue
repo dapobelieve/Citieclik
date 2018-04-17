@@ -23,7 +23,7 @@
                     alert('Come on, you already know your contact information')
                     return;
                 }
-                this.show = true;
+                
                 this.send();               
             },
             send () {
@@ -32,6 +32,7 @@
                     service_id:  this.service.id
                 })
                 .then(response => {
+                    this.show = true;
                     console.log(response.data);
                 })
                 .catch(error => {
@@ -47,10 +48,8 @@
 
 <style>
 .shwbtn {
-    color: green;
-    font-weight: 600;
-    padding: 0.4rem 1.3rem;
-    text-decoration: none;
+    color: #36f936 !important;
+    font-weight: 500;
     cursor: pointer;
 }
     

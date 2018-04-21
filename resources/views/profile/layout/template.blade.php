@@ -84,7 +84,6 @@
 
 @endsection
 @section('script')
-<script src="/assets/js/slimscroll.min.js"></script>
 <script type="text/javascript">
  @if(Session::has('info'))
   swal({

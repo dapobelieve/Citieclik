@@ -319,7 +319,7 @@ Route::post('/comment','Comments\CommentController@store')->name('comment');
 // Ends Here
 
 
-
+Route::get('/products', 'Actions\Product\ProductController@index')->name('product');
 
 
 /*
@@ -332,19 +332,6 @@ Route::get('admin/settings', 'Admin\SettingsController@site')->name('admin.setti
 Route::get('admin/users', 'Admin\UsersController@index')->name('admin.users');
 Route::get('admin/agents', 'Admin\AgentsController@index')->name('admin.agents');
 
-/*
-|
-| Products Section Starts
-|
-*/
-
-Route::get('/products', 'Actions\Product\ProductController@index')->name('product');
-
-/*
-|
-| Products Section Ends
-|
-*/
 
 /*
 |
@@ -363,10 +350,10 @@ Route::get('salesagents', 'Agent\AgentController@getPage')->name('salesagent.reg
 
 
 Route::get('agents/{agent}', 'Agent\AgentController@index')->name('agent.register');
-Route::post('agent', 'Agent\AgentController@store')->name('agent.register');
+Route::post('agent-register', 'Agent\AgentController@store')->name('agent.pregister');
 
 
-//get a sales agents profile only accessible to agents
+//get a sales agents profile only accessible to sales agents
 Route::get('agent/{user}','Agent\AgentController@profile')->name('agent.profile')->middleware('salesAgent');
 
 /*

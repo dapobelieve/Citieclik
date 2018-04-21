@@ -43,6 +43,7 @@ Welcome | Citieclik
                     </div>
                     {{-- <button type="submit" class="btn btn-square btn-primary">Submit</button> --}}
                   </form>
+
                   <form class="form-inline text-center">
                     {{-- @if(Auth::check()) --}}
                     <div class="col-xs-12 form-group">

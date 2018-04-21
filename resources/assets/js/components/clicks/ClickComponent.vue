@@ -10,6 +10,8 @@
 </template>
 
 <script>
+    import Bus from '../../bus';
+
     export default {
         data () {
             return {
@@ -33,7 +35,9 @@
                 })
                 .then(response => {
                     this.show = true;
-                    console.log(response.data);
+                    Bus.$emit('viewed.contact');
+                    // fire an event here
+                    // console.log(response.data);
                 })
                 .catch(error => {
                     console.log(error);

@@ -107,9 +107,12 @@ class ServiceController extends Controller
         }
         $service->save();
 
-        if($serRequest->input('location') == 's'){
+
+        if($serRequest->input('typo') == 's'){
+
             return redirect()->route('profile.service', ['slug' => $serRequest->user()->slug])->with('info', 'Service Posted Successfully');
-        }elseif($serRequest->input('location') == 'p'){
+
+        }else if ($serRequest->input('typo') == 'p'){
             return redirect()->route('profile.products', ['slug' => $serRequest->user()->slug])->with('info', 'Product Posted Successfully');
         }
         

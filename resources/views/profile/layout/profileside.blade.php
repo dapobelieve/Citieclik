@@ -14,7 +14,13 @@
         {{-- <button class="btn btn-outline-primary" type="button" data-toggle="modal" data-target="#modalDefault">Default Modal</button> --}}
       </div>
       <div class="user-data">
-        <h4>{{$user->getFullName()}}</h4><span><small>Joined {{$user->created_at->formatLocalized('%B %Y')}}</small></span>
+        <h4>{{$user->getFullName()}}</h4>
+        <span>
+            <small>Joined {{$user->created_at->formatLocalized('%B %Y')}}</small>
+        </span>
+        @if($user->isSubscribed())
+            <counter :click="{{ $user->getActiveSubscription()->click }}"></counter>
+        @endif
       </div>
     </div>
   </aside>

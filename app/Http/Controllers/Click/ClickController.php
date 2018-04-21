@@ -17,12 +17,31 @@ class ClickController extends Controller
 
         $service = Service::find($serviceId);
 
-        // $service->clicks()->create([
-        //     'user_id' => $userId,
-        // ]);
+
+        // record the click event
+        $service->clicks()->create([
+            'user_id' => $userId,
+        ]);
+
+        // deduct 5 from current clicks
         $user = $service->userz;
 
-        $serv = $service->clicks()->count();
+        if($user->isSubscribed()){
+            $userSub = $user->getActiveSubscription();
+
+            if($userSub->click <= 0){
+                return response()->json('User out of clicks', 500);
+            }
+
+            $userSub->update([
+                'click' => ($userSub->click - 5)
+            ]);
+
+        }else{
+            return response()->json('No Data', 500);
+        }
+
+        // $serv = $service->clicks()->count();
 
 
         return response()->json($user, 200);

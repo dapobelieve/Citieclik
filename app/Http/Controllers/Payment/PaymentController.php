@@ -30,36 +30,21 @@ class PaymentController extends Controller
 
         if ($request->amount < 0) { 
 
-            $subDetails = $request->user()->getActiveSubscription();
-
-            Auth::user()->subscriptions()->where('plan_id',$subDetails->plan_id)->update([
-                'status' => 0,
-            ]);
-
-            Auth::user()->subscriptions()->create([
-                'trxn_ref'     => $request->reference,
-                'status'       => 1,
-                'pay_status'   => 1,
-                'plan_id'      => $request->dplan,
-                'starts_at'    => $this->start,
-                'ends_at'      => $this->end
-            ]);
-
-            return redirect()->back()->with('pay-message',' Your Subscription has been activated. ');
+            return redirect()->back()->with('pay-message',' Sorry, you can\'t subscribe to a lower plan till your current plan expires');
         }
-
-        //check if user has an active subscription and tries to subscribe to the sam plan again
+        //check if user has an active subscription and tries to subscribe to the same plan again
         if( $user->isSubscribed() && $user->subscribedToPlan($request->dplan) ){
             // check if users active subscription is the same as the one in the request
             return redirect()->back()->with('pay-message', 'You already subscribed to that plan');
         }else {
-                Auth::user()->subscriptions()->create([
-                    'trxn_ref' => $request->reference,
-                    'status'   => 0,
-                    'plan_id'  => $request->dplan,
-                ]);
+            Auth::user()->subscriptions()->create([
+                'trxn_ref' => $request->reference,
+                'status'   => 0,
+                'click'   => $request->dclicks,
+                'plan_id'  => $request->dplan,
+            ]);
 
-                return Paystack::getAuthorizationUrl()->redirectNow();
+            return Paystack::getAuthorizationUrl()->redirectNow();
         }   
     }
 
@@ -83,18 +68,16 @@ class PaymentController extends Controller
         if($paymentDetails['data']['status'] == 'success'){
 
             // i cant seem to figure out why i did what i did here and that sucks
-            if (Auth::user()->isSubscribed()){
+            // if (Auth::user()->isSubscribed()){
 
-                // 1.if user is subscribed we'll get subscription details
-                $subDetails = Auth::user()->getActiveSubscription();
+            //     // 1.if user is subscribed we'll get subscription details
+            //     $subDetails = Auth::user()->getActiveSubscription();
 
-                // 2. update status of that sub to 0
-                Auth::user()->subscriptions()->where('plan_id', $subDetails->plan_id)->update([
-                    'status' => 0
-                ]);
-            }
-
-
+            //     // 2. update status of that sub to 0
+            //     Auth::user()->subscriptions()->where('plan_id', $subDetails->plan_id)->update([
+            //         'status' => 0
+            //     ]);
+            // }
 
             Auth::user()->subscriptions()->where('trxn_ref', $paymentDetails['data']['reference'] )->update([
                 'status'     => 1,

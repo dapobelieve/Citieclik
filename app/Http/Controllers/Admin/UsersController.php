@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\User;
+use App\Subscription;
+// use App\User;
 
 class UsersController extends Controller
 {
@@ -35,11 +37,16 @@ class UsersController extends Controller
 
     public function getSubscribedUsers()
     {
-        $data = user()->getSubuser('user_id');
-        dd($data);
+        $data = Subscription::with('user')->where('status', 1)->get();
+        // $activeUsers = $users->getSubscribedUsers();
+        // dd($users);
+
+
+        // $data = user()->getSubuser('user_id');
+        // dd($data);
 
         return view('dashboard.pages.subusers')
-            ->with('datas', $data);
+            ->with('users', $data);
     }
 
 }

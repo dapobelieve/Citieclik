@@ -234,12 +234,12 @@
 
     function getSubCat(value, displayWhere)
     {
-        let selectData = `
-            <label for="checkout-country">Sub Category</label>
-            <select class="form-control" name="subCat" disabled id="subCat">
-                <option>Sub Category</option>
-            </select>
-        `;
+        // let selectData = `
+        //     <label for="checkout-country">Sub Category</label>
+        //     <select class="form-control" name="subCat" disabled id="subCat">
+        //         <option>Sub Category</option>
+        //     </select>
+        // `;
         // console.log(value+"  "+displayWhere); 
 
         axios.get('/api/getcategory/'+value)

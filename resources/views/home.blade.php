@@ -157,24 +157,20 @@ Welcome | Citieclik
 	
 	function getCats(section)
 	{
-	 //  $.ajax({
-		// url: "getCatz/"+section,
-		// method: 'GET',
-	 //  })
-	 //  .done(function(data) {
+        document.getElementById('sList2').innerHTML = '';
+        // if(sList === 'sList2'){
+    		var selectData = `<select class="form-control" name="category">
+    							<option value="">---</option>`;
+    		for( var i=0; i<data[section].length; i++){
+    			selectData += `<option value="${data[section][i]}">${data[section][i]}</option>`;
+    		}
+
+    		selectData += `</select>`;
+
+            document.getElementById('sList2').insertAdjacentHTML('beforeend', selectData);
+        // }
+
 		
-	 //  });
-		// alert(data[section]);
-		// document.getElementById('sList');
-		var selectData = `<select class="form-control" name="category">
-							<option value="">---</option>`;
-		for( var i=0; i<data[section].length; i++){
-			selectData += `<option value="${data[section][i]}">${data[section][i]}</option>`;
-		}
-
-		selectData += `</select>`;
-
-		document.getElementById('sList2').insertAdjacentHTML('beforeend', selectData);
 	}
 </script>
 

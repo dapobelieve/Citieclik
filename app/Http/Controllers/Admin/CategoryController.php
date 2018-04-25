@@ -13,4 +13,10 @@ class CategoryController extends Controller
     	$categories = Category::get();
     	return view('dashboard.pages.category')->with('categories', $categories);
     }
+
+    public function getCatDetail($category)
+    {
+    	$category = Category::where('category', $category)->first();
+    	dd($category);
+    }
 }

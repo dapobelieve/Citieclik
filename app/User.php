@@ -3,6 +3,7 @@ namespace App;
 
 use App\Service;
 use App\Plan;
+use App\Subscription;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -195,5 +196,9 @@ class User extends Authenticatable
         return $this->hasMany(Social::class);
     }
 
+    public function getSubuser()
+    {
+        return $this->hasMany('App\Subscription', 'user_id');
+    }
 
 }

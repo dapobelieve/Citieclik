@@ -18,7 +18,7 @@
 		                <div class="card-block text-center">
 		                   	<h4 class="m-t-20"><span class="text-c-blue">{{ $category->category }}</span></h4>
 		                   	<p class="m-b-20">Your have <span class="text-c-blue">5</span> subcategories</p>
-		                   	<button class="btn btn-primary btn-sm btn-round">Manage subcategories</button>
+		                   	<a href="{{ route('category.index', ['category' => $category->category]) }}" class="btn btn-primary btn-sm btn-round">Manage subcategories</a>
 		                </div>
 		            </div>
 		          </div>

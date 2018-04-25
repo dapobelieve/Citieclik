@@ -35,7 +35,7 @@ class UsersController extends Controller
 
     public function getSubscribedUsers()
     {
-        $data = User->getSubuser('user_id');
+        $data = user()->getSubuser('user_id');
         dd($data);
 
         return view('dashboard.pages.subusers')

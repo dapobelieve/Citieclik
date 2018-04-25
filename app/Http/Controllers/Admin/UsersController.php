@@ -39,7 +39,7 @@ class UsersController extends Controller
     {
         $data = Subscription::with('user')->where('status', 1)->get();
         // $activeUsers = $users->getSubscribedUsers();
-        // dd($users);
+        dd($data);
 
 
         // $data = user()->getSubuser('user_id');

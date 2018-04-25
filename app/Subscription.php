@@ -26,4 +26,9 @@ class Subscription extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function getSubscribedUsers()
+    {
+        return $this->user()->where('status', 1)->get();
+    }
+
 }

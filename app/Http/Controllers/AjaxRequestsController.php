@@ -26,6 +26,8 @@ class AjaxRequestsController extends Controller
     	if($request->ajax()){
             $cat = Category::find($id);
             $data = $cat->subCats;
+
+            return response()->json($data, 200);
             return $data->toJson();
         }else{
             return redirect()->route('home');

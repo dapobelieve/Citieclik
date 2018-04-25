@@ -52,6 +52,8 @@ class TestController extends Controller
         // dd($data);
 
          $data = User::has('subscriptions')->get();
+
+         
          $numString = '';
          foreach ($data as $key ) {
             if($key->isSubscribed())

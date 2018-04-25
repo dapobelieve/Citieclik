@@ -93,7 +93,7 @@
 			              	<div class="col-sm-6">
 				                <div class="form-group {{ $errors->has('serCat') ? ' has-error' : '' }}">
 				                  	<label for="checkout-country">Category</label>
-				                  	<select class="form-control" name="serCat" id="serCat" value="{{ Request::old('serCat') ?: ''  }}">
+				                  	<select class="form-control" onchange="getSubCat(this.value, 'subcatty')" name="serCat" id="serCat" value="{{ Request::old('serCat') ?: ''  }}">
 					                    <option>Choose a Category</option>
 					                    @if($tdata == 'p')
 					                    	@foreach($cats->where('type', 'p') as $cat)
@@ -113,15 +113,10 @@
 			              	</div>
 	              			<div class="col-sm-6">
 				                <div class="form-group">
-				                  	<label for="checkout-country">Sub Category</label>
-				                  	<select class="form-control" name="subCat" disabled id="subCat" value="{{ Request::old('subCat') ?: ''  }}">
-				                    	<option>Sub Category</option>
-				                  	</select>
-				                  	 @if ($errors->has('subCat'))
-                                        <p class="help-block text-danger"><i class="icon-circle-cross"></i>&nbsp;{{ $errors->first('subCat') }}</p>
-                                    @endif
+				                  	<span id="subcatty"></span>
 				                </div>
 			              	</div>
+
 		            	</div>
 			            <div class="row">
 			              	<div class="col-sm-6">
@@ -206,22 +201,7 @@
 	          	</div>
 	          	<!-- Sidebar          -->
 	          	<div class="col-xl-3 col-lg-4">
-		            <aside class="sidebar">{{-- 
-		              	<div class="padding-top-2x hidden-lg-up"></div>
-		              	<!-- Promo Banner-->
-		              	<section class="promo-box" style="background-image: url(img/banners/02.jpg);"><span class="overlay-dark" style="opacity: .4;"></span>
-		                	<div class="promo-box-content text-center padding-top-2x padding-bottom-2x">
-		                  		<h4 class="text-light text-thin text-shadow">New Collection of</h4>
-		                  		<h3 class="text-bold text-light text-shadow">Sunglasses</h3><a class="btn btn-outline-white btn-sm" href="#">Shop Now</a>
-		                	</div>
-		              	</section>
-		              	<div class="clearfix mb-30"></div>
-		              	<section class="promo-box" style="background-image: url(img/banners/02.jpg);"><span class="overlay-dark" style="opacity: .4;"></span>
-		                	<div class="promo-box-content text-center padding-top-2x padding-bottom-2x">
-		                  		<h4 class="text-light text-thin text-shadow">New Collection of</h4>
-		                  		<h3 class="text-bold text-light text-shadow">Sunglasses</h3><a class="btn btn-outline-white btn-sm" href="#">Shop Now</a>
-		                	</div>
-		              	</section> --}}
+		            <aside class="sidebar">
 		            </aside>
 	          	</div>
 	        </div>
@@ -230,10 +210,7 @@
 @endsection
 
 @section('script')
-{{-- <script src="path/to/jquery.js"></script>  --}}
 
-{{-- <script src="/dist/summernote.min.js"></script> --}}
-{{-- <script src="/dist/summernoteinit.js"></script> --}}
 
 <script src="/dist/trumbowyg.min.js"></script>
 <script type="text/javascript">
@@ -254,28 +231,36 @@
 		});
 	})
 
-	//same logic as above but for
-	$('#serCat').change(function(){
-		$.ajax({
-			url: "category/getscat/"+$(this).val(),
-			method: 'GET',
-		})
-		.done(function(data) {
-			$location = $('#subCat');
-			$location.removeAttr('disabled');//enable
-			$location.children().remove();//clear the kids of the select tag first
-			var dee = JSON.parse(data); //convert the json data to array here
-			$.each(dee,function(index, value){
-				$location.append("<option value='"+value.id+"' >"+ value.sub_category +"</option>");
-			})
-		});
-	})
+
+    function getSubCat(value, displayWhere)
+    {
+        let selectData = `
+            <label for="checkout-country">Sub Category</label>
+            <select class="form-control" name="subCat" disabled id="subCat">
+                <option>Sub Category</option>
+            </select>
+        `;
+        // console.log(value+"  "+displayWhere); 
+
+        axios.get('/api/getcategory/'+value)
+        .then(response => {
+            let results = response.data;
+
+            console.log(results);
+
+            results.forEach(function () {
+
+            });
+
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    }
+
 </script>
 
 
-<script type="text/javascript">
-	$('select').selectize(options);
-</script>
 <script type="text/javascript">
 	$('.my-editor').trumbowyg({
 		// prefix: 'modern-ui',

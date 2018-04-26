@@ -16,6 +16,10 @@ class Subscription extends Model
         'ends_at'
     ];
 
+    protected $casts = [
+        'status' => 'boolean',
+    ];
+
     public function plan()
     {
         return $this->belongsTo(Plan::class, 'plan_id');
@@ -24,11 +28,6 @@ class Subscription extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
-    }
-
-    public function getSubscribedUsers()
-    {
-        return $this->user()->where('status', 1)->get();
     }
 
 }

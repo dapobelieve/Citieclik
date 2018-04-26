@@ -37,16 +37,16 @@ class UsersController extends Controller
 
     public function getSubscribedUsers()
     {
-        $data = Subscription::with('user')->where('status', 1)->get();
-        // $activeUsers = $users->getSubscribedUsers();
+
+        $activeUsers = collect(Subscription::with('user')->where('status', true)->get());
+
+
+        dd($activeUsers->toArray());
+        $data = user()->getSubuser('user_id');
         dd($data);
 
-
-        // $data = user()->getSubuser('user_id');
-        // dd($data);
-
         return view('dashboard.pages.subusers')
-            ->with('users', $data);
+            ->with('datas', $data);
     }
 
 }

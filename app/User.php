@@ -90,9 +90,6 @@ class User extends Authenticatable
         return $this->hasMany(Subscription::class);
     }
 
-    // get subscribed users with active sub
-    
-
     //check if user has an active subscription
     public function isSubscribed()
     {

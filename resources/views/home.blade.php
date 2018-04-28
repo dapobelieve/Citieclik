@@ -9,7 +9,7 @@ Welcome | Citieclik
     <section class="hero-slider text-center" style="background-image: url(assets/img/hero-slider/lagos.jpg); color: #fff !important; ">
       <div class="container padding-top-6x">
         <div id="carouselContent" class="carousel slide bg-chrome item" data-ride="carousel">
-          <h1 class="" style="color: #fff !important; text-shadow: 0px 0px 6px rgba(0,0,0,0.4); font-weight: 600;">Connecting the City with a Click</h1>
+          <h1 class="" style="color: #fff !important; text-shadow: 0px 0px 6px rgb(255, 255, 255); font-weight: 600;">Connecting the City with a Click</h1>
           <div class="carousel-inner text-white align-items-center" role="listbox">
               <div class="row align-items-center carousel-item align-items-center flex-column p-4 text-center">
                   <form class="form-inline text-center padding-bottom-2x" action="{{ route('search.results') }}">
@@ -111,7 +111,7 @@ Welcome | Citieclik
           <div class="col-md-4 col-sm-6 text-center mb-30"><img class="d-block mx-auto mb-4" src="assets/img/icons/step3.png" alt="Add / Request">
             <h3 style="color: #00aeef;">Step 3</h3>
             <h4 style="color: #fff !important; ">Add Services & Request</h4>
-            <p class="text-muted margin-bottom-none" style="color: #fff !important;">Add your own services or apply to requests</p>
+            <p class="text-muted margin-bottom-none" style="color: #fff !important;">Add your own services or make requests</p>
           </div>
         </div>       
         <script type="text/javascript" src="/assets/js/particles.js" ></script>

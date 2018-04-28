@@ -35,8 +35,9 @@
                 })
                 .then(response => {
                     this.show = true;
-                    Bus.$emit('viewed.contact');
                     // fire an event here
+                    Bus.$emit('viewed.contact');
+                    
                     // console.log(response.data);
                 })
                 .catch(error => {

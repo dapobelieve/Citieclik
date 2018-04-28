@@ -9,7 +9,7 @@ Welcome | Citieclik
     <section class="hero-slider text-center" style="background-image: url(assets/img/hero-slider/lagos.jpg); color: #fff !important; ">
       <div class="container padding-top-6x">
         <div id="carouselContent" class="carousel slide bg-chrome item" data-ride="carousel">
-          <h1 class="" style="color: #fff !important; text-shadow: 0px 0px 6px rgb(255, 255, 255); font-weight: 600;">Connecting the City with a Click</h1>
+          <h1 class="" style="color: #fff !important; text-shadow: 0px 0px 6px rgb(6, 6, 6); font-weight: 600;">Connecting the City with a Click</h1>
           <div class="carousel-inner text-white align-items-center" role="listbox">
               <div class="row align-items-center carousel-item align-items-center flex-column p-4 text-center">
                   <form class="form-inline text-center padding-bottom-2x" action="{{ route('search.results') }}">
@@ -47,8 +47,9 @@ Welcome | Citieclik
                   <form class="form-inline text-center">
                     {{-- @if(Auth::check()) --}}
                     <div class="col-xs-12 form-group">
-                      <div class="col-xs-6"><a href="#" class="btn btn-danger mybox">Post Service/Product</a></div>
-                      <div class="col-xs-6"><a href="{{ route('request.add') }}" class="btn btn-primary mybox">Post Request</a></div>
+                      <div class="col-xs-6"><a href="{{ route('addproduct') }}#" style="background-color: #1b00ff" class="btn btn-danger mybox">Post Product</a></div>
+                      <div class="col-xs-6"><a href="{{ route('addservice') }}" class="btn btn-danger mybox">Post Service</a></div>
+                      <div class="col-xs-6"><a href="{{ route('request.add') }}" style="background-color: #1b00ff" class="btn btn-primary mybox">Make Request</a></div>
                     </div>
                     {{-- @endif --}}
                   </form>
@@ -95,27 +96,26 @@ Welcome | Citieclik
       <section class="padding-bottom-none">
           
           <div id="particles-js" class="container-fluid row col-md-12 padding-bottom-2x mybg" style="color: #fff !important; margin-left: 0px !important;">
-            <div class="col-md-12 text-center padding-top-2x" style="color: #ffffff !important;">
-              <h1 class="text-center margin-bottom-2x" style="color: #fff;">How it works at Citieclik</h1>
-            </div>
-          <div class="col-md-4 col-sm-6 text-center mb-30"><img class="d-block mx-auto mb-4" src="assets/img/icons/step1.png" alt="Register">
-            <h3 style="color: #00aeef;">Step 1</h3>
-            <h4 style="color: #fff !important; ">Register an Account</h4>
-            <p class="text-muted margin-bottom-none" style="color: #fff !important;">Create your free account to get started</p>
-          </div>
-          <div class="col-md-4 col-sm-6 text-center mb-30"><img class="d-block mx-auto mb-4" src="assets/img/icons/step2.png" alt="Verify">
-            <h3 style="color: #00aeef;">Step 2</h3>
-            <h4 style="color: #fff !important; ">Verify Your Account</h4>
-            <p class="text-muted margin-bottom-none" style="color: #fff !important;">Verify your account for full access to the main features</p>
-          </div>
-          <div class="col-md-4 col-sm-6 text-center mb-30"><img class="d-block mx-auto mb-4" src="assets/img/icons/step3.png" alt="Add / Request">
-            <h3 style="color: #00aeef;">Step 3</h3>
-            <h4 style="color: #fff !important; ">Add Services & Request</h4>
-            <p class="text-muted margin-bottom-none" style="color: #fff !important;">Add your own services or make requests</p>
-          </div>
-        </div>       
-        <script type="text/javascript" src="/assets/js/particles.js" ></script>
-        <script type="text/javascript" src="/assets/js/app.js" ></script>
+                <div class="col-md-12 text-center padding-top-2x" style="color: #ffffff !important;">
+                  <h1 class="text-center margin-bottom-2x" style="color: #fff;">How it works at Citieclik</h1>
+                </div>
+              <div class="col-md-4 col-sm-6 text-center mb-30"><img class="d-block mx-auto mb-4" src="assets/img/icons/step1.png" alt="Register">
+                <h3 style="color: #00aeef;">Step 1</h3>
+                <h4 style="color: #fff !important; ">Register an Account</h4>
+                <p class="text-muted margin-bottom-none" style="color: #fff !important;">Create your free account to get started</p>
+              </div>
+              <div class="col-md-4 col-sm-6 text-center mb-30"><img class="d-block mx-auto mb-4" src="assets/img/icons/step2.png" alt="Verify">
+                <h3 style="color: #00aeef;">Step 2</h3>
+                <h4 style="color: #fff !important; ">Verify Your Account</h4>
+                <p class="text-muted margin-bottom-none" style="color: #fff !important;">Verify your account for full access to the main features</p>
+              </div>
+              <div class="col-md-4 col-sm-6 text-center mb-30"><img class="d-block mx-auto mb-4" src="assets/img/icons/step3.png" alt="Add / Request">
+                <h3 style="color: #00aeef;">Step 3</h3>
+                <h4 style="color: #fff !important; ">Add Services & Request</h4>
+                <p class="text-muted margin-bottom-none" style="color: #fff !important;">Add your own services or make requests</p>
+              </div>
+          </div>       
+        
       </section>
       <!-- Featured Products Carousel-->
       <section class="padding-top-none padding-bottom-none margin-bottom-none">
@@ -133,6 +133,7 @@ Welcome | Citieclik
 @endsection
 
 @section('script')
+<script src="/assets/js/home.js"></script>
 <script type="text/javascript">
  @if(Session::has('authMsg'))
   swal({
@@ -148,30 +149,4 @@ Welcome | Citieclik
   })
 @endif
 </script>
-<script>
-
-	data = {
-		'p' : ['product1','product2','product3','product4','product5'],
-		's' : ['service1','service2','service3','service4','service5']
-	}
-	
-	function getCats(section)
-	{
-        document.getElementById('sList2').innerHTML = '';
-        // if(sList === 'sList2'){
-    		var selectData = `<select class="form-control" name="category">
-    							<option value="">---</option>`;
-    		for( var i=0; i<data[section].length; i++){
-    			selectData += `<option value="${data[section][i]}">${data[section][i]}</option>`;
-    		}
-
-    		selectData += `</select>`;
-
-            document.getElementById('sList2').insertAdjacentHTML('beforeend', selectData);
-        // }
-
-		
-	}
-</script>
-
 @stop

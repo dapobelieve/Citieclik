@@ -93,7 +93,7 @@
 			              	<div class="col-sm-6">
 				                <div class="form-group {{ $errors->has('serCat') ? ' has-error' : '' }}">
 				                  	<label for="checkout-country">Category</label>
-				                  	<select class="form-control" onchange="getSubCat(this.value, 'subcatty')" name="serCat" id="serCat" value="{{ Request::old('serCat') ?: ''  }}">
+				                  	<select class="form-control" onchange="getSubCat(this.value)" name="serCat" id="serCat" value="{{ Request::old('serCat') ?: ''  }}">
 					                    <option>Choose a Category</option>
 					                    @if($tdata == 'p')
 					                    	@foreach($cats->where('type', 'p') as $cat)
@@ -116,6 +116,11 @@
 				                  	<span id="subcatty"></span>
 				                </div>
 			              	</div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <span id="subcatty2"></span>
+                                </div>
+                            </div>
 
 		            	</div>
 			            <div class="row">
@@ -213,52 +218,7 @@
 
 
 <script src="/dist/trumbowyg.min.js"></script>
-<script type="text/javascript">
-//script to auto change states and its lgas
-	$('#serState').change(function(){
-		$.ajax({
-			url: "state/location/"+$(this).val(),
-			method: 'GET',
-		})
-		.done(function(data) {
-			$location = $('#location');
-			$location.removeAttr('disabled');//enable
-			$location.children().remove();//clear the select tag first
-			var dee = JSON.parse(data); //convert the json data to array here
-			$.each(dee,function(index, value){
-				$location.append("<option value='"+value.id+"' >"+ value.lga +"</option>");
-			})
-		});
-	})
-
-
-    function getSubCat(value, displayWhere)
-    {
-        // let selectData = `
-        //     <label for="checkout-country">Sub Category</label>
-        //     <select class="form-control" name="subCat" disabled id="subCat">
-        //         <option>Sub Category</option>
-        //     </select>
-        // `;
-        // console.log(value+"  "+displayWhere); 
-
-        axios.get('/api/getcategory/'+value)
-        .then(response => {
-            let results = response.data;
-
-            console.log(results);
-
-            results.forEach(function () {
-
-            });
-
-        })
-        .catch(error => {
-            console.log(error);
-        })
-    }
-
-</script>
+<script src="/assets/js/addservice.js"></script>
 
 
 <script type="text/javascript">

@@ -329,8 +329,13 @@ Route::get('/products', 'Actions\Product\ProductController@index')->name('produc
 */
 Route::get('dashboard', 'Admin\HomeController@index')->name('admin.home');
 Route::get('admin/settings', 'Admin\SettingsController@site')->name('admin.settings.site');
-Route::get('admin/users', 'Admin\UsersController@index')->name('admin.users');
+
+Route::get('admin/users/all-users', 'Admin\UsersController@index')->name('admin.users');
+Route::get('admin/users/subscribed-users', 'Admin\UsersController@getSubscribedUsers')->name('admin.subscribed-users');
+
 Route::get('admin/agents', 'Admin\AgentsController@index')->name('admin.agents');
+Route::get('admin/category', 'Admin\CategoryController@getCategory')->name('admin.category');
+Route::get('admin/category/{category}', 'Admin\CategoryController@getCatDetail')->name('category.index');
 
 
 /*

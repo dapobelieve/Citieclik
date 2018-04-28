@@ -3,16 +3,39 @@
 		<div class="pcoded-inner-navbar main-menu">
 			<div class="pcoded-navigation-label">Navigation</div>
 			<ul class="pcoded-item pcoded-left-item">
-					<li class="pcoded-hasmenu {{ Request::is( 'dashboard' ) ? ' active' : ''  }}  pcoded-trigger">
+					<li class="{{ Request::is( 'dashboard' ) ? ' active' : ''  }}  pcoded-trigger">
 						<a href="{{ route('admin.home') }}">
 							<span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
 							<span class="pcoded-mtext">Dashboard</span>
 						</a>
 					</li>
-					<li class="pcoded-hasmenu {{ Request::is( 'admin/users' ) ? ' active' : ''  }} pcoded-trigger">
-						<a href="{{ route('admin.users') }}">
+					<li class="pcoded-hasmenu {{ Request::is( 'admin/users*' ) ? ' active pcoded-trigger' : ''  }}">
+						<a href="javascript:void(0)">
 							<span class="pcoded-micon"><i class="ti-user"></i><b>D</b></span>
 							<span class="pcoded-mtext">Users</span>
+						</a>
+						<ul class="pcoded-submenu">
+							<li class="{{ Request::is('admin/users/all-users') ? 'active' : '' }}">
+								<a href="{{ route('admin.users') }}">
+								<span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+								<span class="pcoded-mtext">All Users</span>
+								<span class="pcoded-mcaret"></span>
+								</a>
+							</li>
+							<li class="{{ Request::is('admin/users/subscribed-users') ? 'active' : '' }}">
+								<a href="{{ route('admin.subscribed-users') }}">
+								<span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+								<span class="pcoded-mtext">Subscribed Users</span>
+								<span class="pcoded-mcaret"></span>
+								</a>
+							</li>
+							
+						</ul>
+					</li>
+					<li class="{{-- pcoded-hasmenu --}} {{ Request::is( 'admin/category' ) ? ' active' : ''  }} pcoded-trigger">
+						<a href="{{ route('admin.category') }}">
+							<span class="pcoded-micon"><i class="ti-layout-tab-v"></i><b>D</b></span>
+							<span class="pcoded-mtext">Category</span>
 						</a>
 					</li>
                     <li class="pcoded-hasmenu pcoded-trigger">

@@ -14,7 +14,7 @@
     <div class="page-header card">
         <div class="card-block">
             <h5 class="m-b-10">Users</h5>
-            <p class="text-muted m-b-10">List of Registered users</p>
+            <p class="text-muted m-b-10">List of Subscribed users</p>
         </div>
     </div>
     <div class="page-body">
@@ -89,7 +89,6 @@
 
 
 <script type="text/javascript">
-
     $(document).ready(function (){
         $('#simpletable').DataTable({
             dom: 'lBfrtip',

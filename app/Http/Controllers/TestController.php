@@ -6,8 +6,11 @@ use Illuminate\Http\Request;
 use Auth;
 use App\User;
 use App\Plan;
+use App\Subcategory;
 use Carbon\Carbon;
 use App\Subscription;
+
+use App\Http\Controller\Funcs\Slug;
 /**
 * A contorller to test
 * some logics before 
@@ -16,6 +19,16 @@ use App\Subscription;
 
 class TestController extends Controller
 {
+    public function catsy()
+    {
+        // used this function to slug all the subcategories 
+        $cats = Subcategory::where('slug', null)->get();
+        foreach ($cats as $key => $value) {
+            $value->slug = str_slug($value->sub_category);
+            $value->save();
+        }        
+
+    }
     private $today;
 
     public function __construct()

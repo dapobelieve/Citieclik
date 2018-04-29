@@ -102,10 +102,8 @@ Route::get('/{service}/callback','SocialAuthController@callback');
 	Route::get('service/state/location/{id}', [
 		'uses' => 'AjaxRequestsController@getLocation'
 	]);
-	//Route to get subcategory based on selected category
-	Route::get('service/category/getscat/{id}', [
-		'uses' => 'AjaxRequestsController@getSubCat'
-	]);
+
+
 	Route::get('product/state/location/{id}', [
 		'uses' => 'AjaxRequestsController@getLocation'
 	]);

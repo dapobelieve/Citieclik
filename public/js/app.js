@@ -12227,7 +12227,7 @@ __webpack_require__(16);
 
 // import axios from 'axios';
 
-axios.defaults.baseURL = 'http://localhost:8000/';
+axios.defaults.baseURL = 'http://demo.citieclik.com';
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('clicker', __webpack_require__(40));
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('counter', __webpack_require__(46));

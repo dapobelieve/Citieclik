@@ -3,7 +3,11 @@
 <div class="col-lg-4">
   <aside class="user-info-wrapper">
     <div class="user-cover" style="background-image: url(/assets/img/account/user-cover-img.jpg);">
-      <div class="info-label" data-toggle="tooltip" title="Verified"><i class="icon-medal"></i>Not Verified</div>
+        @if($user->isSubscribed())
+            <div class="info-label subscribed" data-toggle="tooltip" title=""><i class="icon-medal"></i> Subscribed</div>
+        @else
+            <div class="info-label" data-toggle="tooltip" title="User would not see your contact info">Not Subscribed</div>
+        @endif
     </div>
     <div class="user-info">
       <div class="user-avatar">
@@ -14,7 +18,15 @@
         {{-- <button class="btn btn-outline-primary" type="button" data-toggle="modal" data-target="#modalDefault">Default Modal</button> --}}
       </div>
       <div class="user-data">
-        <h4>{{$user->getFullName()}}</h4><span><small>Joined {{$user->created_at->formatLocalized('%B %Y')}}</small></span>
+        <h4>{{$user->getFullName()}}</h4>
+        <span>
+            <small>Joined {{$user->created_at->formatLocalized('%B %Y')}}</small>
+        </span>
+        @if($user->isSubscribed())
+            <counter :click="{{ $user->getActiveSubscription()->click }}"></counter>
+        @else
+            <small style="color: #ec2121;">You are not subscribed.</small>
+        @endif
       </div>
     </div>
   </aside>

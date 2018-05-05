@@ -9,10 +9,12 @@ Sales Agent | Citieclik
         <div class="col-lg-8">
             <h6 class="text-muted text-normal text-uppercase padding-top-2x mt-2"></h6>
             <div class="alert alert-image-bg alert-dismissible fade show text-center " style="background-image: url(/assets/img/banners/alert-bg.jpg);">
-              <div class="h5 text-medium text-white padding-top-1x padding-bottom-1x"><i class="icon-clock" style="font-size: 33px; margin-top: -5px;"></i>&nbsp;&nbsp;Agents Link would be displayed here
-                <div class="mt-3 hidden-xl-up"></div><a class="btn btn-primary" href="#">Link Status (active/inactive)</a>
+              <div class="form-group">
+                <label for="normal-pill-input" style="color: #fff" >Agent Link</label>
+                <input class="form-control" readonly value="{{ url('/agents/'.Auth::user()->agent->code) }}" type="text" id="normal-pill-input" placeholder="Normal pill input">
               </div>
             </div>
+
             <h6 class="text-muted text-normal text-uppercase padding-top-2x mt-2"></h6>
             {{-- <hr class="margin-bottom-1x"> --}}
             <ul class="nav nav-tabs" role="tablist">

@@ -57,8 +57,6 @@ class ServiceController extends Controller
     //validate and save service details
     public function postService(Request $serRequest)
     {
-        //check if users posted services >= plans subsribed to
-
         // dd($serRequest);
     	$this->validate($serRequest, [
             'serTitle'  =>  'required|string|max:255',
@@ -109,9 +107,12 @@ class ServiceController extends Controller
         }
         $service->save();
 
-        if($serRequest->input('location') == 's'){
+
+        if($serRequest->input('typo') == 's'){
+
             return redirect()->route('profile.service', ['slug' => $serRequest->user()->slug])->with('info', 'Service Posted Successfully');
-        }elseif($serRequest->input('location') == 'p'){
+
+        }else if ($serRequest->input('typo') == 'p'){
             return redirect()->route('profile.products', ['slug' => $serRequest->user()->slug])->with('info', 'Product Posted Successfully');
         }
         

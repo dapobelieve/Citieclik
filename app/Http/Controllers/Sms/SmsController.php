@@ -59,7 +59,7 @@ class SmsController
     private function sendSms($link)
     {
         $client = new Client();
-        $message = "Hello, testing the sms service. click here ".$link." to view the latest request";
+        $message = "Hello, a service has been requested on CitieClik. Click here ".$link." to view the latest request";
         $numbers = '09078081328,07069494803,08129615513,';
 
         $response = $client->post('http://portal.bulksmsnigeria.net/api/?', [

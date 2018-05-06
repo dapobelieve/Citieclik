@@ -67,34 +67,6 @@
           <li class="{{ Request::is('/products') ? 'active' : '' }}"><a href="{{route('product')}}"><span>Products</span></a>
           </li>
           <li class="{{ Request::is('service') ? 'active' : '' }}"><a href="{{route('service')}}"><span>Services</span></a>
-            {{-- <ul class="sub-menu">
-              <li><a href="category">Categories</a></li>
-              <li class="has-children"><a href="shop-grid-ls.html"><span>Shop Grid</span></a>
-                <ul class="sub-menu">
-                    <li><a href="shop-grid-ls.html">Grid Left Sidebar</a></li>
-                    <li><a href="shop-grid-rs.html">Grid Right Sidebar</a></li>
-                    <li><a href="shop-grid-ns.html">Grid No Sidebar</a></li>
-                </ul>
-              </li>
-              <li class="has-children"><a href="shop-list-ls.html"><span>Shop List</span></a>
-                <ul class="sub-menu">
-                    <li><a href="shop-list-ls.html">List Left Sidebar</a></li>
-                    <li><a href="shop-list-rs.html">List Right Sidebar</a></li>
-                    <li><a href="shop-list-ns.html">List No Sidebar</a></li>
-                </ul>
-              </li>
-                <li><a href="shop-single.html">Single Product</a></li>
-                <li><a href="cart.html">Cart</a></li>
-              <li class="has-children"><a href="checkout-address.html"><span>Checkout</span></a>
-                <ul class="sub-menu">             
-                    <li><a href="checkout-address.html">Address</a></li>
-                    <li><a href="checkout-shipping.html">Shipping</a></li>
-                    <li><a href="checkout-payment.html">Payment</a></li>
-                    <li><a href="checkout-review.html">Review</a></li>
-                    <li><a href="checkout-complete.html">Complete</a></li>
-                </ul>
-              </li>
-            </ul> --}}
           </li>
           {{-- <li><a href="#"><span>Account</span></a> --}}
             <ul class="sub-menu">

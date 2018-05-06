@@ -81,7 +81,7 @@
 				                  			Service Title
 				                  		@endif
 				                  	</label>
-				                  	<input class="form-control" name="serTitle" type="text" placeholder="" value="{{ old('serTitle') ?: '' }}" >
+				                  	<input class="form-control" name="serTitle"  type="text" placeholder="" value="{{ Request::old('serTitle') ?: '' }}" >
 				                  	@if ($errors->has('serTitle'))
 										<p class="help-block text-danger"><i class="icon-circle-cross"></i>&nbsp;{{ $errors->first('serTitle') }}</p>
 					                	{{-- <span class="help-block"> </span> --}}
@@ -93,7 +93,7 @@
 			              	<div class="col-sm-6">
 				                <div class="form-group {{ $errors->has('serCat') ? ' has-error' : '' }}">
 				                  	<label for="checkout-country">Category</label>
-				                  	<select class="form-control" name="serCat" id="serCat" value="{{ old('serCat') ?: ''  }}">
+				                  	<select class="form-control" onchange="getSubCat(this.value)" name="serCat" id="serCat" value="{{ Request::old('serCat') ?: ''  }}">
 					                    <option>Choose a Category</option>
 					                    @if($tdata == 'p')
 					                    	@foreach($cats->where('type', 'p') as $cat)
@@ -113,21 +113,21 @@
 			              	</div>
 	              			<div class="col-sm-6">
 				                <div class="form-group">
-				                  	<label for="checkout-country">Sub Category</label>
-				                  	<select class="form-control" name="subCat" disabled id="subCat" value="{{ Request::old('subCat') ?: ''  }}">
-				                    	<option>Sub Category</option>
-				                  	</select>
-				                  	 @if ($errors->has('subCat'))
-                                        <p class="help-block text-danger"><i class="icon-circle-cross"></i>&nbsp;{{ $errors->first('subCat') }}</p>
-                                    @endif
+				                  	<span id="subcatty"></span>
 				                </div>
 			              	</div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <span id="subcatty2"></span>
+                                </div>
+                            </div>
+
 		            	</div>
 			            <div class="row">
 			              	<div class="col-sm-6">
 				                <div class="form-group {{ $errors->has('serState') ? ' has-error' : '' }}">
 				                  	<label for="checkout-country">State</label>
-				                  	<select class="form-control" name="serState" id="serState" value="{{ old('serState') ?: ''  }}">
+				                  	<select class="form-control" name="serState" id="serState" value="{{ Request::old('serState') ?: ''  }}">
 				                    	<option>Choose a State</option>
 					                    @foreach($states as $state)
 					                        <option value="{{$state->id}}">{{$state->state}}</option>
@@ -175,7 +175,7 @@
 			                  	<label for="checkout-fn">
 			                  			Product Price
 			                  	</label>
-			                  	<input class="form-control" name="serPrice" type="number" placeholder="Price " value="{{ old('serPrice') ?: '' }}" >
+			                  	<input class="form-control" name="serPrice" type="number" placeholder="Price " value="{{ Request::old('serPrice') ?: '' }}" >
 			                  	@if ($errors->has('serPrice'))
 									<p class="help-block text-danger"><i class="icon-circle-cross"></i>&nbsp;{{ $errors->first('serPrice') }}</p>
 			                	@endif
@@ -186,7 +186,7 @@
 			            	<div class="col-sm-12">
 			            		<div class="form-group {{ $errors->has('description') ? ' has-error' : '' }}">
 				            		<label for="checkout-description">Description</label>
-				            		<textarea class="my-editor" name="description" value="{{ old('description') ?: ''  }}" placeholder="detailed description goes here..."></textarea>
+				            		<textarea class="my-editor" name="description" value="{{ Request::old('description') ?: ''  }}" placeholder="detailed description goes here..."></textarea>
 			                  		@if ($errors->has('description'))
 										<p class="help-block text-danger"><i class="icon-circle-cross"></i>&nbsp;{{ $errors->first('description') }}</p>
 				                	@endif
@@ -206,22 +206,7 @@
 	          	</div>
 	          	<!-- Sidebar          -->
 	          	<div class="col-xl-3 col-lg-4">
-		            <aside class="sidebar">{{-- 
-		              	<div class="padding-top-2x hidden-lg-up"></div>
-		              	<!-- Promo Banner-->
-		              	<section class="promo-box" style="background-image: url(img/banners/02.jpg);"><span class="overlay-dark" style="opacity: .4;"></span>
-		                	<div class="promo-box-content text-center padding-top-2x padding-bottom-2x">
-		                  		<h4 class="text-light text-thin text-shadow">New Collection of</h4>
-		                  		<h3 class="text-bold text-light text-shadow">Sunglasses</h3><a class="btn btn-outline-white btn-sm" href="#">Shop Now</a>
-		                	</div>
-		              	</section>
-		              	<div class="clearfix mb-30"></div>
-		              	<section class="promo-box" style="background-image: url(img/banners/02.jpg);"><span class="overlay-dark" style="opacity: .4;"></span>
-		                	<div class="promo-box-content text-center padding-top-2x padding-bottom-2x">
-		                  		<h4 class="text-light text-thin text-shadow">New Collection of</h4>
-		                  		<h3 class="text-bold text-light text-shadow">Sunglasses</h3><a class="btn btn-outline-white btn-sm" href="#">Shop Now</a>
-		                	</div>
-		              	</section> --}}
+		            <aside class="sidebar">
 		            </aside>
 	          	</div>
 	        </div>
@@ -230,52 +215,12 @@
 @endsection
 
 @section('script')
-{{-- <script src="path/to/jquery.js"></script>  --}}
 
-{{-- <script src="/dist/summernote.min.js"></script> --}}
-{{-- <script src="/dist/summernoteinit.js"></script> --}}
 
 <script src="/dist/trumbowyg.min.js"></script>
-<script type="text/javascript">
-//script to auto change states and its lgas
-	$('#serState').change(function(){
-		$.ajax({
-			url: "state/location/"+$(this).val(),
-			method: 'GET',
-		})
-		.done(function(data) {
-			$location = $('#location');
-			$location.removeAttr('disabled');//enable
-			$location.children().remove();//clear the select tag first
-			var dee = JSON.parse(data); //convert the json data to array here
-			$.each(dee,function(index, value){
-				$location.append("<option value='"+value.id+"' >"+ value.lga +"</option>");
-			})
-		});
-	})
-
-	//same logic as above but for
-	$('#serCat').change(function(){
-		$.ajax({
-			url: "category/getscat/"+$(this).val(),
-			method: 'GET',
-		})
-		.done(function(data) {
-			$location = $('#subCat');
-			$location.removeAttr('disabled');//enable
-			$location.children().remove();//clear the kids of the select tag first
-			var dee = JSON.parse(data); //convert the json data to array here
-			$.each(dee,function(index, value){
-				$location.append("<option value='"+value.id+"' >"+ value.sub_category +"</option>");
-			})
-		});
-	})
-</script>
+<script src="/assets/js/addservice.js"></script>
 
 
-<script type="text/javascript">
-	$('select').selectize(options);
-</script>
 <script type="text/javascript">
 	$('.my-editor').trumbowyg({
 		// prefix: 'modern-ui',

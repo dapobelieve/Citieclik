@@ -38,6 +38,12 @@
 							<span class="pcoded-mtext">Category</span>
 						</a>
 					</li>
+                    <li class="pcoded-hasmenu pcoded-trigger">
+                        <a href="{{ route('admin.agents') }}">
+                            <span class="pcoded-micon"><i class="ti-user"></i><b>D</b></span>
+                            <span class="pcoded-mtext">Agents</span>
+                        </a>
+                    </li>
 					{{-- <li class="pcoded-hasmenu pcoded-trigger">
 						<a href="javascript:void(0)">
 							<span class="pcoded-micon"><i class="ti-settings"></i><b>P</b></span>

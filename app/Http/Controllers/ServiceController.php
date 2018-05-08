@@ -101,7 +101,7 @@ class ServiceController extends Controller
 
         //here i check if an image is in the 
         //image field and upload it to cloudinary
-        if($serRequest->hasFile('serImg')){
+        if($serRequest->hasFile('serImg[]')){
             $this->uploadPicture($serRequest);
             $service->image = $this->imgObj;
         }
@@ -172,9 +172,11 @@ class ServiceController extends Controller
 
         //here i check if an image is in the 
         //image field and upload it to cloudinary
-        if($serRequest->hasFile('serImg')){
-            $this->uploadPicture($serRequest);
-            $service->image = $this->imgObj;
+        if($serRequest->hasFile('serImg[]')){
+            foreach ($serRequest->hasFile('serImg[]')) {
+                $this->uploadPicture($serRequest);
+                $service->image = $this->imgObj;
+            }            
         }
 
         $service->save();

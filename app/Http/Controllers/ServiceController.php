@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ServiceRequest;
 use App\State;
 use App\Category;
 use App\Service;
@@ -55,34 +56,10 @@ class ServiceController extends Controller
     }
 
     //validate and save service details
-    public function postService(Request $serRequest)
+    public function postService(ServiceRequest $serRequest)
     {
-        // dd($serRequest);
-    	$this->validate($serRequest, [
-            'serTitle'  =>  'required|string|max:255',
-            'serState'  => 'required|integer',
-            'location'  => 'required|integer',
-            'serCat'    => 'required|integer',
-            'subCat'    => 'required|integer',
-            'serImg'    => "image|mimes:jpeg,jpg,png,bmp,svg|max:2048",
-            // 'serPrice' => "integer",
-            'description'  => 'required|string'
-        ], 
-        [
-            'serTitle.required'     => 'a title is required',
-            'serState.required'     => 'Select the state  where you currently provide this service',
-            'serState.integer'     => 'Select the state  where you currently provide this service',
-            'location.required'     => 'Select the location',
-            'location.integer'     => 'Select the location',
-            'description.required'  => 'a short detailed description is required',
-            'serCat.required'       => 'Select a Category',
-            'serCat.integer'       => 'Select a Category',
-            'subCat.required'       => 'Select a Sub Category',
-            'subCat.integer'       => 'Select a Sub Category',
-            // 'serPrice.integer' => 'The price must be in digits e.g 50000',
-            'serImg.mimes'          => 'The image must have jpeg, jpg or png format',
-            'serImg.max'            => 'The Image is too large, It must not be more than 2MB',
-        ]);
+        dd($serRequest);
+    	// $this->validate($serRequest, );
         
 
 		$slugSer = $this->slugIt($serRequest->input('serTitle'));
@@ -135,7 +112,7 @@ class ServiceController extends Controller
             'location'  => 'required|integer',
             'serCat'    => 'required|integer',
             'subCat'    => 'required|integer',
-            'serImg'    => "image|mimes:jpeg,jpg,png,bmp,svg|max:2048",
+            'serImg'    => "image|mimes:jpeg,jpg,png,bmp,svg|max:1024",
             // 'servicePrice' => "integer",
             'description'  => 'required|string'
         ], 
@@ -152,7 +129,7 @@ class ServiceController extends Controller
             'subCat.integer'       => 'Select a Sub Category',
             // 'servicePrice.integer' => 'The price must be in digits e.g 50000',
             'serImg.mimes'          => 'The image must have jpeg, jpg or png format',
-            'serImg.max'            => 'The Image is too large, It must not be more than 2MB',
+            'serImg.max'            => 'The Image is too large, It must not be more than 1MB',
         ]); 
 
 
@@ -172,12 +149,12 @@ class ServiceController extends Controller
 
         //here i check if an image is in the 
         //image field and upload it to cloudinary
-        if($serRequest->hasFile('serImg[]')){
-            foreach ($serRequest->hasFile('serImg[]')) {
-                $this->uploadPicture($serRequest);
-                $service->image = $this->imgObj;
-            }            
-        }
+        // if($serRequest->hasFile('serImg[]')){
+        //     foreach ($serRequest->hasFile('serImg[]')) {
+        //         $this->uploadPicture($serRequest);
+        //         $service->image = $this->imgObj;
+        //     }            
+        // }
 
         $service->save();
 

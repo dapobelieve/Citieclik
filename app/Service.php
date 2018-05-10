@@ -44,6 +44,10 @@ class Service extends Model
         return $this->hasMany(Click::class);
     }
 
+    public function images()
+    {
+        return $this->hasMany(Image::class);
+    }
 
 // Relationships Ends
 

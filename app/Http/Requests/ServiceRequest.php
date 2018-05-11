@@ -13,7 +13,7 @@ class ServiceRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -34,12 +34,13 @@ class ServiceRequest extends FormRequest
             'description'  => 'required|string',
         ];
 
-        // $images = count($this->input('serImg'));
+        // $images = count($this->input('simage'));
+        dd($this->input());
         // foreach(range(0, $images) as $index){
         //     $rules['serImg'. $index] = "image|mimes:jpeg,jpg,png,bmp,svg|max:1024";
         // }
 
-        return $rules;
+        // return $rules;
     }
 
     public function messages()

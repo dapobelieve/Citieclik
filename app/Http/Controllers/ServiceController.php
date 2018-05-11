@@ -56,7 +56,7 @@ class ServiceController extends Controller
     }
 
     //validate and save service details
-    public function postService(ServiceRequest $serRequest)
+    public function postService(Request $serRequest)
     {
         dd($serRequest);
     	// $this->validate($serRequest, );

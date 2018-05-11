@@ -4,19 +4,6 @@
   {{-- <link href="/assets/css/bootstrap.min.css" rel="stylesheet"> --}}
   <link href="/dist/ui/trumbowyg.min.css" rel="stylesheet">
   {{-- <link rel="stylesheet" href="../css/nice-select.css"> --}}
-  <script type='text/javascript'>
-	
-	function preview_image(event) 
-	{
-	 var reader = new FileReader();
-	 reader.onload = function()
-	 {
-	  var output = document.getElementById('output_image');
-	  output.src = reader.result;
-	 }
-	 reader.readAsDataURL(event.target.files[0]);
-	}
-	</script>
 @endsection
 
 @section('title')
@@ -154,19 +141,19 @@
 			            <div class="row">
 			            	<div class="col-md-6">
 				            	<div class="form-group">
-					              	<label class="col-form-label">Select Image</label>
+					              	<label class="col-form-label">Select Image(s)</label>
 					              	<div class="">
 						                <div class="custom-file">
-						                  	<input class="custom-file-input form-control-file" name="serImg[]" type="file"  onchange="preview_image(event)" multiple><span class="custom-file-control"></span>
+						                  	<input type="file" name="serImg[]" multiple>
 						                </div>
 						            </div>
 					            </div>
 				            </div>
 				            <div class="col-md-6">
-				            	<div class="form-group">
+				            	{{-- <div class="form-group">
 				            		<label class="col-form-label" for="file-preview">Image Preview</label>
 				            		<img style="width:150px; height:auto " class="d-block mx-auto img-thumbnail mb-3" id="output_image"/>
-				            	</div>
+				            	</div> --}}
 				            </div>
 			            </div>
 			            @if($tdata == 'p')

@@ -7,7 +7,7 @@ use App\Http\Requests\ServiceRequest;
 use App\State;
 use App\Category;
 use App\Service;
-use Cloudder;
+
 use Auth;
 use Carbon;
 
@@ -76,7 +76,7 @@ class ServiceController extends Controller
         //image field and upload it to cloudinary
         if($serRequest->hasFile('image')){
             foreach($serRequest->file('image') as $photo){
-                dd($photo->getRealPath());
+                dd($photo);
             }
             // $this->uploadPicture($serRequest);
             // $service->image = $this->imgObj;
@@ -177,29 +177,7 @@ class ServiceController extends Controller
         return redirect()->back()->with('info', 'Deleted.');
     }
 
-    private function uploadPicture($photo)
-    {
-        $fileUrl = $photo->getRealPath();
-            $result  =  Cloudder::upload($fileUrl,null, $options = array(
-                'folder'   => 'services',
-                'timeout'  =>  600,
-                'format'   => 'Webp',
-                'quality'  => '20',
-                // "width" => 'max',
-                "height" => 500,
-                "crop" => "limit"
-            ));
+    
 
-            if(!$result)
-                return redirect()->back()->with('info', 'Internal Server Error. Please try again.');
-            else {
-                $fileData  = Cloudder::getResult();
-                return json_encode($fileData);
-            }
-    }
-
-    private function deletePicture($imagePubId)
-    {
-        Cloudder::delete($imagePubId);
-    }
+    
 }

@@ -76,7 +76,7 @@ class ServiceController extends Controller
         //image field and upload it to cloudinary
         if($serRequest->hasFile('image')){
             foreach($serRequest->file('image') as $photo){
-                dd($photo);
+                dd($photo->getRealPath());
             }
             // $this->uploadPicture($serRequest);
             // $service->image = $this->imgObj;
@@ -177,11 +177,11 @@ class ServiceController extends Controller
         return redirect()->back()->with('info', 'Deleted.');
     }
 
-    private function uploadPicture(Request $req)
+    private function uploadPicture($photo)
     {
-        $fileUrl = $req->file('serImg')->getRealPath();
+        $fileUrl = $photo->getRealPath();
             $result  =  Cloudder::upload($fileUrl,null, $options = array(
-                'folder'   => 'citi',
+                'folder'   => 'services',
                 'timeout'  =>  600,
                 'format'   => 'Webp',
                 'quality'  => '20',
@@ -194,7 +194,7 @@ class ServiceController extends Controller
                 return redirect()->back()->with('info', 'Internal Server Error. Please try again.');
             else {
                 $fileData  = Cloudder::getResult();
-                $this->imgObj = json_encode($fileData);
+                return json_encode($fileData);
             }
     }
 

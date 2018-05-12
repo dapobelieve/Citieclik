@@ -139,21 +139,15 @@
 			              	</div>
 			            </div>
 			            <div class="row">
-			            	<div class="col-md-6">
+			            	<div class="col-md-12">
 				            	<div class="form-group">
-					              	<label class="col-form-label">Select Image(s)</label>
+					              	<label class="col-form-label">Select Image(s) *only jpg, jpeg & png formats allowed. Max size allowed is 2mb.</label>
 					              	<div class="">
 						                <div class="custom-file">
-						                  	<input type="file" name="serImg[]" multiple>
+						                  	<input type="file" name="image[]" multiple>
 						                </div>
 						            </div>
 					            </div>
-				            </div>
-				            <div class="col-md-6">
-				            	{{-- <div class="form-group">
-				            		<label class="col-form-label" for="file-preview">Image Preview</label>
-				            		<img style="width:150px; height:auto " class="d-block mx-auto img-thumbnail mb-3" id="output_image"/>
-				            	</div> --}}
 				            </div>
 			            </div>
 			            @if($tdata == 'p')

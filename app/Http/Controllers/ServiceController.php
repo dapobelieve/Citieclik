@@ -58,10 +58,6 @@ class ServiceController extends Controller
     //validate and save service details
     public function postService(ServiceRequest $serRequest)
     {
-        dd($serRequest);
-    	// $this->validate($serRequest, );
-        
-
 		$slugSer = $this->slugIt($serRequest->input('serTitle'));
 
 		$service = new Service;
@@ -78,11 +74,14 @@ class ServiceController extends Controller
 
         //here i check if an image is in the 
         //image field and upload it to cloudinary
-        if($serRequest->hasFile('serImg[]')){
-            $this->uploadPicture($serRequest);
-            $service->image = $this->imgObj;
+        if($serRequest->hasFile('image')){
+            foreach($serRequest->file('image') as $photo){
+                dd($photo);
+            }
+            // $this->uploadPicture($serRequest);
+            // $service->image = $this->imgObj;
         }
-        $service->save();
+        // $service->save();
 
 
         if($serRequest->input('typo') == 's'){

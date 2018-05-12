@@ -13,7 +13,7 @@ class ServiceRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -29,18 +29,17 @@ class ServiceRequest extends FormRequest
             'location'  => 'required|integer',
             'serCat'    => 'required|integer',
             'subCat'    => 'required|integer',
-            'serImg'    => "image|mimes:jpeg,jpg,png,bmp,svg|max:1024",
             // 'serPrice' => "integer",
             'description'  => 'required|string',
         ];
 
-        // $images = count($this->input('simage'));
-        dd($this->input());
-        // foreach(range(0, $images) as $index){
-        //     $rules['serImg'. $index] = "image|mimes:jpeg,jpg,png,bmp,svg|max:1024";
-        // }
+        $images = count($this->file('serImg'));
 
-        // return $rules;
+        foreach(range(0, $images) as $index){
+            $rules['serImg'. $index] = "image|mimes:jpeg,jpg,png|max:1024";
+        }
+
+        return $rules;
     }
 
     public function messages()
@@ -57,7 +56,7 @@ class ServiceRequest extends FormRequest
             'subCat.required'       => 'Select a Sub Category',
             'subCat.integer'       => 'Select a Sub Category',
             // 'serPrice.integer' => 'The price must be in digits e.g 50000',
-            'serImg.mimes'          => 'The image must have jpeg, jpg or png format',
+            'serImg.mimes'          => 'The image must be in jpeg, jpg or png format',
             'serImg.max'            => 'The Image is too large, It must not be more than 1MB',
         ];
     }

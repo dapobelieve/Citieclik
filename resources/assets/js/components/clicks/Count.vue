@@ -6,6 +6,7 @@
 
 <script>
     import Bus from '../../bus';
+
     export default {
         props: {
             click: {
@@ -20,8 +21,8 @@
         },
         mounted() {
             Bus.$on('viewed.contact', () => {
-                alert('someone clicked your profile');
-                // this.number = this.number - 5;
+                // alert('someone clicked your profile');
+                this.number = this.number - 5; 
             });
         }
     }

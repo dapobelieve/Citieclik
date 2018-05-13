@@ -23,7 +23,7 @@ function getSubCat(value)
 
     let selectData = `
             <label for="checkout-country">Sub Category</label>
-                <select required onchange="getSubCat2(this.value)" class="form-control" name="subCat1" id="subCat">
+                <select required onchange="getSubCat2(this.value)" class="form-control" name="subCat" id="subCat">
     `;
 
     axios.get('/api/getcategory/'+value)

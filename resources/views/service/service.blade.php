@@ -52,7 +52,7 @@ Services | Citieclik
 <script type="text/javascript" src="/assets/js/isotope.js"></script>
 <script>
   var url1 = "service/state/location/";
-  var url2 = "service/category/getscat/";
+  // var url2 = "service/category/getscat/";
 </script>
 <script src="/assets/js/service.js"></script>
 <script type="text/javascript">
@@ -75,10 +75,7 @@ function isotopeIts(theValue)
 	  inclusives.push( elem.value );
 	}
   });
-  console.log(inclusives);
-
 	var filterValue = inclusives.length ? inclusives.join(', ') : '*';
-	console.log(filterValue); 
 	isotopeIts(filterValue);
   })
 </script>

@@ -6,6 +6,8 @@ use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Client;
 use App\Setting;
 
+use Exception;
+
 class SmsController
 {
     
@@ -31,36 +33,41 @@ class SmsController
 
     private function shortenUrl($hash)
     {
-        $body = '{"longUrl" : ';
-        $body .= '"http://localhost:8000/requests/'.$hash;
-        $body .= '"}';
+        try{
+            $body = '{"longUrl" : ';
+            $body .= '"http://demo.citieclik.com/requests/'.$hash;
+            $body .= '"}';
 
-        $client = new Client();
-         
-        $response = $client->request('POST','https://www.googleapis.com/urlshortener/v1/url', [
-            'headers' => ['Content-Type' => 'application/json'],
-            'query' => [
-                'key' => 'AIzaSyC6dSgfZmdrjSCFfa4A13dKZwZFTtxJbj0',
-            ],
-            'body' =>  $body
-        ]);
-        $shortUrl = json_decode($response->getBody(), true);
+            $client = new Client();
+             
+            $response = $client->request('POST','https://www.googleapis.com/urlshortener/v1/url', [
+                'headers' => ['Content-Type' => 'application/json'],
+                'query' => [
+                    'key' => 'AIzaSyC6dSgfZmdrjSCFfa4A13dKZwZFTtxJbj0',
+                ],
+                'body' =>  $body
+            ]);
 
-        return $shortUrl['id'];
+            $shortUrl = json_decode($response->getBody(), true);
+
+            return $shortUrl['id'];
+        }catch(Exception $e){
+            dd($e->getMessage());
+        }
     }
 
     public function send($smsTo, $data)
     {
         $link = $this->shortenUrl($data);
-        $this->sendSms($link);
-        // dd($smsTo." ".$data);
+        // $this->sendSms($smsTo, $link);
+        dd($smsTo." ".$data);
     }
 
-    private function sendSms($link)
+    private function sendSms($to, $link)
     {
         $client = new Client();
-        $message = "Hello, testing the sms service. click here ".$link." to view the latest request";
-        $numbers = '09078081328,07069494803,08129615513,';
+        $message = "Hello, a service has been requested on CitieClik. Click here ".$link." to view the latest request";
+        $numbers = $to;
 
         $response = $client->post('http://portal.bulksmsnigeria.net/api/?', [
             'verify'    =>  false,
@@ -75,7 +82,7 @@ class SmsController
 
 
         $response = json_decode($response->getBody(), true);
-        dd($response);
+        return redirect()->route('profile.request', ['slug' => $request->user()->slug])->with('info', 'Request Posted Successfully. An SMS alert has been sent to all subscribed users.');
     }
 
 }

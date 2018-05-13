@@ -6,7 +6,7 @@ Welcome | Citieclik
 
 @section('content')
     <!-- Main Slider-->
-    <section class="hero-slider text-center" style="background-image: url(assets/img/hero-slider/lagos.jpg); color: #fff !important; ">
+    <div class="hero-slider text-center" style="background-image: url(/assets/img/hero-slider/c1.jpg); color: #fff !important; ">
       <div class="container padding-top-6x">
         <div id="carouselContent" class="carousel slide bg-chrome item" data-ride="carousel">
           <h1 class="" style="color: #fff !important; text-shadow: 0px 0px 6px rgb(6, 6, 6); font-weight: 600;">Connecting the City with a Click</h1>
@@ -57,7 +57,7 @@ Welcome | Citieclik
           </div>
         </div>
       </div>
-    </section>
+    </div>
       <!-- Top Categories-->
       <section class="container padding-top-1x text-center">
         <h3 class="text-center mb-30">Explore our top Categories</h3>

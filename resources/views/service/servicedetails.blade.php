@@ -34,10 +34,14 @@
         <div class="row">
 	          <!-- Poduct Gallery-->
 	          	<div class="col-md-6">
-	            	<div class="product-gallery"><span class="product-badge text-danger">30% Off</span>
+	            	<div class="product-gallery">
                         <div class="product-carousel owl-carousel">
                             @forelse($service->images as $image)
-                                <div  data-hash="{{ $loop->iteration }}"><img src="{{ $image->servieImage() }}" alt="Product"></div>
+                                <div data-hash="{{ $loop->iteration }}">
+                                    <div style="padding: 0; margin: 0">
+                                        <img style="top: 50%;" class="img-responsive" src="{{ $image->servieImage() }}" alt="">
+                                    </div>
+                                </div>
                             @empty
                             @endforelse
                         </div>                      

@@ -61,7 +61,7 @@ Services | Citieclik
                             <div class="row">
                                 <div class="col-sm-6 col-md-9">
                                     <div class="product-item"><a class="product-thumb" href="{{route('service.detail',['username' => $user->username,'slug' => $servy->slug])}}">
-                                        <img src={{$servy->servieImage()}} alt="Service Image"></a>
+                                        <img src={{$servy->getImages()}} alt="Service Image"></a>
                                           <div class="product-info">
                                             <h4 class="product-title"><a href="{{route('service.detail',['username' => $user->username,'slug' => $servy->slug])}}">{{$servy->title}}</a></h4>
                                             <div class="text-lg text-medium text-muted">Category: {{$servy->catty->category}}</div>

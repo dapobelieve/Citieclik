@@ -49,6 +49,17 @@ class Service extends Model
         return $this->hasMany(Image::class);
     }
 
+    public function getImages()
+    {
+        // dd($this->images()->get());
+        if($this->images()->first() == null){
+            $ran = mt_rand(1,3);
+            return "/assets/img/shop/cart/0".$ran.".jpg";
+        }else{
+            return $this->images()->first()->servieImage();
+        }
+    }
+
 // Relationships Ends
 
 	// A small function to DRY up our queries when

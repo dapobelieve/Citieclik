@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\ServiceRequest;
+use App\Http\Controllers\Funcs\Cloudinary;
+
 use App\State;
 use App\Category;
 use App\Service;
 
 use Auth;
+use App\Image;
 use Carbon;
 
 class ServiceController extends Controller
@@ -72,16 +75,22 @@ class ServiceController extends Controller
         $service->state_id          = $serRequest->input('serState');
         $service->location_id       = $serRequest->input('location');
 
+        $service->save();
+
+        // dd($service->id);
+
         //here i check if an image is in the 
         //image field and upload it to cloudinary
         if($serRequest->hasFile('image')){
             foreach($serRequest->file('image') as $photo){
-                dd($photo);
+                $imageData = Cloudinary::uploadPicture($photo);
+               Image::create([
+                    'service_id' => $service->id,
+                    'image' => $imageData,
+                ]);
             }
-            // $this->uploadPicture($serRequest);
-            // $service->image = $this->imgObj;
         }
-        // $service->save();
+        
 
 
         if($serRequest->input('typo') == 's'){

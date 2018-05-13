@@ -11,22 +11,22 @@ use Cloudder;
 /**
 * Handles the uploading and deletion of images to Clodinary
 */
-class ClassName extends AnotherClass
+class Cloudinary 
 {
     /*
     * The Upload Method
     */
-    public function uploadPicture($photo)
+    public static function uploadPicture($photo)
     {
+        // dd($photo);
         $fileUrl = $photo->getRealPath();
             $result  =  Cloudder::upload($fileUrl,null, $options = array(
                 'folder'   => 'services',
                 'timeout'  =>  600,
                 'format'   => 'Webp',
                 'quality'  => '20',
-                // "width" => 'max',
-                "height" => 500,
-                "crop" => "limit"
+                "height"   => 500,
+                "crop"     => "limit"
             ));
 
             if(!$result)
@@ -37,7 +37,7 @@ class ClassName extends AnotherClass
             }
     }
 
-    public function deletePicture($imagePubId)
+    public static function deletePicture($imagePubId)
     {
         Cloudder::delete($imagePubId);
     }

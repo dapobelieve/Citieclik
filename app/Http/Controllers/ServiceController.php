@@ -77,8 +77,6 @@ class ServiceController extends Controller
 
         $service->save();
 
-        // dd($service->id);
-
         //here i check if an image is in the 
         //image field and upload it to cloudinary
         if($serRequest->hasFile('image')){
@@ -106,7 +104,6 @@ class ServiceController extends Controller
     public function getEditService($id)
     {
         $post = Service::findOrFail($id);
-        // dd($post->type);
         return view('pages.edit')->with('sdata', $post);
     }
 
@@ -154,17 +151,17 @@ class ServiceController extends Controller
         $service->state_id          = $serRequest->input('serState');
         $service->location_id       = $serRequest->input('location');
         
-
-        //here i check if an image is in the 
-        //image field and upload it to cloudinary
-        // if($serRequest->hasFile('serImg[]')){
-        //     foreach ($serRequest->hasFile('serImg[]')) {
-        //         $this->uploadPicture($serRequest);
-        //         $service->image = $this->imgObj;
-        //     }            
-        // }
-
         $service->save();
+        
+        if($serRequest->hasFile('image')){
+            foreach($serRequest->file('image') as $photo){
+                $imageData = Cloudinary::uploadPicture($photo);
+               Image::create([
+                    'service_id' => $service->id,
+                    'image' => $imageData,
+                ]);
+            }
+        }
 
         //fire sms sending event
         if($serRequest->input('typo') == 's'){

@@ -79,20 +79,6 @@ class Service extends Model
         return $slug;
     }
 
-    public function servieImage()
-    {
-        if(empty($this->image))
-        {
-            $ran = mt_rand(1,3);
-            $img = "/assets/img/shop/cart/0".$ran.".jpg";
-        }else
-        {
-            $img = json_decode($this->image, true);
-            return $img['url'];
-        }
-        return $img;
-    }
-
     public function serviceTitle()
     {
         return ucwords($this->title);

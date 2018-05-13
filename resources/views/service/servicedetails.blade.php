@@ -34,18 +34,24 @@
         <div class="row">
 	          <!-- Poduct Gallery-->
 	          	<div class="col-md-6">
-	            	<div class="product-gallery"><span class="product-badge text-danger"></span>
-						<div class="gallery-wrapper">
-							<div class="gallery-item active"><a href={{$service->servieImage()}} data-hash="one" data-size="1000x667"></a></div>
-						</div>
-						<div class="product-carousel owl-carousel">
-						    <div><img src={{$service->servieImage()}} alt="Product"></div>{{-- 
-						    <div data-hash="two"><img src="/assets/img/shop/single/02.jpg" alt="Product"></div>
-						    <div data-hash="three"><img src="/assets/img/shop/single/03.jpg" alt="Product"></div>
-						    <div data-hash="four"><img src="/assets/img/shop/single/04.jpg" alt="Product"></div>
-						    <div data-hash="five"><img src="/assets/img/shop/single/05.jpg" alt="Product"></div> --}}
-						</div>
-	            	</div>
+	            	<div class="product-gallery"><span class="product-badge text-danger">30% Off</span>
+                        <div class="product-carousel owl-carousel">
+                            @forelse($service->images as $image)
+                                <div  data-hash="{{ $loop->iteration }}"><img src="{{ $image->servieImage() }}" alt="Product"></div>
+                            @empty
+                            @endforelse
+                        </div>                      
+                      <ul class="product-thumbnails">
+                        @forelse($service->images as $image)
+                            <li  class="">
+                                <a href="#{{ $loop->iteration }}">
+                                    <img style="width: 75px; height: 75px" src="{{ $image->servieImage() }}" alt="Product">
+                                </a>
+                            </li>
+                        @empty
+                        @endforelse
+                      </ul>
+                    </div>
 	          	</div>
 	          	<!-- Product Info-->
 		        <div class="col-md-6">

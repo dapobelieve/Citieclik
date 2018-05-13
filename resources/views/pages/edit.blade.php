@@ -139,24 +139,17 @@ Edit service | Citieclik
 			              	</div>
 			            </div>
 			            <div class="row">
-			            	<div class="col-md-6">
-				            	<div class="form-group">
-					              	<label class="col-form-label">Select Image</label>
-					              	<div class="">
-						                <div class="custom-file">
-						                  	<input class="custom-file-input form-control-file" name="serImg" type="file" accept="image/*" onchange="preview_image(event)"><span class="custom-file-control"></span>
-						                </div>
-						            </div>
-					            </div>
-				            </div>
-				            <div class="col-md-6">
-				            	<div class="form-group">
-				            		<label class="col-form-label" for="file-preview">Image Preview</label>
-				            		<img style="width:150px; height:auto" src="{{$sdata->servieImage()}}" class="d-block mx-auto img-thumbnail mb-3" id="output_image"/>
-				            	</div>
-				            </div>
-			            </div>
-			            
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="col-form-label">Select Image(s) *only jpg, jpeg & png formats allowed. Max size allowed is 2mb.</label>
+                                    <div class="">
+                                        <div class="custom-file">
+                                            <input type="file" name="image[]" multiple>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>			            
 			            <div class="row padding-bottom-1x">
 			            	<div class="col-sm-12">
 			            		<div class="form-group {{ $errors->has('description') ? ' has-error' : '' }}">

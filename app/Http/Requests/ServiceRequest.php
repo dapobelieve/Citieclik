@@ -24,15 +24,15 @@ class ServiceRequest extends FormRequest
     public function rules()
     {
         $rules =  [
-            // 'serTitle'  =>  'required|string|max:255',
-            // 'serState'  => 'required|integer',
-            // 'location'  => 'required|integer',
-            // 'serCat'    => 'required|integer',
-            // 'subCat'    => 'required|integer',
-            // 'serImg'    => 'array',
+            'serTitle'  =>  'required|string|max:255',
+            'serState'  => 'required|integer',
+            'location'  => 'required|integer',
+            'serCat'    => 'required|integer',
+            'subCat'    => 'required|integer',
+            'serImg'    => 'array',
             'image.*'  => 'image|mimes:jpeg,jpg,png|max:1024',
-            // 'serPrice' => "integer",
-            // 'description'  => 'required|string',
+            'serPrice' => "integer",
+            'description'  => 'required|string',
         ];
 
         return $rules;

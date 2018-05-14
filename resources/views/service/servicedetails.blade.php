@@ -166,11 +166,11 @@
 				      	<div class="list-group">
 				            <div class="list-group-item flex-column align-items-start" style="border: 0px !important;">
 			                    <div class="d-flex w-100 justify-content-between">
-			                      	<h5 class="text-warning">YOUR <strong>SAFETY</strong> IS OUR PRIORITY</h5>
+			                      	<h5 class="text-danger">YOUR <strong>SAFETY</strong> IS OUR PRIORITY</h5>
 			                    </div>
 			                    <hr class="">
 			                    <p>
-					            	<ul class="h-list-style-position-inside h-font-13 text-warning">
+					            	<ul class="h-list-style-position-inside h-font-13 ">
 					                    <li>Always arrange to meet Buyer/Seller in a Public and Open Location</li>
 								        <li>Always ask for the Buyer/Seller’s ID</li>
 								        <li>Visit the Seller’s Shop/Office if possible</li>

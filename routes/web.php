@@ -28,7 +28,7 @@ Route::get('category/{slug}', [
 
 //View All Services
 Route::get('listed-services', [
-	'uses' => 'ServiceController@index',
+	'uses' => 'ServiceDetails@indexall',
 	'as'   => 'service'
 ]);
 

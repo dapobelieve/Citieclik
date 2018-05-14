@@ -30665,7 +30665,7 @@ exports = module.exports = __webpack_require__(10)(false);
 
 
 // module
-exports.push([module.i, "\n.shwbtn {\r\n    color: #36f936 !important;\r\n    font-weight: 500;\r\n    cursor: pointer;\n}\r\n    \r\n", ""]);
+exports.push([module.i, "\n.shwbtn {\r\n    color: #36f936 !important;\r\n    font-weight: 500;\r\n    cursor: pointer;\n}\n.see {\r\n    font-weight: bold;\n}\r\n    \r\n", ""]);
 
 // exports
 
@@ -30780,7 +30780,7 @@ var render = function() {
       ? _c(
           "a",
           {
-            staticClass: "btn btn-outline-warning",
+            staticClass: "btn see btn-outline-success",
             attrs: { href: "#" },
             on: {
               click: function($event) {

@@ -32,6 +32,46 @@
 	<!-- Page Content-->
  	<div class="container padding-bottom-3x mb-1">
         <div class="row">
+
+            <!-- Product Info-->
+                <div class="col-md-6">
+                    <div class="padding-top-2x mt-2 hidden-md-up"></div>
+                    <div class="rating-stars">
+                        <i class="icon-star filled"></i>
+                        
+                        {{-- <i class="icon-star filled"></i>
+                        <i class="icon-star filled"></i>
+                        <i class="icon-star filled"></i>
+                        <i class="icon-star"></i> --}}
+                      {{-- </div><span class="text-muted align-middle">&nbsp;&nbsp;4.2 | 3 customer reviews</span> --}}
+                        <h2 class="padding-top-1x text-normal">{{$service->serviceTitle() }}</h2>
+                        {{-- <span class="h2 d-block">$47.60</span> --}}
+                        {{-- {{$service->location }} --}}
+                       
+                        <br>
+                        <br>
+                       {{--  <div class="pt-1 mb-2"><span class="text-medium">SKU:</span> #21457832</div> --}}
+                        <div class="padding-bottom-1x mb-2">
+                            <p style="font-size: 19px;" class="text-medium">Category:&nbsp;<span><small><a class="navi-link" href="{{route('category', $service->catty->slug)}}">{{$service->catty->category}}</a></small></span>
+                            </p>
+                            <p style="font-size: 19px;" class="text-medium">State:&nbsp;<span><small><a class="navi-link" href="{{route('category', $service->loca->state->state)}}">{{$service->loca->state->state}}</a></small></span>
+                            </p>
+                            <p style="font-size: 19px;" class="text-medium">Location:&nbsp;<span><small><a class="navi-link" href="{{-- {{route('category', $service->loca->lga)}} --}}">{{$service->loca->lga}}</a></small></span>
+                            </p>
+                            <p style="font-size: 19px;" class="text-medium">Posted:&nbsp;<span><small><a class="navi-link" href="">{{$service->created_at->diffForHumans()}}</a></small></span>
+                            </p>
+                        </div>
+                        <hr class="mb-3">
+                        <div class="d-flex flex-wrap justify-content-between">
+                          {{-- <div class="entry-share mt-2 mb-2"><span class="text-muted">Share:</span>
+                            <div class="share-links"><a class="social-button shape-circle sb-facebook" href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="socicon-facebook"></i></a><a class="social-button shape-circle sb-twitter" href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="socicon-twitter"></i></a><a class="social-button shape-circle sb-instagram" href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="socicon-instagram"></i></a><a class="social-button shape-circle sb-google-plus" href="#" data-toggle="tooltip" data-placement="top" title="Google +"><i class="socicon-googleplus"></i></a></div>
+                          </div> --}}
+                          <div class="sp-buttons mt-2 mb-2">
+                                
+                          </div>
+                        </div>
+                    </div>
+                </div>
 	          <!-- Poduct Gallery-->
 	          	<div class="col-md-6">
 	            	<div class="product-gallery">
@@ -56,47 +96,7 @@
                         @endforelse
                       </ul>
                     </div>
-	          	</div>
-	          	<!-- Product Info-->
-		        <div class="col-md-6">
-		            <div class="padding-top-2x mt-2 hidden-md-up"></div>
-	              	<div class="rating-stars">
-	              		<i class="icon-star filled"></i>
-		              	
-		              	{{-- <i class="icon-star filled"></i>
-		              	<i class="icon-star filled"></i>
-		              	<i class="icon-star filled"></i>
-		              	<i class="icon-star"></i> --}}
-		              {{-- </div><span class="text-muted align-middle">&nbsp;&nbsp;4.2 | 3 customer reviews</span> --}}
-			            <h2 class="padding-top-1x text-normal">{{$service->serviceTitle() }}</h2>
-			            {{-- <span class="h2 d-block">$47.60</span> --}}
-			            {{-- {{$service->location }} --}}
-			           
-			            <br>
-			            <br>
-			           {{--  <div class="pt-1 mb-2"><span class="text-medium">SKU:</span> #21457832</div> --}}
-			            <div class="padding-bottom-1x mb-2">
-			            	<p style="font-size: 19px;" class="text-medium">Category:&nbsp;<span><small><a class="navi-link" href="{{route('category', $service->catty->slug)}}">{{$service->catty->category}}</a></small></span>
-			            	</p>
-			            	<p style="font-size: 19px;" class="text-medium">State:&nbsp;<span><small><a class="navi-link" href="{{route('category', $service->loca->state->state)}}">{{$service->loca->state->state}}</a></small></span>
-			            	</p>
-			            	<p style="font-size: 19px;" class="text-medium">Location:&nbsp;<span><small><a class="navi-link" href="{{-- {{route('category', $service->loca->lga)}} --}}">{{$service->loca->lga}}</a></small></span>
-			            	</p>
-			            	<p style="font-size: 19px;" class="text-medium">Posted:&nbsp;<span><small><a class="navi-link" href="">{{$service->created_at->diffForHumans()}}</a></small></span>
-			            	</p>
-			            </div>
-			            <hr class="mb-3">
-			            <div class="d-flex flex-wrap justify-content-between">
-			              {{-- <div class="entry-share mt-2 mb-2"><span class="text-muted">Share:</span>
-			                <div class="share-links"><a class="social-button shape-circle sb-facebook" href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="socicon-facebook"></i></a><a class="social-button shape-circle sb-twitter" href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="socicon-twitter"></i></a><a class="social-button shape-circle sb-instagram" href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="socicon-instagram"></i></a><a class="social-button shape-circle sb-google-plus" href="#" data-toggle="tooltip" data-placement="top" title="Google +"><i class="socicon-googleplus"></i></a></div>
-			              </div> --}}
-			              <div class="sp-buttons mt-2 mb-2">
-			              		
-			              </div>
-			            </div>
-			        </div>
-		        </div>
-	        
+	          	</div>        
 		        <div class="col-lg-8 mt-30">
 		            <ul class="nav nav-tabs" role="tablist">
 		              <li class="nav-item"><a class="nav-link active" href="#description" data-toggle="tab" role="tab">Description</a></li>

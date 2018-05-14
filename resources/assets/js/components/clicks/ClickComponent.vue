@@ -1,7 +1,7 @@
 <template>
     <div class="user-data">
         <h4 class="text-primary text-medium">{{user.username}}</h4>
-        <a v-if="!show" @click.prevent="handleClick" class="btn btn-outline-warning" href="#">View Contact Info <i class="icon-signal"></i></a>
+        <a v-if="!show" @click.prevent="handleClick" class="btn see btn-outline-success" href="#">View Contact Info <i class="icon-signal"></i></a>
         <span v-if="show">
             <h6>{{user.phone}}</h6>
             <h6>{{user.email}}</h6>
@@ -56,6 +56,10 @@
     color: #36f936 !important;
     font-weight: 500;
     cursor: pointer;
+}
+
+.see {
+    font-weight: bold;
 }
     
 </style>

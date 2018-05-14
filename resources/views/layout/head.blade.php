@@ -37,10 +37,10 @@
                 'authenticated' => auth()->check(),
                 'id'            => auth()->check() ? auth()->user()->id : null,
                 'name'          => auth()->check() ? auth()->user()->getFullName() : null,                
-            ]
+            ],
+            'url'       => env('APP_URL')
         ]) !!}
-    </script>
-  
+    </script>  
     <!-- Modernizr-->
     <script src="/assets/js/modernizr.min.js"></script>
   </head>

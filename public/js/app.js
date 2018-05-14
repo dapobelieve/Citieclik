@@ -12227,7 +12227,7 @@ __webpack_require__(16);
 
 // import axios from 'axios';
 
-axios.defaults.baseURL = 'http://localhost:8000';
+axios.defaults.baseURL = Laravel.url;
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('clicker', __webpack_require__(40));
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('counter', __webpack_require__(46));
@@ -30744,7 +30744,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         send: function send() {
             var _this = this;
 
-            axios.post('api/click', {
+            axios.post('/api/click', {
                 user_id: Laravel.user.id,
                 service_id: this.service.id
             }).then(function (response) {

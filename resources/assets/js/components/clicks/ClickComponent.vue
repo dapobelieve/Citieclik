@@ -29,7 +29,7 @@
                 this.send();               
             },
             send () {
-                axios.post('api/click', {
+                axios.post('/api/click', {
                     user_id:     Laravel.user.id,
                     service_id:  this.service.id
                 })

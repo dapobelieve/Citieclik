@@ -34,7 +34,7 @@ class ClickController extends Controller
             }
 
             $userSub->update([
-                'click' => ($userSub->click - 5)
+                'click' => ($userSub->click - 10)
             ]);
 
         }else{

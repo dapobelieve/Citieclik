@@ -27,10 +27,7 @@ Route::get('category/{slug}', [
 ]);
 
 //View All Services
-Route::get('listed-services', [
-	'uses' => 'ServiceDetails@indexall',
-	'as'   => 'service'
-]);
+Route::get('listed-services','ServiceDetails@indexall')->name('service'); 
 
 
 // Terms and condition page 

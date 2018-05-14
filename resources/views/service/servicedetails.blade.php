@@ -72,15 +72,9 @@
                         </div>
                     </div>
                 </div>
-<<<<<<< HEAD
-              <!-- Poduct Gallery-->
-                <div class="col-md-6">
-                    <div class="product-gallery">
-=======
 	          <!-- Poduct Gallery-->
 	          	<div class="col-md-6">
 	            	<div class="product-gallery">
->>>>>>> jerry
                         <div class="product-carousel owl-carousel">
                             @forelse($service->images as $image)
                                 <div data-hash="{{ $loop->iteration }}">
@@ -102,38 +96,6 @@
                         @endforelse
                       </ul>
                     </div>
-<<<<<<< HEAD
-                </div>        
-                <div class="col-lg-8 mt-30">
-                    <ul class="nav nav-tabs" role="tablist">
-                      <li class="nav-item"><a class="nav-link active" href="#description" data-toggle="tab" role="tab">Description</a></li>
-                      <li class="nav-item"><a class="nav-link " href="#reviews" data-toggle="tab" role="tab">Reviews <span class="badge badge-danger badge-pill">{{ $service->comments->count() }}</span></a></li>
-                    </ul>
-                    <div class="tab-content">
-                      <div class="tab-pane fade show active" id="description" role="tabpanel">
-                        {{-- <p>{{ $service->description }}</p> --}}
-                        <textarea class="my-editor" name="description" value="{{ old('description') ?: ''  }}" placeholder="Your description goes here...">{{ $service->description }}</textarea>
-                      </div>
-                      <div class="tab-pane fade " id="reviews" role="tabpanel">
-                            <!-- Review-->
-                            <div class="commentz">
-                                @if($service->comments->count())
-                                    @foreach($service->comments as $comment)
-                                        <div class="comment">
-                                          <div class="comment-author-ava"><img src="{{$service->userz->getUserImg()}}" alt="Review author"></div>
-                                          <div class="comment-body">
-                                            <div class="comment-header d-flex flex-wrap justify-content-between">
-                                            </div>
-                                            <p class="comment-text comment-text">{{ $comment->body }}</p>
-                                            <div class="comment-footer">
-                                                <span class="comment-meta">{{ $comment->user->getFullName() }}</span>
-                                            </div>
-                                          </div>
-                                        </div>
-                                    @endforeach
-                                @endif
-                            </div>
-=======
 	          	</div>        
 		        <div class="col-lg-8 mt-30">
 		            <ul class="nav nav-tabs" role="tablist">
@@ -164,7 +126,6 @@
 					                @endforeach
 					            @endif
 				            </div>
->>>>>>> jerry
 
                             <!-- Review Form-->
                             {{-- <h5 class="mb-30 padding-top-1x colored">Leave Review</h5> --}}

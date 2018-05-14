@@ -23,12 +23,23 @@ class UsersController extends Controller
 
     public function getUsers(Request $request)
     {
-            if($request->ajax()){
-                $users = User::get();
-                return $users->toJson();
-            }else{
-                return view('dashboard.pages.home');
-            }
-            
+        if($request->ajax()){
+            $users = User::get();
+            return $users->toJson();
+        }else{
+            return view('dashboard.pages.home');
+        }
     }
+
+
+
+    public function getSubscribedUsers()
+    {
+        $data = user()->getSubuser('user_id');
+        dd($data);
+
+        return view('dashboard.pages.subusers')
+            ->with('datas', $data);
+    }
+
 }

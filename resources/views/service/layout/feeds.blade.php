@@ -2,6 +2,7 @@
 	<div class="gutter-sizer"></div>
 	<div class="grid-sizer"></div>
 	<!-- Product-->
+    {{-- {{ dd($sdata->first()->images()->first()) }} --}}
 	@foreach($sdata as $data)
 		<div class="isoitem grid-item 
 		{{$data->slugIt($data->catty->slug)}} 
@@ -14,7 +15,7 @@
 						<a 
 							class="product-thumb" 
 							href="{{route('service.detail',['username' => $data->userz->username,'slug' => $data->slug])}}">
-							<img src={{$data->servieImage()}} alt="Product" style="width: max; height: 200px !important;">
+							<img src="{{ $data->getImages() }}" alt="{{$data->serviceTitle()}}" style="width: max; height: 200px !important;">
 						</a>
 						<h3 class="product-title"><a href="{{route('service.detail',['username' => $data->userz->username,'slug' => $data->slug])}}">{{$data->serviceTitle()}}</a></h3>
 						{{-- <h4 class="product-price">&#8358;49.99</h4> --}}

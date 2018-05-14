@@ -13,9 +13,6 @@ class SearchController extends Controller
     	$queryState = $request->input('state');
     	$queryCategory = $request->input('category');
 
-    	$services = Service::where(DB::raw('state_id'), 'LIKE', " %{$queryState}%")
-    				->where('category_id', 'LIKE', "%{$queryCategory}%")
-    				->get();
         $services = Service::where([
                     ['state_id', $queryState],
                     ['category_id', $queryCategory]

@@ -59,7 +59,6 @@ Products | Citieclik
 <script type="text/javascript" src="/assets/js/isotope.js"></script>
 <script>
 	var url1 = "service/state/location/";
-	var url2 = "service/category/getscat/";
 </script>
 <script src="/assets/js/service.js"></script>
 <script type="text/javascript">
@@ -73,7 +72,6 @@ function isotopeIts(theValue)
 	var checkboxes = $('.subCatWid');
 	checkboxes.on("change",".dcheck", function(event) {
 	// map input values to an array
-	console.log(event.target.value);
 	var inclusives = [];
 	// inclusive filters from checkboxes
 	checkboxes.each( function( i, elem ) {
@@ -82,10 +80,8 @@ function isotopeIts(theValue)
 			inclusives.push( elem.value );
 		}
 	});
-	console.log(inclusives);
 
 		var filterValue = inclusives.length ? inclusives.join(', ') : '*';
-		console.log(filterValue); 
 		isotopeIts(filterValue);
 	})
 </script>

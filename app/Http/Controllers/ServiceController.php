@@ -3,11 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ServiceRequest;
+use App\Http\Controllers\Funcs\Cloudinary;
+
 use App\State;
 use App\Category;
 use App\Service;
-use Cloudder;
+
 use Auth;
+use App\Image;
 use Carbon;
 
 class ServiceController extends Controller
@@ -55,35 +59,8 @@ class ServiceController extends Controller
     }
 
     //validate and save service details
-    public function postService(Request $serRequest)
+    public function postService(ServiceRequest $serRequest)
     {
-        dd($serRequest);
-    	$this->validate($serRequest, [
-            'serTitle'  =>  'required|string|max:255',
-            'serState'  => 'required|integer',
-            'location'  => 'required|integer',
-            'serCat'    => 'required|integer',
-            'subCat'    => 'required|integer',
-            'serImg'    => "image|mimes:jpeg,jpg,png,bmp,svg|max:2048",
-            // 'serPrice' => "integer",
-            'description'  => 'required|string'
-        ], 
-        [
-            'serTitle.required'     => 'a title is required',
-            'serState.required'     => 'Select the state  where you currently provide this service',
-            'serState.integer'     => 'Select the state  where you currently provide this service',
-            'location.required'     => 'Select the location',
-            'location.integer'     => 'Select the location',
-            'description.required'  => 'a short detailed description is required',
-            'serCat.required'       => 'Select a Category',
-            'serCat.integer'       => 'Select a Category',
-            'subCat.required'       => 'Select a Sub Category',
-            'subCat.integer'       => 'Select a Sub Category',
-            // 'serPrice.integer' => 'The price must be in digits e.g 50000',
-            'serImg.mimes'          => 'The image must have jpeg, jpg or png format',
-            'serImg.max'            => 'The Image is too large, It must not be more than 2MB',
-        ]);
-        
 
 		$slugSer = $this->slugIt($serRequest->input('serTitle'));
 
@@ -99,13 +76,20 @@ class ServiceController extends Controller
         $service->state_id          = $serRequest->input('serState');
         $service->location_id       = $serRequest->input('location');
 
+        $service->save();
+
         //here i check if an image is in the 
         //image field and upload it to cloudinary
-        if($serRequest->hasFile('serImg')){
-            $this->uploadPicture($serRequest);
-            $service->image = $this->imgObj;
+        if($serRequest->hasFile('image')){
+            foreach($serRequest->file('image') as $photo){
+                $imageData = Cloudinary::uploadPicture($photo);
+               Image::create([
+                    'service_id' => $service->id,
+                    'image' => $imageData,
+                ]);
+            }
         }
-        $service->save();
+        
 
 
         if($serRequest->input('typo') == 's'){
@@ -121,7 +105,6 @@ class ServiceController extends Controller
     public function getEditService($id)
     {
         $post = Service::findOrFail($id);
-        // dd($post->type);
         return view('pages.edit')->with('sdata', $post);
     }
 
@@ -135,7 +118,7 @@ class ServiceController extends Controller
             'location'  => 'required|integer',
             'serCat'    => 'required|integer',
             'subCat'    => 'required|integer',
-            'serImg'    => "image|mimes:jpeg,jpg,png,bmp,svg|max:2048",
+            'serImg'    => "image|mimes:jpeg,jpg,png,bmp,svg|max:1024",
             // 'servicePrice' => "integer",
             'description'  => 'required|string'
         ], 
@@ -152,7 +135,7 @@ class ServiceController extends Controller
             'subCat.integer'       => 'Select a Sub Category',
             // 'servicePrice.integer' => 'The price must be in digits e.g 50000',
             'serImg.mimes'          => 'The image must have jpeg, jpg or png format',
-            'serImg.max'            => 'The Image is too large, It must not be more than 2MB',
+            'serImg.max'            => 'The Image is too large, It must not be more than 1MB',
         ]); 
 
 
@@ -169,15 +152,17 @@ class ServiceController extends Controller
         $service->state_id          = $serRequest->input('serState');
         $service->location_id       = $serRequest->input('location');
         
-
-        //here i check if an image is in the 
-        //image field and upload it to cloudinary
-        if($serRequest->hasFile('serImg')){
-            $this->uploadPicture($serRequest);
-            $service->image = $this->imgObj;
-        }
-
         $service->save();
+        
+        if($serRequest->hasFile('image')){
+            foreach($serRequest->file('image') as $photo){
+                $imageData = Cloudinary::uploadPicture($photo);
+               Image::create([
+                    'service_id' => $service->id,
+                    'image' => $imageData,
+                ]);
+            }
+        }
 
         //fire sms sending event
         if($serRequest->input('typo') == 's'){
@@ -199,29 +184,7 @@ class ServiceController extends Controller
         return redirect()->back()->with('info', 'Deleted.');
     }
 
-    private function uploadPicture(Request $req)
-    {
-        $fileUrl = $req->file('serImg')->getRealPath();
-            $result  =  Cloudder::upload($fileUrl,null, $options = array(
-                'folder'   => 'citi',
-                'timeout'  =>  600,
-                'format'   => 'Webp',
-                'quality'  => '20',
-                // "width" => 'max',
-                "height" => 500,
-                "crop" => "limit"
-            ));
+    
 
-            if(!$result)
-                return redirect()->back()->with('info', 'Internal Server Error. Please try again.');
-            else {
-                $fileData  = Cloudder::getResult();
-                $this->imgObj = json_encode($fileData);
-            }
-    }
-
-    private function deletePicture($imagePubId)
-    {
-        Cloudder::delete($imagePubId);
-    }
+    
 }

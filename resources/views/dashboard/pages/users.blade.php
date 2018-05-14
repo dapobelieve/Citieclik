@@ -80,7 +80,6 @@
 
 {{-- JS for this page --}}
 @section('admin-scripts')
-<<<<<<< HEAD
 <script src="/assets2/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="/assets2/bower_components/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
 <script src="/assets2/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
@@ -114,11 +113,7 @@
         });
     });
 </script>
-=======
-    <script src="/assets2/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="/assets2/bower_components/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
-    <script src="/assets2/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="/assets/js/citi-admin.js"></script>
->>>>>>> admin
+<script src="/assets/js/citi-admin.js"></script>
+
 
 @stop

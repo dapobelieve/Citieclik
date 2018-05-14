@@ -36,6 +36,11 @@ class PaymentController extends Controller
         if( $user->isSubscribed() && $user->subscribedToPlan($request->dplan) ){
             // check if users active subscription is the same as the one in the request
             return redirect()->back()->with('pay-message', 'You already subscribed to that plan');
+
+        }else if(Auth::user()->isSubscribed()){
+            // here a the user has a sub record, 
+            // we just pay the amount and update the record
+            return Paystack::getAuthorizationUrl()->redirectNow();
         }else {
             Auth::user()->subscriptions()->create([
                 'trxn_ref' => $request->reference,
@@ -68,21 +73,31 @@ class PaymentController extends Controller
         if($paymentDetails['data']['status'] == 'success'){
 
             // i cant seem to figure out why i did what i did here and that sucks
-            // if (Auth::user()->isSubscribed()){
+            if (Auth::user()->isSubscribed()){
 
-            //     // 1.if user is subscribed we'll get subscription details
-            //     $subDetails = Auth::user()->getActiveSubscription();
+                // 1.if user is subscribed we'll get subscription details
+                $subDetails = Auth::user()->getActiveSubscription();
 
-            //     // 2. update status of that sub to 0
-            //     Auth::user()->subscriptions()->where('plan_id', $subDetails->plan_id)->update([
-            //         'status' => 0
-            //     ]);
-            // }
+                // dd($subDetails->click);
+
+                // 2. update status of that sub (date and number of clicks)
+                Auth::user()->subscriptions()->where('plan_id', $subDetails->plan_id)->update([
+                    'status'     => 1,
+                    'amount'     => ($paymentDetails['data']['amount'] / 100),
+                    'pay_status' => 1,
+                    'plan_id'    => $paymentDetails['data']['metadata']['plan_id'],
+                    'click'      => ($subDetails->click) + ($paymentDetails['data']['metadata']['plan_clicks']),
+                    'ends_at'    => $this->end
+                ]);
+
+                return redirect()->back()->with('pay-message','Payment Successful. Your Subscription has been activated. ');
+            }
 
             Auth::user()->subscriptions()->where('trxn_ref', $paymentDetails['data']['reference'] )->update([
                 'status'     => 1,
                 'amount'     => ($paymentDetails['data']['amount'] / 100),
                 'pay_status' => 1,
+                'click'      => ($paymentDetails['data']['amount'] / 100),
                 'starts_at'  => $this->start,
                 'ends_at'    => $this->end
             ]);

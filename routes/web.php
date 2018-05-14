@@ -1,7 +1,7 @@
 <?php
 
 // For testing purposes
-Route::get('/test', 'TestController@carbon')->name('test');
+// Route::get('/test', 'TestController@catsy')->name('test');
 
 // ends here
 
@@ -102,10 +102,8 @@ Route::get('/{service}/callback','SocialAuthController@callback');
 	Route::get('service/state/location/{id}', [
 		'uses' => 'AjaxRequestsController@getLocation'
 	]);
-	//Route to get subcategory based on selected category
-	Route::get('service/category/getscat/{id}', [
-		'uses' => 'AjaxRequestsController@getSubCat'
-	]);
+
+
 	Route::get('product/state/location/{id}', [
 		'uses' => 'AjaxRequestsController@getLocation'
 	]);
@@ -329,8 +327,13 @@ Route::get('/products', 'Actions\Product\ProductController@index')->name('produc
 */
 Route::get('dashboard', 'Admin\HomeController@index')->name('admin.home');
 Route::get('admin/settings', 'Admin\SettingsController@site')->name('admin.settings.site');
-Route::get('admin/users', 'Admin\UsersController@index')->name('admin.users');
+
+Route::get('admin/users/all-users', 'Admin\UsersController@index')->name('admin.users');
+Route::get('admin/users/subscribed-users', 'Admin\UsersController@getSubscribedUsers')->name('admin.subscribed-users');
+
 Route::get('admin/agents', 'Admin\AgentsController@index')->name('admin.agents');
+Route::get('admin/category', 'Admin\CategoryController@getCategory')->name('admin.category');
+Route::get('admin/category/{category}', 'Admin\CategoryController@getCatDetail')->name('category.index');
 
 
 /*

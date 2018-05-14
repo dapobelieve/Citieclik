@@ -16,7 +16,8 @@ use Carbon;
 
 class ServiceController extends Controller
 {
-    private $imgObj = "";
+
+
 	//slug method cool huh ;)
     private function slugIt($slug)
     {
@@ -30,20 +31,6 @@ class ServiceController extends Controller
         $slug = trim($slug, '-');
 
         return $slug;
-    }
-
-    // get all services view
-    public function index()
-    {
-        $serviceData = Service::take(200)->postOnly()->where('type', 's')->get();
-
-    	return view('service.service')->with('sdata', $serviceData)
-                                    ->with('type', 's');
-    }
-
-    public function getServiceDetails()
-    {
-        return view('pages.servicedetails');
     }
 
 

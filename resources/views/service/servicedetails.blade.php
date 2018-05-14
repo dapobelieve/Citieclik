@@ -72,9 +72,15 @@
                         </div>
                     </div>
                 </div>
+<<<<<<< HEAD
               <!-- Poduct Gallery-->
                 <div class="col-md-6">
                     <div class="product-gallery">
+=======
+	          <!-- Poduct Gallery-->
+	          	<div class="col-md-6">
+	            	<div class="product-gallery">
+>>>>>>> jerry
                         <div class="product-carousel owl-carousel">
                             @forelse($service->images as $image)
                                 <div data-hash="{{ $loop->iteration }}">
@@ -96,6 +102,7 @@
                         @endforelse
                       </ul>
                     </div>
+<<<<<<< HEAD
                 </div>        
                 <div class="col-lg-8 mt-30">
                     <ul class="nav nav-tabs" role="tablist">
@@ -126,6 +133,38 @@
                                     @endforeach
                                 @endif
                             </div>
+=======
+	          	</div>        
+		        <div class="col-lg-8 mt-30">
+		            <ul class="nav nav-tabs" role="tablist">
+		              <li class="nav-item"><a class="nav-link active" href="#description" data-toggle="tab" role="tab">Description</a></li>
+		              <li class="nav-item"><a class="nav-link " href="#reviews" data-toggle="tab" role="tab">Reviews <span class="badge badge-danger badge-pill">{{ $service->comments->count() }}</span></a></li>
+		            </ul>
+		            <div class="tab-content">
+		              <div class="tab-pane fade show active" id="description" role="tabpanel">
+		                {{-- <p>{{ $service->description }}</p> --}}
+		                <textarea class="my-editor" name="description" value="{{ old('description') ?: ''  }}" placeholder="Your description goes here...">{{ $service->description }}</textarea>
+		              </div>
+		              <div class="tab-pane fade " id="reviews" role="tabpanel">
+		                	<!-- Review-->
+			                <div class="commentz">
+			                	@if($service->comments->count())
+			                		@foreach($service->comments as $comment)
+						                <div class="comment">
+						                  <div class="comment-author-ava"><img src="{{$service->userz->getUserImg()}}" alt="Review author"></div>
+						                  <div class="comment-body">
+						                    <div class="comment-header d-flex flex-wrap justify-content-between">
+						                    </div>
+						                    <p class="comment-text comment-text">{{ $comment->body }}</p>
+						                    <div class="comment-footer">
+						                    	<span class="comment-meta">{{ $comment->user->getFullName() }}</span>
+						                    </div>
+						                  </div>
+						                </div>
+					                @endforeach
+					            @endif
+				            </div>
+>>>>>>> jerry
 
                             <!-- Review Form-->
                             {{-- <h5 class="mb-30 padding-top-1x colored">Leave Review</h5> --}}
@@ -161,112 +200,112 @@
                             </div>
                             <clicker :service="{{ $service }}"  :user="{{ $service->userz }}"></clicker>
                         </div>
-                        @endif
-                        <br>
-                        <div class="list-group">
-                            <div class="list-group-item flex-column align-items-start" style="border: 0px !important;">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <h5 class="text-danger">YOUR <strong>SAFETY</strong> IS OUR PRIORITY</h5>
-                                </div>
-                                <hr class="">
-                                <p>
-                                    <ul class="h-list-style-position-inside h-font-13 ">
-                                        <li>Always arrange to meet Buyer/Seller in a Public and Open Location</li>
-                                        <li>Always ask for the Buyer/Seller’s ID</li>
-                                        <li>Visit the Seller’s Shop/Office if possible</li>
-                                        <li>Always Inspect the Product Well Before Buying</li>
-                                        <li>Arrange to Make Payment at the Bank (for large amounts)</li>
-                                    </ul>
-                                </p>
-                                {{-- <small class="opacity-60">Donec id elit non mi porta.</small> --}}
-                            </div>
-                        </div>
-                    </aside>
-                </div>
-                <!-- Related Products Carousel-->
-                {{-- <h3 class="text-center padding-top-2x mt-2 padding-bottom-1x">You May Also Like</h3> --}}
-                <!-- Carousel-->
-            {{-- <div class="owl-carousel" data-owl-carousel="{ &quot;nav&quot;: false, &quot;dots&quot;: true, &quot;margin&quot;: 30, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;576&quot;:{&quot;items&quot;:2},&quot;768&quot;:{&quot;items&quot;:3},&quot;991&quot;:{&quot;items&quot;:4},&quot;1200&quot;:{&quot;items&quot;:4}} }">
-              <!-- Product-->
-                <div class="grid-item">
-                    <div class="product-card">
-                    <div class="product-badge text-danger">22% Off</div><a class="product-thumb" href="shop-single.html"><img src="/assets/img/shop/products/09.jpg" alt="Product"></a>
-                        <h3 class="product-title"><a href="shop-single.html">Rockt Dog</a></h3>
-                        <h4 class="product-price">
-                            <del>$44.95</del>$34.99
-                        </h4>
-                        <div class="product-buttons">
-                            <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-hert"></i></button>
-                            <button class="btn btn-outline-primary btn-sm" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!">Add to Cart</button>
-                        </div>
-                </div>
-              </div>
-              <!-- Product-->
-              <div class="grid-item">
-                <div class="product-card">
-                    <div class="rating-stars"><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star illed"></i><i class="icon-star"></i>
-                    </div><a class="product-thumb" href="shop-single.html"><img src="/assets/img/shop/products/03.jpg" alt="Product"></a>
-                  <h3 class="product-title"><a href="shop-single.html">Oakley Kickback</a></h3>
-                  <h4 class="product-price">$155.00</h4>
-                  <div class="product-buttons">
-                    <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button>
-                    <button class="btn btn-outline-primary btn-sm" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!">Add to Cart</button>
-                  </div>
-                </div>
-              </div>
-              <!-- Product-->
-              <div class="grid-item">
-                <div class="product-card"><a class="product-thumb" href="shop-single.html"><img src="/assets/img/shop/products/12.jpg" alt="Product"></a>
-                  <h3 class="product-title"><a href="shop-single.html">Vented Straw Fedora</a></h3>
-                  <h4 class="product-price">$49.50</h4>
-                  <div class="product-buttons">
-                    <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button>
-                    <button class="btn btn-outline-primary btn-sm" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!">Add to Cart</button>
-                  </div>
-                </div>
-              </div>
-              <!-- Product-->
-              <div class="grid-item">
-                <div class="product-card">
-                    <div class="rating-stars"><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i>
-                    </div><a class="product-thumb" href="shop-single.html"><img src="/assets/img/shop/products/11.jpg" alt="Product"></a>
-                  <h3 class="product-title"><a href="shop-single.html">Top-Sider Fathom</a></h3>
-                  <h4 class="product-price">$90.00</h4>
-                  <div class="product-buttons">
-                    <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button>
-                    <button class="btn btn-outline-primary btn-sm" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!">Add to Cart</button>
-                  </div>
-                </div>
-              </div>
-              <!-- Product-->
-              <div class="grid-item">
-                <div class="product-card"><a class="product-thumb" href="shop-single.html"><img src="/assets/img/shop/products/04.jpg" alt="Product"></a>
-                  <h3 class="product-title"><a href="shop-single.html">Waist Leather Belt</a></h3>
-                  <h4 class="product-price">$47.00</h4>
-                  <div class="product-buttons">
-                    <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button>
-                    <button class="btn btn-outline-primary btn-sm" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!">Add to Cart</button>
-                  </div>
-                </div>
-              </div>
-              <!-- Product-->
-              <div class="grid-item">
-                <div class="product-card">
-                  <div class="product-badge text-danger">50% Off</div><a class="product-thumb" href="shop-single.html"><img src="/assets/img/shop/products/01.jpg" alt="Product"></a>
-                  <h3 class="product-title"><a href="shop-single.html">Unionbay Park</a></h3>
-                  <h4 class="product-price">
-                    <del>$99.99</del>$49.99
-                  </h4>
-                  <div class="product-buttons">
-                    <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button>
-                    <button class="btn btn-outline-primary btn-sm" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!">Add to Cart</button>
-                  </div>
-                </div>
-            </div>
-            </div> --}}
-        <!--Page Content-->
-        </div>
-    </div>
+						@endif
+					    <br>
+				      	<div class="list-group">
+				            <div class="list-group-item flex-column align-items-start" style="border: 0px !important;">
+			                    <div class="d-flex w-100 justify-content-between">
+			                      	<h5 class="text-danger">YOUR <strong>SAFETY</strong> IS OUR PRIORITY</h5>
+			                    </div>
+			                    <hr class="">
+			                    <p>
+					            	<ul class="h-list-style-position-inside h-font-13 ">
+					                    <li>Always arrange to meet Buyer/Seller in a Public and Open Location</li>
+								        <li>Always ask for the Buyer/Seller’s ID</li>
+								        <li>Visit the Seller’s Shop/Office if possible</li>
+								        <li>Always Inspect the Product Well Before Buying</li>
+								        <li>Arrange to Make Payment at the Bank (for large amounts)</li>
+						            </ul>
+			                    </p>
+			                    {{-- <small class="opacity-60">Donec id elit non mi porta.</small> --}}
+			                </div>
+				        </div>
+				  	</aside>
+				</div>
+	        	<!-- Related Products Carousel-->
+	        	{{-- <h3 class="text-center padding-top-2x mt-2 padding-bottom-1x">You May Also Like</h3> --}}
+	        	<!-- Carousel-->
+	        {{-- <div class="owl-carousel" data-owl-carousel="{ &quot;nav&quot;: false, &quot;dots&quot;: true, &quot;margin&quot;: 30, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;576&quot;:{&quot;items&quot;:2},&quot;768&quot;:{&quot;items&quot;:3},&quot;991&quot;:{&quot;items&quot;:4},&quot;1200&quot;:{&quot;items&quot;:4}} }">
+	          <!-- Product-->
+	          	<div class="grid-item">
+	            	<div class="product-card">
+	              	<div class="product-badge text-danger">22% Off</div><a class="product-thumb" href="shop-single.html"><img src="/assets/img/shop/products/09.jpg" alt="Product"></a>
+	              		<h3 class="product-title"><a href="shop-single.html">Rockt Dog</a></h3>
+	              		<h4 class="product-price">
+	                		<del>$44.95</del>$34.99
+	              		</h4>
+	              		<div class="product-buttons">
+	                		<button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-hert"></i></button>
+	                		<button class="btn btn-outline-primary btn-sm" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!">Add to Cart</button>
+	              		</div>
+	            </div>
+	          </div>
+	          <!-- Product-->
+	          <div class="grid-item">
+	            <div class="product-card">
+	                <div class="rating-stars"><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star illed"></i><i class="icon-star"></i>
+	                </div><a class="product-thumb" href="shop-single.html"><img src="/assets/img/shop/products/03.jpg" alt="Product"></a>
+	              <h3 class="product-title"><a href="shop-single.html">Oakley Kickback</a></h3>
+	              <h4 class="product-price">$155.00</h4>
+	              <div class="product-buttons">
+	                <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button>
+	                <button class="btn btn-outline-primary btn-sm" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!">Add to Cart</button>
+	              </div>
+	            </div>
+	          </div>
+	          <!-- Product-->
+	          <div class="grid-item">
+	            <div class="product-card"><a class="product-thumb" href="shop-single.html"><img src="/assets/img/shop/products/12.jpg" alt="Product"></a>
+	              <h3 class="product-title"><a href="shop-single.html">Vented Straw Fedora</a></h3>
+	              <h4 class="product-price">$49.50</h4>
+	              <div class="product-buttons">
+	                <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button>
+	                <button class="btn btn-outline-primary btn-sm" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!">Add to Cart</button>
+	              </div>
+	            </div>
+	          </div>
+	          <!-- Product-->
+	          <div class="grid-item">
+	            <div class="product-card">
+	                <div class="rating-stars"><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i>
+	                </div><a class="product-thumb" href="shop-single.html"><img src="/assets/img/shop/products/11.jpg" alt="Product"></a>
+	              <h3 class="product-title"><a href="shop-single.html">Top-Sider Fathom</a></h3>
+	              <h4 class="product-price">$90.00</h4>
+	              <div class="product-buttons">
+	                <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button>
+	                <button class="btn btn-outline-primary btn-sm" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!">Add to Cart</button>
+	              </div>
+	            </div>
+	          </div>
+	          <!-- Product-->
+	          <div class="grid-item">
+	            <div class="product-card"><a class="product-thumb" href="shop-single.html"><img src="/assets/img/shop/products/04.jpg" alt="Product"></a>
+	              <h3 class="product-title"><a href="shop-single.html">Waist Leather Belt</a></h3>
+	              <h4 class="product-price">$47.00</h4>
+	              <div class="product-buttons">
+	                <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button>
+	                <button class="btn btn-outline-primary btn-sm" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!">Add to Cart</button>
+	              </div>
+	            </div>
+	          </div>
+	          <!-- Product-->
+	          <div class="grid-item">
+	            <div class="product-card">
+	              <div class="product-badge text-danger">50% Off</div><a class="product-thumb" href="shop-single.html"><img src="/assets/img/shop/products/01.jpg" alt="Product"></a>
+	              <h3 class="product-title"><a href="shop-single.html">Unionbay Park</a></h3>
+	              <h4 class="product-price">
+	                <del>$99.99</del>$49.99
+	              </h4>
+	              <div class="product-buttons">
+	                <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button>
+	                <button class="btn btn-outline-primary btn-sm" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Product" data-toast-message="successfuly added to cart!">Add to Cart</button>
+	              </div>
+	            </div>
+	        </div>
+      		</div> --}}
+  		<!--Page Content-->
+  		</div>
+  	</div>
 @endsection
 
 @section('script')

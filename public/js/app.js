@@ -30780,7 +30780,7 @@ var render = function() {
       ? _c(
           "a",
           {
-            staticClass: "btn see btn-outline-success",
+            staticClass: "btn see  btn-outline-success",
             attrs: { href: "#" },
             on: {
               click: function($event) {

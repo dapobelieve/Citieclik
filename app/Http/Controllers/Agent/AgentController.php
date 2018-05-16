@@ -81,8 +81,6 @@ class AgentController extends Controller
                  ->with('success', 'You account has been created. Check your mail to complete your registration.');
     }
 
-
-
     public function store(Request $request)
     {  
         //1. check if that link exists
@@ -137,7 +135,7 @@ class AgentController extends Controller
         ]);
 
         // email user for verification
-        event(new UserRegistered($user));
+        // event(new UserRegistered($user));
 
         //automatically log in user
          return redirect()->route('home')

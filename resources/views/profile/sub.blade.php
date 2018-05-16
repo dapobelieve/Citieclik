@@ -55,6 +55,14 @@ Subscription | CitieClik
                                 @endif
                                  ">
                             <input type="hidden" name="dplan" value="{{ $plan->id }}">
+                            <input type="hidden" name="dclicks" value="{{ $plan->clicks }}">
+
+                            <input 
+                                type="hidden" 
+                                name="metadata" 
+                                value="{{ json_encode($array = ['plan_id' => $plan->id ,
+                                                                'plan_clicks' => $plan->clicks
+                                                                ]) }}" >
 
                             <input type="hidden" name="key" value="{{ config('paystack.secretKey') }}">
 

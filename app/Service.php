@@ -39,6 +39,26 @@ class Service extends Model
         return $this->morphMany(Comment::class, 'commentable');
     }
 
+    public function clicks()
+    {
+        return $this->hasMany(Click::class);
+    }
+
+    public function images()
+    {
+        return $this->hasMany(Image::class);
+    }
+
+    public function getImages()
+    {
+        // dd($this->images()->get());
+        if($this->images()->first() == null){
+            $ran = mt_rand(1,3);
+            return "/assets/img/shop/cart/0".$ran.".jpg";
+        }else{
+            return $this->images()->first()->servieImage();
+        }
+    }
 
 // Relationships Ends
 
@@ -68,20 +88,6 @@ class Service extends Model
         $slug = trim($slug, '-');
 
         return $slug;
-    }
-
-    public function servieImage()
-    {
-        if(empty($this->image))
-        {
-            $ran = mt_rand(1,3);
-            $img = "/assets/img/shop/cart/0".$ran.".jpg";
-        }else
-        {
-            $img = json_decode($this->image, true);
-            return $img['url'];
-        }
-        return $img;
     }
 
     public function serviceTitle()

@@ -79,37 +79,39 @@ Edit service | Citieclik
 			              	</div>
 			            </div>
 			            <div class="row">
-			              	<div class="col-sm-6">
-				                <div class="form-group {{ $errors->has('serCat') ? ' has-error' : '' }}">
-				                  	<label for="checkout-country">Category</label>
-				                  	<select class="form-control" name="serCat" id="serCat" value="{{ old('serCat') ?: ''  }}">
-					                    {{-- <option>Choose a Category</option> --}}
-					                    <option value="{{$sdata->catty->id}}">{{$sdata->catty->category}}</option>
-					                    @if($sdata->type == 'p')
-					                    	@foreach($cats->where('type', 'p') as $cat)
-					                        	<option value="{{$cat->id}}">{{$cat->category}}</option>
-					                    	@endforeach
-					                    @elseif($sdata->type == 's')
-					                    	@foreach($cats->where('type', 's') as $cat)
-						                        <option value="{{$cat->id}}">{{$cat->category}}</option>
-						                    @endforeach
-					                    @endif
-				                  	</select>
-		  		                  	@if ($errors->has('serCat'))
-										<p class="help-block text-danger"><i class="icon-circle-cross"></i>&nbsp;{{ $errors->first('serCat') }}</p>
-				                	@endif
-				                </div>
-			              	</div>
-	              			<div class="col-sm-6">
-				                <div class="form-group">
-				                  	<label for="checkout-country">Sub Category</label>
-				                  	<select class="form-control" name="subCat"  id="subCat" value="{{ Request::old('subCat') ?: $sdata->subCat->id  }}">
-				                    	<option value="{{$sdata->subCat->id}}">{{$sdata->subCat->sub_category}}</option>
-				                    
-				                  	</select>
-				                </div>
-			              	</div>
-		            	</div>
+                            <div class="col-sm-6">
+                                <div class="form-group {{ $errors->has('serCat') ? ' has-error' : '' }}">
+                                    <label for="checkout-country">Category</label>
+                                    <select class="form-control" onchange="getSubCat(this.value)" name="serCat" id="serCat" value="{{ Request::old('serCat') ?: ''  }}">
+                                        <option>Choose a Category</option>
+                                        @if($sdata->type == 'p')
+                                            @foreach($cats->where('type', 'p') as $cat)
+                                                <option value="{{$cat->id}}">{{$cat->category}}</option>
+                                            @endforeach
+                                        @elseif($sdata->type == 's')
+                                            @foreach($cats->where('type', 's') as $cat)
+                                                <option value="{{$cat->id}}">{{$cat->category}}</option>
+                                            @endforeach
+                                        @endif
+                                        
+                                    </select>
+                                    @if ($errors->has('serCat'))
+                                        <p class="help-block text-danger"><i class="icon-circle-cross"></i>&nbsp;{{ $errors->first('serCat') }}</p>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <span id="subcatty"></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <span id="subcatty2"></span>
+                                </div>
+                            </div>
+
+                        </div>
 			            <div class="row">
 			              	<div class="col-sm-6">
 				                <div class="form-group {{ $errors->has('serState') ? ' has-error' : '' }}">
@@ -139,24 +141,17 @@ Edit service | Citieclik
 			              	</div>
 			            </div>
 			            <div class="row">
-			            	<div class="col-md-6">
-				            	<div class="form-group">
-					              	<label class="col-form-label">Select Image</label>
-					              	<div class="">
-						                <div class="custom-file">
-						                  	<input class="custom-file-input form-control-file" name="serImg" type="file" accept="image/*" onchange="preview_image(event)"><span class="custom-file-control"></span>
-						                </div>
-						            </div>
-					            </div>
-				            </div>
-				            <div class="col-md-6">
-				            	<div class="form-group">
-				            		<label class="col-form-label" for="file-preview">Image Preview</label>
-				            		<img style="width:150px; height:auto" src="{{$sdata->servieImage()}}" class="d-block mx-auto img-thumbnail mb-3" id="output_image"/>
-				            	</div>
-				            </div>
-			            </div>
-			            
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="col-form-label">Select Image(s) *only jpg, jpeg & png formats allowed. Max size allowed is 2mb.</label>
+                                    <div class="">
+                                        <div class="custom-file">
+                                            <input type="file" name="image[]" multiple>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>			            
 			            <div class="row padding-bottom-1x">
 			            	<div class="col-sm-12">
 			            		<div class="form-group {{ $errors->has('description') ? ' has-error' : '' }}">
@@ -181,7 +176,7 @@ Edit service | Citieclik
 	          	</div>
 	          	<!-- Sidebar          -->
 	          	<div class="col-xl-3 col-lg-4">
-		            <aside class="sidebar">
+		            {{-- <aside class="sidebar">
 		              	<div class="padding-top-2x hidden-lg-up"></div>
 		              	<!-- Order Summary Widget-->
 		              	<section class="widget widget-order-summary">
@@ -244,7 +239,7 @@ Edit service | Citieclik
 		                  		<h3 class="text-bold text-light text-shadow">Sunglasses</h3><a class="btn btn-outline-white btn-sm" href="shop-grid-ls.html">Shop Now</a>
 		                	</div>
 		              	</section>
-		            </aside>
+		            </aside> --}}
 	          	</div>
 	        </div>
       	</div>
@@ -272,25 +267,8 @@ Edit service | Citieclik
 			})
 		});
 	})
-
-	//same logic as above but for categories
-	$('#serCat').change(function(){
-		$.ajax({
-			url: "category/"+$(this).val(),
-			method: 'GET',
-		})
-		.done(function(data) {
-			$location = $('#subCat');
-			$location.removeAttr('disabled');//enable
-			$location.children().remove();//clear the kids of the select tag first
-			var dee = JSON.parse(data); //convert the json data to array here
-			$.each(dee,function(index, value){
-				$location.append("<option value='"+value.id+"' >"+ value.sub_category +"</option>");
-			})
-		});
-	})
 </script>
-
+<script src="/assets/js/addservice.js"></script>
 <script type="text/javascript">
 	$('.my-editor').trumbowyg({
 		autogrow: true,

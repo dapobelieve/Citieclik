@@ -17,20 +17,6 @@ class RequestController extends Controller
         $this->middleware(['AuthCheck', 'verified_user']);
     }
 
-    private function slugIt($slug)
-    {
-        $lettersNamesSpaces = '/[^\-\s\pN\pL]+/u';
-        $spacesHypens = '/[\-\s]+/';
-
-        $slug = preg_replace($lettersNamesSpaces, '', mb_strtolower($slug, 'UTF-8'));
-
-        $slug = preg_replace($spacesHypens, '-', $slug);
-
-        $slug = trim($slug, '-');
-
-        return $slug;
-    }
-
     public function getRequest($slug)
     {
     	$user = User::where('slug', $slug)->first();
@@ -60,8 +46,8 @@ class RequestController extends Controller
         ], 
         [
             'serTitle.required'     => 'The service you offer needs to have a name e.g I write final year projects, Hair stylist, Bead Designer etc',
-            'serState.required'     => 'Select the state  where you currently provide this service',
-            'serState.integer'     => 'Select the state  where you currently provide this service',
+            'serState.required'     => 'Select the state  where you currently require this service',
+            'serState.integer'     => 'Select the state  where you currently require this service',
             'location.required'     => 'Select the location',
             'location.integer'     => 'Select the location',
             'description.required'  => 'Give a short description of the sevice',
@@ -72,15 +58,6 @@ class RequestController extends Controller
             // 'servicePrice.integer' => 'The price must be in digits e.g 50000',
         ]); 
 
-        // $imageVal = '';
-        // if($request->hasFile('serImg')){
-        //     $this->uploadPicture($request);
-        //     $imageVal =  $this->imgObj;
-        // }else{
-        //     $imageVal = null;
-        // }
-        // dd($request);
-        // $imageVal = null;
         $requestData = serviceRequest::firstOrCreate(
             ['title' => $request->serTitle, 'user_id' => $request->user()->id],[
                 'title'           => $request->serTitle,
@@ -104,29 +81,5 @@ class RequestController extends Controller
     {
         //awesome route model binding here
         return view('pages.requestdetail')->with('requestData', $serviceRequest);
-    }
-
-
-    private function uploadPicture(Request $req)
-    {
-        $fileUrl = $req->file('serImg')->getRealPath();
-            $result  =  Cloudder::upload($fileUrl,null, $options = array(
-                'folder'   => 'citiRequest',
-                'timeout'  =>  600,
-                'format'   => 'Webp',
-                'quality'  => '20'
-            ));
-
-            if(!$result)
-                return redirect()->back()->with('info', 'Internal Server Error. Please try again.');
-            else {
-                $fileData  = Cloudder::getResult();
-                $this->imgObj = json_encode($fileData);;
-            }
-    }
-
-    private function deletePicture($imagePubId)
-    {
-        Cloudder::delete($imagePubId);
     }
 }

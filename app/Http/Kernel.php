@@ -61,5 +61,6 @@ class Kernel extends HttpKernel
         'citi_admin'=> \App\Http\Middleware\AdminMiddleware::class,
         'verified_user'=> \App\Http\Middleware\VerifiedUser::class,
         'salesAgent'=> \App\Http\Middleware\SalesAgentMiddleware::class,
+        'subscribed'=> \App\Http\Middleware\ServiceMiddleware::class,
     ];
 } 

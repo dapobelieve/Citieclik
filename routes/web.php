@@ -1,7 +1,7 @@
 <?php
 
 // For testing purposes
-Route::get('/test', 'TestController@carbon')->name('test');
+// Route::get('/test', 'TestController@catsy')->name('test');
 
 // ends here
 
@@ -27,10 +27,7 @@ Route::get('category/{slug}', [
 ]);
 
 //View All Services
-Route::get('listed-services', [
-	'uses' => 'ServiceController@index',
-	'as'   => 'service'
-]);
+Route::get('listed-services','ServiceDetails@indexall')->name('service'); 
 
 
 // Terms and condition page 
@@ -102,10 +99,8 @@ Route::get('/{service}/callback','SocialAuthController@callback');
 	Route::get('service/state/location/{id}', [
 		'uses' => 'AjaxRequestsController@getLocation'
 	]);
-	//Route to get subcategory based on selected category
-	Route::get('service/category/getscat/{id}', [
-		'uses' => 'AjaxRequestsController@getSubCat'
-	]);
+
+
 	Route::get('product/state/location/{id}', [
 		'uses' => 'AjaxRequestsController@getLocation'
 	]);
@@ -319,7 +314,7 @@ Route::post('/comment','Comments\CommentController@store')->name('comment');
 // Ends Here
 
 
-
+Route::get('/products', 'Actions\Product\ProductController@index')->name('product');
 
 
 /*
@@ -337,19 +332,6 @@ Route::get('admin/agents', 'Admin\AgentsController@index')->name('admin.agents')
 Route::get('admin/category', 'Admin\CategoryController@getCategory')->name('admin.category');
 Route::get('admin/category/{category}', 'Admin\CategoryController@getCatDetail')->name('category.index');
 
-/*
-|
-| Products Section Starts
-|
-*/
-
-Route::get('/products', 'Actions\Product\ProductController@index')->name('product');
-
-/*
-|
-| Products Section Ends
-|
-*/
 
 /*
 |
@@ -368,10 +350,10 @@ Route::get('salesagents', 'Agent\AgentController@getPage')->name('salesagent.reg
 
 
 Route::get('agents/{agent}', 'Agent\AgentController@index')->name('agent.register');
-Route::post('agent', 'Agent\AgentController@store')->name('agent.register');
+Route::post('agent-register', 'Agent\AgentController@store')->name('agent.pregister');
 
 
-//get a sales agents profile only accessible to agents
+//get a sales agents profile only accessible to sales agents
 Route::get('agent/{user}','Agent\AgentController@profile')->name('agent.profile')->middleware('salesAgent');
 
 /*

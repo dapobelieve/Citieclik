@@ -89,7 +89,7 @@ Request for a Service
                             <div class="col-sm-6">
                                 <div class="form-group {{ $errors->has('serCat') ? ' has-error' : '' }}">
                                     <label for="checkout-country">Category</label>
-                                    <select class="form-control" name="serCat" id="serCat" value="{{ old('serCat') ?: ''  }}">
+                                    <select class="form-control" onchange="getSubCat(this.value)" name="serCat" id="serCat" value="{{ old('serCat') ?: ''  }}">
                                         <option value="">Choose a Category</option>
                                         @foreach($cats as $cat)
                                             <option value="{{$cat->id}}">{{$cat->category}}</option>
@@ -102,14 +102,12 @@ Request for a Service
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="checkout-country">Sub Category</label>
-                                    <select class="form-control" name="subCat" disabled id="subCat" value="{{ Request::old('subCat') ?: ''  }}">
-                                        <option>Sub Category</option>
-                                    
-                                    </select>
-                                    @if ($errors->has('subCat'))
-                                        <p class="help-block text-danger"><i class="icon-circle-cross"></i>&nbsp;{{ $errors->first('subCat') }}</p>
-                                    @endif
+                                    <span id="subcatty"></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <span id="subcatty2"></span>
                                 </div>
                             </div>
                         </div>
@@ -235,39 +233,8 @@ Request for a Service
 @section('script')
 <script src="/dist/trumbowyg.min.js"></script>
 <script src="/dist/plugins/colors/trumbowyg.colors.min.js"></script>
+<script src="/assets/js/addservice.js"></script>
 <script type="text/javascript">
-//script to auto change states and its lgas
-$('#serState').change(function(){
-    $.ajax({
-        url: "state/location/"+$(this).val(),
-        method: 'GET',
-    })
-    .done(function(data) {
-        $location = $('#location');
-        $location.removeAttr('disabled');//enable
-        $location.children().remove();//clear the select tag first
-        var dee = JSON.parse(data); //convert the json data to array here
-        $.each(dee,function(index, value){
-            $location.append("<option value='"+value.id+"' >"+ value.lga +"</option>");
-        })
-    });
-});
-//same logic as above but for
-$('#serCat').change(function(){
-    $.ajax({
-        url: "category/getscat/"+$(this).val(),
-        method: 'GET',
-    })
-    .done(function(data) {
-        $location = $('#subCat');
-        $location.removeAttr('disabled');//enable
-        $location.children().remove();//clear the kids of the select tag first
-        var dee = JSON.parse(data); //convert the json data to array here
-        $.each(dee,function(index, value){
-            $location.append("<option value='"+value.id+"' >"+ value.sub_category +"</option>");
-        })
-    });
-});
 // text editor
 (function() {
     $('#my-editor').trumbowyg({
@@ -287,8 +254,6 @@ $('#serCat').change(function(){
         ]
     });
 })();
-
-// $('select').selectize(options);
 </script>
 
 @endsection

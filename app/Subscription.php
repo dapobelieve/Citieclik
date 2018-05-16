@@ -12,6 +12,7 @@ class Subscription extends Model
         'status',
         'plan_id',
         'pay_status',
+        'click',
         'starts_at',
         'ends_at'
     ];

@@ -48,7 +48,7 @@ class UpdateSubCommand extends Command
 
                 $x = Carbon::createFromTimestampUTC(strtotime($suber->ends_at));
 
-                if($this->today->lte($x)){
+                if($x->lte($this->today)){
 
                     $suber->update(['status' => 0]);
                 }

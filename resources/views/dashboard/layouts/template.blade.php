@@ -8,6 +8,7 @@
       <meta name="description" content="" />
       <meta name="keywords" content="" />
       <meta name="author" content="Believe and Jerex" />
+      <meta name="csrf-token" content="{{ csrf_token() }}">
       
       <link rel="stylesheet" type="text/css" href="/assets2/bower_components/bootstrap/css/bootstrap.min.css">
       <link rel="stylesheet" type="text/css" href="/assets2/icon/themify-icons/themify-icons.css">
@@ -15,6 +16,18 @@
       <link rel="stylesheet" type="text/css" href="/assets2/css/jquery.mCustomScrollbar.css">
       <link rel="stylesheet" href="/assets2/pages/chart/radial/css/radial.css" type="text/css" media="all">
       <link rel="stylesheet" type="text/css" href="/assets2/css/style.css">
+      <script>
+        window.Laravel = {!!  json_encode([
+            'csrf_token' => csrf_token(),
+            'user'       => [
+
+                'authenticated' => auth()->check(),
+                'id'            => auth()->check() ? auth()->user()->id : null,
+                'name'          => auth()->check() ? auth()->user()->getFullName() : null,                
+            ],
+            'url'       => env('APP_URL')
+        ]) !!}
+    </script>
       @yield('admin-styles')
    </head>
    <body>

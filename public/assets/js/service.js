@@ -30,8 +30,6 @@ $grid = $('.isodata').isotope({
 $('.hereIt').on('change','#serState',function(event){
   //get value of currently selected option
     var filterValue = slugIt(this.options[this.selectedIndex].text);
-
-    // console.log(filterValue);   
     //load lgas ajaxically       
     $('.locs').show();
     $.ajax({
@@ -63,28 +61,29 @@ $('.hereIt').on('click','.catz',function(event){
     //get value of currently clicked option
     var filterValueCat =  slugIt($(this).data('filter'));
     var catId = $(this).data('id');
+
     isotopeIt(filterValueCat);
-    console.log(filterValueCat)
-    // load sub cats ajaxically       
-    $('.subCatWid').show();
-    $.ajax({
-      url: url2+catId,
-      method: 'GET',
-    })
-    .done(function(data) {
-      // console.log(data);
+    
+    axios.get('/api/getcategory/'+catId)
+    .then(response => {
+
       $location = $('#subCatz');
+
       $location.children().remove();//clear the select tag first
-      var dee = JSON.parse(data); //convert the json data to array here
+      var dee = response.data;
+
       $.each(dee,function(index, value){
         $location.append("<label class='custom-control dcheck custom-checkbox d-block'>"+
                                "<input class='custom-control-input' type='checkbox' value='"+value.slug+"'>"+
                                 "<span class='custom-control-indicator'></span>"+
                                 "<span class='custom-control-description'>"+value.sub_category+"&nbsp;"+
-                                "<span class='text-muted'>(254)</span></span>"+
+                                "<span class='text-muted'></span></span>"+
                         "</label>");
+        $('.subCatWid').show();
       })
-    });
 
-    
+    })
+    .catch(error => {
+        console.log(error.data);
+    });    
  })

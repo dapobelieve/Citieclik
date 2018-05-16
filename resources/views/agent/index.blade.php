@@ -29,7 +29,7 @@ Create Account
                 <div class="padding-top-3x hidden-md-up"></div>
                 <h3 class="margin-bottom-1x">Register</h3>
                 <p>It takes few minutes</p>
-                <form class="row" method="post" action="{{ route('agent.register')}}">
+                <form class="row" method="post" action="{{ route('agent.pregister')}}">
                   <div class="col-sm-6">
                       <div class="form-group{{ $errors->has('fname') ? ' has-error' : ''}}">
                           <label for="reg-fn">First Name *</label>
@@ -98,7 +98,7 @@ Create Account
                     </div>
                   </div>
                   <div class="col-12 text-center text-sm-right">
-                    <button class="btn btn-primary margin-bottom-none" type="submit">Register</button>
+                    <button class="btn btn-primary margin-bottom-none" type="submit">Create Account</button>
                   </div>
                   {{-- {{csrf_field()}} --}}
 

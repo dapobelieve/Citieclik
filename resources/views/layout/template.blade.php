@@ -70,23 +70,6 @@
               </section>
             </div>
             <div class="col-lg-3 col-md-6">
-              <!-- Mobile App Buttons-->
-              <section class="widget widget-light-skin">
-                <h3 class="widget-title">Our Mobile App</h3>
-                <a class="market-button apple-button mb-light-skin" href="#">
-                  <span class="mb-subtitle">Download on the</span><span class="mb-title">App Store</span>
-                </a>
-                <a class="market-button google-button mb-light-skin" href="#">
-                  <span class="mb-subtitle">Download on the</span>
-                  <span class="mb-title">Google Play</span>
-                </a>
-                <a class="market-button windows-button mb-light-skin" href="#">
-                  <span class="mb-subtitle">Download on the</span>
-                  <span class="mb-title">Windows Store</span>
-                </a>
-              </section>
-            </div>
-            <div class="col-lg-3 col-md-6">
               <!-- About Us-->
               <section class="widget widget-links widget-light-skin">
                 <h3 class="widget-title">About Us</h3>

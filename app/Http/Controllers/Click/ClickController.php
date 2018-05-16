@@ -13,7 +13,7 @@ class ClickController extends Controller
     public function store(Request $request)
     {
         $serviceId = $request->service_id;
-        $userId    = $request->user_id;
+        $userId    = 0;
 
         $service = Service::find($serviceId);
 

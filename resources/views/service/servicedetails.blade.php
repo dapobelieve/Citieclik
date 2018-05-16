@@ -153,7 +153,6 @@
               <div class="user-cover" style="background-image: url(/assets/img/account/user-cover-img.jpg);">
                   {{-- <div class="info-label" data-toggle="tooltip" title="" data-original-title="Posted by"><h4>Posted by</h4></div> --}}
               </div>
-              @if(Auth::check())
                         {{-- user clciking system --}}
                         <div class="user-info">
                             <div class="user-avatar">
@@ -161,7 +160,6 @@
                             </div>
                             <clicker :service="{{ $service }}"  :user="{{ $service->userz }}"></clicker>
                         </div>
-            @endif
               <br>
                 <div class="list-group">
                     <div class="list-group-item flex-column align-items-start" style="border: 0px !important;">

@@ -30745,7 +30745,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this = this;
 
             axios.post('/api/click', {
-                user_id: Laravel.user.id,
+                user_id: 0,
                 service_id: this.service.id
             }).then(function (response) {
                 _this.show = true;

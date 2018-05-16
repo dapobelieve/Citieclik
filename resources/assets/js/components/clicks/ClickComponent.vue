@@ -30,7 +30,7 @@
             },
             send () {
                 axios.post('/api/click', {
-                    user_id:     Laravel.user.id,
+                    user_id:     0,
                     service_id:  this.service.id
                 })
                 .then(response => {

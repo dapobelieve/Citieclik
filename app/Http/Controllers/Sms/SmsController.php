@@ -59,8 +59,8 @@ class SmsController
     public function send($smsTo, $data)
     {
         $link = $this->shortenUrl($data);
-        // $this->sendSms($smsTo, $link);
-        dd($smsTo." ".$data);
+        $this->sendSms($smsTo, $link);
+        // dd($smsTo." ".$data);
     }
 
     private function sendSms($to, $link)
@@ -82,7 +82,7 @@ class SmsController
 
 
         $response = json_decode($response->getBody(), true);
-        return redirect()->route('profile.request', ['slug' => $request->user()->slug])->with('info', 'Request Posted Successfully. An SMS alert has been sent to all subscribed users.');
+        return redirect()->back()->with('info', 'Request Posted Successfully. An SMS alert has been sent to all subscribed users.');
     }
 
 }

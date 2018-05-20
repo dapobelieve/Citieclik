@@ -1,6 +1,6 @@
 @extends('dashboard.layouts.template')
 @section('title')
-    <title>Dashboard :: CitieClik</title>
+    <title>Sales Agents :: CitieClik</title>
 @endsection
 
 {{-- //css for this page --}}

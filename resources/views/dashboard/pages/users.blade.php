@@ -31,39 +31,37 @@
                                 <thead>
                                     <tr>
                                         <th>Id</th>
-                                        <th>Firstname</th>
-                                        <th>Lastname</th>
-                                        <th>Username</th>
-                                        <th>Phone No</th>
+                                        <th>Name</th>
                                         <th>Email</th>
-                                        <th>Date Joined</th>
+                                        <th>Phone</th>
+                                        <th>Joined</th>
+                                        <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach($users as $user)
                                         <tr>
-                                            <td>{{ $user->id }}</td>
-                                            <td>{{ $user->first_name }}</td>
-                                            <td>{{ $user->last_name }}</td>
-                                            <td>{{ $user->username }}</td>
-                                            <td>{{ $user->phone }}</td>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $user->getFullName() }} </td>
                                             <td>{{ $user->email }}</td>
-                                            <td>{{ $user->created_at->diffForHumans() }}</td>
+                                            <td>{{ $user->phone }}</td>
+                                            <td>{{ $user->created_at->format('M j, Y') }}</td>
+                                            <td>
+                                                <div class="dropdown-primary dropdown open">
+                                                    <button class="btn btn-sm btn-primary dropdown-toggle waves-effect waves-light " type="button" id="dropdown-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Options</button>
+                                                    <div class="dropdown-menu" aria-labelledby="dropdown-2" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                                                        <a class="dropdown-item waves-light waves-effect" href="{{ route('admin.users.details', ['slug' => $user->slug]) }}">Details</a>
+                                                        <a class="dropdown-item waves-light waves-effect" href="#">Add Clicks</a>
+                                                        <a class="dropdown-item waves-light waves-effect" href="#">Something else</a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a class="dropdown-item waves-light waves-effect" href="#">Something else</a>
+                                                    </div>
+                                                </div>
+                                            </td>
                                         </tr>
                                     @endforeach
 
                                 </tbody>
-                                {{-- <tfoot>
-                                    <tr>
-                                        <th>Id</th>
-                                        <th>Firstname</th>
-                                        <th>Lastname</th>
-                                        <th>Username</th>
-                                        <th>Phone No</th>
-                                        <th>Email</th>
-                                        <th>Date Joined</th>
-                                    </tr>
-                                </tfoot> --}}
                             </table>
                         </div>
                     </div>
@@ -72,12 +70,6 @@
         </div>
     </div>
 @stop
-
-
-
-
-
-
 {{-- JS for this page --}}
 @section('admin-scripts')
 <script src="/assets2/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>

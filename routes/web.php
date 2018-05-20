@@ -3,6 +3,10 @@
 // For testing purposes
 // Route::get('/test', 'TestController@catsy')->name('test');
 
+Route::get('/usa', function () {
+	return view('dashboard.pages.userprofile');
+});
+
 // ends here
 
 
@@ -331,6 +335,8 @@ Route::get('admin/users/subscribed-users', 'Admin\UsersController@getSubscribedU
 Route::get('admin/agents', 'Admin\AgentsController@index')->name('admin.agents');
 Route::get('admin/category', 'Admin\CategoryController@getCategory')->name('admin.category');
 Route::get('admin/category/{category}', 'Admin\CategoryController@getCatDetail')->name('category.index');
+
+Route::get('admin/user-details/{slug}', 'Admin\UsersController@show')->name('admin.users.details');
 
 
 /*

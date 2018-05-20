@@ -1,6 +1,6 @@
 @extends('dashboard.layouts.template')
 @section('title')
-    <title>Dashboard :: CitieClik</title>
+    <title>Categories :: CitieClik</title>
 @endsection
 
 @section('admin-content')

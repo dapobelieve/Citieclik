@@ -18,7 +18,7 @@
              <div class="card bg-c-green order-card">
                 <div class="card-block">
                    <h6 class="m-b-20">Services Posted</h6>
-                   <h2 class="text-right"><i class=" ti-clipboard f-left"></i><span>{{ $services->count() }}</span></h2>
+                   <h2 class="text-right"><i class=" ti-clipboard f-left"></i><span>{{ $services->where('type', 's')->count() }}</span></h2>
                    {{-- <p class="m-b-0">This Month<span class="f-right">213</span></p> --}}
                 </div>
              </div>
@@ -26,8 +26,8 @@
           <div class="col-md-6 col-xl-3">
              <div class="card bg-c-yellow order-card">
                 <div class="card-block">
-                   <h6 class="m-b-20">Paid Subscribers</h6>
-                   <h2 class="text-right"><i class="ti-credit-card f-left"></i><span>{{ $subcribers->count() }}</span></h2>
+                   <h6 class="m-b-20">Active Subscribers</h6>
+                   <h2 class="text-right"><i class="ti-credit-card f-left"></i><span>{{ $subcribers->where('status', 1)->count() }}</span></h2>
                    {{-- <p class="m-b-0">This Month<span class="f-right">$5,032</span></p> --}}
                 </div>
              </div>
@@ -35,13 +35,13 @@
           <div class="col-md-6 col-xl-3">
              <div class="card bg-c-pink order-card">
                 <div class="card-block">
-                   <h6 class="m-b-20">Requests Posted</h6>
-                   <h2 class="text-right"><i class="ti-wallet f-left"></i><span>{{ '589' }}</span></h2>
+                   <h6 class="m-b-20">Requests Made</h6>
+                   <h2 class="text-right"><i class="ti-wallet f-left"></i><span>{{ $requests->count() }}</span></h2>
                    {{-- <p class="m-b-0">This Month<span class="f-right">$542</span></p> --}}
                 </div>
              </div>
           </div>
-          {{-- <div class="col-sm-12">
+          <div class="col-sm-12">
              <div class="card tabs-card">
                     <div class="card-block p-0">
                        <ul class="nav nav-tabs md-tabs" role="tablist">
@@ -205,148 +205,6 @@
                           </div>
                        </div>
                     </div>
-             </div>
-          </div> --}}
-          <div class="col-md-12 col-lg-4">
-             <div class="card">
-                <div class="card-block text-center">
-                   {{-- <i class="fa fa-envelope-open text-c-blue d-block f-40">5</i> --}}
-                   <h2>5</h2>
-                   <h4 class="m-t-20"><span class="text-c-blue">Basic Plan</span> Subscribers</h4>
-                   <p class="m-b-20">Your main list is growing</p>
-                   <button class="btn btn-primary btn-sm btn-round">Manage List</button>
-                </div>
-             </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-             <div class="card">
-                <div class="card-block text-center">
-                   {{-- <i class="fa fa-twitter text-c-green d-block f-40">2</i> --}}
-                   <h2>2</h2>
-                   <h4 class="m-t-20"><span class="text-c-blgreenue">Pro Plan</span> Subscribers</h4>
-                   <p class="m-b-20">Your main list is growing</p>
-                   <button class="btn btn-success btn-sm btn-round">Check them out</button>
-                </div>
-             </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-             <div class="card">
-                <div class="card-block text-center">
-                   {{-- <i class="fa fa-puzzle-piece text-c-pink d-block f-40">2</i> --}}
-                   <h2>{{ $plans->count() }}</h2>
-                   <h4 class="m-t-20"><span class="text-c-blgreenue">Gold Plan</span> Subscribers</h4>
-                   <p class="m-b-20">This is your current active plan</p>
-                   <button class="btn btn-danger btn-sm btn-round">Upgrade to VIP</button>
-                </div>
-             </div>
-          </div>
-          <div class="col-lg-4 col-md-12">
-             <div class="card user-card">
-                <div class="card-header">
-                   <h5>Profile</h5>
-                </div>
-                <div class="card-block">
-                   <div class="usre-image">
-                      <img src="/assets2/images/avatar-4.jpg" class="img-radius" alt="User-Profile-Image">
-                   </div>
-                   <h6 class="f-w-600 m-t-25 m-b-10">Alessa Robert</h6>
-                   <p class="text-muted">Active | Male | Born 23.05.1992</p>
-                   <hr />
-                   <p class="text-muted m-t-15">Activity Level: 87%</p>
-                   <ul class="list-unstyled activity-leval">
-                      <li class="active"></li>
-                      <li class="active"></li>
-                      <li class="active"></li>
-                      <li></li>
-                      <li></li>
-                   </ul>
-                   <div class="bg-c-blue counter-block m-t-10 p-20">
-                      <div class="row">
-                         <div class="col-4">
-                            <i class="ti-comments"></i>
-                            <p>1256</p>
-                         </div>
-                         <div class="col-4">
-                            <i class="ti-user"></i>
-                            <p>8562</p>
-                         </div>
-                         <div class="col-4">
-                            <i class="ti-bag"></i>
-                            <p>189</p>
-                         </div>
-                      </div>
-                   </div>
-                   <p class="m-t-15 text-muted">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                   <hr />
-                   <div class="row justify-content-center user-social-link">
-                      <div class="col-auto"><a href="#!"><i class="fa fa-facebook text-facebook"></i></a></div>
-                      <div class="col-auto"><a href="#!"><i class="fa fa-twitter text-twitter"></i></a></div>
-                      <div class="col-auto"><a href="#!"><i class="fa fa-dribbble text-dribbble"></i></a></div>
-                   </div>
-                </div>
-             </div>
-          </div>
-          <div class="col-lg-8 col-md-12">
-             <div class="card">
-                <div class="card-header">
-                   <h5>Activity Feed</h5>
-                   <div class="card-header-right">
-                      <ul class="list-unstyled card-option">
-                         <li><i class="fa fa-chevron-left"></i></li>
-                         <li><i class="fa fa-window-maximize full-card"></i></li>
-                         <li><i class="fa fa-minus minimize-card"></i></li>
-                         <li><i class="fa fa-refresh reload-card"></i></li>
-                         <li><i class="fa fa-times close-card"></i></li>
-                      </ul>
-                   </div>
-                </div>
-                <div class="card-block">
-                   <ul class="feed-blog">
-                      <li class="active-feed">
-                         <div class="feed-user-img">
-                            <img src="/assets2/images/avatar-3.jpg" class="img-radius " alt="User-Profile-Image">
-                         </div>
-                         <h6><span class="label label-danger">File</span> Eddie uploaded new files: <small class="text-muted">2 hours ago</small></h6>
-                         <p class="m-b-15 m-t-15">hii <b> @everone</b> Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                         <div class="row">
-                            <div class="col-auto text-center">
-                               <img src="/assets2/images/blog/blog-r-1.jpg" alt="img" class="img-fluid img-100">
-                               <h6 class="m-t-15 m-b-0">Old Scooter</h6>
-                               <p class="text-muted m-b-0"><small>PNG-100KB</small></p>
-                            </div>
-                            <div class="col-auto text-center">
-                               <img src="/assets2/images/blog/blog-r-2.jpg" alt="img" class="img-fluid img-100">
-                               <h6 class="m-t-15 m-b-0">Wall Art</h6>
-                               <p class="text-muted m-b-0"><small>PNG-150KB</small></p>
-                            </div>
-                            <div class="col-auto text-center">
-                               <img src="/assets2/images/blog/blog-r-3.jpg" alt="img" class="img-fluid img-100">
-                               <h6 class="m-t-15 m-b-0">Microphone</h6>
-                               <p class="text-muted m-b-0"><small>PNG-150KB</small></p>
-                            </div>
-                         </div>
-                      </li>
-                      <li class="diactive-feed">
-                         <div class="feed-user-img">
-                            <img src="/assets2/images/avatar-4.jpg" class="img-radius " alt="User-Profile-Image">
-                         </div>
-                         <h6><span class="label label-success">Task</span>Sarah marked the Pending Review: <span class="text-c-green"> Trash Can Icon Design</span><small class="text-muted">2 hours ago</small></h6>
-                      </li>
-                      <li class="diactive-feed">
-                         <div class="feed-user-img">
-                            <img src="/assets2/images/avatar-2.jpg" class="img-radius " alt="User-Profile-Image">
-                         </div>
-                         <h6><span class="label label-primary">comment</span> abc posted a task: <span class="text-c-green">Design a new Homepage</span> <small class="text-muted">6 hours ago</small></h6>
-                         <p class="m-b-15 m-t-15">hii <b> @everone</b> Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                      </li>
-                      <li class="active-feed">
-                         <div class="feed-user-img">
-                            <img src="/assets2/images/avatar-3.jpg" class="img-radius " alt="User-Profile-Image">
-                         </div>
-                         <h6><span class="label label-warning">Task</span>Sarah marked : <span class="text-c-green"> do Icon Design</span><small class="text-muted">10 hours ago</small></h6>
-                      </li>
-                   </ul>
-                </div>
              </div>
           </div>
       </div> 

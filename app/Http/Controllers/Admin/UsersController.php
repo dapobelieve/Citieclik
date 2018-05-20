@@ -33,6 +33,10 @@ class UsersController extends Controller
         }
     }
 
+    public function show(User $slug)
+    {
+        dd($slug);
+    }
 
 
     public function getSubscribedUsers()

@@ -34,27 +34,39 @@
                                         <th>Name</th>
                                         <th>Email</th>
                                         <th>Phone</th>
+                                        <th>Sales Agent?</th>
                                         <th>Joined</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody class="users">
                                     @foreach($users as $user)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $user->getFullName() }} </td>
                                             <td>{{ $user->email }}</td>
                                             <td>{{ $user->phone }}</td>
+                                            <td style="text-align: center">
+                                                <span class="label {{ $user->isAgent() ? 'label-info' : '' }}">
+                                                {{ $user->isAgent() ? 'agent' : '' }}
+                                            </span>
+                                                
+                                            </td>
+
                                             <td>{{ $user->created_at->format('M j, Y') }}</td>
                                             <td>
                                                 <div class="dropdown-primary dropdown open">
                                                     <button class="btn btn-sm btn-primary dropdown-toggle waves-effect waves-light " type="button" id="dropdown-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Options</button>
                                                     <div class="dropdown-menu" aria-labelledby="dropdown-2" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
                                                         <a class="dropdown-item waves-light waves-effect" href="{{ route('admin.users.details', ['slug' => $user->slug]) }}">Details</a>
-                                                        <a class="dropdown-item waves-light waves-effect" href="#">Add Clicks</a>
-                                                        <a class="dropdown-item waves-light waves-effect" href="#">Something else</a>
+                                                        <a 
+                                                            class="dropdown-item add-clicks waves-light md-trigger waves-effect" href="#"
+                                                            id="{{ $user->slug }}"
+                                                            >Add Clicks
+                                                        </a>
+                                                        {{-- <a class="dropdown-item waves-light waves-effect" href="#">Something else</a>
                                                         <div class="dropdown-divider"></div>
-                                                        <a class="dropdown-item waves-light waves-effect" href="#">Something else</a>
+                                                        <a class="dropdown-item waves-light waves-effect" href="#">Something else</a> --}}
                                                     </div>
                                                 </div>
                                             </td>
@@ -69,6 +81,40 @@
             </div>
         </div>
     </div>
+    {{-- modal goes here --}}
+    <div class="modal fade" tabindex="-1" role="dialog" id="clicks-form">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">Add Clicks</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              </div>
+              <div class="modal-body">
+                <form method="post" action="{{ route('admin.sub') }}">
+                    <div class="form-group">
+                        <label for="edit-cat">User (username)</label>
+                        <input class="form-control" placeholder="Enter amount of clicks" type="text" id="user-slug" readonly name="slug">
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-cat">Select Plan</label>
+                        <select class="form-control" name="plan" id="">
+                            <option value="basic">Basic</option>
+                            <option value="pro">Pro</option>
+                            <option value="gold">Gold</option>
+                        </select>
+                    </div>
+                    {{ csrf_field() }}
+
+                    <button class="btn btn-default" >Submit</button>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+    </div>
+
 @stop
 {{-- JS for this page --}}
 @section('admin-scripts')
@@ -79,32 +125,6 @@
 <script type="text/javascript" src="/assets/js/buttons.html5.min.js"></script>
 <script type="text/javascript" src="/assets/js/buttons.print.min.js"></script>
 
-
-<script type="text/javascript">
-
-    $(document).ready(function (){
-        $('#simpletable').DataTable({
-            dom: 'lBfrtip',
-            "pagingType": "full_numbers",
-            buttons: [
-                {
-                    extend: 'copyHtml5',
-                    exportOptions: {
-                     columns: ':contains("Office")'
-                    }
-                },
-                {
-                    extend: 'pdfHtml5',
-                    message: 'PDF created by PDFMake with Buttons for DataTables.'
-                },
-                'excelHtml5',
-                'csvHtml5',
-                'pdfHtml5',
-                'print'
-            ]
-        });
-    });
-</script>
 <script src="/assets/js/citi-admin.js"></script>
 
 

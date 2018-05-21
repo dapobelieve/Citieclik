@@ -332,6 +332,8 @@ Route::get('admin/settings', 'Admin\SettingsController@site')->name('admin.setti
 Route::get('admin/users/all-users', 'Admin\UsersController@index')->name('admin.users');
 Route::get('admin/users/subscribed-users', 'Admin\UsersController@getSubscribedUsers')->name('admin.subscribed-users');
 
+Route::post('/admin/subscribe-user', 'Admin\AddClickController@create')->name('admin.sub');
+
 Route::get('admin/agents', 'Admin\AgentsController@index')->name('admin.agents');
 Route::get('admin/category', 'Admin\CategoryController@getCategory')->name('admin.category');
 Route::get('admin/category/{category}', 'Admin\CategoryController@getCatDetail')->name('category.index');

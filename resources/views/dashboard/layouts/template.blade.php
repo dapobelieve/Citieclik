@@ -14,7 +14,6 @@
       <link rel="stylesheet" type="text/css" href="/assets2/icon/themify-icons/themify-icons.css">
       <link rel="stylesheet" type="text/css" href="/assets2/icon/font-awesome/css/font-awesome.min.css">
       <link rel="stylesheet" type="text/css" href="/assets2/css/jquery.mCustomScrollbar.css">
-      <link rel="stylesheet" href="/assets2/pages/chart/radial/css/radial.css" type="text/css" media="all">
       <link rel="stylesheet" type="text/css" href="/assets2/css/style.css">
       <script>
         window.Laravel = {!!  json_encode([
@@ -77,10 +76,6 @@
       <script src="/assets2/bower_components/modernizr/js/modernizr.js"></script>
       <script src="/assets2/js/SmoothScroll.js"></script>
       <script src="/assets2/js/jquery.mCustomScrollbar.concat.min.js"></script>
-      <script src="/assets2/bower_components/chart.js/js/Chart.js"></script>
-      <script src="/assets2/pages/widget/amchart/amcharts.js"></script>
-      <script src="/assets2/pages/widget/amchart/serial.js"></script>
-      <script src="/assets2/pages/widget/amchart/light.js"></script>
       <script src="/assets2/js/pcoded.min.js"></script>
       <script src="/assets2/js/vertical/vertical-layout.min.js"></script>
       <script src="/assets2/pages/dashboard/custom-dashboard.js"></script>

@@ -14,6 +14,8 @@ class Subscription extends Model
         'pay_status',
         'click',
         'starts_at',
+        'amount',
+        'meta',
         'ends_at'
     ];
 

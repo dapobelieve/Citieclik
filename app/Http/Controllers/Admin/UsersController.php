@@ -19,7 +19,7 @@ class UsersController extends Controller
 
     public function index()
     {
-    	$users = User::get();
+    	$users = User::latest()->get();
         return view('dashboard.pages.users')->with('users', $users);
     }
 
@@ -35,7 +35,9 @@ class UsersController extends Controller
 
     public function show(User $slug)
     {
-        dd($slug);
+        $user = $slug->with('services','requests')->first();
+        // dd($user);
+        return view('dashboard.pages.userprofile')->with('user', $user);
     }
 
 

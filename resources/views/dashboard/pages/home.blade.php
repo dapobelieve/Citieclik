@@ -41,8 +41,14 @@
                 </div>
              </div>
           </div>
+            <div class="col-sm-12">
+                <div class="card card-block">
+                    {{-- <h6 style="text-align: center;padding-top: 1.4rem" class="m-b-20">Clicks Chart</h6> --}}
+                    <chart></chart>
+                </div>
+            </div>
           <div class="col-sm-12">
-             <div class="card tabs-card">
+             <div class="card ">
                     <div class="card-block p-0">
                        <ul class="nav nav-tabs md-tabs" role="tablist">
                           <li class="nav-item">

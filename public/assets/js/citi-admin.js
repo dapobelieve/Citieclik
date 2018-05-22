@@ -26,11 +26,4 @@ $('.users').on('click','.add-clicks', function(event) {
     $('#clicks-form').modal('show');
     let slug = this.id;
     $('#user-slug').val(slug)
-
-    console.log();
 });
-
-// document.querySelector('.users').addEventListener('click', function (e) {
-//     // e.preventDefault();
-    
-// });

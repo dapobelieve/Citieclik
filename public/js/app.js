@@ -30940,7 +30940,8 @@ __WEBPACK_IMPORTED_MODULE_1_axios___default.a.defaults.baseURL = Laravel.url;
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('clicker', __webpack_require__(175));
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('counter', __webpack_require__(181));
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('chart', __webpack_require__(186));
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('clicks-chart', __webpack_require__(238));
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('service-chart', __webpack_require__(240));
 
 var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
     el: '#app'
@@ -49629,117 +49630,8 @@ if (false) {
 }
 
 /***/ }),
-/* 186 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(11)
-/* script */
-var __vue_script__ = __webpack_require__(187)
-/* template */
-var __vue_template__ = null
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources\\assets\\js\\components\\chart\\ChartComponent.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-74819ff4", Component.options)
-  } else {
-    hotAPI.reload("data-v-74819ff4", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 187 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_chartjs__ = __webpack_require__(188);
-
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  extends: __WEBPACK_IMPORTED_MODULE_0_vue_chartjs__["a" /* Line */],
-  data: function data() {
-    return {
-      datacollection: {
-        //Data to be represented on x-axis
-        labels: [],
-        datasets: [{
-          label: 'Clicks',
-          backgroundColor: '#a1f7e5',
-          borderColor: '#51988a',
-          pointBackgroundColor: '#ffffff',
-          borderWidth: 1,
-          pointBorderColor: '#ffb64d',
-          //Data to be represented on y-axis
-          data: []
-        }]
-      },
-      //Chart.js options that controls the appearance of the chart
-      options: {
-        scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero: true
-            },
-            gridLines: {
-              display: true
-            }
-          }],
-          xAxes: [{
-            gridLines: {
-              display: false
-            }
-          }]
-        },
-        legend: {
-          display: true
-        },
-        title: {
-          display: true,
-          text: 'Line Chart for Number of clicks per month'
-        },
-        responsive: true,
-        maintainAspectRatio: false
-      }
-    };
-  },
-  mounted: function mounted() {
-    //renderChart function renders the chart with the datacollection and options object.
-    this.renderChart(this.datacollection, this.options);
-  }
-});
-
-/***/ }),
+/* 186 */,
+/* 187 */,
 /* 188 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -62572,6 +62464,167 @@ module.exports = {
 		}
 	}
 };
+
+
+/***/ }),
+/* 238 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(11)
+/* script */
+var __vue_script__ = __webpack_require__(239)
+/* template */
+var __vue_template__ = null
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\charts\\ClickChartComponent.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-7984fcd7", Component.options)
+  } else {
+    hotAPI.reload("data-v-7984fcd7", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 239 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_chartjs__ = __webpack_require__(188);
+
+
+
+
+var days = [];
+var clicks = [];
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  extends: __WEBPACK_IMPORTED_MODULE_0_vue_chartjs__["a" /* Line */],
+  data: function data() {
+    return {
+
+      datacollection: {
+        //Data to be represented on x-axis
+        labels: days,
+        datasets: [{
+          label: 'Clicks',
+          backgroundColor: '#39c586d4',
+          borderColor: '#51988a',
+          pointBackgroundColor: '#ffffff',
+          borderWidth: 1,
+          pointBorderColor: '#ffb64d',
+          //Data to be represented on y-axis
+          data: clicks
+        }]
+      },
+      //Chart.js options that controls the appearance of the chart
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            },
+            gridLines: {
+              display: true
+            }
+          }],
+          xAxes: [{
+            gridLines: {
+              display: false
+            }
+          }]
+        },
+        legend: {
+          display: true
+        },
+        title: {
+          display: true,
+          text: 'Line Chart for Number of clicks per day'
+        },
+        responsive: true,
+        maintainAspectRatio: false
+      }
+    };
+  },
+
+  methods: {
+    feed: function feed() {
+      axios.post('/api/clickcount').then(function (response) {
+        var data = response.data;
+
+        data.forEach(function (index, ele) {
+          days.push(index.days);
+          clicks.push(index.clicks);
+        });
+      }).catch(function (error) {
+        console.log(error.data);
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.feed();
+    //renderChart function renders the chart with the datacollection and options object.
+    this.renderChart(this.datacollection, this.options);
+  }
+});
+
+/***/ }),
+/* 240 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var normalizeComponent = __webpack_require__(11)
+/* script */
+var __vue_script__ = null
+/* template */
+var __vue_template__ = null
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\charts\\ServiceChartComponent.vue"
+
+module.exports = Component.exports
 
 
 /***/ })

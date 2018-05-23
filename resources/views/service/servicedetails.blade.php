@@ -271,7 +271,7 @@
   <script src="/dist/trumbowyg.min.js"></script>
   <script type="text/javascript">
     $('.my-editor').trumbowyg({
-      // prefix: 'modern-ui',
+      prefix: 'modern-ui',
       autogrow: true,
       btns: [],
       imageWidthModalEdit: true,

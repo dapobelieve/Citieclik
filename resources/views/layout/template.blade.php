@@ -107,7 +107,7 @@
     </div>
     <!-- Back To Top Button--><a class="scroll-to-top-btn" href="#"><i class="icon-arrow-up"></i></a>
     <!-- Backdrop-->
-    <div class="site-backdrop"></div>
+    {{-- <div class="site-backdrop"></div> --}}
     <!-- JavaScript (jQuery) libraries, plugins and custom scripts-->
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script src="{{ asset('js/app.js') }}"></script>

@@ -32,7 +32,6 @@
           <!-- Site Logo--><a class="site-logo" href="/"><img src="/assets/img/logo/logo_bw.png" alt="Citieclik"></a>
         </div>
       </div>
-      <a style="font-size: 3rem; color: red" href=""></a>
       <!-- Main Navigation-->
       <nav class="site-menu">
         <ul> 
@@ -107,16 +106,15 @@
     </div>
     <!-- Back To Top Button--><a class="scroll-to-top-btn" href="#"><i class="icon-arrow-up"></i></a>
     <!-- Backdrop-->
-    {{-- <div class="site-backdrop"></div> --}}
+    <div class="site-backdrop"></div>
     <!-- JavaScript (jQuery) libraries, plugins and custom scripts-->
-    <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="/assets/js/vendor.min.js"></script>
     <script src="/assets/js/scripts.min.js"></script>
     <script src="/assets/js/sweetalert.min.js"></script>
-    
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
     <!-- Customizer scripts-->
-    {{-- <script src="/assets/customizer/customizer.min.js"></script>   --}}
+    <script src="/assets/customizer/customizer.min.js"></script>  
     @yield('script')    
   </body>
 

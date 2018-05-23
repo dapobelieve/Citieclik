@@ -16,7 +16,7 @@
 					</div>
 				</div>
 				<a href="{{ route('admin.home') }}">
-					<img class="img-fluid" src="/assets2/images/logo.png" alt="Theme-Logo" />
+					{{-- <img class="img-fluid" src="/assets2/images/logo.png" alt="Theme-Logo" /> --}}
 				</a>
 				<a class="mobile-options">
 					<i class="ti-more"></i>
@@ -27,7 +27,7 @@
 					<li>
 					<div class="sidebar_toggle"><a href="javascript:void(0)"><i class="ti-menu"></i></a></div>
 					</li>
-					<li class="header-search">
+					{{-- <li class="header-search">
 						<div class="main-search morphsearch-search">
 							<div class="input-group">
 								<span class="input-group-addon search-close"><i class="ti-close"></i></span>
@@ -35,15 +35,15 @@
 								<span class="input-group-addon search-btn"><i class="ti-search"></i></span>
 							</div>
 						</div>
-					</li>
-					<li>
+					</li> --}}
+					{{-- <li>
 						<a href="#!" onclick="javascript:toggleFullScreen()">
 							<i class="ti-fullscreen"></i>
 						</a>
-					</li>
+					</li> --}}
 				</ul>
 				<ul class="nav-right">
-					<li class="header-notification">
+					{{-- <li class="header-notification">
 						<a href="#!">
 						<i class="ti-bell"></i>
 						<span class="badge bg-c-pink"></span>
@@ -90,14 +90,14 @@
 							<i class="ti-comments"></i>
 							<span class="badge bg-c-green"></span>
 						</a>
-					</li>
+					</li> --}}
 					<li class="user-profile header-notification">
 						<a href="#">
 							<img src="/assets2/images/avatar-4.jpg" class="img-radius" alt="User-Profile-Image">
 							<span>{{ Auth::user()->first_name }}</span>
 							<i class="ti-angle-down"></i>
 						</a>
-						<ul class="show-notification profile-notification">
+						{{-- <ul class="show-notification profile-notification">
 							<li>
 								<a href="#!">
 									<i class="ti-settings"></i> Settings
@@ -123,7 +123,7 @@
 									<i class="ti-layout-sidebar-left"></i> Logout
 								</a>
 							</li>
-						</ul>
+						</ul> --}}
 					</li>
 				</ul>
 			</div>

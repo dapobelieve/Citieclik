@@ -25,15 +25,15 @@
                                     <div class="media-body row">
                                         <div class="col-lg-12">
                                             <div class="user-title">
-                                                <h2>Josephin Villa</h2>
-                                                <span class="text-white">Web designer</span>
+                                                <h2>{{ $user->getFullName() }}</h2>
+                                                {{-- <span class="text-white">Web designer</span> --}}
                                             </div>
                                         </div>
                                         <div>
-                                            <div class="pull-right cover-btn">
+                                            {{-- <div class="pull-right cover-btn">
                                                 <button type="button" class="btn btn-primary m-r-10 m-b-5"><i class="icofont icofont-plus"></i> Follow</button>
                                                 <button type="button" class="btn btn-primary"><i class="icofont icofont-ui-messaging"></i> Message</button>
-                                            </div>
+                                            </div> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -52,6 +52,10 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" data-toggle="tab" href="#binfo" role="tab">User's Services</a>
+                                <div class="slide"></div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#pproducts" role="tab">User's Products</a>
                                 <div class="slide"></div>
                             </li>
                         </ul>
@@ -74,29 +78,25 @@
                                                                     <tbody>
                                                                         <tr>
                                                                             <th scope="row">Full Name</th>
-                                                                            <td>Josephine Villa</td>
+                                                                            <td>{{  $user->getFullName()}}</td>
                                                                         </tr>
                                                                         <tr>
-                                                                            <th scope="row">Gender</th>
-                                                                            <td>Female</td>
+                                                                            <th scope="row">Email</th>
+                                                                            <td>{{  $user->email}}</td>
                                                                         </tr>
                                                                         <tr>
-                                                                            <th scope="row">Birth Date</th>
-                                                                            <td>October 25th, 1990</td>
+                                                                            <th scope="row">Username</th>
+                                                                            <td>{{  $user->username}}</td>
                                                                         </tr>
                                                                         <tr>
-                                                                            <th scope="row">Marital Status</th>
-                                                                            <td>Single</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <th scope="row">Location</th>
-                                                                            <td>New York, USA</td>
+                                                                            <th scope="row">Phone</th>
+                                                                            <td>{{  $user->phone}}</td>
                                                                         </tr>
                                                                     </tbody>
                                                                 </table>
                                                             </div>
                                                         </div>
-                                                        <div class="col-lg-12 col-xl-6">
+                                                        {{-- <div class="col-lg-12 col-xl-6">
                                                             <div class="table-responsive">
                                                                 <table class="table">
                                                                     <tbody>
@@ -123,7 +123,7 @@
                                                                     </tbody>
                                                                 </table>
                                                             </div>
-                                                        </div>
+                                                        </div> --}}
                                                     </div>
                                                 </div>
                                             </div>
@@ -140,6 +140,48 @@
                                 <div class="card-block">
                                     <div class="row">
                                         @forelse($user->services->where('type', 's') as $service )
+                                            <div class="col-md-6">
+                                                <div class="card b-l-success business-info services m-b-20">
+                                                    <div class="card-header">
+                                                        <div class="service-header">
+                                                            <a href="#">
+                                                                <h5 class="card-header-text">{{ $service->title }}</h5>
+                                                            </a>
+                                                        </div>
+                                                        {{-- <span class="dropdown-toggle addon-btn text-muted f-right service-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" role="tooltip">
+                                                        </span>
+                                                        <div class="dropdown-menu dropdown-menu-right b-none services-list">
+                                                            <a class="dropdown-item" href="#!"><i class="icofont icofont-edit"></i> Edit</a>
+                                                            <a class="dropdown-item" href="#!"><i class="icofont icofont-ui-delete"></i> Delete</a>
+                                                            <a class="dropdown-item" href="#!"><i class="icofont icofont-eye-alt"></i> View</a>
+                                                        </div> --}}
+                                                    </div>
+                                                    {{-- <div class="card-block">
+                                                        <div class="row">
+                                                            <div class="col-sm-12">
+                                                                <p class="task-detail">Lorem ipsum dolor sit amet, consectet ur adipisicing elit, sed do eiusmod temp or incidi dunt ut labore et.Lorem ipsum dolor sit amet, consecte.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div> --}}
+                                                </div>
+                                            </div>
+                                        @empty
+                                            <div class="col-md-12">
+                                                No Services yet
+                                            </div>
+                                        @endforelse
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="pproducts" role="tabpanel">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-header-text">User Products ({{ $user->services->where('type', 'p')->count() }})</h5>
+                                </div>
+                                <div class="card-block">
+                                    <div class="row">
+                                        @forelse($user->services->where('type', 'p') as $service )
                                             <div class="col-md-6">
                                                 <div class="card b-l-success business-info services m-b-20">
                                                     <div class="card-header">

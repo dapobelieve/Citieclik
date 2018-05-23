@@ -47,7 +47,7 @@
                     <clicks-chart></clicks-chart>
                 </div>
             </div>
-          <div class="col-sm-12">
+          {{-- <div class="col-sm-12">
              <div class="card ">
                     <div class="card-block p-0">
                        <ul class="nav nav-tabs md-tabs" role="tablist">
@@ -212,7 +212,7 @@
                        </div>
                     </div>
              </div>
-          </div>
+          </div> --}}
       </div> 
     </div>
 

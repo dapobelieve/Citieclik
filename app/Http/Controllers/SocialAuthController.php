@@ -46,7 +46,8 @@ class SocialAuthController extends Controller
                 'first_name' => $serviceUser->getName(),
                 'email' => $serviceUser->getEmail(),
                 'slug'  => $this->slugIt($slug),
-                'username' => $this->slugIt($slug)
+                'username' => $this->slugIt($slug),
+                'verify'   => 1
             ]);
         }
 

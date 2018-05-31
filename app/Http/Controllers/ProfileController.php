@@ -14,6 +14,7 @@ class ProfileController extends Controller
 {
     public function __construct()
     {
+        // dd('ok');
         $this->middleware(['AuthCheck', 'verified_user']);
     }
 

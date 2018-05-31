@@ -60,7 +60,7 @@ Welcome | Citieclik
     </div>
       <!-- Top Categories-->
       <section class="container padding-top-1x text-center">
-        <h3 class="text-center mb-30">Explore our top Categories</h3>
+         <h3 class="text-center mb-30">Explore our top Categories</h3>
         <div class="row justify-content-md-center">
           
           @foreach($cats as $cat)
@@ -78,21 +78,21 @@ Welcome | Citieclik
           @endforeach
         </div>
       </section>
-      <section class="container-fluid">
-        <div class="row">
-          <div class=" col-lg-12 ">
-            <div class="fw-section rounded padding-top-4x padding-bottom-4x" style="background-image: url(/assets/img/banners/home02.jpg);"><span class="overlay rounded" style="opacity: .35;"></span>
+      <section class="padding-bottom-none">
+        {{-- <div class="row">
+          <div class=" col-lg-12 "> --}}
+            <div class="fw-section   padding-top-4x padding-bottom-4x" style="background-image: url(/assets/img/banners/home02.jpg);"><span class="overlay rounded" style="opacity: .35;"></span>
               <div class="text-center">
                 <h3 class="display-4 text-normal text-white text-shadow mb-1">Become a </h3>
                 <h2 class="display-2 text-bold text-white text-shadow">SALES AGENT</h2>
                 <h4 class="d-inline-block h2 text-normal text-white text-shadow border-default border-left-0 border-right-0 mb-4">Earn on CitieClik</h4><br>
-                <a class="btn btn-primary" href="{{ route('salesagent.register') }}"><i class="icon-signal"></i>&nbsp;Get Started</a>
+                <a class="btn btn-primary btn-lg" style="background-color: #03A9F4" href="{{ route('salesagent.register') }}"><i class="icon-signal"></i>&nbsp;Get Started</a>
               </div>
             </div>
-          </div>
-        </div>
+          {{-- </div>
+        </div> --}}
       </section>
-        <br>
+        {{-- <br> --}}
       <section class="padding-bottom-none">
           
           <div id="particles-js" class="container-fluid row col-md-12 padding-bottom-2x mybg" style="color: #fff !important; margin-left: 0px !important;">

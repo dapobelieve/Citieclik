@@ -60,51 +60,9 @@
       <!-- Page Content-->
       @yield('content')
       <!-- Site Footer-->
-      <footer class="site-footer mybg">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-5 col-md-6">
-              <!-- Contact Info-->
-              <section class="widget widget-light-skin">
-                <img src="/assets/img/logo/Citie Clik 1.png" alt="Citieclik">
-              </section>
-            </div>
-            <div class="col-lg-3 col-md-6">
-              <!-- About Us-->
-              <section class="widget widget-links widget-light-skin">
-                <h3 class="widget-title">About Us</h3>
-                <ul>
-                  <li><a href="/terms">Terms &amp; Conditions</a></li>
-                  <li><a href="/about">About Citiclik</a></li>
-                  <li><a href="#">Our Story</a></li>
-                  <li><a href="/service">Services</a></li>
-                </ul>
-              </section>
-            </div>
-            {{-- <div class="col-lg-3 col-md-6">
-              <!-- Account / Shipping Info-->
-              <section class="widget widget-links widget-light-skin">
-                <h3 class="widget-title">Account &amp; Shipping Info</h3>
-                <ul>
-                  <li><a href="#">Your Account</a></li>
-                  <li><a href="#">Shipping Rates & Policies</a></li>
-                  <li><a href="#">Refunds & Replacements</a></li>
-                  <li><a href="#">Taxes</a></li>
-                  <li><a href="#">Delivery Info</a></li>
-                  <li><a href="#">Affiliate Program</a></li>
-                </ul>
-              </section>
-            </div> --}}
-          </div>
-          <hr class="hr-light mt-2 margin-bottom-1x">
-          <div class="row text-center">
-          <!-- Copyright-->
-          <p class="footer-copyright text-center">&copy; {{ date('Y') }} Citieclik.
-          All rights reserved.<br> Made with &nbsp;<i class="icon-heart text-danger"></i><a href="#" target="_blank"> &nbsp;by Believe&trade; &nbsp; &amp; Weinnovate&trade;</a></p>
-        </div>
-      </footer>
+      @include('layout.footer')
     </div>
-    <!-- Back To Top Button--><a class="scroll-to-top-btn" href="#"><i class="icon-arrow-up"></i></a>
+    <a class="scroll-to-top-btn" href="#"><i class="icon-arrow-up"></i></a>
     <!-- Backdrop-->
     <div class="site-backdrop"></div>
     <!-- JavaScript (jQuery) libraries, plugins and custom scripts-->

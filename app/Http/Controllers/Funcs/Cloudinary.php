@@ -23,7 +23,7 @@ class Cloudinary
             $result  =  Cloudder::upload($fileUrl,null, $options = array(
                 'folder'   => 'services',
                 'timeout'  =>  600,
-                'format'   => 'Webp',
+                'format'   => 'jpg',
                 'quality'  => '20',
                 "height"   => 500,
                 "crop"     => "limit"

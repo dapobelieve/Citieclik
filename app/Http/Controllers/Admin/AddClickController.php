@@ -47,5 +47,7 @@ class AddClickController extends Controller
             'ends_at'    => $this->end,
             'meta'       => 'admin-payment'
         ]);
+
+        return redirect()->back()->with('info', 'Clicks Added to user');
     }
 }

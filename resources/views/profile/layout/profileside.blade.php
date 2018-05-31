@@ -18,17 +18,23 @@
         {{-- <button class="btn btn-outline-primary" type="button" data-toggle="modal" data-target="#modalDefault">Default Modal</button> --}}
       </div>
       <div class="user-data">
-        <h4>{{$user->getFullName()}}</h4>
-        <span>
+         <h4>{{$user->getFullName()}}</h4>
+         <span>
             <small>Joined {{$user->created_at->formatLocalized('%B %Y')}}</small>
-        </span>
-        @if($user->isSubscribed())
-            <counter :click="{{ $user->getActiveSubscription()->click }}"></counter>
-        @else
-            <small style="color: #ec2121;">You are not subscribed.</small>
-        @endif
+         </span>
+            @if($user->isSubscribed())
+                <counter :click="{{ $user->getActiveSubscription()->click }}"></counter>
+            @else
+                <small style="color: #ec2121;">You are not subscribed.</small>
+            @endif
       </div>
     </div>
+    @if(!(bool) (Auth::user()->subscriptions()->count()))
+        <div class="text-center">
+            <a style="color: #03a9f4;font-weight: 600;text-decoration: none" href="{{route('getClick')}}">Claim free 1000 clicks 
+                                </a>
+        </div>
+    @endif
   </aside>
   <nav class="list-group">
     @if(Auth::check() && Auth::user()->id == $user->id)

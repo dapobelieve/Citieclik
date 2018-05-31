@@ -6,8 +6,6 @@ Edit | Profile
 
     @section('profileContent')
         <div class="col-lg-8">
-
-
                   @if(Session::has('info'))
                   <div class="alert alert-success alert-dismissible fade show text-center margin-bottom-1x">
                     <span class="alert-close" data-dismiss="alert"></span>

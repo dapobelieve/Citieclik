@@ -129,6 +129,11 @@ Route::get('/{service}/callback','SocialAuthController@callback');
 		'uses' => 'AjaxRequestsController@getSubCat'
 	]);
 
+/*
+* Free Clicks Zone
+*/
+
+Route::get('get-clicks','Click\CreditController@create')->name('getClick');
 
 /*
 |

@@ -13,7 +13,7 @@ Category | Citieclik
           </div>
           <div class="column">
             <ul class="breadcrumbs">
-              <li><a href="index-2.html">Home</a>
+              <li><a href="{{ route('home') }}">Home</a>
               </li>
               <li class="separator">&nbsp;</li>
               <li>All Categories</li>

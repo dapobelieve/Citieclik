@@ -19,16 +19,16 @@ use App\Http\Controller\Funcs\Slug;
 
 class TestController extends Controller
 {
-    public function catsy()
-    {
-        // used this function to slug all the subcategories 
-        $cats = Subcategory::where('slug', null)->get();
-        foreach ($cats as $key => $value) {
-            $value->slug = str_slug($value->sub_category);
-            $value->save();
-        }        
+    // public function catsy()
+    // {
+    //     // used this function to slug all the subcategories 
+    //     $cats = Subcategory::where('slug', null)->get();
+    //     foreach ($cats as $key => $value) {
+    //         $value->slug = str_slug($value->sub_category);
+    //         $value->save();
+    //     }        
 
-    }
+    // }
     private $today;
 
     public function __construct()
@@ -45,8 +45,10 @@ class TestController extends Controller
                 $x = Carbon::createFromTimestampUTC(strtotime($suber->ends_at));
 
                 if($this->today->gte($x)){
-
                     $suber->update(['status' => 0]);
+                    echo "Today is greater than end_at date";
+                }else{
+                    echo "Today is NOT greater than ends_at";
                 }
 
             }
@@ -55,44 +57,44 @@ class TestController extends Controller
 
 
 
-    public function index()
-    {
-        // isSubscribed()
-        // testing the whereHas ORM
-        // $data = User::whereHas('subscriptions', function($q) {
-        //     $q->where('username', 'dapoBelieve');
-        // })->get();
-        // dd($data);
+    // public function index()
+    // {
+    //     // isSubscribed()
+    //     // testing the whereHas ORM
+    //     // $data = User::whereHas('subscriptions', function($q) {
+    //     //     $q->where('username', 'dapoBelieve');
+    //     // })->get();
+    //     // dd($data);
 
-         $data = User::has('subscriptions')->get();
+    //      $data = User::has('subscriptions')->get();
 
          
-         $numString = '';
-         foreach ($data as $key ) {
-            if($key->isSubscribed())
-                $numString .= $key['phone'].',';
-         }
-         dd($numString);
+    //      $numString = '';
+    //      foreach ($data as $key ) {
+    //         if($key->isSubscribed())
+    //             $numString .= $key['phone'].',';
+    //      }
+    //      dd($numString);
 
 
-        // get count of services posted by a user
-    	// $val = Auth::user()->subscriptions()
-     //                        ->select('plan_id')
-     //                        ->where('pay_status', 1)
-     //                        ->get();
-     //    $userPlans = $val->toArray();
+    //     // get count of services posted by a user
+    // 	// $val = Auth::user()->subscriptions()
+    //  //                        ->select('plan_id')
+    //  //                        ->where('pay_status', 1)
+    //  //                        ->get();
+    //  //    $userPlans = $val->toArray();
 
-     //    dd($userPlans);
+    //  //    dd($userPlans);
 
-     //    $sumPlans =  Plan::whereIn('id', $userPlans)
-     //                        ->sum('listing');
-     //    $userServices = Auth::user()->getNumberOfPosts();
+    //  //    $sumPlans =  Plan::whereIn('id', $userPlans)
+    //  //                        ->sum('listing');
+    //  //    $userServices = Auth::user()->getNumberOfPosts();
 
-     //    dd((int)$sumPlans);
-    }
+    //  //    dd((int)$sumPlans);
+    // }
 
-    public function getMail()
-    {
-        return view('Mail.verify');
-    }
+    // public function getMail()
+    // {
+    //     return view('Mail.verify');
+    // }
 }

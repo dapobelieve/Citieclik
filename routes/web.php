@@ -1,7 +1,7 @@
 <?php
 
 // For testing purposes
-// Route::get('/test', 'TestController@catsy')->name('test');
+// Route::get('/test', 'TestController@carbon')->name('test');
 
 Route::get('/usa', function () {
 	return view('dashboard.pages.userprofile');

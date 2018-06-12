@@ -8,6 +8,12 @@
   src: url('/assets/fonts/feather-webfont.ttf') format('truetype'),
 }
 
+.showcase {
+  /**
+   * styling for homepage background image
+   */
+}
+
 .center-text {
   font-size: 20px;
   font-weight: medium;

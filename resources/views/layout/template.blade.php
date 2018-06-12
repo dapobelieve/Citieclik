@@ -11,8 +11,12 @@
     
     <!-- Off-Canvas Mobile Menu-->
     <div class="offcanvas-container" id="mobile-menu">
-      <a class="account-link" href="account-orders.html">@if(Auth::check())
-        <i class="icon-head"></i><span>Hello</span>, {{Auth::User()->first_name}} @endif</a>
+      @if(Auth::check())
+      <a class="account-link" href="{{route('profile.index', ['slug' =>Auth::User()->slug ])}}">
+        <i class="icon-head"></i>
+        <span>Hello</span>, {{Auth::User()->first_name}} 
+      </a>
+      @endif
       @include('layout.nav2')
     </div>
     <!-- Topbar-->

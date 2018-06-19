@@ -26,7 +26,7 @@ class Image extends Model
         }else
         {
             $img = json_decode($this->image, true);
-            return $img['url'];
+            return $img['secure_url'];
         }
         return $img;
     }

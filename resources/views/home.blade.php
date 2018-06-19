@@ -6,7 +6,7 @@ Welcome | Citieclik
 
 @section('content')
     <!-- Main Slider-->
-    <div class="hero-slider text-center" style="background-image: url(/assets/img/hero-slider/c1.jpg); color: #fff !important; ">
+    <div class="hero-slider text-center showcase">
       <div class="container padding-top-6x">
         <div id="carouselContent" class="carousel slide bg-chrome item" data-ride="carousel">
           <h1 class="" style="color: #fff !important; text-shadow: 0px 0px 6px rgb(6, 6, 6); font-weight: 600;">Connecting the City with a Click</h1>
@@ -59,19 +59,18 @@ Welcome | Citieclik
       </div>
     </div>
       <!-- Top Categories-->
-      <section class="container padding-top-1x text-center">
+      <section class="container-fluid padding-top-1x text-center">
          <h3 class="text-center mb-30">Explore our top Categories</h3>
-        <div class="row justify-content-md-center">
+        <div class="row category justify-content-md-center">
           
           @foreach($cats as $cat)
-            <div class="col-md-3 col-sm-6">
+            <div class="category-items col-md-3 col-sm-6">
               <div class="card mb-30 mybox"><a class="card-img-tiles" href="{{route('category', $cat->slug)}}">
                 <div class="inner">
                   <div class="main-img"><img src="/assets/img/category/{{$cat->image}}" alt="Category"></div>
                 </div></a>
                 <div class="card-block text-center">
                   <h6 class="card-title">{{$cat->category}}</h6>
-                  {{-- <a class="" href="{{route('category', $cat->slug)}}">View Category</a> --}}
                 </div>
               </div>
             </div>

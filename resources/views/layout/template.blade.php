@@ -26,7 +26,7 @@
     <header class="navbar navbar-sticky">
       <!-- Search-->
       <form class="site-search" method="get">
-        <input type="text" name="site_search" placeholder="Type to search...">
+        <input type="text" name="site_search" placeholder="Quick Search">
         <div class="search-tools"><span class="clear-search">Clear</span><span class="close-search"><i class="icon-cross"></i></span></div>
       </form>
       <div class="site-branding">

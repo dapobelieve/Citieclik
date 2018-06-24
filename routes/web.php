@@ -330,3 +330,8 @@ Route::get('agent/{user}','Agent\AgentController@profile')->name('agent.profile'
 Route::get('/search', 'SearchController@getResult')->name('search.results');
 
 Route::get('/quick-search', 'SearchController@search')->name('quick-search');
+
+Route::get('/populate', 'Auth\PopulateController@index');
+
+
+Route::post('/populate', 'Auth\PopulateController@store')->name('populate');

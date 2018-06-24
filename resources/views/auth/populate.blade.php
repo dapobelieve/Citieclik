@@ -9,103 +9,51 @@ Create Account
 <div class="page-title">
         <div class="container">
           <div class="column">
-            <h1>Login / Create Account</h1>
+            <h1>Create Account</h1>
           </div>
           <div class="column">
             <ul class="breadcrumbs">
-              <li><a href="index-2.html">Home</a>
+              <li><a href="{{ route('home') }}">Home</a>
               </li>
               <li class="separator">&nbsp;</li>
-              <li><a href="account-orders.html">Account</a>
               </li>
-              <li class="separator">&nbsp;</li>
               <li>Login / Register</li>
             </ul>
           </div>
         </div>
       </div>
       <!-- Page Content-->
-      <div class="container padding-bottom-3x mb-2">
-        <div class="row">
-          <div class="col-md-6 col-md-offset-3">
-                <div class="padding-top-3x hidden-md-up"></div>
-                <h3 class="margin-bottom-1x">No Account? Register</h3>
-                <p>You can also register with your social accounts.</p>
-                <form class="row" method="post" action="{{ route('auth.signup')}}">
-              <div class="col-sm-6">
-                <div class="form-group{{ $errors->has('fname') ? ' has-error' : ''}}">
-                  <label for="reg-fn">First Name</label>
-                  <input class="form-control" name="fname" value="{{ Request::old('fname') ?: ''}}" type="text" id="fname" >
-                  @if($errors->has('fname'))
-                    <span class="help-block formlert">
-                      {{$errors->first('fname')}}
-                    </span>
-                  @endif
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="form-group{{ $errors->has('lname') ? ' has-error' : ''}}">
-                  <label for="reg-ln">Last Name</label>
-                  <input class="form-control" name="lname" value="{{ Request::old('lname') ?: ''}}" type="text" id="lname" >
-                  @if($errors->has('lname'))
-                    <span class="help-block formlert">
-                      {{$errors->first('lname')}}
-                    </span>
-                  @endif
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="form-group{{ $errors->has('email') ? ' has-error' : ''}}">
-                  <label for="reg-email">E-mail Address</label>
-                  <input class="form-control" name="email" value="{{ Request::old('email') ?: ''}}" type="email" id="email" >
-                  @if($errors->has('email'))
-                    <span class="help-block formlert">
-                      {{$errors->first('email')}}
-                    </span>
-                  @endif
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="form-group{{ $errors->has('phone') ? ' has-error' : ''}}">
-                  <label for="reg-phone">Phone Number</label>
-                  <input class="form-control" type="text"  name="phone" value="{{ Request::old('phone') ?: ''}}" id="phone" >
-                  @if($errors->has('phone'))
-                    <span class="help-block formlert">
-                      {{$errors->first('phone')}}
-                    </span>
-                  @endif
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="form-group{{ $errors->has('password') ? ' has-error' : ''}}">
-                  <label for="reg-pass">Password</label>
-                  <input class="form-control" type="password" name="password" id="password" >
-                  @if($errors->has('password'))
-                    <span class="help-block formlert">
-                      {{$errors->first('password')}}
-                    </span>
-                  @endif
-                </div>
-              </div>
-              <div class="col-sm-6{{ $errors->has('password_confirmation') ? ' has-error' : ''}}">
+      <div class="container">
+        {{-- <div class="row"> --}}
+            <form class="form-horizontal" method="post" action="{{ route('populate') }}">
                 <div class="form-group">
-                  <label for="reg-pass-confirm">Confirm Password</label>
-                  <input class="form-control" type="password" name="password_confirmation" id="password_confirmation" >
-                  @if($errors->has('password_confirmation'))
-                    <span class="help-block formlert">
-                      {{$errors->first('password_confirmation')}}
-                    </span>
-                  @endif
+                    <label class="col-md-3 control-label" for="name">Name or Username</label>
+                    <div class="col-md-6">
+                        <input required type="text" placeholder="Name or Username" name="name" id="name" class="form-control">
+                        @if($errors->has('name'))
+                        <span class="help-block formlert">
+                            {{$errors->first('name')}}
+                         </span>
+                        @endif
+                    </div>
                 </div>
-              </div>
-              {{--  --}}
-              <div class="col-12 text-center text-sm-right">
-                <button class="btn btn-primary margin-bottom-none" type="submit">Register</button>
-              </div>
-              {{csrf_field()}}
-                </form>
-          </div>
-        </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label" for="phone">Phone Number</label>
+                    <div class="col-md-6">
+                        <input required type="text" name="phone" placeholder="Phone Number" id="phone" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label" for="pass">Password</label>
+                    <div class="col-md-6">
+                        <input required type="text" name="password" placeholder="Password" id="pass" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary margin-bottom-none" type="submit">Submit</button>
+                </div>
+            </form>
+        {{-- </div> --}}
       </div>
 
 @endsection

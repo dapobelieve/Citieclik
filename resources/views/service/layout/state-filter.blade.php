@@ -1,6 +1,7 @@
 <div class="shop-sorting">
                   <label for="sorting">Filter by State:</label>
                   <select class="form-control" id="serState">
+                    <option value="">All States</option>
                     @foreach($states as $state)
                         <option sname="{{$state->state}}" value="{{$state->id}}">{{$state->state}}</option>
                     @endforeach

@@ -99,35 +99,6 @@ Route::get('/{service}/callback','SocialAuthController@callback');
 |
 */
 
-//Route to get lgas based on selected state
-	Route::get('service/state/location/{id}', [
-		'uses' => 'AjaxRequestsController@getLocation'
-	]);
-
-
-	Route::get('product/state/location/{id}', [
-		'uses' => 'AjaxRequestsController@getLocation'
-	]);
-	//Route to get subcategory based on selected category
-	Route::get('product/category/getscat/{id}', [
-		'uses' => 'AjaxRequestsController@getSubCat'
-	]);
-
-	Route::get('request/state/location/{id}', [
-		'uses' => 'AjaxRequestsController@getLocation'
-	]);
-	Route::get('request/category/getscat/{id}', [
-		'uses' => 'AjaxRequestsController@getSubCat'
-	]);
-
-
-	Route::get('category/category-h/state/{id}', [
-		'uses' => 'AjaxRequestsController@getLocation'
-	]);
-
-	Route::get('category/category-h/scat/{id}', [
-		'uses' => 'AjaxRequestsController@getSubCat'
-	]);
 
 /*
 * Free Clicks Zone
@@ -176,27 +147,7 @@ Route::group(['middleware' => ['AuthCheck']], function () {
 			'as'   => 'addproduct'
 		]);
 
-		/*
-		|
-		| Add Service Ends Here
-		|
-		*/
-
-		/*
-		|
-		| Ajax Requests Section
-		|
-		*/
 			
-
-			Route::get('service-edit/edit/state/{id}', [
-				'uses' => 'AjaxRequestsController@getLocation'
-			]);
-
-			Route::get('service-edit/edit/category/{id}', [
-				'uses' => 'AjaxRequestsController@getSubCat'
-			]);
-
 			
 
 		/*
@@ -377,3 +328,5 @@ Route::get('agent/{user}','Agent\AgentController@profile')->name('agent.profile'
 
 // Homepage Search
 Route::get('/search', 'SearchController@getResult')->name('search.results');
+
+Route::get('/quick-search', 'SearchController@search')->name('quick-search');

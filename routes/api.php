@@ -13,3 +13,5 @@ Route::get('/getcategory/{id}', 'AjaxRequestsController@getSubCat');
 Route::get('/getsubcategory/{id}', 'AjaxRequestsController@getSubCat2');
 
 Route::get('/getcat/{type}', 'AjaxRequestsController@getParent');
+
+Route::get('/getloco/{id}', 'AjaxRequestsController@getLocation'); 

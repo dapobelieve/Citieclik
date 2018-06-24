@@ -116,7 +116,7 @@ Edit service | Citieclik
 			              	<div class="col-sm-6">
 				                <div class="form-group {{ $errors->has('serState') ? ' has-error' : '' }}">
 				                  	<label for="checkout-country">State</label>
-				                  	<select class="form-control" name="serState" id="serState" value="{{ old('serState') ?: ''  }}">
+				                  	<select class="form-control" onchange="getLoco(this.value)" name="serState" id="serState" value="{{ old('serState') ?: ''  }}">
 				                    	<option value="{{$sdata->state->id}}">{{$sdata->state->state}}</option>
 					                    @foreach($states as $state)
 					                        <option value="{{$state->id}}">{{$state->state}}</option>
@@ -128,17 +128,14 @@ Edit service | Citieclik
 				                </div>
 			              	</div>
 			              	<div class="col-sm-6">
-				                <div class="form-group {{ $errors->has('location') ? ' has-error' : '' }}">
-				                  	<label for="checkout-country">Location</label>
-					                <select class="form-control" name="location"  id="location" value="{{ Request::old('location') ?: ''  }}">
-					                    <option value="{{$sdata->loca->id}}">{{$sdata->loca->lga}}</option>
-					                    
-					                </select>
-			                  		@if ($errors->has('location'))
-										<p class="help-block text-danger"><i class="icon-circle-cross"></i>&nbsp;{{ $errors->first('location') }}</p>
-				                	@endif
-				                </div>
-			              	</div>
+                                <div class="form-group {{ $errors->has('location') ? ' has-error' : '' }}">
+
+                                    <span id="locations"></span>
+                                    @if ($errors->has('location'))
+                                        <p class="help-block text-danger"><i class="icon-circle-cross"></i>&nbsp;{{ $errors->first('location') }}</p>
+                                    @endif
+                                </div>
+                            </div>
 			            </div>
 			            <div class="row">
                             <div class="col-md-12">
@@ -250,24 +247,7 @@ Edit service | Citieclik
 
 <script type="text/javascript" src="/js/jquery.min.js"></script>
 <script src="/dist/trumbowyg.min.js"></script>
-<script type="text/javascript">
-//script to auto change states and its lgas
-	$('#serState').change(function(){
-		$.ajax({
-			url: "state/"+$(this).val(),
-			method: 'GET',
-		})
-		.done(function(data) {
-			$location = $('#location');
-			$location.removeAttr('disabled');//enable
-			$location.children().remove();//clear the select tag first
-			var dee = JSON.parse(data); //convert the json data to array here
-			$.each(dee,function(index, value){
-				$location.append("<option value='"+value.id+"' >"+ value.lga +"</option>");
-			})
-		});
-	})
-</script>
+
 <script src="/assets/js/addservice.js"></script>
 <script type="text/javascript">
 	$('.my-editor').trumbowyg({

@@ -25,8 +25,8 @@
     <!-- Remove ".navbar-sticky" class to make navigation bar scrollable with the page.-->
     <header class="navbar navbar-sticky">
       <!-- Search-->
-      <form class="site-search" method="get">
-        <input type="text" name="site_search" placeholder="Quick Search">
+      <form class="site-search" action="{{ route('quick-search') }}" method="get">
+        <input type="text" required name="query" placeholder="Quick Search">
         <div class="search-tools"><span class="clear-search">Clear</span><span class="close-search"><i class="icon-cross"></i></span></div>
       </form>
       <div class="site-branding">

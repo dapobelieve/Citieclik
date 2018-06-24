@@ -113,7 +113,7 @@
                         @if($service->comments->count())
                           @foreach($service->comments as $comment)
                             <div class="comment">
-                              <div class="comment-author-ava"><img src="{{$service->userz->getUserImg()}}" alt="Review author"></div>
+                              <div class="comment-author-ava"><img src="{{$comment->user->getUserImg()}}" alt="Review author"></div>
                               <div class="comment-body">
                                 <div class="comment-header d-flex flex-wrap justify-content-between">
                                 </div>

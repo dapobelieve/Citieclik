@@ -20,4 +20,14 @@ class SearchController extends Controller
     	// dd($request);
     	return view('search.searchresults')->with('sdata', $services);
     }
+
+    public function search (Request $request)
+    {
+        $query = $request->input('query');
+        $services = DB::table('services')
+                                ->where('description', 'LIKE', "%{$query}%")
+                                ->orWhere('title', 'LIKE', "%{$query}%")
+                                ->get();
+        dd($services);
+    }
 }

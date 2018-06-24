@@ -115,7 +115,7 @@ Request for a Service
                             <div class="col-sm-6">
                                 <div class="form-group {{ $errors->has('serState') ? ' has-error' : '' }}">
                                     <label for="checkout-country">State</label>
-                                    <select class="form-control" name="serState" id="serState" value="{{ old('serState') ?: ''  }}">
+                                    <select class="form-control" onchange="getLoco(this.value)" name="serState" id="serState" value="{{ old('serState') ?: ''  }}">
                                         <option value="">Choose a State</option>
                                         @foreach($states as $state)
                                             <option value="{{$state->id}}">{{$state->state}}</option>
@@ -128,11 +128,8 @@ Request for a Service
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group {{ $errors->has('location') ? ' has-error' : '' }}">
-                                    <label for="checkout-country">Location</label>
-                                    <select class="form-control" name="location" disabled id="location" value="{{ Request::old('location') ?: ''  }}">
-                                        <option>Choose Location</option>
-                                        
-                                    </select>
+
+                                    <span id="locations"></span>
                                     @if ($errors->has('location'))
                                         <p class="help-block text-danger"><i class="icon-circle-cross"></i>&nbsp;{{ $errors->first('location') }}</p>
                                     @endif

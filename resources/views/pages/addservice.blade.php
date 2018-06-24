@@ -61,14 +61,14 @@
 			            <div class="row" style="margin-top: 20px;">
 			              	<div class="col-sm-12">
 				                <div class="form-group {{ $errors->has('serTitle') ? ' has-error' : '' }}">
-				                  	<label for="checkout-fn">
+				                  	<label for="serTitle">
 				                  		@if($tdata == 'p')
 				                  			Product Name
 				                  		@else
 				                  			Service Title
 				                  		@endif
 				                  	</label>
-				                  	<input class="form-control" name="serTitle"  type="text" placeholder="" value="{{ Request::old('serTitle') ?: '' }}" >
+				                  	<input class="form-control" id="serTitle" name="serTitle"  type="text" placeholder="" value="{{ Request::old('serTitle') ?: '' }}" >
 				                  	@if ($errors->has('serTitle'))
 										<p class="help-block text-danger"><i class="icon-circle-cross"></i>&nbsp;{{ $errors->first('serTitle') }}</p>
 					                	{{-- <span class="help-block"> </span> --}}
@@ -79,7 +79,7 @@
 			            <div class="row">
 			              	<div class="col-sm-6">
 				                <div class="form-group {{ $errors->has('serCat') ? ' has-error' : '' }}">
-				                  	<label for="checkout-country">Category</label>
+				                  	<label for="serCat">Category</label>
 				                  	<select class="form-control" onchange="getSubCat(this.value)" name="serCat" id="serCat" value="{{ Request::old('serCat') ?: ''  }}">
 					                    <option>Choose a Category</option>
 					                    @if($tdata == 'p')
@@ -113,8 +113,8 @@
 			            <div class="row">
 			              	<div class="col-sm-6">
 				                <div class="form-group {{ $errors->has('serState') ? ' has-error' : '' }}">
-				                  	<label for="checkout-country">State</label>
-				                  	<select class="form-control" name="serState" id="serState" value="{{ Request::old('serState') ?: ''  }}">
+				                  	<label for="serState">State</label>
+				                  	<select class="form-control" onchange="getLoco(this.value)" name="serState" id="serState" value="{{ Request::old('serState') ?: ''  }}">
 				                    	<option>Choose a State</option>
 					                    @foreach($states as $state)
 					                        <option value="{{$state->id}}">{{$state->state}}</option>
@@ -127,11 +127,8 @@
 			              	</div>
 			              	<div class="col-sm-6">
 				                <div class="form-group {{ $errors->has('location') ? ' has-error' : '' }}">
-				                  	<label for="checkout-country">Location</label>
-					                <select class="form-control" name="location" disabled id="location" value="{{ Request::old('location') ?: ''  }}">
-					                    <option>Choose Location</option>
-					                    
-					                </select>
+
+					                <span id="locations"></span>
 			                  		@if ($errors->has('location'))
 										<p class="help-block text-danger"><i class="icon-circle-cross"></i>&nbsp;{{ $errors->first('location') }}</p>
 				                	@endif

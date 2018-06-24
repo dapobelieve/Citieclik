@@ -1,19 +1,31 @@
-    //script to auto change states and its lgas
-    $('#serState').change(function(){
-        $.ajax({
-            url: "state/location/"+$(this).val(),
-            method: 'GET',
-        })
-        .done(function(data) {
-            $location = $('#location');
-            $location.removeAttr('disabled');//enable
-            $location.children().remove();//clear the select tag first
-            var dee = JSON.parse(data); //convert the json data to array here
-            $.each(dee,function(index, value){
-                $location.append("<option value='"+value.id+"' >"+ value.lga +"</option>");
-            })
-        });
+
+function getLoco (value) {
+    document.getElementById('locations').innerHTML = '';
+     let selectData = `
+            <label for="location">Local government</label>
+                <select required id="location" class="form-control" name="location">
+    `;
+
+    axios.get('/api/getloco/'+value)
+    .then(response => {
+        let results = response.data;
+        console.table(results);
+        if(results == null){
+            return;
+        }else{
+            results.forEach(function (ele, index) {
+                selectData += `<option value=${ele.id}>${ele.lga}</option>`
+            });
+
+            selectData += `</select>`;
+            document.getElementById('locations').insertAdjacentHTML('beforeend', selectData);
+         }
+
     })
+    .catch(error => {
+        console.log(error);
+    })
+}
 
 
 function getSubCat(value)

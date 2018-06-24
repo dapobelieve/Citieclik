@@ -35,6 +35,7 @@
                                         <th>Email</th>
                                         <th>Phone</th>
                                         <th>Sales Agent?</th>
+                                        <th>Verified?</th>
                                         <th>Joined</th>
                                         <th>Actions</th>
                                     </tr>
@@ -51,6 +52,9 @@
                                                 {{ $user->isAgent() ? 'agent' : '' }}
                                             </span>
                                                 
+                                            </td>
+                                            <td>
+                                                {{ $user->verify == 1 ? 'yes' : 'no' }}
                                             </td>
 
                                             <td>{{ $user->created_at->format('M j, Y') }}</td>

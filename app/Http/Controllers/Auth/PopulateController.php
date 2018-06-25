@@ -24,13 +24,14 @@ class PopulateController extends Controller
         // dd($request->all());
         $this->validate($request, [
             'name' => 'required',
-            'phone' => 'required|unique:users|digit:11',
-            'password' => 'require|min:6'
+            'phone' => 'required|unique:users|digits:11',
+            'password' => 'required|min:6'
         ],[
             'name.required'  => 'Enter a name or username',
             'phone.required' => 'Phone number is required',
+            'phone.digits' => 'Phone Number must be 11 digits',
             'phone.unique'   => 'Phone number is already registered on our servers',
-            'password'       => 'A password is required'
+            'password.required'       => 'A password is required'
         ]);
 
         $user = User::create([
@@ -40,5 +41,9 @@ class PopulateController extends Controller
             'slug'    => str_slug($request->name),
             'verify'   => 1,
         ]);
+
+        return redirect()->route('home')
+                    ->with('title', 'Congratulations')
+                     ->with('success', 'Account has been created.');
     }
 }

@@ -24,7 +24,17 @@ Create Account
       </div>
       <!-- Page Content-->
       <div class="container">
-        {{-- <div class="row"> --}}
+        @if(count($errors) > 0)
+            <div class="alert alert-danger alert-dismissible fade show margin-bottom-1x">
+                <span class="alert-close" data-dismiss="alert"></span><i class="icon-ban"></i>&nbsp;&nbsp;
+                <strong>Error alert:</strong>
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li> {{ $error }} </li>
+                        @endforeach
+                    </ul>
+            </div>
+        @endif
             <form class="form-horizontal" method="post" action="{{ route('populate') }}">
                 <div class="form-group">
                     <label class="col-md-3 control-label" for="name">Name or Username</label>
@@ -46,7 +56,7 @@ Create Account
                 <div class="form-group">
                     <label class="col-md-3 control-label" for="pass">Password</label>
                     <div class="col-md-6">
-                        <input required type="text" name="password" placeholder="Password" id="pass" class="form-control">
+                        <input required type="password" name="password" placeholder="Password" id="pass" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">

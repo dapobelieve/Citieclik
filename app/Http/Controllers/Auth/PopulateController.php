@@ -42,6 +42,8 @@ class PopulateController extends Controller
             'verify'   => 1,
         ]);
 
+        // send sms here!
+
         return redirect()->route('home')
                     ->with('title', 'Congratulations')
                      ->with('success', 'Account has been created.');

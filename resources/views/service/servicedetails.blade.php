@@ -158,7 +158,7 @@
                             <div class="user-avatar">
                                 <img id="userMainAvatar" src="{{ $service->userz->getUserImg() }}"  alt="User">
                             </div>
-                            <clicker :service="{{ $service }}"  :user="{{ $service->userz }}"></clicker>
+                            <clicker :service="{{ $service->id }}"  :user="{{ $service->userz }}"></clicker>
                         </div>
               <br>
                 <div class="list-group">

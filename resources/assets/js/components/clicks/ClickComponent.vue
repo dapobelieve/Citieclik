@@ -18,23 +18,31 @@
                 show: false
             }
         },
-        props: ['user', 'service'],
+        props: {
+            service: {
+                type: Number,
+                required: true
+            },
+            user: {
+                type: Object,
+                required: true
+            }
+        },
         methods: {
             handleClick () {
                 if(Laravel.user.id === this.service.user_id){
                     alert('Come on, you already know your contact information')
                     return;
                 }
-                
+                this.show = true;
                 this.send();               
             },
             send () {
                 axios.post('/api/click', {
-                    user_id:     0,
-                    service_id:  this.service.id
+                    service_id:  this.service
                 })
                 .then(response => {
-                    this.show = true;
+                    
                     // fire an event here
                     Bus.$emit('viewed.contact');
                     
@@ -46,7 +54,8 @@
             }
         },
         // mounted () {
-        //     console.log(this.userimage);
+        //     console.log(this.user);
+        //     console.log(this.service);
         // }
     }
 </script>

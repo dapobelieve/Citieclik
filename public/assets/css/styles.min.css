@@ -1774,7 +1774,8 @@ button:focus {
 .btn-info,
 .btn-warning,
 .btn-danger {
-    color: #fff
+    color: #fff;
+    text-shadow: 0px 1px #000;
 }
 .btn-primary:hover,
 .btn-primary:active,
@@ -1794,10 +1795,10 @@ button:focus {
     color: #fff
 }
 .btn-primary {
-    background-color: #0da9ef
+    background-color: #46c3fb87
 }
 .btn-primary:hover {
-    background-color: #0a87bf
+    background-color: #0da9ef
 }
 .btn-success {
     background-color: #43d9a3
@@ -1818,10 +1819,10 @@ button:focus {
     background-color: #ffa21c
 }
 .btn-danger {
-    background-color: #ec2121
+    background-color: #ec21218c
 }
 .btn-danger:hover {
-    background-color: #ff1f1f
+    background-color: #ec2121
 }
 .btn-white {
     background-color: #fff

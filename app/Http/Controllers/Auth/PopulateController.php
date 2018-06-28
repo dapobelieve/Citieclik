@@ -5,12 +5,15 @@ namespace App\Http\Controllers\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\Http\Controllers\Sms\SmsController;
+
 use App\User;
 use Hash;
 
 class PopulateController extends Controller
 {
     public function index (Request $request) {
+        
         return view('auth.populate');
     }
 
@@ -43,6 +46,10 @@ class PopulateController extends Controller
         ]);
 
         // send sms here!
+        $sms = new SmsController;
+        $sms->smsNewUser($user->phone);
+
+
 
         return redirect()->route('home')
                     ->with('title', 'Congratulations')

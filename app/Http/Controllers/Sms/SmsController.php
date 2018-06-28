@@ -85,4 +85,26 @@ class SmsController
         return redirect()->back()->with('info', 'Request Posted Successfully. An SMS alert has been sent to all subscribed users.');
     }
 
+    public function smsNewUser ($phoneNumber) 
+    {
+        $client = new Client();
+        $message = "Hi. You are registered on Citieclik and your products are advertised on our site. Click citieclik.com/signup to signin Username:".$phoneNumber." Password:citieclik123";
+        $numbers = $phoneNumber;
+        try {
+            $response = $client->post('http://portal.bulksmsnigeria.net/api/?', [
+                'verify'    =>  false,
+                'form_params' => [
+                    'username' => $this->SMS_USERNAME,
+                    'password' => $this->SMS_PASSWORD,
+                    'message' => $message,
+                    'sender' => $this->SMS_SENDER,
+                    'mobiles' => $numbers
+                ],
+            ]);
+        } catch (Exception $e) {
+            return redirect()->route('home');
+        }
+        
+    }
+
 }

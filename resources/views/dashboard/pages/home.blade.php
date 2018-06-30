@@ -24,6 +24,15 @@
              </div>
           </div>
           <div class="col-md-6 col-xl-3">
+             <div class="card bg-c-green order-card">
+                <div class="card-block">
+                   <h6 class="m-b-20">Products Posted</h6>
+                   <h2 class="text-right"><i class=" ti-clipboard f-left"></i><span>{{ $services->where('type', 'p')->count() }}</span></h2>
+                   {{-- <p class="m-b-0">This Month<span class="f-right">213</span></p> --}}
+                </div>
+             </div>
+          </div>
+          <div class="col-md-6 col-xl-3">
              <div class="card bg-c-yellow order-card">
                 <div class="card-block">
                    <h6 class="m-b-20">Active Subscribers</h6>
@@ -51,6 +60,12 @@
                 <div class="card card-block">
                     {{-- <h6 style="text-align: center;padding-top: 1.4rem" class="m-b-20">Clicks Chart</h6> --}}
                     <count-chart model="clicks" color="#39c586d4"></count-chart>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="card card-block">
+                    {{-- <h6 style="text-align: center;padding-top: 1.4rem" class="m-b-20">Clicks Chart</h6> --}}
+                    <service-chart model="services" color="#d8c640f0"></service-chart>
                 </div>
             </div>
           {{-- <div class="col-sm-12">

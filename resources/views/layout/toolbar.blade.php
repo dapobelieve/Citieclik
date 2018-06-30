@@ -10,6 +10,9 @@
                     <li><a href="{{route('profile.service', ['slug' =>Auth::User()->slug ])}}">My Services</a></li>
                     <li><a href="{{route('profile.products', ['slug' =>Auth::User()->slug ])}}">My Products</a></li>
                     <li><a href="{{ route('profile.request', ['slug' =>Auth::User()->slug ]) }}">My Requests</a></li>
+                    @if(Auth::User()->isAdmin())
+                        <li><a href="{{ route('admin.home') }}">Admin</a></li>
+                    @endif
                   <li class="sub-menu-separator"></li>
                   <li><a href="{{ route('auth.signout') }}"> <i class="icon-unlock"></i>Logout</a></li>
                 </ul>

@@ -30940,7 +30940,8 @@ __WEBPACK_IMPORTED_MODULE_1_axios___default.a.defaults.baseURL = Laravel.url;
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('clicker', __webpack_require__(175));
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('counter', __webpack_require__(181));
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('clicks-chart', __webpack_require__(186));
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('count-chart', __webpack_require__(186));
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('user-chart', __webpack_require__(239));
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('service-chart', __webpack_require__(238));
 
 var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
@@ -49699,6 +49700,15 @@ var clicks = [];
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   extends: __WEBPACK_IMPORTED_MODULE_0_vue_chartjs__["a" /* Line */],
+  props: {
+    model: {
+      type: String,
+      required: true
+    },
+    color: {
+      required: true
+    }
+  },
   data: function data() {
     return {
 
@@ -49706,8 +49716,8 @@ var clicks = [];
         //Data to be represented on x-axis
         labels: days,
         datasets: [{
-          label: 'Clicks',
-          backgroundColor: '#39c586d4',
+          label: this.model,
+          backgroundColor: this.color,
           borderColor: '#51988a',
           pointBackgroundColor: '#ffffff',
           borderWidth: 1,
@@ -49738,7 +49748,7 @@ var clicks = [];
         },
         title: {
           display: true,
-          text: 'Line Chart for Number of clicks per day'
+          text: 'Line Chart for Number of ' + this.model + ' per day'
         },
         responsive: true,
         maintainAspectRatio: false
@@ -49747,13 +49757,15 @@ var clicks = [];
   },
 
   methods: {
-    feed: function feed() {
-      axios.post('/api/clickcount').then(function (response) {
+    feed: function feed(dataType) {
+      axios.post('/api/clickcount', {
+        type: dataType
+      }).then(function (response) {
         var data = response.data;
 
         data.forEach(function (index, ele) {
           days.push(index.days);
-          clicks.push(index.clicks);
+          clicks.push(index[dataType]);
         });
       }).catch(function (error) {
         console.log(error.data);
@@ -49761,7 +49773,7 @@ var clicks = [];
     }
   },
   mounted: function mounted() {
-    this.feed();
+    this.feed(this.model);
     //renderChart function renders the chart with the datacollection and options object.
     this.renderChart(this.datacollection, this.options);
   }
@@ -62631,6 +62643,148 @@ Component.options.__file = "resources\\assets\\js\\components\\charts\\ServiceCh
 
 module.exports = Component.exports
 
+
+/***/ }),
+/* 239 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(9)
+/* script */
+var __vue_script__ = __webpack_require__(240)
+/* template */
+var __vue_template__ = null
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\charts\\UserChartComponent.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-26eff2ac", Component.options)
+  } else {
+    hotAPI.reload("data-v-26eff2ac", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 240 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_chartjs__ = __webpack_require__(188);
+
+
+
+
+var days = [];
+var clicks = [];
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  extends: __WEBPACK_IMPORTED_MODULE_0_vue_chartjs__["a" /* Line */],
+  props: {
+    model: {
+      type: String,
+      required: true
+    },
+    color: {
+      required: true
+    }
+  },
+  data: function data() {
+    return {
+
+      datacollection: {
+        //Data to be represented on x-axis
+        labels: days,
+        datasets: [{
+          label: this.model,
+          backgroundColor: this.color,
+          borderColor: '#51988a',
+          pointBackgroundColor: '#ffffff',
+          borderWidth: 1,
+          pointBorderColor: '#ffb64d',
+          //Data to be represented on y-axis
+          data: clicks
+        }]
+      },
+      //Chart.js options that controls the appearance of the chart
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            },
+            gridLines: {
+              display: true
+            }
+          }],
+          xAxes: [{
+            gridLines: {
+              display: false
+            }
+          }]
+        },
+        legend: {
+          display: true
+        },
+        title: {
+          display: true,
+          text: 'Line Chart for Number of ' + this.model + ' per day'
+        },
+        responsive: true,
+        maintainAspectRatio: false
+      }
+    };
+  },
+
+  methods: {
+    feed: function feed(dataType) {
+      axios.post('/api/clickcount', {
+        type: dataType
+      }).then(function (response) {
+        var data = response.data;
+
+        data.forEach(function (index, ele) {
+          days.push(index.days);
+          clicks.push(index[dataType]);
+        });
+      }).catch(function (error) {
+        console.log(error.data);
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.feed(this.model);
+    //renderChart function renders the chart with the datacollection and options object.
+    this.renderChart(this.datacollection, this.options);
+  }
+});
 
 /***/ })
 /******/ ]);

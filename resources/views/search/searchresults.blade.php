@@ -1,7 +1,11 @@
 @extends('layout.template')
 
+@section('style')
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+@stop
+
 @section('title')
-Services | Citieclik
+Search Results | Citieclik
 @endsection
 
 @section('content')
@@ -13,10 +17,10 @@ Services | Citieclik
           </div>
           <div class="column">
             <ul class="breadcrumbs">
-              <li><a href="index-2.html">Home</a>
+              <li><a href="{{ route('home') }}">Home</a>
               </li>
               <li class="separator">&nbsp;</li>
-              <li>All Services</li>
+              <li>Search Results</li>
             </ul>
           </div>
         </div>
@@ -27,21 +31,13 @@ Services | Citieclik
         <div class="row hereIt">
           <!-- Products-->
           <div class="col-xl-9 col-lg-8">
-            <!-- Shop Toolbar-->
-            {{-- <div class="shop-toolbar padding-bottom-1x mb-2">
-              <div class="column">
-                @include('service.layout.state-filter')
-              </div>
-              <div class="column">
-              </div>
-            </div> --}}
-            <!-- Products Grid-->
             @if (!$sdata->count())
               <h4>We could not find any, please search for another</h4>
             @else
               <h4>We found {{ $sdata->count() }} results</h4>
               @include('search.template.results')
             @endif
+            {{ $sdata->render() }}
           </div>
           <!-- Sidebar          -->
           <div class="col-xl-3 col-lg-4">

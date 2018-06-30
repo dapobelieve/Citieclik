@@ -329,6 +329,7 @@ Route::get('agent/{user}','Agent\AgentController@profile')->name('agent.profile'
 // Homepage Search
 Route::get('/search', 'SearchController@getResult')->name('search.results');
 
+// top bar search
 Route::get('/quick-search', 'SearchController@search')->name('quick-search');
 
 Route::get('/populate', 'Auth\PopulateController@index');

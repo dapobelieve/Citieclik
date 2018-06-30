@@ -44,7 +44,13 @@
             <div class="col-sm-12">
                 <div class="card card-block">
                     {{-- <h6 style="text-align: center;padding-top: 1.4rem" class="m-b-20">Clicks Chart</h6> --}}
-                    <clicks-chart></clicks-chart>
+                    <user-chart model="users" color="#88d427cc"></user-chart>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="card card-block">
+                    {{-- <h6 style="text-align: center;padding-top: 1.4rem" class="m-b-20">Clicks Chart</h6> --}}
+                    <count-chart model="clicks" color="#39c586d4"></count-chart>
                 </div>
             </div>
           {{-- <div class="col-sm-12">

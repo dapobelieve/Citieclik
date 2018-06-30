@@ -10,24 +10,26 @@ class SearchController extends Controller
 {
     public function getResult(Request $request)
     {
-    	$queryState = $request->input('state');
-    	$queryCategory = $request->input('category');
+        // dd($request);
+    	$queryState = $request->input('search');
+    	$queryCategory = $request->input('state');
 
         $services = Service::where([
-                    ['state_id', $queryState],
-                    ['category_id', $queryCategory]
-                    ])->get();
-    	// dd($request);
+                        ['title', 'LIKE', "%{$queryState}%"],
+                        ['state_id', $queryCategory]
+                    ])->latest()->paginate(10);
+    	// dd($services->count());
     	return view('search.searchresults')->with('sdata', $services);
     }
 
     public function search (Request $request)
     {
         $query = $request->input('query');
-        $services = DB::table('services')
-                                ->where('description', 'LIKE', "%{$query}%")
+        $services = Service::where('description', 'LIKE', "%{$query}%")
                                 ->orWhere('title', 'LIKE', "%{$query}%")
-                                ->get();
-        dd($services);
+                                ->latest()
+                                ->paginate(10);
+        
+        return view('search.searchresults')->with('sdata', $services);
     }
 }

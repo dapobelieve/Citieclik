@@ -201,4 +201,13 @@ class User extends Authenticatable
         return $this->hasMany('App\Subscription', 'user_id');
     }
 
+    /**
+     * checks if logged in user is an admin
+     * @return boolean 
+     */
+    public function isAdmin()
+    {
+        return $this->adminer  === 1;
+    }
+
 }

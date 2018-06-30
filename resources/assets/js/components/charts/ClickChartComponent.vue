@@ -7,6 +7,15 @@ let clicks = [];
 
 export default {
     extends: Line,
+    props: {
+        model: {
+            type: String,
+            required: true
+        },
+        color: {
+            required: true,
+        }
+    },
     data () {
       return {
 
@@ -15,8 +24,8 @@ export default {
           labels: days, 
           datasets: [
             {
-              label: 'Clicks',
-              backgroundColor: '#39c586d4',
+              label: this.model,
+              backgroundColor: this.color,
               borderColor: '#51988a',
               pointBackgroundColor: '#ffffff',
               borderWidth: 1,
@@ -48,7 +57,7 @@ export default {
           },
           title: {
                 display: true,
-                text: 'Line Chart for Number of clicks per day'
+                text: `Line Chart for Number of ${this.model} per day`
             },
           responsive: true,
           maintainAspectRatio: false
@@ -56,14 +65,16 @@ export default {
       }
     },
     methods: {
-        feed () {
-            axios.post('/api/clickcount')
+        feed (dataType) {
+            axios.post('/api/clickcount',{
+                type: dataType
+            })
             .then(response => {
                 let data = response.data;
 
                 data.forEach(function(index, ele) {
                     days.push(index.days)
-                    clicks.push(index.clicks)
+                    clicks.push(index[dataType])
                 });
 
                 
@@ -74,7 +85,7 @@ export default {
         }
     },
     mounted () {
-        this.feed();
+        this.feed(this.model);
     //renderChart function renders the chart with the datacollection and options object.
       this.renderChart(this.datacollection, this.options);
     }

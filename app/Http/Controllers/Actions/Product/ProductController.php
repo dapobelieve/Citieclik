@@ -12,7 +12,9 @@ class ProductController extends Controller
     // get all services view
     public function index()
     {
-        $serviceData = Service::take(100)->postOnly()->latest()->where('type', 'p')->get();
+        $serviceData = Service::latest()->where('type', 'p')->paginate(30);
+
+        // dd($serviceData->count());
 
         return view('service.product')->with('sdata', $serviceData)
                                     ->with('type', 'p');

@@ -17,11 +17,7 @@ Welcome | Citieclik
                       {{-- <label class="sr-only" for="inlineFormInputGroupUsername2">What are you looking for?</label> --}}
                       <div class="input-group form-group" style="margin-right: 2px !important;">
                         {{-- <div class="input-group-addon"></div> --}}
-                        <select class="form-control" onchange="getCats(this.value)" id="select-input" name="category">
-                                <option>Select a Category</option>
-                                <option value="p">Products</option>
-                                <option value="s">Services</option>
-                        </select>
+                        <input type="text" class="form-control" placeholder="looking for?" name="search" id="">
                       </div>
                       <div class="input-group form-group" style="margin-right: 2px !important;">
                         {{-- <div class="input-group-addon"></div> --}}
@@ -30,7 +26,7 @@ Welcome | Citieclik
                       </div>
                       <div class="input-group form-group" method="get" style="margin-right: 0px !important;">
                         <select class="form-control " id="select-input" name="state">
-                          <option>Pick a Location</option>
+                          <option>where?</option>
                           @foreach($states as $state)
                                 <option value="{{ $state->id }}">{{ $state->state }}</option>
                           @endforeach
@@ -44,16 +40,14 @@ Welcome | Citieclik
                     {{-- <button type="submit" class="btn btn-square btn-primary">Submit</button> --}}
                   </form>
 
-                  <form class="form-inline text-center">
-                    {{-- @if(Auth::check()) --}}
+                  {{-- <form class="form-inline text-center">
                     <div class="col-xs-12 form-group">
                       <div class="col-xs-6"><a href="{{ route('addproduct') }}" class="btn btn-primary mybox">Post Product</a></div>
                       <div class="col-xs-6">
                         <a href="{{ route('addservice') }}" class="btn btn-danger mybox">Post Service</a></div>
                       <div class="col-xs-6"><a href="{{ route('request.add') }}" class="btn btn-primary mybox">Make Request</a></div>
                     </div>
-                    {{-- @endif --}}
-                  </form>
+                  </form> --}}
               </div>
           </div>
         </div>
@@ -68,10 +62,11 @@ Welcome | Citieclik
             <div class="category-items col-md-3 col-sm-6">
               <div class="card mb-30 mybox"><a class="card-img-tiles" href="{{route('category', $cat->slug)}}">
                 <div class="inner">
-                  <div class="main-img"><img src="/assets/img/category/{{$cat->image}}" alt="Category"></div>
+                  <div 
+                    style="background-image: url(/assets/img/category/{{$cat->image}}); background-position: center;background-size: cover; max-height: 150px; height: 150px" class="main-img"></div>
                 </div></a>
                 <div class="card-block text-center">
-                  <h6 class="card-title">{{$cat->category}}</h6>
+                  <h6 style="font-size: 14px !important" class="card-title">{{$cat->category}}</h6>
                 </div>
               </div>
             </div>

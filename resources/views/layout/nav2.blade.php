@@ -12,5 +12,8 @@
                 <li><a href="{{route('profile.index', ['slug' =>Auth::User()->slug ])}}">Dashboard</a></li>
                 <li><a href="{{ route('auth.signout') }}"><span>Logout</span></a></li>
               @endif
+              @if(Auth::check() && Auth::User()->isAdmin())
+                 <li><a href="{{ route('admin.home') }}">Admin</a></li>
+              @endif
         </ul>
 </nav>

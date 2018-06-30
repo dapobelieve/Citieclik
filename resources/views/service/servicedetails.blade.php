@@ -44,7 +44,7 @@
                         <i class="icon-star filled"></i>
                         <i class="icon-star"></i> --}}
                       {{-- </div><span class="text-muted align-middle">&nbsp;&nbsp;4.2 | 3 customer reviews</span> --}}
-                        <h2 class="padding-top-1x text-normal">{{$service->serviceTitle() }}</h2>
+                        <h2 class="padding-top-1x text-normal">{{ title_case($service->serviceTitle())  }}</h2>
                         {{-- <span class="h2 d-block">$47.60</span> --}}
                         {{-- {{$service->location }} --}}
                        

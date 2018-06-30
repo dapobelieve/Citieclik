@@ -50,13 +50,20 @@ class ClickController extends Controller
         return response()->json($user, 200);
     }
 
-    public function getClicks()
+    public function getClicks(Request $request)
     {
-        $clicks = DB::table('clicks')
-                                ->select(DB::raw('count(id) as clicks, DATE(created_at) as days'))
+        $type = $request->type;
+
+        $clicks = DB::table($type)
+                                ->select(DB::raw('count(id) as '.$type.', DATE(created_at) as days'))
                                 ->groupBy(DB::raw('DATE(created_at)'))
                                 ->get();
 
         return response()->json($clicks, 200);
     }
+
+    // public function getUsers ()
+    // {
+
+    // }
 }

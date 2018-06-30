@@ -33,7 +33,7 @@ $('.hereIt').on('change','#serState',function(event){
     //load lgas ajaxically       
     $('.locs').show();
     $.ajax({
-      url: url1+$(this).val(),
+      url: '/api/getloco/'+$(this).val(),
       method: 'GET',
     })
     .done(function(data) {

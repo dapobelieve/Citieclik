@@ -18,7 +18,7 @@ class ServiceDetails extends Controller
     // get all services view
     public function indexall()
     {
-        $serviceData = Service::take(200)->postOnly()->where('type', 's')->get();
+        $serviceData = Service::latest()->where('type', 's')->paginate(30);
 
      return view('service.service')->with('sdata', $serviceData)
                                     ->with('type', 's');

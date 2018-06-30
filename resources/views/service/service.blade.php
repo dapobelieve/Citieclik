@@ -26,7 +26,7 @@ Services | Citieclik
 	  <div class="container padding-bottom-3x mb-1">
 		<div class="row hereIt">
 		  <!-- Products-->
-		  <div class="col-xl-9 col-lg-8 push-xl-3 push-lg-4">
+		  <div class="category">
 			<!-- Shop Toolbar-->
 			<div class="shop-toolbar padding-bottom-1x mb-2">
 			  <div class="column">

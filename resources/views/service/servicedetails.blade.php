@@ -79,7 +79,7 @@
                             @forelse($service->images as $image)
                                 <div data-hash="{{ $loop->iteration }}">
                                     <div style="padding: 0; margin: 0">
-                                        <img style="top: 50%;" class="img-responsive" src="{{ $image->servieImage() }}" alt="">
+                                        <img style="top: 50%;" class="img-responsive" src="{{ $image->servieImage2() }}" alt="">
                                     </div>
                                 </div>
                             @empty
@@ -89,7 +89,7 @@
                         @forelse($service->images as $image)
                             <li  class="">
                                 <a href="#{{ $loop->iteration }}">
-                                    <img style="width: 75px; height: 75px" src="{{ $image->servieImage() }}" alt="Product">
+                                    <img style="width: 30px; height: 30px" src="{{ $image->servieImage2() }}" alt="Product">
                                 </a>
                             </li>
                         @empty

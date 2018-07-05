@@ -13,13 +13,22 @@ class SearchController extends Controller
         // dd($request);
     	$queryState = $request->input('search');
     	$queryCategory = $request->input('state');
-
-        $services = Service::where([
+        
+        if (empty($queryCategory)){
+            $services = Service::where('description', 'LIKE', "%{$queryState}%")
+                                ->orWhere('title', 'LIKE', "%{$queryState}%")
+                                ->latest()
+                                ->paginate(10);
+            return view('search.searchresults')->with('sdata', $services);
+        }else {
+            $services = Service::where([
                         ['title', 'LIKE', "%{$queryState}%"],
                         ['state_id', $queryCategory]
                     ])->latest()->paginate(10);
-    	// dd($services->count());
-    	return view('search.searchresults')->with('sdata', $services);
+            // dd($services->count());
+            return view('search.searchresults')->with('sdata', $services);
+        }
+        
     }
 
     public function search (Request $request)

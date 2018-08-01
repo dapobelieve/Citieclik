@@ -5636,9 +5636,9 @@ video {
     display: block;
     position: relative;
     width: 100%;
-    padding: 18px;
+    padding: 5px;
     border: 1px solid #e1e7ec;
-    border-radius: 7px;
+    border-radius: 3px;
     background-color: #fff
 }
 .product-card .product-thumb {

@@ -13,7 +13,9 @@
             		{{$data->slugIt($data->loca->state->state)}}"
         >
     		<div class="product-card mybox">
-    			<div class="product-badge text-primary text-bold">{{-- {{$data->catty->category}} --}}</div><br>
+    			{{-- <div class="product-badge text-primary text-bold">{{ $data->catty->category }}
+                </div>
+                <br> --}}
     			<div class="text-right"><small class=" text-black">{{-- {{$data->loca->state->state}} --}}</small></div>
     			<a 
     				class="product-thumb" 
@@ -23,16 +25,17 @@
     			</a>
     			<h4 class="product-title" style="margin-bottom: 0px !important">
                     <a href="{{route('service.detail',['username' => $data->userz->username,'slug' => $data->slug])}}">
-                        <small 
-                            style="font-size: 95%;color: black; font-weight: bold">
-                            {{ str_limit(title_case($data->serviceTitle()), 50) }}
-                        </small>
-                        <br>
-                        <span style="color: green" class="price">
-                            <span>Price: &#x20A6</span>{{  number_format($data->price) }}
-                        </span>
                     </a>
                 </h4>
+                <div>
+                    <h5 class="ser-title">
+                    {{ str_limit(title_case($data->serviceTitle()), 33) }}
+                    </h5>
+                    <span style="color: green" class="price">
+                        <span>Price: 
+                        &#x20A6</span>{{  number_format($data->price) }}
+                    </span>
+                </div>
     			{{-- <h4 class="product-price">&#8358;49.99</h4> --}}
     			<div class="product-buttons">
     			</div>

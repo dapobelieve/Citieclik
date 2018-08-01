@@ -13,12 +13,7 @@
             		{{$data->slugIt($data->loca->state->state)}}"
         >
     		<div class="product-card mybox">
-    			{{-- <div class="product-badge text-primary text-bold">{{ $data->catty->category }}
-                </div>
-                <br> --}}
-    			<div class="text-right"><small class=" text-black">{{-- {{$data->loca->state->state}} --}}</small></div>
-    			<a 
-    				class="product-thumb" 
+    			<a class="product-thumb" 
     				href=" {{route('service.detail',['username' => $data->userz->username,'slug' => $data->slug])}}">
                         {!! $data->getImages() !!}
                         {{-- <img src="https://res.cloudinary.com/citieclik/image/upload/w_150,h_100,c_fill/v1529923725/services/ffwsh3t8uxlzkqpsmspq.jpg" alt=""> --}}
@@ -32,9 +27,11 @@
                     {{ str_limit(title_case($data->serviceTitle()), 33) }}
                     </h5>
                     <span style="color: green" class="price">
+                        @if(!$data->price == 0)
                         <span>Price: 
-                        &#x20A6</span>{{  number_format($data->price) }}
-                    </span>
+                            &#x20A6</span>{{  number_format($data->price) }}
+                        </span>
+                        @endif
                 </div>
     			{{-- <h4 class="product-price">&#8358;49.99</h4> --}}
     			<div class="product-buttons">

@@ -25,7 +25,12 @@
                     <a href="{{route('service.detail',['username' => $data->userz->username,'slug' => $data->slug])}}">
                         <small 
                             style="font-size: 95%;color: black; font-weight: bold">
-                            {{ str_limit(title_case($data->serviceTitle()), 20) }}</small> 
+                            {{ str_limit(title_case($data->serviceTitle()), 50) }}
+                        </small>
+                        <br>
+                        <span style="color: green" class="price">
+                            <span>Price: &#x20A6</span>{{  number_format($data->price) }}
+                        </span>
                     </a>
                 </h4>
     			{{-- <h4 class="product-price">&#8358;49.99</h4> --}}

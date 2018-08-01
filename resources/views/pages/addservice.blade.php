@@ -147,11 +147,11 @@
 					            </div>
 				            </div>
 			            </div>
-			            @if($tdata == 'p')
+			            {{-- @if($tdata == 'p') --}}
 			            <div class="col-sm-12">
 			                <div class="form-group {{ $errors->has('serTitle') ? ' has-error' : '' }}">
 			                  	<label for="checkout-fn">
-			                  			Product Price
+			                  			Price
 			                  	</label>
 			                  	<input class="form-control" name="serPrice" type="number" placeholder="Price " value="{{ Request::old('serPrice') ?: '' }}" >
 			                  	@if ($errors->has('serPrice'))
@@ -159,7 +159,7 @@
 			                	@endif
 			                </div>
 		              	</div>
-		              	@endif		            
+		              	{{-- @endif		             --}}
 			            <div class="row padding-bottom-1x">
 			            	<div class="col-sm-12">
 			            		<div class="form-group {{ $errors->has('description') ? ' has-error' : '' }}">

@@ -23,8 +23,7 @@ class Image extends Model
     {
         if(empty($this->image))
         {
-            $ran = mt_rand(1,3);
-            $img = "/assets/img/shop/cart/0".$ran.".jpg";
+            $img = "/assets/img/default.jpg";
         }else
         {
             $img = json_decode($this->image, true);
@@ -35,8 +34,6 @@ class Image extends Model
                     'width'      => 200,
                     'height'     => 150,
                     "crop"       => "fill"
-
-                    // "crop"       => "scale"
                 )
             );
         }

@@ -138,8 +138,7 @@ class ProfileController extends Controller
             $result  =  Cloudder::upload($fileUrl,null, $options = array(
                 'folder'   => 'profilePics',
                 'timeout'  =>  600,
-                'format'   => 'Webp',
-                'quality'  => '20',
+                'format'   => 'jpg',
                 'gravity'  => 'face',
                 'width'    => '150',
                 'height'   => '150',

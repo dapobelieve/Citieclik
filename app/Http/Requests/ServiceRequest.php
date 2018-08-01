@@ -24,7 +24,7 @@ class ServiceRequest extends FormRequest
     public function rules()
     {
         $rules =  [
-            'serTitle'  =>  'required|string|max:255',
+            'serTitle'  =>  'required|string|max:50',
             'serState'  => 'required|integer',
             'location'  => 'required|integer',
             'serCat'    => 'required|integer',
@@ -42,6 +42,7 @@ class ServiceRequest extends FormRequest
     {
         return [
             'serTitle.required'     => 'a title is required',
+            'serTitle.max'          => 'Maximum of 40 characters allowed',
             'serState.required'     => 'Select the state  where you currently provide this service',
             'serState.integer'     => 'Select the state  where you currently provide this service',
             'location.required'     => 'Select the location',

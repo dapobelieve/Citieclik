@@ -53,11 +53,10 @@ class Service extends Model
     {
         // dd($this->images()->get());
         if($this->images()->first() == null){
-
-            return "/assets/img/default.jpg";
             
+            return "<img src='/assets/img/default.jpg'>";
         }else{
-            return $this->images()->first()->servieImage2();
+            return $this->images()->first()->servieImage();
         }
     }
 

@@ -24,9 +24,7 @@ class Cloudinary
                 'folder'   => 'services',
                 'timeout'  =>  600,
                 'format'   => 'jpg',
-                'quality'  => '20',
-                "height"   => 500,
-                "crop"     => "limit"
+                'quality'  => 'auto',
             ));
 
             if(!$result)

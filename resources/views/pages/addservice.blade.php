@@ -41,7 +41,7 @@
 	          	<div class="col-xl-9 col-lg-8">
 		          @if(count($errors) > 0)
 		            <div class="alert alert-danger alert-dismissible fade show margin-bottom-1x">
-			            <span class="alert-close" data-dismiss="alert"></span><i class="icon-ban"></i>&nbsp;&nbsp;
+			            <span class="alert-close" data-dismiss="alert"></span><i class="icon-ban"></i>&nbsp;
 			            <strong>Error alert:</strong>
 				            <ul>
 								@foreach($errors->all() as $error)

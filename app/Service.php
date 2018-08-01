@@ -53,10 +53,11 @@ class Service extends Model
     {
         // dd($this->images()->get());
         if($this->images()->first() == null){
-            $ran = mt_rand(1,3);
-            return "/assets/img/shop/cart/0".$ran.".jpg";
+
+            return "/assets/img/default.jpg";
+            
         }else{
-            return $this->images()->first()->servieImage();
+            return $this->images()->first()->servieImage2();
         }
     }
 

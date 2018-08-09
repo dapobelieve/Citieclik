@@ -26,9 +26,9 @@
                     <h5 class="ser-title">
                     {{ str_limit(title_case($data->serviceTitle()), 33) }}
                     </h5>
-                    <span style="color: green" class="price">
+                    <span style="color: #2bd519" class="price">
                         @if(!$data->price == 0)
-                        <span>Price: 
+                        <span> 
                             &#x20A6</span>{{  number_format($data->price) }}
                         </span>
                         @endif

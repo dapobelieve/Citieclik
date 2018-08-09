@@ -38,8 +38,8 @@ Welcome | Citieclik
                         
                       </div>
                       <div class="input-group form-group" method="get" style="margin-right: 0px !important;">
-                        <select class="form-control " id="select-input" name="state">
-                          <option value="">where?</option>
+                        <select style="color: #bdadb9" class="form-control " id="select-input" name="state">
+                          <option  value="">where?</option>
                           @foreach($states as $state)
                                 <option value="{{ $state->id }}">{{ $state->state }}</option>
                           @endforeach

@@ -246,17 +246,13 @@
     border: 1px solid transparent;
     border-radius: 5px;
     box-sizing: border-box;
-    color: #eee;
+    color: white;
     cursor: pointer;
-    display: inline-block;
-    /*font-size: 16px;*/
-    font-weight: 400;
-
+    /*display: inline-block;*/
+    font-weight: bold;
     padding: 5px 6px;
     text-align: center;
     transition: background-color .222s ease-out;
-    /*user-select: none;
-    white-space: nowrap;*/
 }
 
 .redbtn {
@@ -317,13 +313,61 @@
 .acat a:hover {
   color: red;
 }
-
-
-
 .browse-cat {
   display: none;
 }
+
+/*c=navigation proper with css grid*/
+
+.top-nav {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+}
+
+.top-item {
+    align-self: center;
+    justify-self: center;
+}
+
+.item-a {
+    grid-column: 1 / span 1;
+    padding-left: 5px;
+}
+
+.item-b {
+    grid-column: 11 / span 1;
+}
+.item-c {
+    grid-column: 12 / span 1;
+}
+
+.top-item-link {
+    text-decoration: none;
+}
+
 @media (max-width: 960px){
+    .top-nav {
+        margin-top: 12px;
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+    }
+
+    .top-item {
+        align-self: center;
+        justify-self: center;
+    }
+    .item-a {
+        grid-column: 2 / span 1;
+        padding-left: 5px;
+    }
+
+    .item-b {
+        grid-column: 7 / span 1;
+    }
+    .item-c {
+        grid-column: 8 / span 1;
+    }
+
   .homecat {
     display: none;
   }
@@ -340,4 +384,25 @@
     text-decoration: none;
     color: #000;
   }
+}
+
+@media (max-width: 500px){
+    .top-nav {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .item-a {
+        grid-column: 1 / span 1;
+        margin-left: 36px;
+        margin-top: 12px;
+    }
+
+    .item-b {
+        grid-column: 3 / span 1;
+    }
+
+    .item-c {
+        margin-right: 12px;
+    }
 }

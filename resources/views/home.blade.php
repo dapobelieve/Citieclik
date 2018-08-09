@@ -4,6 +4,19 @@
 Welcome | Citieclik
 @endsection
 
+@section('topcat')
+<div class="browse-cat">
+    <a href="#">Browse by Category</a>
+</div>
+<div class="homecat">
+    @foreach($cats as $cat)
+        <div class="acat">
+            <a href="{{route('category', $cat->slug)}}">{{ $cat->category }}</a>
+        </div>
+    @endforeach
+</div>
+@stop
+
 @section('content')
     <!-- Main Slider-->
     <div class="hero-slider text-center showcase">
@@ -34,7 +47,7 @@ Welcome | Citieclik
                         {{-- <input class="form-control form-control-square form-control-lg" type="email" placeholder="Location"> --}}
                       </div>
                           <div class="col-auto">
-                            <button type="submit" class="btn btn-primary "><i class="icon-search"></i> Search</button>
+                            <button type="submit" class="btn btn-primary transparent "><i class="icon-search"></i> Search</button>
                           </div>
                     </div>
                     {{-- <button type="submit" class="btn btn-square btn-primary">Submit</button> --}}
@@ -60,7 +73,8 @@ Welcome | Citieclik
           
           @foreach($cats as $cat)
             <div class="category-items col-md-3 col-sm-6">
-              <div class="card mb-30 mybox"><a class="card-img-tiles" href="{{route('category', $cat->slug)}}">
+              <div class="card mb-30 mybox">
+                <a class="card-img-tiles" href="{{route('category', $cat->slug)}}">
                 <div class="inner">
                   <div 
                     style="background-image: url(/assets/img/category/{{$cat->image}}); background-position: center;background-size: cover; max-height: 150px; height: 150px" class="main-img"></div>

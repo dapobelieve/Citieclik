@@ -2,9 +2,6 @@
 <html lang="en">
 
 @include('layout.head')
-
-
-
   <!-- Body-->
   <body>
     @yield('request-modal')
@@ -24,7 +21,7 @@
     <!-- Navbar-->
     <!-- Remove ".navbar-sticky" class to make navigation bar scrollable with the page.-->
     {{-- <header class="navbar navbar-sticky"> --}}
-    <header class="navbar">
+    <header class="navbar fix-header">
       <!-- Search-->
       <form class="site-search" action="{{ route('quick-search') }}" method="get">
         <input type="text" required name="query" placeholder="Quick Search">
@@ -34,21 +31,64 @@
         <div class="inner">
           <a class="offcanvas-toggle menu-toggle" href="#mobile-menu" data-toggle="offcanvas"></a>
           <!-- Site Logo-->
-          <a class="site-logo" href="/"><img src="/assets/img/logo/logo_bw.png" alt="Citieclik"></a>
+          <a class="site-logo" href="/"><img src="/assets/img/logo/citilogo.png" alt="Citieclik"></a>
         </div>
       </div>
       <!-- Main Navigation-->
-      <nav class="site-menu">
+      <div class="site-menu">
         <ul> 
-          <li class="{{ Request::is('/products') ? 'active' : '' }}"><a href="{{route('product')}}"><span>Products</span></a>
-          </li>
-          <li class="{{ Request::is('service') ? 'active' : '' }}"><a href="{{route('service')}}"><span>Services</span></a>
-          </li>
+            <li class="{{ Request::is('/products') ? 'active' : '' }}"><a href="{{route('product')}}"><span></span></a>
+            </li>
+            <li class="{{ Request::is('service') ? 'active' : '' }}"><a href="{{route('service')}}"><span></span></a>
+            </li>
+            
         </ul>
-      </nav>
-      <!-- Toolbar-->
-     @include('layout.toolbar')
+
+      </div>
+        {{-- <li class="nav-right"> --}}
+            <div class="top-rights">
+                <div class="anItem redbtn">
+                    <a href="{{ route('addproduct') }}" class="postBtn">Post Ad</a>
+                </div>
+                @if(!Auth::check())
+                    <div class="anItem">
+                        <a href="{{route('signup')}}" class="sagent">Sign up / Sign in</a>
+                    </div>
+                @endif   
+                @if(Auth::check())
+                    <div class="toolbar">
+                      <div class="inner">
+                        <div class="tools">
+                          <div class="search"><i class="icon-search"></i></div>
+                          <div class="account"><a href="#"></a><i class="icon-head"></i>
+                            <ul class="toolbar-dropdown pull-left">
+                              <li class="sub-menu-title" style="font-size: 12px;"><span>Dear,</span>{{Auth::User()->first_name}}</li>
+                                <li><a href="{{route('profile.index', ['slug' =>Auth::User()->slug ])}}">Dashboard</a></li>
+                                <li><a href="{{route('profile.service', ['slug' =>Auth::User()->slug ])}}">My Services</a></li>
+                                <li><a href="{{route('profile.products', ['slug' =>Auth::User()->slug ])}}">My Products</a></li>
+                                <li><a href="{{ route('profile.request', ['slug' =>Auth::User()->slug ]) }}">My Requests</a></li>
+                                @if(Auth::User()->isAdmin())
+                                    <li><a href="{{ route('admin.home') }}">Admin</a></li>
+                                @endif
+                              <li class="sub-menu-separator"></li>
+                              
+                              <li><a href="{{ route('auth.signout') }}"> <i class="icon-unlock"></i>Logout</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                @endif    
+          </div>
+     
+      
+      {{-- @if(!Auth::check())
+        <div class="anItem">
+            <a href="{{route('signup')}}" class="sagent">Sign up / Sign in</a>
+        </div>
+    @endif --}}     
     </header>
+    @yield('topcat')
     <!-- Off-Canvas Wrapper-->
     <div id="app" class="offcanvas-wrapper">
       <!-- Page Content-->

@@ -41,22 +41,6 @@ Search Results | Citieclik
           </div>
           <!-- Sidebar          -->
           <div class="col-xl-3 col-lg-4">
-            {{-- <aside class="sidebar">
-              <div class="padding-top-2x hidden-lg-up"></div>
-              <section class="promo-box" style="background-image: url(img/banners/02.jpg);"><span class="overlay-dark" style="opacity: .4;"></span>
-                <div class="promo-box-content text-center padding-top-2x padding-bottom-2x">
-                    <h4 class="text-light text-thin text-shadow">New Collection of</h4>
-                    <h3 class="text-bold text-light text-shadow">Sunglasses</h3><a class="btn btn-outline-white btn-sm" href="#">Shop Now</a>
-                </div>
-              </section>
-              <div class="clearfix mb-30"></div>
-              <section class="promo-box" style="background-image: url(img/banners/02.jpg);"><span class="overlay-dark" style="opacity: .4;"></span>
-                <div class="promo-box-content text-center padding-top-2x padding-bottom-2x">
-                    <h4 class="text-light text-thin text-shadow">New Collection of</h4>
-                    <h3 class="text-bold text-light text-shadow">Sunglasses</h3><a class="btn btn-outline-white btn-sm" href="#">Shop Now</a>
-                </div>
-              </section>
-            </aside> --}}
           </div>
         </div>
       </div>

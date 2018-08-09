@@ -84,8 +84,8 @@
               <!-- Widget Categories-->
                            
               <section class="widget subCatWid">
-                <h3 class="widget-title">Sub Categories</h3>
-                <span id="subCatz">
+                <h3 class="sideTexts widget-title">Sub Categories</h3>
+                <span class="subTexts2" id="subCatz">
                 @foreach($subCats as $subCat)
                     <label class="custom-control custom-checkbox d-block">
                            <input class="custom-control-input" type="checkbox" value=".{{$subCat->slug}}">

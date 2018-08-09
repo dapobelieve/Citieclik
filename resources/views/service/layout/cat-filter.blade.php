@@ -3,11 +3,11 @@
               <!-- Widget Categories-->
               <section class="widget widget-categories">
                 @if($type == 's')
-                  <h3 class="widget-title">Service Categories</h3>
+                  <h3 class="sideTexts widget-title">Service Categories</h3>
                 @elseif($type == 'p')
-                  <h3 class="widget-title">Product Categories</h3>
+                  <h3 class="sideTexts widget-title">Product Categories</h3>
                 @endif
-                <ul>
+                <ul class="subTexts">
                   @foreach($cats->where('type', $type) as $cat)
                       <li><a href="#" class="catz" data-id="{{$cat->id}}" data-filter="{{$cat->slug}}">{{$cat->category}}</a>{{-- <span>(1138)</span> --}}</li>
                   @endforeach
@@ -16,8 +16,8 @@
               </section>
              
               <section class="widget subCatWid" style="display:none" >
-                <h3 class="widget-title">Filter by Sub Category</h3>
-                <span id="subCatz">
+                <h3 class="sideTexts widget-title">Filter by Sub Category</h3>
+                <span class="subTexts2" id="subCatz">
                     
                 </span>
               </section>

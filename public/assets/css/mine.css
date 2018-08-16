@@ -298,8 +298,8 @@
 
 .homecat {
   background-color: #e2dddd3d;
-  /*padding: 2px;*/
-  display: flex;
+  display:  grid;
+  grid-template-columns: repeat(6, 1fr);
   justify-content: center !important;
 }
 
@@ -307,10 +307,13 @@
   position: relative;
   text-align: center;
   width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
   border-left-style: solid ;
   border-color: #d6d5d5;
   border-width: 1px;
   background-color: #fff;
+  /*height: 50px;*/
   color: black !important;
 }
 .acat a {
@@ -328,7 +331,7 @@
 .top-sub-nav {
   display: none;
   position: absolute;
-  top: 42px;
+  top: 40px;
   background: #fff;
   margin: 0;
   border-top-style: solid;
@@ -475,3 +478,42 @@
     color: #0da9ef !important
 }
 
+/*mobile side navigation*/
+
+.show-navy {
+    height: 100%; /* 100% Full-height */
+    width: 242px; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 20000; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #111; /* Black*/
+    display: none;
+    /*overflow-x: hidden;  Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the show-navy */
+}
+
+/* The navigation menu links */
+.show-navy a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.show-navy a:hover {
+    color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.show-navy .closebtn {
+    position: absolute;
+    top: 0;
+    left: 91px;
+    font-size: 36px;
+    margin-left: 50px;
+}

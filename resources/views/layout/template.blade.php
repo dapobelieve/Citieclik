@@ -7,21 +7,40 @@
     @yield('request-modal')
     
     <!-- Off-Canvas Mobile Menu-->
-    <div class="offcanvas-container" id="mobile-menu">
-      @if(Auth::check())
-      <a class="account-link" href="{{route('profile.index', ['slug' =>Auth::User()->slug ])}}">
-        <i class="icon-head"></i>
-        <span>Hello</span>, {{Auth::User()->first_name}} 
-      </a>
-      @endif
+
+    {{-- <div class="offcanvas-container" id="mobile-menu"> --}}
+        <div class="show-navy" id="mySidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            @if(Auth::check())
+              <a href="{{route('profile.index', ['slug' =>Auth::User()->slug ])}}">
+                <span>Hello</span>, {{Auth::User()->first_name}} 
+              </a>
+              @endif
+            <a href="/"><span>Home</span></a>
+            <a href="{{ route('service')}}">Services</a>
+            <a href="{{ route('product')}}">Products</a>
+            @if(Auth::check())
+                <a href="{{route('profile.index', ['slug' =>Auth::User()->slug ])}}">Dashboard</a>
+                <a href="{{ route('auth.signout') }}"><span>Logout</span></a>
+            @endif
+            @if(Auth::check() && Auth::User()->isAdmin())
+                 <a href="{{ route('admin.home') }}">Admin</a>
+              @endif
+            <a href="{{ route('addproduct') }}" class="postBtn">Post Ad</a>
+        </div>
+      {{-- 
       @include('layout.nav2')
-    </div>
+    </div> --}}
+    
     <!-- Topbar-->
     
     <!-- Navbar-->
     <!-- Remove ".navbar-sticky" class to make navigation bar scrollable with the page.-->
     {{-- <header class="navbar navbar-sticky"> --}}
+
+
     <header class="navbar fix-header">
+
       <!-- Search-->
       <form class="site-search" action="{{ route('quick-search') }}" method="get">
         <input type="text" required name="query" placeholder="Quick Search">
@@ -29,20 +48,9 @@
       </form>
       <div class="site-branding">
         <div class="inner">
-            <a class="offcanvas-toggle menu-toggle" href="#mobile-menu" data-toggle="offcanvas"></a>
+            <a class="offcanvas-toggle menu-toggle" onclick="showNav()"></a>
         </div>
       </div>
-      <!-- Main Navigation-->
-      {{-- <div class="site-menu">
-        <ul> 
-            <li class="{{ Request::is('/products') ? 'active' : '' }}"><a href="{{route('product')}}"><span></span></a>
-            </li>
-            <li class="{{ Request::is('service') ? 'active' : '' }}"><a href="{{route('service')}}"><span></span></a>
-            </li>
-            
-        </ul>
-      </div> --}}
-        {{-- <li class="nav-right"> --}}
             <div class="top-nav">
                 <!-- Site Logo-->
                 <div class="top-item item-a">
@@ -53,6 +61,7 @@
                         Post Ad
                     </a>
                 </div>
+                {{-- /*<span onclick="showNav()" style="color: black">Mobile Nav</span>*/ --}}
                 @if(!Auth::check())
                     <div class="top-item item-c">
                         <a href="{{route('signup')}}" class="top-item-link">Login</a>
@@ -91,6 +100,17 @@
       <!-- Site Footer-->
       @include('layout.footer')
     </div>
+    <script>
+        function showNav() {
+            // alert('show nav')
+            document.getElementById("mySidenav").style.display = "block";
+        }
+
+        /* Close/hide the sidenav */
+        function closeNav() {
+            document.getElementById("mySidenav").style.display = "none";
+        }
+    </script>
     <a class="scroll-to-top-btn" href="#"><i class="icon-arrow-up"></i></a>
     <!-- Backdrop-->
     {{-- <div class="site-backdrop"></div> --}}

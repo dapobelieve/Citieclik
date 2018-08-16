@@ -9,19 +9,67 @@ Welcome | Citieclik
     <a href="#">Browse by Category</a>
 </div>
 <div class="homecat">
-    @foreach($cats as $cat)
-        <div class="acat">
-            <a href="#">{{ $cat->category }}</a>
-            {{-- <a href="{{route('category', $cat->slug)}}">{{ $cat->category }}</a> --}}
-            <ul class="top-sub-nav">
-                <li><a href="#">Sub Nav 1</a></li>
-                <li><a href="#">Sub Nav 2</a></li>
-                <li><a href="#">Sub Nav 3</a></li>
-                <li><a href="#">Sub Nav 4</a></li>
-                <li><a href="#">Sub Nav 5</a></li>
-            </ul>  
-        </div>
-    @endforeach
+    {{-- <div class="scroll-bar"> --}}
+        {{-- @foreach($cats as $cat) --}}
+            <div class="acat">
+                <a  href="#">Cars</a>
+                {{-- <a href="{{route('category', $cat->slug)}}">{{ $cat->category }}</a> --}}
+                <ul class="top-sub-nav">
+                    {{-- @foreach($cat->subCats()->limit(4)->get() as $subcat) --}}
+                        <li>
+                            <a href="#">Cars</a>
+                        </li>
+                    {{-- @endforeach --}}
+                </ul>  
+            </div>
+            <div class="acat">
+                <a href="#">Real Estate</a>
+                <ul class="top-sub-nav">
+                    <li><a href="#">Sub - nav - content</a></li>
+                    <li><a href="#">Sub - nav - content</a></li>
+                    <li><a href="#">Sub - nav - content</a></li>
+                    <li><a href="#">Sub - nav - content</a></li>
+                </ul>
+            </div>
+            <div class="acat">
+                <a href="#">Phones & Tablets</a>
+                <ul class="top-sub-nav">
+                    <li><a href="#">Sub - nav - content</a></li>
+                    <li><a href="#">Sub - nav - content</a></li>
+                    <li><a href="#">Sub - nav - content</a></li>
+                    <li><a href="#">Sub - nav - content</a></li>
+                </ul>
+            </div>
+            <div class="acat">
+                <a href="#">Fashion & Beauty</a>
+                <ul class="top-sub-nav">
+                    <li><a href="#">Sub - nav - content</a></li>
+                    <li><a href="#">Sub - nav - content</a></li>
+                    <li><a href="#">Sub - nav - content</a></li>
+                    <li><a href="#">Sub - nav - content</a></li>
+                </ul>
+            </div>
+            <div class="acat">
+                <a href="#">Community</a>
+                <ul class="top-sub-nav">
+                    <li><a href="#">Sub - nav - content</a></li>
+                    <li><a href="#">Sub - nav - content</a></li>
+                    <li><a href="#">Sub - nav - content</a></li>
+                    <li><a href="#">Sub - nav - content</a></li>
+                </ul>
+            </div>
+            <div class="acat">
+                <a href="#">Classified</a>
+                <ul class="top-sub-nav">
+                    <li><a href="#">Sub - nav - content</a></li>
+                    <li><a href="#">Sub - nav - content</a></li>
+                    <li><a href="#">Sub - nav - content</a></li>
+                    <li><a href="#">Sub - nav - content</a></li>
+                </ul>
+            </div>
+        {{-- @endforeach --}}
+    {{-- </div> --}}
+    
 </div>
 @stop
 

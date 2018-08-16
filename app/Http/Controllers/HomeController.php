@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-    	$cat = Category::orderBy('img_order', 'desc')->get();
+    	$cat = Category::with('subCats')->orderBy('img_order', 'desc')->get();
         // dd($cat);
     	return view('home')->with('cats', $cat);
     }

@@ -5285,7 +5285,7 @@ video {
         right: 15px
     }
     .offcanvas-toggle.menu-toggle {
-        display: table-cell
+        display: block;
     }
     .redbtn,
     .site-menu,

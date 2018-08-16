@@ -531,3 +531,12 @@
     font-size: 36px;
     margin-left: 50px;
 }
+
+
+/************************************ Recent Ads on Homepage */
+.recent_ads {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}

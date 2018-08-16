@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
+use App\Service;
 
 class HomeController extends Controller
 {
@@ -11,6 +12,8 @@ class HomeController extends Controller
     {
     	$cat = Category::with('subCats')->orderBy('img_order', 'desc')->get();
         // dd($cat);
-    	return view('home')->with('cats', $cat);
+        $ads = Service::latest()->limit(40)->get();
+    	return view('home')->with('cats', $cat)
+                           ->with('ads', $ads);
     }
 }

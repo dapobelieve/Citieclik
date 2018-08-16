@@ -116,10 +116,17 @@ Welcome | Citieclik
         </div>
       </div>
     </div>
-      <!-- Recent Ads Display -->
-
-
-      <!--Recent Ads ends here -->
+    <!-- Recent Ads Display -->
+    <div class="recent_ads">
+        <div class="recent_ads_item">
+            <div class="item_image"></div>
+            <div class="item_details">
+                <div class="item_title"></div>
+                <div class="item_price"></div>
+            </div>
+        </div>
+    </div>
+    <!--Recent Ads ends here -->
 
       <section class="padding-bottom-none">
             <div class="fw-section   padding-top-4x padding-bottom-4x" style="background-image: url(/assets/img/banners/home02.jpg);"><span class="overlay rounded" style="opacity: .35;"></span>

@@ -11,6 +11,9 @@ Welcome | Citieclik
 <div class="homecat">
     {{-- <div class="scroll-bar"> --}}
         {{-- @foreach($cats as $cat) --}}
+        {{-- {{
+            $cats->where('id', 7)->first()->subCats()->get()
+        }} --}}
             <div class="acat">
                 <a  href="#">Cars</a>
                 {{-- <a href="{{route('category', $cat->slug)}}">{{ $cat->category }}</a> --}}

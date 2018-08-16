@@ -22,15 +22,17 @@
                     <a href="{{route('service.detail',['username' => $data->userz->username,'slug' => $data->slug])}}">
                     </a>
                 </h4>
-                <div>
-                    <h5 class="ser-title">
+                <div class="product-details">
+                    <p class="ser-title">
                     {{ str_limit(title_case($data->serviceTitle()), 33) }}
-                    </h5>
-                    <span style="color: #2bd519" class="price">
+                    </p>
+                    <span style="color: #2bd519" class="ser-price">
                         @if(!$data->price == 0)
                         <span> 
                             &#x20A6</span>{{  number_format($data->price) }}
                         </span>
+                        @else 
+
                         @endif
                 </div>
     			{{-- <h4 class="product-price">&#8358;49.99</h4> --}}

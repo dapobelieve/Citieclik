@@ -242,7 +242,19 @@
 /*New CSS Styles*/
 .ser-title {
   color: black !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-botton: 0;
+  font-size: 19px !important;
+  /*font-weight: bolder;*/
+  white-space: nowrap;
+
   /*margin-bottom: 12px;*/
+}
+
+.ser-price {
+  overflow: hidden;
+  
 }
 
 .black {
@@ -321,6 +333,8 @@
   text-decoration: none;
   color: #000 !important;
   margin-top: 2px;
+  font-size: 16px;
+  font-weight: bolder;
 }
 
 .acat a:hover {

@@ -5,10 +5,7 @@
   <!-- Body-->
   <body>
     @yield('request-modal')
-    
-    <!-- Off-Canvas Mobile Menu-->
-
-    {{-- <div class="offcanvas-container" id="mobile-menu"> --}}
+    {{--  Mobile MEnu --}}
         <div class="show-navy" id="mySidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             @if(Auth::check())
@@ -28,17 +25,6 @@
               @endif
             <a href="{{ route('addproduct') }}" class="postBtn">Post Ad</a>
         </div>
-      {{-- 
-      @include('layout.nav2')
-    </div> --}}
-    
-    <!-- Topbar-->
-    
-    <!-- Navbar-->
-    <!-- Remove ".navbar-sticky" class to make navigation bar scrollable with the page.-->
-    {{-- <header class="navbar navbar-sticky"> --}}
-
-
     <header class="navbar fix-header">
 
       <!-- Search-->
@@ -61,7 +47,6 @@
                         Post Ad
                     </a>
                 </div>
-                {{-- /*<span onclick="showNav()" style="color: black">Mobile Nav</span>*/ --}}
                 @if(!Auth::check())
                     <div class="top-item item-c">
                         <a href="{{route('signup')}}" class="top-item-link">Login</a>

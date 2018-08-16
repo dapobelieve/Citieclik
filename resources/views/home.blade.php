@@ -11,7 +11,15 @@ Welcome | Citieclik
 <div class="homecat">
     @foreach($cats as $cat)
         <div class="acat">
-            <a href="{{route('category', $cat->slug)}}">{{ $cat->category }}</a>
+            <a href="#">{{ $cat->category }}</a>
+            {{-- <a href="{{route('category', $cat->slug)}}">{{ $cat->category }}</a> --}}
+            <ul class="top-sub-nav">
+                <li><a href="#">Sub Nav 1</a></li>
+                <li><a href="#">Sub Nav 2</a></li>
+                <li><a href="#">Sub Nav 3</a></li>
+                <li><a href="#">Sub Nav 4</a></li>
+                <li><a href="#">Sub Nav 5</a></li>
+            </ul>  
         </div>
     @endforeach
 </div>
@@ -66,30 +74,29 @@ Welcome | Citieclik
         </div>
       </div>
     </div>
-      <!-- Top Categories-->
+      <!-- Recent Ads Display -->
       <section class="container-fluid padding-top-1x text-center">
          <h3 class="text-center mb-30">Explore our top Categories</h3>
         <div class="row category justify-content-md-center">
-          
-          @foreach($cats as $cat)
-            <div class="category-items col-md-3 col-sm-6">
-              <div class="card mb-30 mybox">
-                <a class="card-img-tiles" href="{{route('category', $cat->slug)}}">
-                <div class="inner">
-                  <div 
-                    style="background-image: url(/assets/img/category/{{$cat->image}}); background-position: center;background-size: cover; max-height: 150px; height: 150px" class="main-img"></div>
-                </div></a>
-                <div class="card-block text-center">
-                  <h6 style="font-size: 14px !important" class="card-title">{{$cat->category}}</h6>
+            @foreach($cats as $cat)
+                <div class="category-items col-md-3 col-sm-6">
+                  <div class="card mb-30 mybox">
+                    <a class="card-img-tiles" href="{{route('category', $cat->slug)}}">
+                    <div class="inner">
+                      <div 
+                        style="background-image: url(/assets/img/category/{{$cat->image}}); background-position: center;background-size: cover; max-height: 150px; height: 150px" class="main-img"></div>
+                    </div></a>
+                    <div class="card-block text-center">
+                      <h6 style="font-size: 14px !important" class="card-title">{{$cat->category}}</h6>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          @endforeach
+            @endforeach
         </div>
       </section>
+      <!--Recent Ads ends here -->
+
       <section class="padding-bottom-none">
-        {{-- <div class="row">
-          <div class=" col-lg-12 "> --}}
             <div class="fw-section   padding-top-4x padding-bottom-4x" style="background-image: url(/assets/img/banners/home02.jpg);"><span class="overlay rounded" style="opacity: .35;"></span>
               <div class="text-center">
                 <h3 class="display-4 text-normal text-white text-shadow mb-1">Become a </h3>
@@ -98,8 +105,6 @@ Welcome | Citieclik
                 <a class="btn btn-primary btn-lg" style="background-color: #03A9F4" href="{{ route('salesagent.register') }}"><i class="icon-signal"></i>&nbsp;Get Started</a>
               </div>
             </div>
-          {{-- </div>
-        </div> --}}
       </section>
         {{-- <br> --}}
       <section class="padding-bottom-none">

@@ -298,17 +298,18 @@
 
 .homecat {
   background-color: #e2dddd3d;
-  padding: 2px;
+  /*padding: 2px;*/
   display: flex;
   justify-content: center !important;
-  /*margin-bottom: 12px;*/
 }
 
 .acat{
+  position: relative;
   text-align: center;
   width: 100%;
-  padding-top: 1px;
-  border: 1px solid #d8d6d6;
+  border-left-style: solid ;
+  border-color: #d6d5d5;
+  border-width: 1px;
   background-color: #fff;
   color: black !important;
 }
@@ -316,11 +317,52 @@
   align-self: center;
   text-decoration: none;
   color: #000 !important;
-  /*margin-top: 2px;*/
+  margin-top: 2px;
 }
 
 .acat a:hover {
   color: red;
+}
+
+/*week 3 top category nav styles*/
+.top-sub-nav {
+  display: none;
+  position: absolute;
+  top: 42px;
+  background: #fff;
+  margin: 0;
+  border-top-style: solid;
+  border-width: 1px;
+  border-color: #d6d5d5;
+  z-index: 11;
+  padding:0;
+  left: 0px;
+  margin-bottom: 12px;
+  width: 100%;
+}
+.top-sub-nav li {
+    display: block;
+    border-bottom: solid 1px #eeeeee;
+    margin:0;
+}
+.top-sub-nav li a {
+    height:18px;
+    font-size: 13px;
+}
+
+.top-sub-nav li a:hover {
+  color: blue !important;
+}
+.acat:hover .top-sub-nav {
+  display: block;
+}
+
+.top-sub-nav > li {
+  list-style-type: none
+}
+
+.acat a:hover .top-sub-nav {
+  display: block;
 }
 .browse-cat {
   display: none;
@@ -378,7 +420,7 @@
     }
 
   .homecat {
-    display: none;
+    /*display: none;*/
   }
 
   .browse-cat {
@@ -432,3 +474,4 @@
 .subTexts2 label .custom-control-description {
     color: #0da9ef !important
 }
+

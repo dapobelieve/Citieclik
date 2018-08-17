@@ -4954,7 +4954,7 @@ video {
     min-height: 60px;
     border-bottom: 1px solid #e1e7ec;
     background-color: #fff;
-    z-index: 9000
+    z-index: 1
 }
 .navbar.navbar-stuck {
     position: fixed;

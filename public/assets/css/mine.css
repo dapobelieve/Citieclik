@@ -264,13 +264,13 @@
 .postBtn {
     background-color: red;
     border: 1px solid transparent;
-    border-radius: 5px;
+    /*border-radius: 5px;*/
     box-sizing: border-box;
     color: white;
     cursor: pointer;
     /*display: inline-block;*/
     font-weight: bold;
-    padding: 5px 6px;
+    padding: 10px;
     text-align: center;
     transition: background-color .222s ease-out;
 }

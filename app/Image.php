@@ -31,8 +31,8 @@ class Image extends Model
             return cl_image_tag($img['public_id'], 
                 array(
                     'cloud_name' => 'citieclik',
-                    'width'      => 200,
-                    'height'     => 150,
+                    'width'      => 300,
+                    'height'     => 250,
                     "crop"       => "fill"
                 )
             );

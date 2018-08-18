@@ -5397,6 +5397,7 @@ video {
     position: relative;
     min-height: 100vh;
     background-color: #fff;
+    /*background-color: #e5e5e5;*/
     z-index: 10
 }
 .offcanvas-container {

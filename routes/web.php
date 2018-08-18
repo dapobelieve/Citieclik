@@ -336,3 +336,6 @@ Route::get('/populate', 'Auth\PopulateController@index');
 
 
 Route::post('/populate', 'Auth\PopulateController@store')->name('populate');
+
+
+// Route::

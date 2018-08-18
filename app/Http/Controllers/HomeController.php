@@ -12,7 +12,8 @@ class HomeController extends Controller
     {
     	$cat = Category::with('subCats')->orderBy('img_order', 'desc')->get();
         // dd($cat);
-        $ads = Service::latest()->limit(40)->get();
+        $ads = Service::with('state', 'loca')->latest()->limit(40)->get();
+        // dd($ads);
     	return view('home')->with('cats', $cat)
                            ->with('ads', $ads);
     }

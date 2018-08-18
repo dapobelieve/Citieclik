@@ -32,7 +32,7 @@
                             &#x20A6</span>{{  number_format($data->price) }}
                         </span>
                         @else 
-
+                            N/A
                         @endif
                 </div>
     			{{-- <h4 class="product-price">&#8358;49.99</h4> --}}

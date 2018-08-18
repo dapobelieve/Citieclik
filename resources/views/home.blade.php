@@ -5,75 +5,67 @@ Welcome | Citieclik
 @endsection
 
 @section('topcat')
-<div class="browse-cat">
+{{-- <div class="browse-cat">
     <a href="#">Browse by Category</a>
-</div>
-<div class="homecat">
-    {{-- <div class="scroll-bar"> --}}
-        {{-- @foreach($cats as $cat) --}}
-        {{-- {{
-            $cats->where('id', 7)->first()->subCats()->get()
-        }} --}}
-            <div class="acat">
-                <a  href="#">Cars</a>
-                {{-- <a href="{{route('category', $cat->slug)}}">{{ $cat->category }}</a> --}}
-                <ul class="top-sub-nav">
-                    {{-- @foreach($cat->subCats()->limit(4)->get() as $subcat) --}}
-                        <li>
-                            <a href="#">Cars</a>
-                        </li>
-                    {{-- @endforeach --}}
-                </ul>  
-            </div>
-            <div class="acat">
-                <a href="#">Real Estate</a>
-                <ul class="top-sub-nav">
-                    <li><a href="#">Sub - nav - content</a></li>
-                    <li><a href="#">Sub - nav - content</a></li>
-                    <li><a href="#">Sub - nav - content</a></li>
-                    <li><a href="#">Sub - nav - content</a></li>
-                </ul>
-            </div>
-            <div class="acat">
-                <a href="#">Phones & Tablets</a>
-                <ul class="top-sub-nav">
-                    <li><a href="#">Sub - nav - content</a></li>
-                    <li><a href="#">Sub - nav - content</a></li>
-                    <li><a href="#">Sub - nav - content</a></li>
-                    <li><a href="#">Sub - nav - content</a></li>
-                </ul>
-            </div>
-            <div class="acat">
-                <a href="#">Fashion & Beauty</a>
-                <ul class="top-sub-nav">
-                    <li><a href="#">Sub - nav - content</a></li>
-                    <li><a href="#">Sub - nav - content</a></li>
-                    <li><a href="#">Sub - nav - content</a></li>
-                    <li><a href="#">Sub - nav - content</a></li>
-                </ul>
-            </div>
-            <div class="acat">
-                <a href="#">Community</a>
-                <ul class="top-sub-nav">
-                    <li><a href="#">Sub - nav - content</a></li>
-                    <li><a href="#">Sub - nav - content</a></li>
-                    <li><a href="#">Sub - nav - content</a></li>
-                    <li><a href="#">Sub - nav - content</a></li>
-                </ul>
-            </div>
-            <div class="acat">
-                <a href="#">Classified</a>
-                <ul class="top-sub-nav">
-                    <li><a href="#">Sub - nav - content</a></li>
-                    <li><a href="#">Sub - nav - content</a></li>
-                    <li><a href="#">Sub - nav - content</a></li>
-                    <li><a href="#">Sub - nav - content</a></li>
-                </ul>
-            </div>
-        {{-- @endforeach --}}
-    {{-- </div> --}}
-    
-</div>
+</div> --}}
+    {{-- <div class="homecat">
+        <div class="acat">
+            <a  href="#">Cars</a>
+            <ul class="top-sub-nav">
+                <li>
+                    <a href="#">Toyota</a>
+                </li>
+                <li>
+                    <a href="#">Honda</a>
+                </li>
+                <li>
+                    <a href="#">Benz</a>
+                </li>
+                <li>
+                    <a href="#">Lexus</a>
+                </li>
+            </ul>  
+        </div>
+        <div class="acat">
+            <a href="#">Real Estate</a>
+            <ul class="top-sub-nav">
+                <li><a href="#">Sub - nav - content</a></li>
+                <li><a href="#">Sub - nav - content</a></li>
+                <li><a href="#">Sub - nav - content</a></li>
+                <li><a href="#">Sub - nav - content</a></li>
+            </ul>
+        </div>
+        <div class="acat">
+            <a href="#">Phones & Tablets</a>
+            <ul class="top-sub-nav">
+                <li><a href="#">Sub - nav - content</a></li>
+                <li><a href="#">Sub - nav - content</a></li>
+                <li><a href="#">Sub - nav - content</a></li>
+                <li><a href="#">Sub - nav - content</a></li>
+            </ul>
+        </div>
+        <div class="acat">
+            <a href="#">Fashion & Beauty</a>
+        </div>
+        <div class="acat">
+            <a href="#">Community</a>
+            <ul class="top-sub-nav">
+                <li><a href="#">Sub - nav - content</a></li>
+                <li><a href="#">Sub - nav - content</a></li>
+                <li><a href="#">Sub - nav - content</a></li>
+                <li><a href="#">Sub - nav - content</a></li>
+            </ul>
+        </div>
+        <div class="acat">
+            <a href="#">Classified</a>
+            <ul class="top-sub-nav">
+                <li><a href="#">Sub - nav - content</a></li>
+                <li><a href="#">Sub - nav - content</a></li>
+                <li><a href="#">Sub - nav - content</a></li>
+                <li><a href="#">Sub - nav - content</a></li>
+            </ul>
+        </div>
+    </div> --}}
 @stop
 
 @section('content')
@@ -118,12 +110,39 @@ Welcome | Citieclik
     </div>
     <!-- Recent Ads Display -->
     <div class="recent_ads">
-        <div class="recent_ads_item">
-            <div class="item_image"></div>
-            <div class="item_details">
-                <div class="item_title"></div>
-                <div class="item_price"></div>
+        @foreach($ads as $data)
+            <div class="recent_ads_item">
+                <div class="item_image">
+                    <a class="img_wrapper" href="{{route('service.detail',['username' => $data->userz->username,'slug' => $data->slug])}}">
+                        {!! $data->getImages() !!}
+                    </a>
+                </div>
+                <div class="item_details ">
+                    <div class="ser-title">
+                        <a href="{{route('service.detail',['username' => $data->userz->username,'slug' => $data->slug])}}">
+                            {{ $data->serviceTitle() }}
+                        </a>
+                    </div>
+                    <div class="location">
+                        {{ $data->state->state }}, {{ $data->loca->lga }}
+                    </div>
+                    <div class="item_price">
+                        <span style="color: #2bd519" class="ser-price">
+                        @if(!$data->price == 0)
+                        <span> 
+                            &#x20A6</span>{{  number_format($data->price) }}
+                        </span>
+                        @else 
+                            N/A
+                        @endif
+                    </div>
+                </div>
             </div>
+        @endforeach
+        <div class="col-auto more-ads">
+            <button style="background-color: green;" type="submit" class="btn btn-primary ">
+                More Ads
+            </button>
         </div>
     </div>
     <!--Recent Ads ends here -->

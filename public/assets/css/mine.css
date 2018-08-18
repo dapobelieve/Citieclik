@@ -245,8 +245,8 @@
   overflow: hidden;
   text-overflow: ellipsis;
   margin-botton: 0;
-  font-size: 19px !important;
-  /*font-weight: bolder;*/
+  font-size: 15px !important;
+  font-weight: bolder;
   white-space: nowrap;
 
   /*margin-bottom: 12px;*/
@@ -535,8 +535,61 @@
 
 /************************************ Recent Ads on Homepage */
 .recent_ads {
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin: 15px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(17%, 1fr));
+  justify-content: center;
+  grid-column-gap: 19px;
+  grid-row-gap: 18px;
+}
+
+@media (max-width: 700px) {
+  .recent_ads {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+  }
+  ..ser-title {
+    font-size: 10px !important;
+  }
+}
+
+.recent_ads_item {
+  border: none;
+  background-color: #ffffff;
+  box-shadow: 1px 1px 3px #7f7676;
+  border-radius: 3px;
+  /*width: 201px;*/
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden;
+}
+
+.item_image {
+  /*height: 155px !important;*/
+  /*width: 100%;*/
+  overflow: hidden;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.ser-title a {
+  text-decoration: none !important;
+  color: black !important;
+}
+
+.item_details {
+  padding: 10px;
+}
+
+.item_image img {
+  vertical-align: middle;
+}
+
+.img_wrapper {
+  width: 100%;
+}
+
+.more-ads {
+  justify-self: center; 
+  grid-column: 3 / span 1
 }

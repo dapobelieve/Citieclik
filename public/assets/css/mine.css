@@ -245,7 +245,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   margin-botton: 0;
-  font-size: 15px !important;
+  font-size: 17px !important;
   font-weight: bolder;
   white-space: nowrap;
 
@@ -254,7 +254,8 @@
 
 .ser-price {
   overflow: hidden;
-  
+  font-weight: bolder;
+  font-size: 17px !important;
 }
 
 .black {
@@ -311,8 +312,10 @@
 .homecat {
   background-color: #e2dddd3d;
   display:  grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(8, 1fr);
   justify-content: center !important;
+  /*margin-right: 12px;*/
+  /*margin-left: 2px;*/
 }
 
 .acat{
@@ -345,7 +348,7 @@
 .top-sub-nav {
   display: none;
   position: absolute;
-  top: 40px;
+  top: 43px;
   background: #fff;
   margin: 0;
   border-top-style: solid;
@@ -535,7 +538,7 @@
 
 /************************************ Recent Ads on Homepage */
 .recent_ads {
-  margin: 15px;
+  margin: 30px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(17%, 1fr));
   justify-content: center;
@@ -590,6 +593,7 @@
 }
 
 .more-ads {
+  /*align-content: center;*/
   justify-self: center; 
   grid-column: 3 / span 1
 }

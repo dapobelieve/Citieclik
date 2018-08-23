@@ -10,7 +10,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
 
-class EmailConfirmation implements ShouldQueue;
+class EmailConfirmation implements ShouldQueue
 {
     /**
      * Create the event listener.

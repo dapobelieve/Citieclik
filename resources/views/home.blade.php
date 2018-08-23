@@ -8,64 +8,20 @@ Welcome | Citieclik
 {{-- <div class="browse-cat">
     <a href="#">Browse by Category</a>
 </div> --}}
-    {{-- <div class="homecat">
-        <div class="acat">
-            <a  href="#">Cars</a>
-            <ul class="top-sub-nav">
-                <li>
-                    <a href="#">Toyota</a>
-                </li>
-                <li>
-                    <a href="#">Honda</a>
-                </li>
-                <li>
-                    <a href="#">Benz</a>
-                </li>
-                <li>
-                    <a href="#">Lexus</a>
-                </li>
-            </ul>  
-        </div>
-        <div class="acat">
-            <a href="#">Real Estate</a>
-            <ul class="top-sub-nav">
-                <li><a href="#">Sub - nav - content</a></li>
-                <li><a href="#">Sub - nav - content</a></li>
-                <li><a href="#">Sub - nav - content</a></li>
-                <li><a href="#">Sub - nav - content</a></li>
-            </ul>
-        </div>
-        <div class="acat">
-            <a href="#">Phones & Tablets</a>
-            <ul class="top-sub-nav">
-                <li><a href="#">Sub - nav - content</a></li>
-                <li><a href="#">Sub - nav - content</a></li>
-                <li><a href="#">Sub - nav - content</a></li>
-                <li><a href="#">Sub - nav - content</a></li>
-            </ul>
-        </div>
-        <div class="acat">
-            <a href="#">Fashion & Beauty</a>
-        </div>
-        <div class="acat">
-            <a href="#">Community</a>
-            <ul class="top-sub-nav">
-                <li><a href="#">Sub - nav - content</a></li>
-                <li><a href="#">Sub - nav - content</a></li>
-                <li><a href="#">Sub - nav - content</a></li>
-                <li><a href="#">Sub - nav - content</a></li>
-            </ul>
-        </div>
-        <div class="acat">
-            <a href="#">Classified</a>
-            <ul class="top-sub-nav">
-                <li><a href="#">Sub - nav - content</a></li>
-                <li><a href="#">Sub - nav - content</a></li>
-                <li><a href="#">Sub - nav - content</a></li>
-                <li><a href="#">Sub - nav - content</a></li>
-            </ul>
-        </div>
-    </div> --}}
+    <div class="homecat">
+        @foreach($top as $data)
+            <div class="acat">
+                <a  href="#">{{ $data->name }}</a>
+                <ul class="top-sub-nav">
+                    @foreach($data->categories()->limit(4)->get() as $layer)
+                    <li>
+                        <a href="#">{{ $layer->category }}</a>
+                    </li>
+                    @endforeach
+                </ul>  
+            </div>
+        @endforeach
+    </div>
 @stop
 
 @section('content')
@@ -123,7 +79,7 @@ Welcome | Citieclik
                             {{ $data->serviceTitle() }}
                         </a>
                     </div>
-                    <div class="location">
+                    <div style="font-size: 15px" class="location">
                         {{ $data->state->state }}, {{ $data->loca->lga }}
                     </div>
                     <div class="item_price">
@@ -133,17 +89,17 @@ Welcome | Citieclik
                             &#x20A6</span>{{  number_format($data->price) }}
                         </span>
                         @else 
-                            N/A
+                            Negotiable
                         @endif
                     </div>
                 </div>
             </div>
         @endforeach
-        <div class="col-auto more-ads">
+        {{-- <div class="col-auto more-ads">
             <button style="background-color: green;" type="submit" class="btn btn-primary ">
                 More Ads
             </button>
-        </div>
+        </div> --}}
     </div>
     <!--Recent Ads ends here -->
 

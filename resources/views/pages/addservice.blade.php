@@ -29,7 +29,11 @@
               {{-- <li><a href="index-2.html">Home</a> --}}
               </li>
               <li class="separator">&nbsp;</li>
-              <li>Add Service </li>
+              @if($tdata == 'p')
+                    <li>Post New Product </li>
+                @elseif($tdata == 's')
+                    <li>Add New Service </li>
+                @endif
             </ul>
           </div>
         </div>

@@ -13,7 +13,7 @@ Welcome | Citieclik
             <div class="acat">
                 <a  href="#">{{ $data->name }}</a>
                 <ul class="top-sub-nav">
-                    @foreach($data->categories()->limit(4)->get() as $layer)
+                    @foreach($data->categories()->get() as $layer)
                     <li>
                         <a href="#">{{ $layer->category }}</a>
                     </li>

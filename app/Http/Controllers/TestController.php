@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Auth;
 use App\User;
 use App\Plan;
+use App\Cat;
+use App\Category;
 use App\Subcategory;
 use Carbon\Carbon;
 use App\Subscription;
@@ -19,6 +21,26 @@ use App\Http\Controller\Funcs\Slug;
 
 class TestController extends Controller
 {
+
+    public function index()
+    {
+        // $phones = [
+        //     'Iphone',
+        //     'Infinix',
+        //     'Htc',
+        //     'Lg',
+        //     'Nokia',
+        //     'Blackberry',
+        //     'Itel',
+        //     'Gionee',
+        //     'Tecno',
+        //     'Samsung'
+        // ];
+
+
+        $phones = Service::where('sub_category_id', 124)->get();
+
+    }
     // public function catsy()
     // {
     //     // used this function to slug all the subcategories 

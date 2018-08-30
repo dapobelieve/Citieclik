@@ -6,6 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
+    public $timestamps = false;
+    protected $fillable = [
+        'cat_id',
+        'category',
+        'slug'
+    ];
     public function subCats()
     {
     	return $this->hasMany('App\Subcategory', 'category_id');

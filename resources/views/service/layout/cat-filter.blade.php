@@ -2,11 +2,11 @@
               <div class="padding-top-2x hidden-lg-up"></div>
               <!-- Widget Categories-->
               <section class="widget widget-categories">
-                <h3>Categories</h3>
+                <h3>{{ $cat->name }}</h3>
                 <ul class="subTexts">
-                 {{--  @foreach($cats->where('type', $type) as $cat)
-                      <li><a href="#" class="catz" data-id="{{$cat->id}}" data-filter="{{$cat->slug}}">{{$cat->category}}</a>{{-- <span>(1138)</span> --}}</li>
-                  {{-- @endforeach --}} 
+                  @foreach($cat->categories as $cat)
+                      <li><a href="#" class="catz" data-id="{{$cat->id}}" data-filter="{{$cat->slug}}">{{$cat->category}}</a><span>{{-- ({{$cat->count()}}) --}}</span></li>
+                  @endforeach 
                   
                 </ul>
               </section>

@@ -5,12 +5,11 @@
     <div class="gutter-sizer"></div>
     <div class="grid-sizer"></div>
 
-    @foreach($listings->services->sortByDesc('latestService.created_at') as $data)
+    @foreach($listings as $data)
         <div class="isoitem grid-item 
                     {{$data->slugIt($data->catty->slug)}} 
-                    {{$data->slugIt($data->subCat->sub_category)}} 
                     {{$data->slugIt($data->loca->lga)}} 
-                    {{$data->slugIt($data->loca->state->state)}}"
+                    {{$data->slugIt($data->state->state)}}"
         >
             <div class="recent_ads_item">
                 <div class="item_image">
@@ -26,7 +25,7 @@
                     </div>
                     <div style="font-size: 15px" class="location">
                         {{ $data->loca->lga }}
-                        {{ $data->created_at }}
+                        {{-- {{ $data->created_at }} --}}
                     </div>
                     <div class="item_price">
                         <span style="color: #2bd519" class="ser-price">

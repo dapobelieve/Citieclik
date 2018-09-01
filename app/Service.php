@@ -13,7 +13,11 @@ class Service extends Model
 	{
 		return $this->belongsTo(User::class, 'user_id');
 	}
-
+    public function cat ()
+    {
+        return $this->belongsTo(Cat::class);
+    }
+    
 	public function catty()
 	{
 		return $this->belongsTo('App\Category', 'category_id');
@@ -52,11 +56,11 @@ class Service extends Model
     public function getImages()
     {
         // dd($this->images()->get());
-        if($this->images()->first() == null){
+        if($this->images->first() == null){
             
             return "<img src='/assets/img/default.jpg'>";
         }else{
-            return $this->images()->first()->servieImage();
+            return $this->images->first()->servieImage();
         }
     }
 

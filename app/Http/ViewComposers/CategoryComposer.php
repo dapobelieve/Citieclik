@@ -15,7 +15,7 @@ class CategoryComposer
     {
         if (!$this->cat && !$this->state) {
 
-            $this->cat = Cat::with('categories', 'services')->get();
+            $this->cat = Cat::with('categories')->get();
             $this->state = State::with('locations')->get();
         }
 

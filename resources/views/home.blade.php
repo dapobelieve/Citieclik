@@ -13,7 +13,7 @@ Welcome | Citieclik
             <div class="acat">
                 <a  href="{{ route('category.index', [$data->slug]) }}">{{ $data->name }}</a>
                 <ul class="top-sub-nav">
-                    @foreach($data->categories()->get() as $layer)
+                    @foreach($data->categories as $layer)
                     <li>
                         <a href="#">{{ $layer->category }}</a>
                     </li>

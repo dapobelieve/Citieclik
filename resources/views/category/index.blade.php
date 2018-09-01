@@ -1,7 +1,7 @@
 @extends('layout.template')
 
 @section('title')
-{{ $listings->name }} | Citieclik
+{{ $cat->name }} | Citieclik
 @endsection
 
 @section('content')
@@ -9,14 +9,14 @@
             <div class="page-title">
                 <div class="container">
                     <div class="column">
-                        <h1>{{ $listings->name }}</h1>
+                        <h1>{{ $cat->name }}</h1>
                     </div>
                     <div class="column">
                         <ul class="breadcrumbs">
                             <li><a href="#">Home</a>
                             </li>
                             <li class="separator">&nbsp;</li>
-                            <li>{{ $listings->name }}</li>
+                            <li>{{ $cat->name }}</li>
                         </ul>
                     </div>
                 </div>

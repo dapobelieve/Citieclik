@@ -17,11 +17,10 @@ class CategoryController extends Controller
 
     public function getAll(Cat $cat)
     {
-        // dd($cat->name);
-        $data = Cat::with('categories', 'services')->where('slug', $cat->slug)->first();
+        $listings = $cat->services()->with('userz', 'state', 'loca', 'catty', 'images')->latest()->get();
 
         // dd($data);
 
-        return view('category.index')->with('listings', $data);
+        return view('category.index', compact('listings', 'cat'));
     }
 }

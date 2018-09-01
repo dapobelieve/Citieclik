@@ -9,9 +9,9 @@ Welcome | Citieclik
     <a href="#">Browse by Category</a>
 </div> --}}
     <div class="homecat">
-        @foreach($top as $data)
+        @foreach($cats as $data)
             <div class="acat">
-                <a  href="#">{{ $data->name }}</a>
+                <a  href="{{ route('category.index', [$data->slug]) }}">{{ $data->name }}</a>
                 <ul class="top-sub-nav">
                     @foreach($data->categories()->get() as $layer)
                     <li>

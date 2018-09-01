@@ -2,11 +2,6 @@
               <div class="padding-top-2x hidden-lg-up"></div>
               <!-- Widget Categories-->
               <section class="widget widget-categories">
-                @if($type == 's')
-                  <h3 class="sideTexts widget-title">Service Categories</h3>
-                @elseif($type == 'p')
-                  <h3 class="sideTexts widget-title">Product Categories</h3>
-                @endif
                 <ul class="subTexts">
                   @foreach($cats->where('type', $type) as $cat)
                       <li><a href="#" class="catz" data-id="{{$cat->id}}" data-filter="{{$cat->slug}}">{{$cat->category}}</a>{{-- <span>(1138)</span> --}}</li>

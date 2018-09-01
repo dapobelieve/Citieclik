@@ -312,7 +312,7 @@
 .homecat {
   background-color: #e2dddd3d;
   display:  grid;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: repeat(9, 1fr);
   justify-content: center !important;
   /*margin-right: 12px;*/
   /*margin-left: 2px;*/

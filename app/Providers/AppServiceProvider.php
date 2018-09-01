@@ -16,12 +16,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::composer('*', function($view) {
-            $cat = Category::orderBy('category')->get();
-            $state = State::orderBy('state')->get();
-            $view->with('cats', $cat)
-                 ->with('states', $state);
-        });
+        
     }
 
     /**

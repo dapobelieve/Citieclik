@@ -338,4 +338,10 @@ Route::get('/populate', 'Auth\PopulateController@index');
 Route::post('/populate', 'Auth\PopulateController@store')->name('populate');
 
 
-// Route::
+/**
+ * NeW cAtegories routes
+ */
+
+Route::group(['prefix' => '/categories/'], function () {
+	Route::get('{cat}', 'CategoryController@getAll')->name('category.index');
+});

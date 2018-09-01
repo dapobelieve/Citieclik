@@ -9,11 +9,11 @@
                     <strong>CitieClik.com</strong><br>
                       L 45 Ewet Housing Estate<br>
                       Uyo Akwa Ibom State.<br>
-                    <abbr title="Phone">P:</abbr> (123) 456-7890
+                    <abbr title="Phone">P:</abbr> +234 809 266 6665
                 </address>
-                <p><a class="navi-link-light">hello@citieclik.com</a> 
-                    <br>
-                <a class="navi-link-light">citieclik01@gmail.com</a></p>
+                <p>
+                    <a class="navi-link-light">citieclik01@gmail.com</a>
+                </p>
 
               </section>
             </div>

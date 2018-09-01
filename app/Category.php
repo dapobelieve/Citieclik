@@ -12,6 +12,12 @@ class Category extends Model
         'category',
         'slug'
     ];
+
+    public function cat ()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
     public function subCats()
     {
     	return $this->hasMany('App\Subcategory', 'category_id');

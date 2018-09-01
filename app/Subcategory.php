@@ -20,7 +20,7 @@ class Subcategory extends Model
 
     public function servy()
     {
-    	return $this->hasMany('App\Service');
+    	return $this->hasMany(Service::class);
     }
 
     public function subCats2()

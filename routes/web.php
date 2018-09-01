@@ -292,7 +292,7 @@ Route::post('/admin/subscribe-user', 'Admin\AddClickController@create')->name('a
 
 Route::get('admin/agents', 'Admin\AgentsController@index')->name('admin.agents');
 Route::get('admin/category', 'Admin\CategoryController@getCategory')->name('admin.category');
-Route::get('admin/category/{category}', 'Admin\CategoryController@getCatDetail')->name('category.index');
+Route::get('admin/category/{category}', 'Admin\CategoryController@getCatDetail')->name('category.home');
 
 Route::get('admin/user-details/{slug}', 'Admin\UsersController@show')->name('admin.users.details');
 
@@ -342,6 +342,6 @@ Route::post('/populate', 'Auth\PopulateController@store')->name('populate');
  * NeW cAtegories routes
  */
 
-Route::group(['prefix' => '/categories/'], function () {
-	Route::get('{cat}', 'CategoryController@getAll')->name('category.index');
+Route::group(['prefix' => '/section'], function () {
+	Route::get('/{cat}', 'CategoryController@getAll')->name('category.index');
 });

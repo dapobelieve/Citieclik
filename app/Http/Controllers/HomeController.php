@@ -11,12 +11,8 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $superCats = Cat::with('categories')->where('id', '!=', 2)->get();
-         // dd($superCats);
-
         $ads = Service::with('state', 'loca')->whereIn('category_id', [5, 7])->latest()->orderByRaw('RAND()')->limit(40)->get();
 
-    	return view('home')->with('top', $superCats)
-                           ->with('ads', $ads);
+    	return view('home')->with('ads', $ads);
     }
 }

@@ -24,4 +24,9 @@ class Cat extends Model
     {
         return $this->hasMany(Service::class);
     }
+
+    public function latestService () 
+    {
+        return $this->hasOne(Service::class)->latest();
+    }
 }

@@ -1,11 +1,11 @@
 <?php
 
 // For testing purposes
-Route::get('/test', 'TestController@index')->name('test');
+// Route::get('/test', 'TestController@index')->name('test');
 
-Route::get('/usa', function () {
-	return view('dashboard.pages.userprofile');
-});
+// Route::get('/usa', function () {
+// 	return view('dashboard.pages.userprofile');
+// });
 
 // ends here
 
@@ -344,4 +344,8 @@ Route::post('/populate', 'Auth\PopulateController@store')->name('populate');
 
 Route::group(['prefix' => '/section'], function () {
 	Route::get('/{cat}', 'CategoryController@getAll')->name('category.index');
+
+	Route::group(['prefix' => '/{cat}'], function () {
+		Route::get('/{category}', 'CategoryController@getSub')->name('category.index2');
+	});
 });

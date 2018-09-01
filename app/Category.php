@@ -13,9 +13,14 @@ class Category extends Model
         'slug'
     ];
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     public function cat ()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Cat::class);
     }
 
     public function subCats()

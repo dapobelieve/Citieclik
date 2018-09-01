@@ -1,9 +1,6 @@
 @extends('layout.template')
 @section('style')
-	 {{-- Summer Note --}}
-  {{-- <link href="/assets/css/bootstrap.min.css" rel="stylesheet"> --}}
   <link href="/dist/ui/trumbowyg.min.css" rel="stylesheet">
-  {{-- <link rel="stylesheet" href="../css/nice-select.css"> --}}
 @endsection
 
 @section('title')

@@ -18,9 +18,16 @@ class CategoryController extends Controller
     public function getAll(Cat $cat)
     {
         $listings = $cat->services()->with('userz', 'state', 'loca', 'catty', 'images')->latest()->get();
-
-        // dd($data);
-
         return view('category.index', compact('listings', 'cat'));
+    }
+
+    public function getSub (Cat $cat, Category $category)
+    {
+        $listings = $category->services()->with('userz', 'state', 'loca', 'catty', 'images')->latest()->get();
+
+        // $category = $category->with;
+
+        // dd($category);       
+        return view('category.index2', compact('listings', 'category'));
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\State;
 use App\Category;
+use App\Cat;
 use App\Subcategory;
 
 class AjaxRequestsController extends Controller

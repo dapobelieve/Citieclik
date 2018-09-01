@@ -23,11 +23,11 @@ class AjaxRequestsController extends Controller
     }
 
     //get state local govts for ajax request
-    public function getSubCat(Request $request, $id)
+    public function getCat(Request $request, $id)
     {
     	if($request->ajax()){
-            $cat = Category::find($id);
-            $data = $cat->subCats;
+            $cat = Cat::findOrFail($id);
+            $data = $cat->categories;
 
             return response()->json($data, 200);
             // return $data->toJson();
@@ -36,21 +36,18 @@ class AjaxRequestsController extends Controller
         }
     }
 
-    //get parent categories
-    public function getParent(Request $request, $type)
+    public function getSubCat(Request $request, $id)
     {
-        if($request->ajax()){
-            $cats = Category::where('type', $type)->get();
+        $cat = Category::findOrFail($id);
+        $data = $cat->subCats;
 
-            return response()->json($cats, 200);
-
-        }else{
-            return redirect()->route('home');
-        }
+        return response()->json($data, 200);
     }
 
-    public function getSubCat2(Request $request,SubCategory $id)
+    public function getSubCat2(Request $request, $id)
     {
-        return response()->json($id->subCats2, 200);
+        $subCat = Subcategory::findOrFail($id);
+        $data = $subCat->subCats2;
+        return response()->json($data, 200);
     }
 }

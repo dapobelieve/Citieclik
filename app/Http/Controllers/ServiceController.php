@@ -59,6 +59,7 @@ class ServiceController extends Controller
 		$service = new Service;
         $service->title             = $serRequest->input('serTitle');
         $service->user_id           = $serRequest->user()->id;
+        $service->cat_id            = $serRequest->input('serSec');
         $service->category_id       = $serRequest->input('serCat');
         $service->sub_category_id   = $serRequest->input('subCat');
         $service->description       = $serRequest->input('description');

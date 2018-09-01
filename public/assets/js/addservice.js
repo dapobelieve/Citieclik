@@ -28,14 +28,15 @@ function getLoco (value) {
 }
 
 
-function getSubCat(value)
+function getCat2(value)
 {
-    document.getElementById('subcatty').innerHTML = '';
-    document.getElementById('subcatty2').innerHTML = '';
+    document.getElementById('cat2').innerHTML = '';
+    document.getElementById('subcat').innerHTML = '';
+    document.getElementById('subcat2').innerHTML = '';
 
     let selectData = `
-            <label for="checkout-country">Sub Category</label>
-                <select required onchange="getSubCat2(this.value)" class="form-control" name="subCat" id="subCat">
+            <label for="checkout-country">Select a Category</label>
+                <select required onchange="getSubCat(this.value)" class="form-control" name="serCat" id="serCat">
     `;
 
     axios.get('/api/getcategory/'+value)
@@ -45,11 +46,11 @@ function getSubCat(value)
             return;
         }else{
             results.forEach(function (ele, index) {
-                selectData += `<option value=${ele.id}>${ele.sub_category}</option>`
+                selectData += `<option value=${ele.id}>${ele.category}</option>`
             });
 
             selectData += `</select>`;
-            document.getElementById('subcatty').insertAdjacentHTML('beforeend', selectData);
+            document.getElementById('cat2').insertAdjacentHTML('beforeend', selectData);
          }
 
     })
@@ -58,12 +59,12 @@ function getSubCat(value)
     })
 }
 
-function getSubCat2(value)
+function getSubCat(value)
 {
-    document.getElementById('subcatty2').innerHTML = '';
+    document.getElementById('subcat').innerHTML = '';
     let selectData = `
             <label for="checkout-country">Options</label>
-                <select required  class="form-control" name="subCat2" id="subCat">
+                <select required onchange="getSubCat2(this.value)" class="form-control" name="subCat" id="subCat">
     `;
 
     axios.get('/api/getsubcategory/'+value)
@@ -79,7 +80,38 @@ function getSubCat2(value)
 
             selectData += `</select>`;
             
-            document.getElementById('subcatty2').insertAdjacentHTML('beforeend', selectData);
+            document.getElementById('subcat').insertAdjacentHTML('beforeend', selectData);
+        }
+        
+
+    })
+    .catch(error => {
+        console.log(error);
+    })
+}
+
+function getSubCat2(value)
+{
+    document.getElementById('subcat2').innerHTML = '';
+    let selectData = `
+            <label for="checkout-country">Options</label>
+                <select required  class="form-control">
+    `;
+
+    axios.get('/api/getsubcategory2/'+value)
+    .then(response => {
+        let results = response.data;
+        if(results.length === 0){
+            console.log("empty");
+        }else{
+            // console.log(results);
+            results.forEach(function (ele, index) {
+            selectData += `<option value=${ele.id}>${ele.sub_category}</option>`
+            });
+
+            selectData += `</select>`;
+            
+            document.getElementById('subcat2').insertAdjacentHTML('beforeend', selectData);
         }
         
 

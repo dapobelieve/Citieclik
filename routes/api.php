@@ -9,8 +9,9 @@ Route::post('click', 'Click\ClickController@store');
 Route::post('clickcount', 'Click\ClickController@getClicks');
 
 
-Route::get('/getcategory/{id}', 'AjaxRequestsController@getSubCat');
-Route::get('/getsubcategory/{id}', 'AjaxRequestsController@getSubCat2');
+Route::get('/getcategory/{id}', 'AjaxRequestsController@getCat');
+Route::get('/getsubcategory/{id}', 'AjaxRequestsController@getSubCat');
+Route::get('/getsubcategory2/{id}', 'AjaxRequestsController@getSubCat2');
 
 Route::get('/getcat/{type}', 'AjaxRequestsController@getParent');
 

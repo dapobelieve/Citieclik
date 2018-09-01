@@ -4,11 +4,7 @@
 @endsection
 
 @section('title')
-@if($tdata == 'p')
-	Post Product | Citieclik
-@elseif($tdata == 's')
-	Add service | Citieclik
-@endif
+Post Ad | Citieclik
 @endsection
 
 @section('content')
@@ -23,14 +19,10 @@
           </div>
           <div class="column">
             <ul class="breadcrumbs">
-              {{-- <li><a href="index-2.html">Home</a> --}}
+              <li><a href="{{ route('home') }}">Home</a>
               </li>
               <li class="separator">&nbsp;</li>
-              @if($tdata == 'p')
-                    <li>Post New Product </li>
-                @elseif($tdata == 's')
-                    <li>Add New Service </li>
-                @endif
+              <li>Post a New Ad</li>
             </ul>
           </div>
         </div>
@@ -51,11 +43,7 @@
 							</ul>
 		            </div>
 		          @endif
-		            @if($tdata == 'p')
-		          		<h4>Product Details</h4>
-		          	@elseif($tdata == 's')
-		            	<h4>Add New Service </h4>
-		            @endif
+		            <h4>Post a New Ad</h4>
 		            <hr>
 		            <hr class="padding-bottom-1x">
 		            <form class="" role="form" method="POST" enctype="multipart/form-data" action="{{route('addservice')}}">
@@ -80,33 +68,32 @@
 			            <div class="row">
 			              	<div class="col-sm-6">
 				                <div class="form-group {{ $errors->has('serCat') ? ' has-error' : '' }}">
-				                  	<label for="serCat">Category</label>
-				                  	<select class="form-control" onchange="getSubCat(this.value)" name="serCat" id="serCat" value="{{ Request::old('serCat') ?: ''  }}">
-					                    <option>Choose a Category</option>
-					                    @if($tdata == 'p')
-					                    	@foreach($cats->where('type', 'p') as $cat)
-					                        	<option value="{{$cat->id}}">{{$cat->category}}</option>
-					                    	@endforeach
-					                    @elseif($tdata == 's')
-					                    	@foreach($cats->where('type', 's') as $cat)
-						                        <option value="{{$cat->id}}">{{$cat->category}}</option>
-						                    @endforeach
-					                    @endif
+				                  	<label for="serCat">Section</label>
+				                  	<select class="form-control" onchange="getCat2(this.value)" name="serSec" id="" value="{{ Request::old('serCat') ?: ''  }}">
+					                    <option>Section</option>
+					                    @foreach($cats as $cat)
+                                            <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+                                        @endforeach
 					                    
 				                  	</select>
-		  		                  	@if ($errors->has('serCat'))
+		  		                  	{{-- @if ($errors->has('serCat'))
 										<p class="help-block text-danger"><i class="icon-circle-cross"></i>&nbsp;{{ $errors->first('serCat') }}</p>
-				                	@endif
-				                </div>
-			              	</div>
-	              			<div class="col-sm-6">
-				                <div class="form-group">
-				                  	<span id="subcatty"></span>
+				                	@endif --}}
 				                </div>
 			              	</div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <span id="subcatty2"></span>
+                                    <span id="cat2"></span>
+                                </div>
+                            </div>
+	              			<div class="col-sm-6">
+				                <div class="form-group">
+				                  	<span id="subcat"></span>
+				                </div>
+			              	</div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <span id="subcat2"></span>
                                 </div>
                             </div>
 

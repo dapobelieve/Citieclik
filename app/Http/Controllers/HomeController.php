@@ -11,7 +11,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $ads = Service::with('state', 'loca', 'images', 'userz')->whereIn('category_id', [5, 7])->latest()->orderByRaw('RAND()')->limit(40)->get();
+        $ads = Service::with('state', 'loca', 'images', 'userz')->whereIn('category_id', [5, 7])->orderByRaw('RAND()')->limit(40)->get();
 
     	return view('home')->with('ads', $ads);
     }

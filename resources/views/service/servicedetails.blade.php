@@ -45,8 +45,15 @@
                         <i class="icon-star"></i> --}}
                       {{-- </div><span class="text-muted align-middle">&nbsp;&nbsp;4.2 | 3 customer reviews</span> --}}
                         <h2 class="padding-top-1x text-normal">{{ title_case($service->serviceTitle())  }}</h2>
-                        {{-- <span class="h2 d-block">$47.60</span> --}}
-                        {{-- {{$service->location }} --}}
+                        <div class="item_price">
+                            @if(!$service->price == 0)
+                            <span style="color: #2bd519" class="h2 d-block"> 
+                                <span>&#x20A6</span>{{  number_format($service->price) }}
+                            </span>
+                            @else 
+                                Negotiable
+                            @endif
+                        </div>
                        
                         <br>
                         <br>

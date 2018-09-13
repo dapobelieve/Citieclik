@@ -15,13 +15,7 @@ class ComposerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::composer(
-            [
-                'home', 
-                'service.layout.state-filter',
-                'pages.addservice'
-            ], 
-            CategoryComposer::class);
+        View::composer('*', CategoryComposer::class);
     }
 
     /**

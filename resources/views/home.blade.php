@@ -8,7 +8,7 @@ Welcome | Citieclik
 {{-- <div class="browse-cat">
     <a href="#">Browse by Category</a>
 </div> --}}
-    <div class="homecat">
+    <section class="homecat">
         @foreach($cats as $data)
             <div class="acat">
                 <a  href="{{ route('category.index', [$data->slug]) }}">{{ $data->name }}</a>
@@ -23,7 +23,7 @@ Welcome | Citieclik
                 </ul>  
             </div>
         @endforeach
-    </div>
+    </section>
 @stop
 
 @section('content')

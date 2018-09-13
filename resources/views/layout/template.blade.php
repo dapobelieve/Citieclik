@@ -9,29 +9,41 @@
         <div class="show-navy" id="mySidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             @if(Auth::check())
-              <a href="{{route('profile.index', ['slug' =>Auth::User()->slug ])}}">
-                <span>Hello</span>, {{Auth::User()->first_name}} 
+              <a class="side-link" href="{{route('profile.index', ['slug' =>Auth::User()->slug ])}}">
+                <span class="side-link" >Hello</span>, {{Auth::User()->first_name}} 
               </a>
               @endif
-            <a href="/"><span>Home</span></a>
-            <a href="{{ route('service')}}">Services</a>
-            <a href="{{ route('product')}}">Products</a>
+            <a class="side-link" href="/"><span>Home</span></a>
+            <hr>
+            <small style=" margin-left: 33%">Categories</small>
+            @foreach($cats as $data)
+                <a class="dropdown-btn" href=""><span>{{ $data->name }}</span>
+                </a>
+                <div class="dropdown-cont">
+                    @foreach($data->categories as $layer)
+                        <a class="sub-nav-2" href="{{ route('category.index2', [$data->slug, $layer->slug]) }}">
+                            {{ $layer->category }}
+                        </a>
+                    @endforeach
+                    <a class="sub-nav-2" href="{{ route('category.index', [$data->slug]) }}">View all</a>
+                </div>
+            @endforeach
             @if(Auth::check())
-                <a href="{{route('profile.index', ['slug' =>Auth::User()->slug ])}}">Dashboard</a>
-                <a href="{{ route('auth.signout') }}"><span>Logout</span></a>
+                <a class="side-link" href="{{route('profile.index', ['slug' =>Auth::User()->slug ])}}">Dashboard</a>
+                <a class="side-link" href="{{ route('auth.signout') }}"><span>Logout</span></a>
             @endif
             @if(Auth::check() && Auth::User()->isAdmin())
-                 <a href="{{ route('admin.home') }}">Admin</a>
+                 <a class="side-link" href="{{ route('admin.home') }}">Admin</a>
               @endif
             <a href="{{ route('addproduct') }}" class="postBtn">Post Ad</a>
         </div>
     <header class="navbar fix-header">
 
       <!-- Search-->
-      <form class="site-search" action="{{ route('quick-search') }}" method="get">
+      {{-- <form class="site-search" action="{{ route('quick-search') }}" method="get">
         <input type="text" required name="query" placeholder="Quick Search">
         <div class="search-tools"><span class="clear-search">Clear</span><span class="close-search"><i class="icon-cross"></i></span></div>
-      </form>
+      </form> --}}
       <div class="site-branding">
         <div class="inner">
             <a class="offcanvas-toggle menu-toggle" onclick="showNav()"></a>
@@ -87,13 +99,27 @@
     </div>
     <script>
         function showNav() {
-            // alert('show nav')
             document.getElementById("mySidenav").style.display = "block";
         }
-
-        /* Close/hide the sidenav */
         function closeNav() {
             document.getElementById("mySidenav").style.display = "none";
+        }
+
+        var dropdown = document.getElementsByClassName('dropdown-btn');
+        var i;
+
+        for (i = 0; i < dropdown.length; i++) {
+            dropdown[i].addEventListener('click', function (event) {
+                event.preventDefault();
+                this.classList.toggle('activedrop')
+                var dropcontent = this.nextElementSibling;
+
+                if ( dropcontent.style.display === 'block') {
+                    dropcontent.style.display = 'none'
+                }else {
+                    dropcontent.style.display = 'block'
+                }
+            })
         }
     </script>
     <a class="scroll-to-top-btn" href="#"><i class="icon-arrow-up"></i></a>

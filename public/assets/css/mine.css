@@ -93,12 +93,6 @@
   display: flex;
 }
 
-#particles-js {
-  overflow: hidden;
-  background-size: cover;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-}
 .service-list {
   background-color: #fff;
   border: 1px solid #d3e0e9;
@@ -265,13 +259,13 @@
 .postBtn {
     background-color: red;
     border: 1px solid transparent;
-    /*border-radius: 5px;*/
+    border-radius: 3px;
     box-sizing: border-box;
-    color: white;
+    color: white !important;
     cursor: pointer;
     /*display: inline-block;*/
     font-weight: bold;
-    padding: 10px;
+    padding: 7px;
     text-align: center;
     transition: background-color .222s ease-out;
 }
@@ -440,7 +434,7 @@
     }
 
   .homecat {
-    /*display: none;*/
+    display: none;
   }
 
   .browse-cat {
@@ -504,11 +498,13 @@
     z-index: 20000; /* Stay on top */
     top: 0; /* Stay at the top */
     left: 0;
+    overflow: scroll;
     background-color: #111; /* Black*/
     display: none;
     /*overflow-x: hidden;  Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */
     transition: 0.5s; /* 0.5 second transition effect to slide in the show-navy */
+    cursor: pointer !important;
 }
 
 /* The navigation menu links */
@@ -519,19 +515,32 @@
     color: #818181;
     display: block;
     transition: 0.3s;
+    cursor: pointer !important;
+}
+.side-link {
+  /*background-color: grey;*/
+}
+.dropdown-cont {
+  display: none;
+  padding-left: 8px;
 }
 
-/* When you mouse over the navigation links, change their color */
-.show-navy a:hover {
-    color: #f1f1f1;
+.sub-nav-2 {
+  font-size: 19px !important;
+}
+
+.activedrop {
+  background-color: #0da9ef;
+  color: #ffffff !important;
 }
 
 /* Position and style the close button (top right corner) */
 .show-navy .closebtn {
     position: absolute;
-    top: 0;
-    left: 91px;
-    font-size: 36px;
+    top: -35px;
+    left: 114px;
+    color: #fff;
+    font-size: 60px;
     margin-left: 50px;
 }
 

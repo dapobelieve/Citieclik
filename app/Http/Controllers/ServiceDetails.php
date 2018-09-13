@@ -42,6 +42,7 @@ class ServiceDetails extends Controller
             {
                 abort(404);
             }else{
+                $servDet = $servDet->load('userz', 'images', 'catty', 'loca', 'state', 'comments');
                 return view('service.servicedetails')
                         ->with('service', $servDet)
                         ->with('user', $user);

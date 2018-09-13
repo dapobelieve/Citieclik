@@ -4990,12 +4990,13 @@ video {
 .offcanvas-toggle {
     width: 74px;
     transition: color .3s;
-    border-right: 1px solid #e1e7ec;
-    color: #606975;
-    font-size: 20px;
+    /*border-right: 1px solid #e1e7ec;*/
+    color: #8d99a9 !important;
+    font-size: 47px;
     line-height: 1;
     text-align: center;
-    cursor: pointer
+    cursor: pointer;
+    margin-top: 7px
 }
 .offcanvas-toggle::before {
     display: inline-block;
